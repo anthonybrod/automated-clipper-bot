@@ -480,4 +480,52 @@ legal/rights implications:
 
 ## Backlog
 
-Nothing deferred yet — this project hasn't reached implementation.
+### `validate_environment.py` — 8 real defects found by audit 2026-07-30
+
+Found by reviewing the file against `pipeline.py`'s `validate_api_keys`
+(pipeline.py:3888). None are syntax errors — the file compiles and lints
+clean. All are behavioral regressions or design flaws.
+
+**Behaviors that exist in `validate_api_keys` and were dropped here:**
+1. **No retry.** `pipeline.py:3894-3898` documents this exact bug being
+   fixed there: a single call hard-exits the whole run on a transient
+   network blip during the validation ping itself. Fixed there with 3
+   attempts + `sleep(2)`. Reintroduced here.
+2. **Empty reply treated as failure** (`_test_text_model_candidate`,
+   line 67-69). `pipeline.py:3909-3919` documents this causing **two real
+   false failures in one session** — `resp.text` came back `None` on one
+   model and `""` on another, neither meaning the key was broken. Fixed
+   there by treating "returned without raising" as success. Reintroduced
+   here.
+3. **No `max_output_tokens` cap** on the validation ping. Original caps at
+   50. Combined with defect 4 below, this made pre-flight cost *worse*.
+4. **No `_track_tokens()`** — the pre-flight's own cost is invisible.
+
+**Design flaws introduced here:**
+5. **All checks execute before anything prints** (line 177-182): the list
+   is built by calling all four functions, so you wait through every API
+   call and network timeout with zero output. Also means
+   `check_twitch_get_clips` fires even when `check_twitch_credentials`
+   already failed — wasted calls, confusing cascading error.
+6. **Line 181 bypasses `get_secret()`** — reads `os.environ` directly for
+   `TARGET_BROADCASTER` while every other credential goes through
+   `get_secret()`. Setting it as a Colab secret silently does nothing, in
+   a script written specifically for Colab.
+7. **Duplicated token exchange** (lines 150-155) — re-implements the
+   identical POST from `check_twitch_credentials` instead of calling it.
+8. **Unhandled `token is None`** (line 155) — if the token fetch fails,
+   builds a `Bearer None` header and fires two more requests, producing a
+   confusing 401 instead of a clear "token exchange failed."
+   Related: line 35's `apt-get install` discards output with
+   `check=False`, so a failed ffmpeg install gives no signal.
+
+**Also worth fixing in `validate_api_keys` itself** (the "working" version
+is not clean either): line 3965 `requests.get(url)` has no timeout while
+the ElevenLabs call three lines down does; line 3964 puts the API key in a
+URL query string rather than a header; line 3904 uses a hardcoded `MODEL`
+while the same function calls `get_working_model()` for image and TTS.
+
+**Recommended fix:** keep `validate_environment.py`'s structure (decomposed
+functions returning `(bool, str)`, data-driven hard/soft flag — genuinely
+better than the 105-line monolith), port the four dropped behaviors into
+it, fix defects 5-8. Do not rewrite either file from scratch.

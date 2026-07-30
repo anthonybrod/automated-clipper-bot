@@ -134,7 +134,7 @@ SECTION 1: Advanced Open-Source AI Clipping & Editing Repositories
    * Description: Desktop application built with Tauri, Rust, and Svelte to auto-detect stream highlights using audio and chat log analysis [2.9].
    * Verified URL: https://github.com/nirvagold/stream-clipper [2.9]
 7. Kuonirad / AutoCutAI
-   * Description: Autonomous multimodal video editing engine that parses visual semiotics and models affective trajectories to generate coherent cinematic sequences.
+   * Description: Autonomous multimodal video editing engine that parses visual semiotics and models affective trajectories to generate coherent cinematic sequences [2.10].
    * Verified URL: https://github.com/Kuonirad/AutoCutAI-Autonomous-AI-Video-Editor-that-Understands-Semiotics-Rhythm [2.10]
 
 SECTION 2: Ingestion, Scraping & Stream Capture Utilities

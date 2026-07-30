@@ -27,7 +27,7 @@ twitch-clip-archiver — Python utility that automatically sweeps a channel for 
 TwitchDownloader (CLI/GUI) — Open-source tool designed specifically for fast multithreaded downloading of Twitch VOD files and chat dumps.
 streamlink — Extracts live streams and VODs straight to a local player or file stream for real-time segment capture.
 chat-downloader — Python library to scrape live or VOD chat logs, letting your pipeline inspect viewer comments alongside video.
-TwitchChatDownloader — Specifically outputs VOD chat logs into heavily structured JSON with precise timestamps for spike correlation.
+TwitchChatDownloader — Specialized tool to output JSON chat history with precise timestamps for spike correlation.
 Twitch-VOD-Downloader — Lightweight node/python script optimized for headless server execution during overnight processing.
 Twitch-Helix-Scraper — Pulls top-performing streamer metrics to identify which broadcast blocks had the highest viewer retention.
 Twitch-EventSub-Listener — Real-time webhook listener to trigger immediate clipping scripts the moment a stream ends or a big event occurs.
