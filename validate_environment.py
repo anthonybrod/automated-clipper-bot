@@ -43,19 +43,40 @@ def check_ffmpeg() -> tuple[bool, str]:
         return False, "ffmpeg not found on PATH (install it, or run this inside Colab which auto-installs it)"
 
 
+GEMINI_MODEL_CANDIDATES = [
+    "gemini-flash-latest",
+    "gemini-2.5-flash",
+    "gemini-3.5-flash",
+    "gemini-2.0-flash",
+]
+
+
 def check_google_api_key() -> tuple[bool, str]:
+    """Tries a short list of current model names in order rather than hardcoding
+    one - the same lesson pipeline.py's discover_best_working_models() already
+    learned the hard way: Google periodically restricts specific model names
+    for new users/keys (confirmed 2026-07-30: gemini-2.5-flash returned a real
+    404 'no longer available to new users' on a fresh key), so a single
+    hardcoded name is a real, recurring failure mode, not a one-off."""
     api_key = get_secret("GOOGLE_API_KEY")
     if not api_key:
         return False, "GOOGLE_API_KEY not set (Colab secret or env var)"
     try:
         from google import genai
-        client = genai.Client(api_key=api_key)
-        resp = client.models.generate_content(model="gemini-2.5-flash", contents="Say OK.")
-        if resp and getattr(resp, "text", None):
-            return True, "Real generate_content call succeeded"
-        return False, "API call returned no text - key may be invalid or quota-exhausted"
     except Exception as e:
-        return False, f"Real generate_content call failed: {e}"
+        return False, f"google-genai import failed: {e}"
+
+    client = genai.Client(api_key=api_key)
+    errors = []
+    for model in GEMINI_MODEL_CANDIDATES:
+        try:
+            resp = client.models.generate_content(model=model, contents="Say OK.")
+            if resp and getattr(resp, "text", None):
+                return True, f"Real generate_content call succeeded (model: {model})"
+            errors.append(f"{model}: returned no text")
+        except Exception as e:
+            errors.append(f"{model}: {e}")
+    return False, "All model candidates failed: " + " | ".join(errors)
 
 
 def check_twitch_credentials() -> tuple[bool, str]:
