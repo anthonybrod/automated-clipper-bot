@@ -235,7 +235,7 @@ actual implementation, not after a first overspend.
 - **Correction, 2026-07-30 — keep [NVIDIA Parakeet](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3) (`nemo-parakeet-tdt-0.6b-v3`)
   as a documented optional GPU path, don't just dismiss it.** Originally
   written off here as unnecessary since faster-whisper was already chosen —
-  same mistake as the Auto-clipper YOLO model above. Parakeet is free,
+  same mistake as the [Auto-clipper](https://github.com/bendawg2010/Auto-clipper) YOLO model above. Parakeet is free,
   open-weight, and `openshorts` uses it as *primary* specifically because
   it's faster than whisper on GPU (falling back to whisper only on error,
   zero usable words, or a language outside its 25 supported European
@@ -250,22 +250,22 @@ actual implementation, not after a first overspend.
 
 A **three-stage funnel**, not "ask an LLM to score everything" — this
 specific refinement is the convergent recommendation across
-`metaleey/AI-auto-segment-edit-video-pipeline`, `nirvagold/stream-clipper`,
-and `bendawg2010/Auto-clipper`'s architectures, all read at the source
+[`metaleey/AI-auto-segment-edit-video-pipeline`](https://github.com/metaleey/AI-auto-segment-edit-video-pipeline), [`nirvagold/stream-clipper`](https://github.com/nirvagold/stream-clipper),
+and [`bendawg2010/Auto-clipper`](https://github.com/bendawg2010/Auto-clipper)'s architectures, all read at the source
 level:
 
 1. **Statistical pre-filter (free, no LLM cost)** — narrow a multi-hour VOD
    down to a candidate shortlist before spending any LLM budget:
    - Audio-RMS spikes, VAD-filtered to distinguish voice reactions from
      game sound effects (`stream-clipper`'s real technique).
-   - Chat velocity / keyword-emote-density spikes (`twitch-clip-miner`'s
+   - Chat velocity / keyword-emote-density spikes ([`twitch-clip-miner`](https://github.com/jamesbaughnd/twitch-clip-miner)'s
      real, working implementation — histogram + z-score over real chat
      replay data; one real bug found and documented in
      `deep_dive_moment_detection.md`, fix before porting).
    - A **"combo bonus"** (stream-clipper: 1.5x score) when audio and chat
      signals spike at the same time — a real, simple, effective
      multi-signal fusion technique.
-   - Twitch `Get Clips` data folded in as a third signal (viewer-curated,
+   - Twitch [`Get Clips`](https://dev.twitch.tv/docs/api/reference/#get-clips) data folded in as a third signal (viewer-curated,
      free).
    - **`fer`/MTCNN facial-expressivity detection** (from
      `twitch-clip-miner`) as a fourth, free, local signal — flags
@@ -299,7 +299,7 @@ passes before anything gets cut**:
   for the nearest valid word boundary. **This is the single most important
   concrete finding of this entire research effort** — every other source
   assumed raw LLM timestamps were safe to cut on; they aren't.
-- **Topic-boundary snapping** (`ClipsAI`'s real TextTiling algorithm —
+- **Topic-boundary snapping** ([`ClipsAI`](https://github.com/ClipsAI/clipsai)'s real TextTiling algorithm —
   cosine-similarity gap/depth scoring across multiple window sizes,
   independently confirmed, NOT diarization-based despite what one dossier
   implied) as a secondary check that a clip doesn't start/end mid-topic.
@@ -357,15 +357,15 @@ stream, not post-publish performance feedback. Worth a v2 look.
   already proven working in `pipeline.py:3522`. Port directly, don't
   rewrite.
 - **v2 (deferred, designed, not built): face-tracked dynamic crop** —
-  `openshorts`'s `SmoothedCameraman`/`SpeakerTracker` state machines are a
+  [`openshorts`](https://github.com/mutonby/openshorts)'s `SmoothedCameraman`/`SpeakerTracker` state machines are a
   real, tuned, production design (safe-zone stillness, jump-confirmation
   against detector false-positives, speaker-switch hysteresis+cooldown,
   GENERAL-vs-TRACK scene strategy for group shots). Fully documented in
   `deep_dive_openshorts.md` §7 — build from that design when this becomes
   a priority, don't design from scratch.
-- **Captioning**: No-Code Architects Toolkit (self-hosted, free, 2.3k
+- **Captioning**: [No-Code Architects Toolkit](https://github.com/stephengpope/no-code-architects-toolkit) (self-hosted, free, 2.3k
   stars, confirmed via both video research and independent verification)
-  or `ffsubsync` + `MoviePy`/raw ffmpeg for DIY.
+  or [`ffsubsync`](https://github.com/smacke/ffsubsync) + [`MoviePy`](https://github.com/Zulko/moviepy)/raw ffmpeg for DIY.
 - **Audio normalization**: `loudnorm` to -14 LUFS — simple, standard,
   real, include from day one.
 - **Fail-fast on content-policy blocks**: port `openshorts`'s
@@ -376,8 +376,8 @@ stream, not post-publish performance feedback. Worth a v2 look.
 
 ### Stage 5 — Distribution
 
-- YouTube Data API v3 (real, standard) for Shorts + long-form.
-- `instagrapi` (now `subzeroid/instagrapi`) for Reels — sandbox carefully,
+- [YouTube Data API v3](https://developers.google.com/youtube/v3) (real, standard) for Shorts + long-form.
+- [`instagrapi`](https://github.com/subzeroid/instagrapi) (now `subzeroid/instagrapi`) for Reels — sandbox carefully,
   its own docs warn private-API automation is fragile.
 - Real cross-posting SaaS alternatives if DIY posting becomes too much
   overhead: Repurpose.io, Nuelink, or Pabbly Connect (all confirmed real
@@ -390,7 +390,7 @@ stream, not post-publish performance feedback. Worth a v2 look.
 
 - `get_secret()` — Colab userdata + env fallback.
 - `safe_json_parse()` + `call_gemini_inspector`'s real `response_schema`
-  enforcement pattern (compare against `openshorts`'s 3-tier fallback —
+  enforcement pattern (compare against [`openshorts`](https://github.com/mutonby/openshorts)'s 3-tier fallback —
   `structured-schema` → `json-text-recovery` → `strict-json` — which is
   more thorough; worth adopting the extra tier).
 - Real budget enforcement (`COST_PER_TOKEN`, `DEFAULT_BUDGET_LIMIT`,
@@ -399,7 +399,7 @@ stream, not post-publish performance feedback. Worth a v2 look.
   have very different input/output rates; thinking tokens bill at the
   output rate even though invisible — see `deep_dive_openshorts.md` §4).
 - Retry/dead-letter supervisor pattern (`_write_dead_letter`).
-- SQLite for idempotent VOD tracking (never reprocess the same VOD twice
+- [SQLite](https://www.sqlite.org/) for idempotent VOD tracking (never reprocess the same VOD twice
   across restarts) — real, standard, multiple sources converge on this.
 
 ### The differentiation opportunity: real analytics feedback
@@ -423,7 +423,7 @@ legal/rights implications:
 1. **Run your own channel** — clip your own or licensed content, build a
    compilation channel. What this whole architecture assumes by default.
 2. **Paid clip-farming** — clip *other* streamers' content for
-   bounty/marketplace payouts (Whop Clipping, Biro, Discord submission
+   bounty/marketplace payouts ([Whop Clipping](https://whop.com/), Biro, Discord submission
    economies, all confirmed real). Different rights situation (clipping
    someone else's stream under a bounty program's terms, not your own
    content) — worth a deliberate choice, not a default.
@@ -452,7 +452,7 @@ legal/rights implications:
   outline above**: a three-stage funnel (statistical pre-filter → cheap LLM
   score → expensive LLM detail), not a single signal. Get Clips, audio-RMS
   spikes, and chat velocity all feed the pre-filter stage.
-- **Get Clips vs. Create Clip — real auth difference, confirmed 2026-07-29
+- **[Get Clips](https://dev.twitch.tv/docs/api/reference/#get-clips) vs. [Create Clip](https://dev.twitch.tv/docs/api/reference/#create-clip) — real auth difference, confirmed 2026-07-29
   via Twitch's own docs:**
   - `GET /helix/clips` (read viewer-made clips) only needs an **app access
     token** (`client_credentials` grant, just Client ID + Secret) — this is
