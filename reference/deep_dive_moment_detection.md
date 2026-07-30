@@ -161,7 +161,7 @@ from audio first, then scores each candidate.
    model.
 3. **Chat velocity is real and does work end to end** — this directly answers whether it's a real
    implementation worth learning from: yes. `src/chat_parser.py` shells out to
-   `TwitchDownloaderCLI.exe chatdownload` to pull the VOD's actual replay chat log as JSON
+   `TwitchDownloaderCLI.exe chatdownload` (from [`lay295/TwitchDownloader`](https://github.com/lay295/TwitchDownloader)) to pull the VOD's actual replay chat log as JSON
    (`content_offset_seconds` + message body per comment — this is the real per-message timestamp
    Twitch stores against the VOD, the same data Twitch's own web player uses to render chat replay).
    `compute_chat_velocity()` then does exactly what "chat velocity" means in practice: bucket
@@ -453,7 +453,7 @@ real, meaningful parametrized unit tests, not smoke tests).
 
 **The concrete, previously-missing answer to "how does ClipsAI actually render the dynamic-crop
 vertical video from the `Segment` list `Resizer.resize()` produces":** `resize_video()` does **not**
-build one filter_complex with per-segment crop/trim/setpts the way metaleey's `merge_segments_direct`
+build one filter_complex with per-segment crop/trim/setpts the way [`metaleey/AI-auto-segment-edit-video-pipeline`](https://github.com/metaleey/AI-auto-segment-edit-video-pipeline)'s `merge_segments_direct`
 does (documented in `deep_dive_ingestion_and_pipelines.md`). It's the simpler, less efficient
 pattern: loop over every segment, call `crop_video()` once per segment (a separate `ffmpeg -ss/-to
 -vf crop=...` subprocess writing a real temp `.mp4` file per segment to disk), then call

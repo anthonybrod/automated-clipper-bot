@@ -1,4 +1,4 @@
-# Deep dive: `mutonby/openshorts` — read directly from source, 2026-07-29
+# Deep dive: [`mutonby/openshorts`](https://github.com/mutonby/openshorts) — read directly from source, 2026-07-29
 
 2,784 stars, actively developed (commits same day as this read), Python
 backend + React dashboard + TypeScript render service. The strongest,

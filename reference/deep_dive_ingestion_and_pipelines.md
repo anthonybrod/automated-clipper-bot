@@ -745,7 +745,7 @@ distribution, though not our immediate concern.
   straightforward to reimplement in Python against `librosa`/`numpy` RMS
   arrays — meaningfully better than the "fixed dB threshold" approach already
   flagged as too-simple in `verified_tools_catalog.md`
-  (`porplax/auto-highlighter`).
+  ([`porplax/auto-highlighter`](https://github.com/porplax/auto-highlighter)).
 - **Port directly**: WebRTC VAD is available as a Python binding
   (`webrtcvad` on PyPI, same underlying Google C library) — adding voice-vs-
   game-sound filtering to any audio-spike detector we build is a low-effort,
@@ -829,7 +829,7 @@ mode:**
 "score a transcript window 0-100":**
 
 Unlike the simpler score-a-window approach already documented elsewhere in
-our research (video 1's 6-dimension moment scorer, openshorts's 2-second-test
+our research (video 1's 6-dimension moment scorer, [`mutonby/openshorts`](https://github.com/mutonby/openshorts)'s 2-second-test
 scorer — both *score* pre-chunked windows), this repo's core LLM call does
 **structural interpretation, not scoring**: given a raw SRT block, it asks
 for JSON `segments[]` each with `title`, `tags[]`, `start_ms`, `end_ms`,
