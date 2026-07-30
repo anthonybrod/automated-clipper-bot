@@ -12,46 +12,54 @@ YouTube Shorts + long-form compilations, cross-posts to multiple platforms.
 Separate project from `youtube-auto-videos` (Parents Teach Kids), kept in
 its own folder/repo, but actively salvaging verified-working code from it.
 
-## Current status (updated 2026-07-30 — read this first if resuming)
+## Current status (updated 2026-07-30, end of research push — read this first if resuming)
 
-**Where things actually stand right now:**
-- ✅ **Done:** repo scaffold, `SALVAGE_INVENTORY.md`, `validate_environment.py`
-  (untested against real Twitch creds), all 17-video research (full real
-  transcripts + two independent re-reads), all 6 Gemini dossiers saved
-  verbatim, dossiers 1-5 fully verified (34 repos + Reddit + YouTube
-  devlogs), the full Architecture Outline (below), the cost-philosophy
-  correction pass (don't discard free resources — see
-  `feedback_dont_dismiss_free_resources` in cross-session memory), a local
-  git checkpoint (commit `20875eb`), and the [`mutonby/openshorts`](https://github.com/mutonby/openshorts) deep-dive
-  — **now fully complete, sections 1-19 in
-  `reference/deep_dive_openshorts.md`, every core Python file read,
-  licensing checked.**
-- 🔶 **Partially done:** the 6-repo audit (verifying the other five
-  deep-dived repos got genuinely complete file-by-file coverage, not just
-  the obviously-relevant files). Confirmed complete: [`TwitchDownloader`](https://github.com/lay295/TwitchDownloader)
-  (real corrections found — see `deep_dive_ingestion_and_pipelines.md`'s
-  audit-pass section) and [`Auto-clipper`](https://github.com/bendawg2010/Auto-clipper). **Still not confirmed complete:**
-  [`ClipsAI/clipsai`](https://github.com/ClipsAI/clipsai)'s remaining files, [`nirvagold/stream-clipper`](https://github.com/nirvagold/stream-clipper)'s actual
-  Rust backend (only the high-level architecture has been documented so
-  far), [`metaleey/AI-auto-segment-edit-video-pipeline`](https://github.com/metaleey/AI-auto-segment-edit-video-pipeline)'s remaining files.
-- 🔶 **Just landed, not yet verified:** Gemini dossier #6
-  (`reference/gemini_dossier_6_raw.md`) — has real, unverified new claims
-  (`htek/VidPipe`, `indiser/ViralContent-Factory`, [`Kuonirad/AutoCutAI`](https://github.com/Kuonirad/AutoCutAI-Autonomous-AI-Video-Editor-that-Understands-Semiotics-Rhythm),
-  monetization platforms "Clip Money" and "[Vyro](https://www.vyro.com/)") and two **owner
-  conflicts** against already-verified repos (`PyTwitchAPI/twitchAPI` vs.
-  our confirmed [`Teekeks/pyTwitchAPI`](https://github.com/Teekeks/pyTwitchAPI); `agnostic-apollo/ffsubsync` vs. our
-  confirmed [`smacke/ffsubsync`](https://github.com/smacke/ffsubsync)) that need a real check before trusting
-  either version.
-- ⏳ **Blocked on the user:** Twitch Developer Console app (Client ID +
-  Secret) — guidance given in chat, not yet confirmed done. Nothing in
-  Stage 1 (ingestion) can be tested for real without this.
-- **Not started at all:** any actual pipeline code. Still deliberately in
-  the pre-flight/research phase.
+**Research and verification phase is fully complete.** Everything below is
+done, checked, and committed:
+- Repo scaffold, `SALVAGE_INVENTORY.md`, `validate_environment.py` (written,
+  compile/lint clean, **still untested against real Twitch creds** — the
+  one real remaining gap).
+- All 17-video research: full real transcripts + two independent re-reads.
+  Definitive finding: no tool in this space closes the loop on real
+  post-publish analytics feedback (see Research index below).
+- All 6 Gemini dossiers saved **true-verbatim** (corrected after an initial
+  condensing error caught mid-session — see git history).
+- Every named claim across all 6 dossiers independently verified: ~34+
+  GitHub repos (~85% clean-match rate), Reddit threads (0/5 confirmable),
+  YouTube devlogs (1/10 confirmed), and every named SaaS product's real
+  domain (NexusClips, Submagic, Repurpose.io, Nuelink, Pabbly Connect,
+  Blotato, Metricool, Headliner, Vyro, Opus Clip — all confirmed real with
+  real pricing). One notable finding: **"Biro"**, repeated across the
+  video research as a real paid-clipper marketplace, could not be
+  independently confirmed to exist — strong evidence from re-checking the
+  actual source transcript that it's a mis-transcription of "Vyro," not a
+  second real company.
+- Full source-level deep-dive of all 7 strongest repos found: `openshorts`
+  fully (sections 1-19, every core Python file, licensing checked);
+  `ClipsAI`, `twitch-clip-miner`, `Auto-clipper`, `TwitchDownloader`,
+  `stream-clipper`, `metaleey` all audited file-by-file with real
+  self-corrections and bugs caught along the way.
+- The cost-philosophy correction pass (don't discard free resources just
+  because they're not the primary pick — see
+  `feedback_dont_dismiss_free_resources` in cross-session memory).
+- Real URLs added throughout every reference document (47 tool mentions
+  in this file alone) — nothing left as a bare name where a confirmed URL
+  exists. A short, honest list of names that still have no confirmed URL
+  (because no reference file has one, not because anyone guessed) lives in
+  the relevant sections below.
 
-**To resume after a break:** finish the 6-repo audit gaps above, verify
-dossier 6's new claims and the two owner conflicts, get the Twitch
-credentials, then the pre-flight checklist below is the actual next
-concrete step — run `validate_environment.py` for real.
+**⏳ Blocked on the user:** Twitch Developer Console app (Client ID +
+Secret) — guidance given in chat, not yet confirmed done. Nothing in
+Stage 1 (ingestion) can be tested for real without this.
+
+**Not started at all:** any actual pipeline code. Still deliberately in
+the pre-flight/research phase — this was always the plan, not a delay.
+
+**To resume after a break:** get the Twitch credentials, then run
+`validate_environment.py` for real, then start writing the first pipeline
+stage per the Architecture Outline below. All work is committed locally in
+small, atomic commits (`git log`) — safe to pick up from any point without
+re-deriving anything from chat.
 
 **Pre-flight phase. No pipeline code has been written yet — by design.**
 Per explicit instruction: prove out every hard dependency before writing any
