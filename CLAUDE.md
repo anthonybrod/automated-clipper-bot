@@ -24,3 +24,16 @@ external AI (labeled in PROJECT.md as "from Gemini" or similar) is treated as
 inspiration only, never trusted or copied verbatim without independent
 verification first — established project rule, since prior examples from
 that source looked complete but had real bugs and unimplemented claims.
+
+**Hard rule, before writing any new function/pattern: check internal
+resources first, including the sister project.** In order: (1)
+`SALVAGE_INVENTORY.md` and `reference/verified_tools_catalog.md` in this
+repo, (2) `C:\Users\AwBro\Desktop\youtube auto videos\pipeline.py` (grep it
+directly — 4,000+ lines of real, proven, bug-fixed code covering budget
+enforcement, retry/dead-letter handling, model discovery, secret retrieval,
+JSON repair, checkpointing), (3) the deep-dive docs under `reference/` for
+techniques already extracted from real external repos. Only write new code
+from scratch once all three have been checked and come up empty for the
+specific problem at hand. Don't re-derive a similar-but-different version
+of something that already works — port it directly. This was an explicit,
+repeated user correction (2026-07-30), not a nice-to-have.
