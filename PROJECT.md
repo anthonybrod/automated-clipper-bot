@@ -319,21 +319,31 @@ keep it as a free optional plug-in.** Initially written off as "not
 directly reusable" here — wrong call. Checked directly: `Auto-clipper` is
 MIT licensed (confirmed via its real `LICENSE` file), the bundled
 `best.pt` weights are real, ~5MB, work with zero setup (no API key, no
-manual download), and cost nothing to keep. The actual limitation is
-narrower than "not reusable" — its 13 classes (`raider`, `raider-down`,
-`rocketeer`, `bastion`, `leaper`, `bombardier`, `hornet`, `wasp`, `snitch`,
-`pop`, `fireball`, `probe`, `turret`) are entities specific to one game,
-*Arc Raiders*, so it produces zero signal on any other game or non-gaming
-stream. Since `Clusterer.cluster()` already treats the score source as
-swappable, the right design is: **keep the real model wired in as an
-optional, free bonus signal that activates automatically when a stream is
-detected as Arc Raiders** (Twitch's stream metadata reports the game
-category), stacking with the Gemini/statistical signals rather than
-replacing them, and contributing nothing (at zero cost) otherwise. Also
-worth remembering for later: `models/README.md` documents exactly how to
-train a same-shaped model on a different game via a Roboflow dataset +
-`yolo detect train`, if we ever want the same free-plug-in treatment for
-another specific game our target streamers play.
+manual download), and cost nothing to keep. Its 13 classes (`raider`,
+`raider-down`, `rocketeer`, `bastion`, `leaper`, `bombardier`, `hornet`,
+`wasp`, `snitch`, `pop`, `fireball`, `probe`, `turret`) are entities from
+one game, *Arc Raiders*, so that specific bundled model produces zero
+signal outside that game. Since `Clusterer.cluster()` already treats the
+score source as swappable, keep the real model wired in as an optional,
+free bonus signal that activates automatically when a stream is detected
+as Arc Raiders (Twitch's stream metadata reports the game category),
+stacking with the Gemini/statistical signals rather than replacing them.
+
+**Second correction, from the full 6-repo audit (2026-07-30) — this repo
+is far more valuable than the single-game framing above suggested.** A
+genuinely thorough file-by-file read (not just the bundled model's own
+README) found `Auto-clipper` actually ships **13 selectable detection
+strategies** — including undocumented xAI Grok LLM-vision detection,
+direct-GraphQL chat-spike detection, and voice-triggered ("clip that")
+clipping — and supports **31+ games via a profile system**, not just Arc
+Raiders. The single-game YOLO model was only the most visible piece; the
+underlying architecture (pluggable detection strategies + per-game
+profiles + the same decoupled `Clusterer`) is a real, general framework
+worth studying as a whole, not just mining for one bundled model. Also
+worth remembering: `models/README.md` documents exactly how to train a
+same-shaped model on any additional game via a Roboflow dataset +
+`yolo detect train`, if a target streamer plays something outside the 31+
+already covered.
 
 **Deferred, not designed for v1**: `metaleey`'s external-behavioral-data
 rescoring (cross-referencing real-time viewer/chat time-series against

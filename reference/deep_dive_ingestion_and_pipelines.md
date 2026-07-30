@@ -1052,6 +1052,53 @@ including its explicit tradeoffs (still fundamentally crackable since validation
 own process — the obfuscation only raises the bar against casual/automated cracking, not a
 determined reverse-engineer).
 
+**Completion note on stream-clipper's remaining files** (closing out the last real gap in this
+repo): the only files left unread after the two passes above were the `types.rs`/`mod.rs` structs
+in each module (`audio/types.rs`, `chat/types.rs`, `highlight/types.rs`, `video/types.rs`,
+`commands/config.rs`, `commands/license.rs`, `license/mod.rs`, plus seven trivial `mod.rs`
+re-export files and a 6-line `main.rs`). All were read directly. None contain detection logic —
+they're pure data/settings definitions — but they pin down several real default constants that
+were previously only inferable from the scoring code, worth having exact:
+
+- `ChatAnalyzeSettings::default()`: `rate_multiplier: 3.0`, `window_size: 5.0`s,
+  `keyword_threshold: 3`, `emote_threshold: 0.3`, and **the full 20-word hype-keyword list**
+  (previously only sampled): `POG, POGGERS, POGU, LETS GO, LET'S GO, OMG, WTF, CLIP IT, CLIP THAT,
+  GG, GGWP, HOLY, INSANE, CRAZY, NO WAY, NOWAY, KEKW, LULW, OMEGALUL, HYPE`.
+- `AudioAnalyzeSettings::default()`: `sensitivity: 2.0`, `min_duration: 2.0`s, `merge_gap: 3.0`s,
+  `chunk_duration: 0.5`s, `sample_rate: 22050`Hz — confirms the 22.05kHz audio-extraction rate
+  documented earlier isn't a random choice, it's the same number wired through as the analysis
+  chunk's own default sample rate end-to-end.
+- `HighlightSettings::default()`: `audio_weight: 0.6`, `chat_weight: 0.4`, `combo_bonus: 1.5`,
+  `max_clips: None` — the exact default weights behind the combo-bonus formula already documented
+  above, now confirmed as the shipped defaults rather than just example values.
+- `ExportSettings::default()`: `format: Mp4`, `resolution: R1080p`, `padding_before: 3.0`s,
+  `padding_after: 2.0`s, `vertical_crop/fade_effect/add_watermark: false` — matches the
+  `preview_clip` padding values already documented, confirming preview and default export share one
+  settings shape (`ClipExport` / `ExportSettings` in `video/types.rs`).
+- **`license/mod.rs`'s `get_machine_id()` is the actual node-locking input** the encryption/validation
+  logic (documented above) depends on, and it wasn't previously shown: it hashes
+  `"{username}:{hostname}:{platform}:{arch}"` via `DefaultHasher` and hex-encodes the result — i.e.
+  the "machine ID" is a hash of OS username + hostname + OS + CPU arch, not a hardware serial/MAC
+  address. This is a meaningfully weaker node-lock than it might sound (reinstalling the OS with the
+  same username/hostname on the same machine reproduces the same ID; a VM or container with matched
+  username/hostname would too) — worth knowing precisely if this pattern is ever reused, since a
+  hardware-derived ID (disk serial, TPM-backed key) would be a stronger anchor.
+- `commands/config.rs` confirms settings persist to `{config_dir}/stream-clipper/config.json` (not
+  the OS-registry/keychain) via plain `serde_json`, and doubles as the file/folder picker command
+  layer (`pick_folder`/`pick_file`, using `tauri_plugin_dialog`'s async callback-to-channel bridge
+  pattern — a real, reusable idiom for turning a callback-based native dialog API into an `async fn`
+  Tauri command: spawn an `mpsc::channel`, hand the sender into the dialog's callback, `.recv()` on
+  the receiver after invoking the picker).
+- `commands/license.rs` is a 23-line pass-through wrapping `license::{load_license, activate_license,
+  deactivate_license}` as `#[tauri::command]`s — no logic of its own.
+
+This closes out `nirvagold/stream-clipper`: every non-frontend, non-icon/asset file in
+`src-tauri/src/` has now been read in full across the original pass and the two audit passes above.
+Only the Svelte/TypeScript frontend component files remain unread, which is an intentional,
+reasonable scope cut (this project's research interest is the detection/ingestion logic, which
+lives entirely in the Rust backend; the Svelte components are presentation layer over the same
+Tauri-command surface already fully documented).
+
 ### metaleey/AI-auto-segment-edit-video-pipeline — the video-cutting engine and text/timestamp aligner
 
 Files read in full: `videoclip/core/video.py` (711 lines — the actual FFmpeg cutting/merging
@@ -1140,6 +1187,70 @@ ffmpeg export step, `metaleey`'s single-pass multi-input-seek-and-concat-filter 
 (`merge_segments_direct`) is a better default than the cut-then-concat-files pattern every other
 repo in this research uses, especially for producing a single "best-of" highlights reel from many
 short clips out of one long VOD.
+
+**Completion note on metaleey's remaining files**, read directly to close out this repo's coverage:
+`videoclip/config.py` (`DEFAULT_CONFIG`, 217 lines) and `videoclip/models/schemas.py` (dataclasses,
+149 lines), full read; `main.py`'s `process` command body re-checked beyond the options already
+listed. `backend/main.py`, `backend/config.py`, and the `backend/models`/`backend/schemas`
+CRUD-boilerplate pairs were intentionally not deep-read — they're standard FastAPI
+request/response/DB-row shims with no detection or pipeline logic beyond what
+`processing_service.py` (already read in full) already exposes; skipping them matches this
+project's own stated audit standard (pure plumbing, not application logic).
+
+`videoclip/config.py`'s `DEFAULT_CONFIG` is the single source of truth for nearly every constant
+mentioned elsewhere in this file, and reading it directly surfaces two real corrections to what
+was written earlier in this same section, plus several previously-unconfirmed exact values:
+
+- **Correction — clip-boundary pad values.** The original write-up (this file's Repo 3 section,
+  above) states head/tail pads of "180ms/520ms." The actual shipped default in
+  `DEFAULT_CONFIG['video']['clip_boundary_alignment']` is **`head_pad_ms: 500`, `tail_pad_ms: 900`**
+  — neither number matches what was previously documented. The other boundary-alignment numbers
+  *do* match: `min_gap_ms: 220` (the natural-pause silence threshold), `max_start_shift_ms: 8000`,
+  `max_end_shift_ms: 12000`, plus two values not previously listed at all —
+  `max_end_backtrack_ms: 2000` and `min_segment_ms: 6000` (a segment shorter than 6s after boundary
+  snapping is presumably rejected/re-expanded, though confirming the exact enforcement point would
+  require re-reading `clip_boundary.py` itself, which was read by the original pass, not this one).
+  Given `clip_boundary.py` wasn't re-read this pass, this may reflect a version drift between when
+  the original pass read the code path's own hardcoded fallback (if any) versus this pass reading
+  `config.py`'s current shipped default — but the two disagree, and `config.py`'s numbers are what
+  actually ships absent a `config.yaml` override, so they're the more load-bearing ones to trust
+  going forward.
+- **Possible correction — synonym table size.** The original write-up describes tag_normalizer.py's
+  synonym table as "~150-entry." `DEFAULT_CONFIG['tagging']['synonyms']` — the actual default
+  synonym dict shipped in `config.py` — has **14 entries**, not ~150. This doesn't necessarily mean
+  the original count was wrong (`tag_normalizer.py` itself, read by the original pass and not
+  re-read here, could maintain a much larger hardcoded table independent of this config default,
+  since the write-up's phrasing implies the ~150 count came from reading that file directly) — but
+  it's worth flagging as a discrepancy between the two sources rather than silently repeating the
+  bigger number. `allowed_tags` (the hard-constrained top-level tag vocabulary) is confirmed exactly
+  as previously described: **15 entries** (`开场/产品介绍/产品演示/使用教学/效果展示/对比验证/技术讲解/场景应用/用户反馈/答疑互动/促销信息/购买引导/售后保障/总结预告/其他`).
+- **Previously-unconfirmed exact defaults, now pinned down:** LLM provider defaults to `dashscope`
+  (Alibaba), model `qwen-plus`, `temperature: 0.3`, `max_tokens: 4096`, `timeout: 120`s,
+  `max_retries: 3`. Chunking defaults to the `duration_window` strategy (40–90s band, 60s target,
+  `single_segment_per_chunk: true`) with the older `sliding_window` strategy available as an
+  explicit config toggle (`chunk_size_minutes: 10`, `overlap_minutes: 2`,
+  `overlap_threshold: 0.5` — the exact dedup threshold for that mode, not previously given — and an
+  `on_chunk_failure: skip|abort` setting controlling whether one bad chunk aborts the whole run or
+  is silently dropped). Video encode defaults: `codec: auto`, `crf: 23`, `preset: fast`,
+  `audio_codec: aac` — matches what direct reading of `video.py` already showed. Value-scoring
+  weights confirmed exactly as previously documented: `transaction_count: 0.4, comment_count: 0.3,
+  avg_watch_duration: 0.2, viewer_count: 0.1`.
+- `load_config()`'s merge behavior is a real, reusable pattern: it starts from `DEFAULT_CONFIG`,
+  loads `config.yaml` if present, and recursively deep-merges the user file over the defaults
+  key-by-key (`_deep_merge`, only descending into nested dicts, otherwise the user's value wins
+  outright) — so a `config.yaml` only needs to specify the handful of keys it wants to override, not
+  reproduce the entire schema. Missing/unreadable config file falls back to defaults with a printed
+  warning rather than crashing.
+- `videoclip/models/schemas.py` is straightforward dataclasses (`SRTEntry`, `ValueScore`,
+  `VideoSegment`, `ProcessingResult`) with no surprising logic — the one thing worth noting is
+  `VideoSegment` carries both `tags` (post-normalization) and an optional `raw_tags` (pre-normalization,
+  kept only if `keep_raw_tags: true` in config) side by side, i.e. the three-layer tag-normalization
+  pipeline documented earlier deliberately preserves what the LLM originally said alongside what it
+  got mapped to, for auditability.
+
+This closes out `metaleey/AI-auto-segment-edit-video-pipeline`'s real application-logic files. What
+remains unread (frontend Vue components, README variants, architecture markdown docs, FastAPI
+CRUD boilerplate) is genuinely out of scope per this project's own audit standard.
 
 **Note on `lay295/TwitchDownloader` (Repo 1, above):** given its size (311 files — by far the
 largest of all six repos audited across this research) and that it was flagged as the single

@@ -13,116 +13,129 @@ does something different than claimed, or is stale/archived) · ❌ NOT FOUND
 via real transcript, not independently repo-checked) · ⏳ verification
 pending
 
+**On URLs below:** every GitHub link is one I confirmed exists directly via
+`gh api` this session (not guessed). SaaS product URLs are only included
+where I independently verified the domain (Vyro, Opus Clip); anywhere else
+a SaaS product is named without a URL, that domain has not been checked —
+flagged explicitly rather than guessed, per this project's standing rule
+against fabricating URLs.
+
 ---
 
 ## 1. VOD ingestion / downloading
 
-| Tool | Status | Note |
-|---|---|---|
-| `yt-dlp` | ✅ | Universal, well-known, downloads Twitch VODs + YouTube. Not re-verified individually (unambiguous). |
-| Twitch Helix `Get Clips` | ✅ (docs) | Real, documented endpoint. Only needs an app access token (Client ID+Secret, `client_credentials`) — no user login. **Our proposed primary highlight signal** — see `gemini_suggestions.md`. |
-| Twitch Helix `Create Clip` | ✅ (docs) | Real, but needs a **user** OAuth token with `clips:edit` scope — materially bigger auth scope than Get Clips. See PROJECT.md open decisions. |
-| Twitch EventSub | ✅ (docs) | Real webhook system for live event triggers (stream online, follows, etc.) — did not confirm it covers clip-creation events specifically, would need the full subscription-types doc. |
-| `streamlink` | 🎥/✅ | Pipes live Twitch streams into ffmpeg/a file. Well-known, real. |
-| OBS Replay Buffer | 🎥 ✅ | **Confirmed 3x independently across the video research** (videos 7, 8, 9) — free, native OBS feature, hotkey-saves the last N minutes. Zero extra infrastructure. |
-| StreamerBot | 🎥 ✅ | Confirmed via video 7 (Vaika) — real-time automated clip triggering during a live stream, zero manual button presses. |
-| `pyTwitchAPI` / `twitchAPI` (`Teekeks/pyTwitchAPI`) | ✅ | Full async Twitch Helix + EventSub + chat framework. Real, actively maintained (v4.5.0). |
-| `Fittiboy/twitch-clip-archiver` | ✅ | Mass-downloads a channel's existing clips, local or Google Drive. Real, matches claim, ~2yr stale. |
-| `zigai/twitch-scraper` | ✅ | CLI+library, clip/profile metadata scraper. Real, matches claim, ~1.5yr stale (most recently active of the small archival tools). |
-| `IcePanorama/TwitchClipsDLer` | ✅ (but hobby-grade) | Real `yt-dlp` wrapper for bulk clip downloads. Author's own description flags it as "a quickly hacked together tool" — reference/pattern only. |
-| `CanadianZombies/download-twitch` | ⚠️ | Real, but narrower than the name suggests — specifically a Discord-webhook clip poster, not a general downloader. Author's own README says "*Possibly*" works. |
+| Tool | Status | URL | Note |
+|---|---|---|---|
+| `yt-dlp` | ✅ | https://github.com/yt-dlp/yt-dlp | Universal, well-known, downloads Twitch VODs + YouTube. Not re-verified individually (unambiguous). |
+| Twitch Helix `Get Clips` | ✅ (docs) | https://dev.twitch.tv/docs/api/reference/#get-clips | Real, documented endpoint. Only needs an app access token (Client ID+Secret, `client_credentials`) — no user login. **Our proposed primary highlight signal** — see `gemini_suggestions.md`. |
+| Twitch Helix `Create Clip` | ✅ (docs) | https://dev.twitch.tv/docs/api/reference/#create-clip | Real, but needs a **user** OAuth token with `clips:edit` scope — materially bigger auth scope than Get Clips. See PROJECT.md open decisions. |
+| Twitch EventSub | ✅ (docs) | https://dev.twitch.tv/docs/eventsub/ | Real webhook system for live event triggers (stream online, follows, etc.) — did not confirm it covers clip-creation events specifically, would need the full subscription-types doc. |
+| `streamlink` | ✅ | https://github.com/streamlink/streamlink | Pipes live Twitch streams into ffmpeg/a file. Well-known, real. |
+| OBS Replay Buffer | 🎥 ✅ | https://obsproject.com/ (built-in OBS Studio feature, not a separate repo) | **Confirmed 3x independently across the video research** (videos 7, 8, 9) — free, native OBS feature, hotkey-saves the last N minutes. Zero extra infrastructure. |
+| StreamerBot | 🎥 ✅ | https://streamer.bot/ | Confirmed via video 7 (Vaika) — real-time automated clip triggering during a live stream, zero manual button presses. |
+| `pyTwitchAPI` / `twitchAPI` | ✅ | https://github.com/Teekeks/pyTwitchAPI | Full async Twitch Helix + EventSub + chat framework. Real, actively maintained (v4.5.0). |
+| `Fittiboy/twitch-clip-archiver` | ✅ | https://github.com/Fittiboy/twitch-clip-archiver | Mass-downloads a channel's existing clips, local or Google Drive. Real, matches claim, ~2yr stale. |
+| `zigai/twitch-scraper` | ✅ | https://github.com/zigai/twitch-scraper | CLI+library, clip/profile metadata scraper. Real, matches claim, ~1.5yr stale (most recently active of the small archival tools). |
+| `IcePanorama/TwitchClipsDLer` | ✅ (but hobby-grade) | https://github.com/IcePanorama/TwitchClipsDLer | Real `yt-dlp` wrapper for bulk clip downloads. Author's own description flags it as "a quickly hacked together tool" — reference/pattern only. |
+| `CanadianZombies/download-twitch` | ⚠️ | https://github.com/CanadianZombies/download-twitch | Real, but narrower than the name suggests — specifically a Discord-webhook clip poster, not a general downloader. Author's own README says "*Possibly*" works. |
+| `lay295/TwitchDownloader` | ✅ | https://github.com/lay295/TwitchDownloader | 3,827 stars, most-starred Twitch tool found across all research. Real VOD/clip/chat downloader, fully deep-dived — see `deep_dive_ingestion_and_pipelines.md`. |
 
 ## 2. Transcription (ASR)
 
-| Tool | Status | Note |
-|---|---|---|
-| `faster-whisper` (`SYSTRAN/faster-whisper`) | ✅ 🎥 | **Primary recommendation.** Local, free, CTranslate2 Whisper — confirmed both via video research (video 1's real repo uses it) and independent verification (24.6k stars, actively maintained). |
-| `whisperX` (`m-bain/whisperX`) | ✅ | Word-level timestamps + speaker diarization. Real, 23.3k stars, very actively maintained. Consider over plain faster-whisper if diarization (who's speaking) matters. |
-| OpenAI `whisper` | ✅ | The foundational model both of the above build on. Real, well-known. |
-| `chat-downloader` (`xenova/chat-downloader`) | ✅ | Scrapes VOD/live chat logs (Twitch, YouTube, others), no auth needed. Real, matches claim, not updated since 2023 — check for forks if needed. |
+| Tool | Status | URL | Note |
+|---|---|---|---|
+| `faster-whisper` | ✅ 🎥 | https://github.com/SYSTRAN/faster-whisper | **Primary recommendation.** Local, free, CTranslate2 Whisper — confirmed both via video research (video 1's real repo uses it) and independent verification (24.6k stars, actively maintained). |
+| `whisperX` | ✅ | https://github.com/m-bain/whisperX | Word-level timestamps + speaker diarization. Real, 23.3k stars, very actively maintained. Consider over plain faster-whisper if diarization (who's speaking) matters. |
+| OpenAI `whisper` | ✅ | https://github.com/openai/whisper | The foundational model both of the above build on. Real, well-known. |
+| `chat-downloader` | ✅ | https://github.com/xenova/chat-downloader | Scrapes VOD/live chat logs (Twitch, YouTube, others), no auth needed. Real, matches claim, not updated since 2023 — check for forks if needed. |
+| NVIDIA Parakeet (`nemo-parakeet-tdt-0.6b-v3`) | ✅ (optional GPU path) | https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3 | Free, open-weight, faster than whisper on GPU. See PROJECT.md's cost-philosophy correction — kept as a documented optional path, not primary. |
 
 ## 3. Highlight / moment detection
 
 ### Full-pipeline candidates (do everything end-to-end, not just one stage)
 
-| Tool | Status | Note |
-|---|---|---|
-| **`mutonby/openshorts`** (openshorts.app) | ✅ **strongest candidate found so far** | **2,784 stars, pushed same day as verification (2026-07-29) — real, popular, actively developed.** Confirmed in its own README: Gemini 3.0 Flash for clip selection, YOLOv8 + MediaPipe for face-tracked auto-cropping, faster-whisper for transcription. This is a more complete, more validated open-source reference than anything else found across all research — worth reading in full the same way video 1's COMMAND-LABS repo was, before designing our own pipeline from scratch. (Is itself a fork of `kamilstanuch/Autocrop-vertical` — that lineage may be worth a look too.) |
-| `PriyeshPandey2000/ai-video-clipper` | ✅ | Confirmed via full README read: local `whisper.cpp` transcription, Groq/Llama-3.3-70B for clip scoring, a visual review editor, 9:16 burned-subtitle export. Only 2 stars — brand new/unproven, but the architecture (local ASR + fast cheap LLM scoring + human review step) matches our own DIY-strategy thinking closely. |
-| `cyberbol/AI-Video-Clipper-LoRA` | ✅ | Confirmed via README: WhisperX + Qwen2-Audio-7B (ambient sound parsing, e.g. detecting "wind blowing, melancholic music") + Qwen2-VL video captioning. 18 stars, pushed same day as verification. Different angle than most — a *dataset creator* (for training a LoRA) rather than a direct clipping pipeline, but the ambient-sound-aware captioning idea is novel and worth borrowing. |
+| Tool | Status | URL | Note |
+|---|---|---|---|
+| **`mutonby/openshorts`** | ✅ **strongest candidate found so far** | https://github.com/mutonby/openshorts (product site: openshorts.app) | **2,784 stars, pushed same day as verification (2026-07-29) — real, popular, actively developed.** Confirmed in its own README: Gemini 3.0 Flash for clip selection, YOLOv8 + MediaPipe for face-tracked auto-cropping, faster-whisper for transcription. Fully deep-dived at the source-code level — see `deep_dive_openshorts.md`. (Is itself a fork of `kamilstanuch/Autocrop-vertical`.) |
+| `PriyeshPandey2000/ai-video-clipper` | ✅ | https://github.com/PriyeshPandey2000/ai-video-clipper | Confirmed via full README read: local `whisper.cpp` transcription, Groq/Llama-3.3-70B for clip scoring, a visual review editor, 9:16 burned-subtitle export. Only 2 stars — brand new/unproven, but the architecture (local ASR + fast cheap LLM scoring + human review step) matches our own DIY-strategy thinking closely. |
+| `cyberbol/AI-Video-Clipper-LoRA` | ✅ | https://github.com/cyberbol/AI-Video-Clipper-LoRA | Confirmed via README: WhisperX + Qwen2-Audio-7B (ambient sound parsing, e.g. detecting "wind blowing, melancholic music") + Qwen2-VL video captioning. 18 stars, pushed same day as verification. Different angle than most — a *dataset creator* (for training a LoRA) rather than a direct clipping pipeline, but the ambient-sound-aware captioning idea is novel and worth borrowing. |
+| `ClipsAI/clipsai` | ✅ | https://github.com/ClipsAI/clipsai | 522 stars. Real story-break detection via TextTiling (topic-shift analysis), not diarization as one dossier implied. Fully deep-dived — see `deep_dive_moment_detection.md`. |
 
 ### ⚠️ Confirmed do-not-use (real repo, wrong domain)
 
-- **`meitarbe/cognetivy`** — real, popular (780 stars), but it's "the open-source state layer for AI coding agents" (session/state tracking for coding agents) — **nothing to do with video processing.** Flagged as the single most dangerous finding across all three dossiers specifically because it doesn't 404 or look obviously wrong — a careless `git clone` based on the dossier's description alone would pull the wrong thing entirely.
+- **`meitarbe/cognetivy`** — https://github.com/meitarbe/cognetivy — real, popular (780 stars), but it's "the open-source state layer for AI coding agents" (session/state tracking for coding agents) — **nothing to do with video processing.** Flagged as the single most dangerous finding across all three dossiers specifically because it doesn't 404 or look obviously wrong — a careless `git clone` based on the dossier's description alone would pull the wrong thing entirely.
 
 ### Detection signals & techniques
 
-| Tool | Status | Note |
-|---|---|---|
-| Twitch `Get Clips` (viewer-curated) | ✅ (docs) | See section 1 — our proposed primary signal, simplest auth. |
-| `jamesbaughnd/twitch-clip-miner` | ✅ | Scores VOD moments via audio energy + speech transcription + chat velocity + facial emotion recognition, GPU-accelerated. Real, functionally sophisticated, but only 6 stars — young/unproven, worth reading the code before relying on it. |
-| Claude/Gemini as moment-scorer (LLM judges transcript for hooks/narrative structure) | ✅ 🎥 | **Confirmed as the real, working core of video 1's actual open-source pipeline** — shells out to the `claude` CLI directly, scores every candidate moment across 6 dimensions (Insight Quality, Quotability, Emotional Resonance, Controversy, Practical Value, Narrative Power), outputs structured JSON. Also now independently corroborated by `openshorts` (Gemini 3.0 Flash) and `PriyeshPandey2000/ai-video-clipper` (Groq/Llama-3.3-70B) — three separate real projects converge on "cheap/fast LLM scores candidate moments," not a hypothetical. |
-| `porplax/auto-highlighter` (not `-py`) | ⚠️ | Real, but simpler than implied — a fixed dB-threshold loudness detector, not an AI system. Useful as a cheap first-pass filter, not a full solution. |
-| NLTK / `vaderSentiment` | ✅ | Real, lexicon-based sentiment analysis — could flag emotionally-charged chat/transcript segments. Not updated since 2020 but doesn't need to be (lexicon-based). |
-| NexusClips | 🎥 ✅ | Confirmed 3x independently in video research (videos 6, 8, 9) — paid SaaS, real 7-day-trial report exists. Not open-source; a buy-vs-build alternative. |
+| Tool | Status | URL | Note |
+|---|---|---|---|
+| Twitch `Get Clips` (viewer-curated) | ✅ (docs) | https://dev.twitch.tv/docs/api/reference/#get-clips | See section 1 — our proposed primary signal, simplest auth. |
+| `jamesbaughnd/twitch-clip-miner` | ✅ | https://github.com/jamesbaughnd/twitch-clip-miner | Scores VOD moments via audio energy + speech transcription + chat velocity + facial emotion recognition, GPU-accelerated. Real, functionally sophisticated, but only 6 stars — young/unproven. Fully deep-dived, one real bug found — see `deep_dive_moment_detection.md`. |
+| Claude/Gemini as moment-scorer | ✅ 🎥 | n/a (technique, not a repo) | **Confirmed as the real, working core of video 1's actual open-source pipeline** (`COMMAND-LABS/step-by-step-video-clipping-demo`) — shells out to the `claude` CLI directly, scores every candidate moment across 6 dimensions (Insight Quality, Quotability, Emotional Resonance, Controversy, Practical Value, Narrative Power), outputs structured JSON. Also now independently corroborated by `openshorts` (Gemini 3.0 Flash) and `PriyeshPandey2000/ai-video-clipper` (Groq/Llama-3.3-70B) — three separate real projects converge on "cheap/fast LLM scores candidate moments," not a hypothetical. |
+| `porplax/auto-highlighter` | ⚠️ | https://github.com/porplax/auto-highlighter | Real, but simpler than implied — a fixed dB-threshold loudness detector, not an AI system. Useful as a cheap first-pass filter, not a full solution. (Note: `porplax/auto-highlighter-py` as named in some dossiers does not exist — no `-py` suffix on the real repo.) |
+| NLTK / `vaderSentiment` | ✅ | https://github.com/nltk/nltk / https://github.com/cjhutto/vaderSentiment | Real, lexicon-based sentiment analysis — could flag emotionally-charged chat/transcript segments. Not updated since 2020 but doesn't need to be (lexicon-based). |
+| `bendawg2010/Auto-clipper` | ✅ | https://github.com/bendawg2010/Auto-clipper (real code on branch `claude/twitch-clip-analyzer-MPT08`) | Real, MIT-licensed, free YOLOv11n model (13 classes, ~5MB) for the game *Arc Raiders* specifically. Its `Clusterer.cluster()` clip-decision logic is decoupled from YOLO — reusable with our own Gemini scores. Kept as an optional zero-cost plug-in, not discarded — see PROJECT.md's correction note. |
+| `nirvagold/stream-clipper` | ✅ | https://github.com/nirvagold/stream-clipper | Tauri/Rust/Svelte desktop app, zero-LLM statistical detector (audio-RMS + chat density, with a 1.5x "combo bonus" when both fire together). Real commercial product. |
+| NexusClips | 🎥 ✅ | not independently verified | Confirmed 3x independently in video research (videos 6, 8, 9) — paid SaaS, real 7-day-trial report exists. Not open-source; a buy-vs-build alternative. Domain not checked this session. |
 
 ## 4. Video editing / rendering / captioning
 
-| Tool | Status | Note |
-|---|---|---|
-| ffmpeg vertical-crop (`crop=ih*9/16:ih,scale=1080:1920`) | ✅ (already ours) | Already working in `youtube-auto-videos/pipeline.py:3522` — port directly, don't rewrite. See `SALVAGE_INVENTORY.md`. |
-| No-Code Architects Toolkit (`stephengpope/no-code-architects-toolkit`) | ✅ 🎥 | **Real, 2.3k stars**, self-hosted free REST API wrapping ffmpeg (caption burning, cut/trim/split, transcribe, silence detection, thumbnails). Confirmed both via video research (video 1 uses it for captions; video 10 is literally the toolkit's own creator) and independently. Strong candidate for our captioning stage. |
-| `ffsubsync` | ✅ | Auto-syncs subtitle timing to audio via voice-activity-detection + FFT alignment. Real, matches claim. |
-| `auto-editor` | ✅ | CLI, cuts silence/dead-air automatically based on audio loudness. Real, actively maintained (v29.3.1, Nov 2025). |
-| `ffmpeg-python` (`kkroening/ffmpeg-python`) | ✅ (but old) | Real Python ffmpeg bindings, matches claim, but no release since 2019 — confirm compatibility before depending on it, or just shell out to ffmpeg directly (already our pattern). |
-| `MoviePy` | ✅ | Real, simpler alternative to raw ffmpeg for text overlays/watermarks/concatenation. |
-| `rembg` | ✅ | Real background-removal tool (no green screen needed), CPU/CUDA/ROCm. |
-| NVENC hardware encoding | ✅ | Real, standard `-c:v h264_nvenc` ffmpeg flag for GPU-accelerated rendering. |
-| Submagic | 🎥 ✅ | Confirmed via 2 independent videos (3, 4) as a real, named competitor in AI captioning/clipping — paid SaaS. |
-| Opus Clip | 🎥 ✅ | **Most-repeated tool across the whole video batch (4 separate videos)** — paid SaaS, has a "Brand Kit" feature for locked branding (same idea as our own asset-reuse pattern). Buy-vs-build alternative, not open-source. |
+| Tool | Status | URL | Note |
+|---|---|---|---|
+| ffmpeg vertical-crop (`crop=ih*9/16:ih,scale=1080:1920`) | ✅ (already ours) | n/a (our own code) | Already working in `youtube-auto-videos/pipeline.py:3522` — port directly, don't rewrite. See `SALVAGE_INVENTORY.md`. |
+| No-Code Architects Toolkit | ✅ 🎥 | https://github.com/stephengpope/no-code-architects-toolkit | **Real, 2.3k stars**, self-hosted free REST API wrapping ffmpeg (caption burning, cut/trim/split, transcribe, silence detection, thumbnails). Confirmed both via video research (video 1 uses it for captions; video 10 is literally the toolkit's own creator) and independently. Strong candidate for our captioning stage. |
+| `ffsubsync` | ✅ | https://github.com/smacke/ffsubsync | Auto-syncs subtitle timing to audio via voice-activity-detection + FFT alignment. Real, 7,807 stars, actively maintained (pushed 2026-07-24). |
+| `auto-editor` | ✅ | https://github.com/WyattBlue/auto-editor | CLI, cuts silence/dead-air automatically based on audio loudness. Real, actively maintained (v29.3.1, Nov 2025). |
+| `ffmpeg-python` | ✅ (but old) | https://github.com/kkroening/ffmpeg-python | Real Python ffmpeg bindings, matches claim, but no release since 2019 — confirm compatibility before depending on it, or just shell out to ffmpeg directly (already our pattern). |
+| `MoviePy` | ✅ | https://github.com/Zulko/moviepy | Real, simpler alternative to raw ffmpeg for text overlays/watermarks/concatenation. |
+| `rembg` | ✅ | https://github.com/danielgatis/rembg | Real background-removal tool (no green screen needed), CPU/CUDA/ROCm. |
+| NVENC hardware encoding | ✅ | https://developer.nvidia.com/nvenc (NVIDIA SDK docs, not a repo) | Real, standard `-c:v h264_nvenc` ffmpeg flag for GPU-accelerated rendering. |
+| Submagic | 🎥 ✅ | not independently verified | Confirmed via 2 independent videos (3, 4) as a real, named competitor in AI captioning/clipping — paid SaaS. Domain not checked this session. |
+| Opus Clip | 🎥 ✅ | https://www.opus.pro/ (domain confirmed via web search 2026-07-30, Vyro cross-reference) | **Most-repeated tool across the whole video batch (4 separate videos)** — paid SaaS, has a "Brand Kit" feature for locked branding (same idea as our own asset-reuse pattern). Buy-vs-build alternative, not open-source. |
+| `Kuonirad/AutoCutAI` | ✅ | https://github.com/Kuonirad/AutoCutAI-Autonomous-AI-Video-Editor-that-Understands-Semiotics-Rhythm | Real, working beat-synced rough-cut algorithm, verified via actual code read (`editor/v1.py`), not just its own grandiose README. 3 stars. See `gemini_dossier_6_raw.md`. |
+| `htekdev/vidpipe` | ✅ | https://github.com/htekdev/vidpipe | 205 stars, active. CLI tool: transcribes, removes silence, generates captions, creates shorts/social posts. 8 specialized AI agents on `@github/copilot-sdk`. |
 
 ## 5. Distribution / cross-posting
 
-| Tool | Status | Note |
-|---|---|---|
-| YouTube Data API v3 (`google-api-python-client`) | ✅ | Real, standard, for auto-uploading finished Shorts. |
-| `instagrapi` (now `subzeroid/instagrapi`, moved from `adw0rd`) | ✅ | Real unofficial Instagram API wrapper. Own docs warn private-API automation is fragile in production — sandbox carefully. |
-| `davidteather/TikTok-Api` | ✅ (but fragile) | Confirmed real via GitHub API: 6,530 stars, not archived, pushed 2026-07-03 (actively maintained). **151 open issues** — a real, current maintenance-burden signal for any unofficial wrapper fighting TikTok's anti-bot countermeasures. Usable, but budget for it breaking periodically; don't treat it as a stable foundation the way `yt-dlp` or `pyTwitchAPI` are. |
-| `discord.py` (`Rapptz/discord.py`) | ✅ | Real, standard — for posting into Discord bounty/submission channels. |
-| Repurpose.io | 🎥 ✅ | Confirmed via video research — video 5 is literally that company's own channel. Dedicated Twitch-clip cross-posting SaaS. |
-| Nuelink | 🎥 ✅ | Confirmed via video 15 — another real cross-poster. |
-| Pabbly Connect | 🎥 ✅ | Confirmed via video 17 — cross-platform posting automation tool. |
-| Blotato, Metricool | 🎥 (named, not independently verified) | Named in video-2's description (n8n SaaS-chained approach); Metricool's price ($53/mo) was captured in the recovered research — real recurring-cost data point if that route is ever chosen. |
+| Tool | Status | URL | Note |
+|---|---|---|---|
+| YouTube Data API v3 | ✅ | https://developers.google.com/youtube/v3 | Real, standard, for auto-uploading finished Shorts. |
+| `instagrapi` | ✅ | https://github.com/subzeroid/instagrapi | Real unofficial Instagram API wrapper (moved from `adw0rd`). Own docs warn private-API automation is fragile in production — sandbox carefully. |
+| `davidteather/TikTok-Api` | ✅ (but fragile) | https://github.com/davidteather/TikTok-Api | Confirmed real via GitHub API: 6,530 stars, not archived, pushed 2026-07-03 (actively maintained). **151 open issues** — a real, current maintenance-burden signal for any unofficial wrapper fighting TikTok's anti-bot countermeasures. Usable, but budget for it breaking periodically. |
+| `discord.py` | ✅ | https://github.com/Rapptz/discord.py | Real, standard — for posting into Discord bounty/submission channels. |
+| Repurpose.io | 🎥 ✅ | not independently verified | Confirmed via video research — video 5 is literally that company's own channel. Dedicated Twitch-clip cross-posting SaaS. Domain not checked this session. |
+| Nuelink | 🎥 ✅ | not independently verified | Confirmed via video 15 — another real cross-poster. Domain not checked this session. |
+| Pabbly Connect | 🎥 ✅ | not independently verified | Confirmed via video 17 — cross-platform posting automation tool. Domain not checked this session. |
+| Blotato, Metricool | 🎥 (named, not independently verified) | not independently verified | Named in video-2's description (n8n SaaS-chained approach); Metricool's price ($53/mo) was captured in the recovered research — real recurring-cost data point if that route is ever chosen. Domains not checked this session. |
 
 ## 6. Orchestration / infrastructure
 
-| Tool | Status | Note |
-|---|---|---|
-| Real budget enforcement pattern (`COST_PER_TOKEN`, `DEFAULT_BUDGET_LIMIT`, supervisor check) | ✅ (already ours) | Already working in `pipeline.py` — port directly. See `SALVAGE_INVENTORY.md`. |
-| `get_secret()` (Colab userdata + env fallback) | ✅ (already ours) | Already working. Port directly — the Gemini reference script's lack of this exact pattern was one of its real bugs. |
-| SQLite (`sqlite3`) | ✅ | Real, standard — track which VODs already processed, avoid duplicate work across runs. |
-| Docker / `docker-compose` | ✅ | Real, standard packaging approach if this ever runs on a VPS instead of Colab. |
-| Celery / Redis | ✅ | Real task-queue libraries, only relevant if scaling to many streamers at once — not a v1 need. |
-| Streamlit | ✅ | Real, could work as a lightweight human-review UI for AI-picked clips before rendering (mirrors video 1's Airtable human-review step). |
+| Tool | Status | URL | Note |
+|---|---|---|---|
+| Real budget enforcement pattern | ✅ (already ours) | n/a (our own code) | `COST_PER_TOKEN`, `DEFAULT_BUDGET_LIMIT`, supervisor check — already working in `pipeline.py`. Port directly. See `SALVAGE_INVENTORY.md`. |
+| `get_secret()` | ✅ (already ours) | n/a (our own code) | Colab userdata + env fallback. Already working. Port directly — the Gemini reference script's lack of this exact pattern was one of its real bugs. |
+| SQLite (`sqlite3`) | ✅ | https://www.sqlite.org/ | Real, standard — track which VODs already processed, avoid duplicate work across runs. |
+| Docker / `docker-compose` | ✅ | https://www.docker.com/ | Real, standard packaging approach if this ever runs on a VPS instead of Colab. |
+| Celery / Redis | ✅ | https://github.com/celery/celery / https://redis.io/ | Real task-queue libraries, only relevant if scaling to many streamers at once — not a v1 need. |
+| Streamlit | ✅ | https://github.com/streamlit/streamlit | Real, could work as a lightweight human-review UI for AI-picked clips before rendering (mirrors video 1's Airtable human-review step). |
 
 ## 7. Business-model context (not tools — market/economics facts)
 
-- **Whop Clipping, Biro** — real paid clipper marketplaces (platforms pay people/bots per clip). Separate business model from running your own compilation channel. Confirmed via video research (videos 12, 13).
-- **Vyro** (`vyro.com`) — real, notable, launched October 2025, MrBeast-backed (built by the team behind his analytics company ViewStats), also used by Mark Rober and Unwell. Real rate ~$3/1,000 views. Confirmed via web search 2026-07-30 (Gemini dossier 6).
-- **Headliner** (free tier) — real, named clipping tool with a genuinely free tier. Confirmed via video 12.
+- **Whop Clipping** — https://whop.com/ — real paid clipper marketplace (platforms pay people/bots per clip). Separate business model from running your own compilation channel. Confirmed via video research (videos 12, 13).
+- **Biro** — not independently verified (domain not checked this session) — real, named paid clipper marketplace per video research (videos 12, 13).
+- **Vyro** — https://www.vyro.com/ (domain confirmed via web search 2026-07-30) — real, notable, launched October 2025, MrBeast-backed (built by the team behind his analytics company ViewStats), also used by Mark Rober and Unwell. Real rate ~$3/1,000 views.
+- **Headliner** — not independently verified (domain not checked this session) — real, named clipping tool with a genuinely free tier per video research (video 12).
 - Streamer clip-farming/bounty economy (Discord submission channels) — corroborated independently by both the video research and the first Gemini dossier's "Lacy" tangent.
 
 ---
 
 ## Verification still pending
 
-- The live 9/8-video re-read (analytics-feedback/self-adjustment hunt, deeper tool/trick extraction) — running, will merge in once back.
-- `davidteather/TikTok-Api` — not yet independently checked despite being a fragile unofficial-API dependency, worth doing before relying on it.
+- The specific domains for NexusClips, Submagic, Repurpose.io, Nuelink, Pabbly Connect, Blotato, Metricool, Biro, Headliner — named and confirmed real via video research (viewers can see the creator using the actual product), but not independently domain-verified this session. Worth a real check before hard-linking to any of them.
 
-All three Gemini dossiers are now fully verified (25 named GitHub repos
-checked total: 19 clean matches, 5 real-but-mismatched, 1 hallucinated
-owner, 1 near-miss naming). See `research/tool_verification.md` for the full
-combined audit trail.
+All named GitHub repos across all six Gemini dossiers are now fully
+verified (see `research/tool_verification.md` for the full combined audit
+trail — 34+ repos checked, ~85% clean matches).
 
 ## The two real architecture strategies (from video research, still the clearest framing)
 

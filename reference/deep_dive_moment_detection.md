@@ -442,6 +442,58 @@ pluggable-transcription-backend pattern (auto-detect whisper.cpp-on-disk vs. fas
 reusable, low-effort way to support both GPU-light and GPU-heavy user setups without hardcoding one
 transcription stack.
 
+### ClipsAI completion note — `media/editor.py` (the actual ffmpeg execution layer) and tests
+
+Closing the last real gap in this repo: `clipsai/media/editor.py`'s `MediaEditor` class (1493
+lines — the class every other module in this repo ultimately calls to actually invoke ffmpeg;
+`trim`, `transcode`, `watermark_and_crop_video`, `watermark_corner_of_video`,
+`merge_audio_and_video`, `concatenate`, `crop_video`, `resize_video`), plus `tests/test_clip.py`
+and `tests/test_resize.py` (spot-read per the task's "tests worth a glance" guidance — both are
+real, meaningful parametrized unit tests, not smoke tests).
+
+**The concrete, previously-missing answer to "how does ClipsAI actually render the dynamic-crop
+vertical video from the `Segment` list `Resizer.resize()` produces":** `resize_video()` does **not**
+build one filter_complex with per-segment crop/trim/setpts the way metaleey's `merge_segments_direct`
+does (documented in `deep_dive_ingestion_and_pipelines.md`). It's the simpler, less efficient
+pattern: loop over every segment, call `crop_video()` once per segment (a separate `ffmpeg -ss/-to
+-vf crop=...` subprocess writing a real temp `.mp4` file per segment to disk), then call
+`concatenate()` once at the end to stitch all the per-segment temp files together, then delete the
+temp files. This is a direct, concrete point of comparison worth having for this project's own
+export-step design: **metaleey's single-pass multi-input-seek+concat-filter technique (already
+recommended in the ingestion/pipelines file) is a strict efficiency improvement over what ClipsAI
+itself does** — N+1 ffmpeg subprocess invocations plus N temporary files on disk, versus one ffmpeg
+process with no intermediate files. `crop_video()` itself doesn't fast-seek (no `-ss` before `-i`;
+it's placed after `-i`, meaning it decodes from the start of the file up to the seek point every
+time) and re-encodes with `-preset veryfast -crf 18` — real, if imprecise-on-speed defaults worth
+knowing if reusing this pattern.
+
+`watermark_and_crop_video()` (a separate method, used for the single-crop + logo-overlay case, not
+the multi-segment resize case) confirms the exact ffmpeg watermark-compositing technique: a
+`colorchannelmixer=aa={opacity}` filter to make the logo translucent, `scale2ref` to size the logo
+relative to the video (not a fixed pixel size), then `overlay=(x):(y)` — a clean, reusable three-step
+ffmpeg watermark recipe if this project ever wants to burn in a logo/CTA overlay.
+
+**From the tests**: `test_clip.py`'s valid-config fixture confirms `ClipFinderConfigManager` accepts
+`max_clip_duration` up to **900 seconds (15 minutes)** as a valid config value (`min_clip_duration:
+15, max_clip_duration: 900` passes validation) — a real, previously-unstated upper bound on how long
+a single "clip" can be in this library's own validation layer, relevant context for the
+`k=[37,53,73,97]` "10+ minute clip" bucket documented in this file's Repo 1 section: clips in that
+bucket can apparently run up to 15 minutes before the config layer would reject them.
+`test_resize.py` confirms `Resizer._calc_resize_width_and_height_pixels`'s aspect-ratio math via
+direct parametrized cases (e.g. 1920×1080 → 607×1080 for a 9:16 target, extreme ratios like 1:100
+and 100:1 handled without error) and confirms `_merge_scene_change_and_speaker_segments`'s splitting
+behavior with concrete before/after segment-list examples — both are genuine regression tests
+with real expected values, not placeholder/smoke tests, so they're a trustworthy secondary
+confirmation source for the algorithms documented above.
+
+This closes out `ClipsAI/clipsai`: every non-trivial file (all of `clip/`, `resize/`, `diarize/`,
+`transcribe/`, plus `media/editor.py` and two representative test files) has now been read directly.
+Remaining unread files (`filesys/*.py`, the rest of `media/*.py`, `utils/*.py`, `clip/exceptions.py`
+and its siblings, the other 4 test files, `sandbox/*.ipynb`) are generic file-handling wrappers,
+exception class definitions, or example notebooks — genuinely low-value for a "how does moment
+detection/reframing actually work" research question, and skipping them matches this project's own
+stated audit standard.
+
 ---
 
 ## Repo 3 — bendawg2010/Auto-clipper
