@@ -43,21 +43,40 @@ def check_ffmpeg() -> tuple[bool, str]:
         return False, "ffmpeg not found on PATH (install it, or run this inside Colab which auto-installs it)"
 
 
-GEMINI_MODEL_CANDIDATES = [
-    "gemini-flash-latest",
-    "gemini-2.5-flash",
-    "gemini-3.5-flash",
-    "gemini-2.0-flash",
-]
+def _model_quality_rank(name: str) -> tuple[int, int]:
+    # Ported verbatim from pipeline.py:610 (youtube-auto-videos) - same
+    # ranking, not reinvented: prefer "pro" over "flash" over "lite", and
+    # non-preview over preview (less likely to be deprecated mid-project -
+    # confirmed twice now: it already happened in the sibling project, and
+    # again here on 2026-07-30 when gemini-2.5-flash itself got restricted).
+    n = name.lower()
+    tier = 0 if "pro" in n else (1 if "lite" not in n else 2)
+    preview_penalty = 1 if "preview" in n else 0
+    return (tier, preview_penalty)
+
+
+def _test_text_model_candidate(client, model_name: str) -> tuple[bool, str]:
+    # Same shape as pipeline.py:620's _test_image_model_candidate /
+    # pipeline.py:651's _test_tts_model_candidate, adapted for plain text -
+    # those two exist because "listed in models.list()" doesn't prove a model
+    # is actually usable (confirmed there: three Imagen tiers 404'd for new
+    # users despite being listed). Same discipline here: real call, not just
+    # a catalog check.
+    try:
+        resp = client.models.generate_content(model=model_name, contents="Say OK.")
+        if resp and getattr(resp, "text", None):
+            return True, "OK - real text response returned."
+        return False, "Call succeeded but returned no text."
+    except Exception as e:
+        return False, str(e)
 
 
 def check_google_api_key() -> tuple[bool, str]:
-    """Tries a short list of current model names in order rather than hardcoding
-    one - the same lesson pipeline.py's discover_best_working_models() already
-    learned the hard way: Google periodically restricts specific model names
-    for new users/keys (confirmed 2026-07-30: gemini-2.5-flash returned a real
-    404 'no longer available to new users' on a fresh key), so a single
-    hardcoded name is a real, recurring failure mode, not a one-off."""
+    """Queries the REAL current model catalog via client.models.list() (the
+    proven pattern from pipeline.py:674's discover_best_working_models(),
+    ported here rather than re-derived) instead of guessing names, then
+    tests real candidates best-first with an actual generate_content call
+    until one genuinely succeeds."""
     api_key = get_secret("GOOGLE_API_KEY")
     if not api_key:
         return False, "GOOGLE_API_KEY not set (Colab secret or env var)"
@@ -67,16 +86,27 @@ def check_google_api_key() -> tuple[bool, str]:
         return False, f"google-genai import failed: {e}"
 
     client = genai.Client(api_key=api_key)
+    try:
+        all_models = list(client.models.list())
+    except Exception as e:
+        return False, f"models.list() failed - can't even query the catalog: {e}"
+
+    candidates = sorted(
+        {m.name.split("/")[-1] for m in all_models
+         if "generateContent" in (m.supported_actions or []) and "gemini" in (m.name or "").lower()
+         and "embedding" not in (m.name or "").lower()},
+        key=_model_quality_rank,
+    )
+    if not candidates:
+        return False, "models.list() returned no gemini text-generation models for this key at all"
+
     errors = []
-    for model in GEMINI_MODEL_CANDIDATES:
-        try:
-            resp = client.models.generate_content(model=model, contents="Say OK.")
-            if resp and getattr(resp, "text", None):
-                return True, f"Real generate_content call succeeded (model: {model})"
-            errors.append(f"{model}: returned no text")
-        except Exception as e:
-            errors.append(f"{model}: {e}")
-    return False, "All model candidates failed: " + " | ".join(errors)
+    for model in candidates[:8]:  # cap attempts - real ping, not exhaustive search
+        passed, detail = _test_text_model_candidate(client, model)
+        if passed:
+            return True, f"Real generate_content call succeeded (model: {model}, {len(candidates)} candidates found)"
+        errors.append(f"{model}: {detail}")
+    return False, f"All {len(errors)} tested candidates failed: " + " | ".join(errors)
 
 
 def check_twitch_credentials() -> tuple[bool, str]:
