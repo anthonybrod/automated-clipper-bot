@@ -732,6 +732,438 @@ The CSS text-stroke-via-shadow trick is a Chromium-only workaround with no
 ffmpeg equivalent needed — `ass`/`drawtext` already do outlines natively
 and correctly.
 
+## 15. `main.py` — the real top-level orchestration (lines 361-1553)
+
+Everything below `SmoothedCameraman`/`SpeakerTracker` (already covered in §7)
+is the glue that turns those classes, plus `reframe_v2`, `gemini_worker`,
+`transcribe_backends`, `subtitles`, and `security_utils`, into an actual
+runnable CLI pipeline.
+
+### 15.1 Detection helpers: `_detection_frame`, `detect_face_candidates`, `detect_person_yolo`
+
+```python
+def _detection_frame(frame):
+    """Downscaled copy for detectors. Returns (small_frame, scale) with
+    scale mapping small-frame pixel coords back to the original frame."""
+    h, w = frame.shape[:2]
+    if w <= DETECT_MAX_WIDTH:
+        return frame, 1.0
+    scale = w / DETECT_MAX_WIDTH
+    small = cv2.resize(frame, (DETECT_MAX_WIDTH, max(int(h / scale), 2)),
+                       interpolation=cv2.INTER_AREA)
+    return small, scale
+```
+Single shared downscale used by both the MediaPipe face path and the YOLO
+fallback. `detect_face_candidates(frame)` runs MediaPipe's `FaceDetection`
+on the downscaled RGB frame under a `DETECT_LOCK` (MediaPipe's C++ backend
+isn't thread-safe, so this serializes detector calls even when clip
+rendering is otherwise parallelized across `CLIP_WORKERS`). Score is simply
+`w * h` — box area. Coordinates are computed directly against the
+*original* frame's `height, width` using MediaPipe's relative (0-1)
+bounding box: *"Boxes are in ORIGINAL frame coordinates (detection runs
+downscaled; MediaPipe's relative coords make the mapping exact)."*
+
+`detect_person_yolo(frame)` is the fallback for when face detection finds
+nothing (turned-away subject, side profile, motion blur). It runs YOLO
+filtered to `classes=[0]` (COCO person class only), and keeps only the top
+40% of the largest detected person's box:
+```python
+face_h = int(h * 0.4)
+best_box = [x1, y1, w, face_h]
+```
+*"Focus on the top 40% of the person (head/chest) for framing — this
+approximates where the face is if we can't detect it directly."* Coordinates
+are scaled back to full-res explicitly here (`int(i * scale) for i in
+box.xyxy[0]`), unlike the MediaPipe path, since YOLO's box format isn't
+resolution-relative the way MediaPipe's is.
+
+### 15.2 `create_general_frame` — the blurred-backdrop GENERAL layout
+
+The actual rendering function behind the "GENERAL vs TRACK scene strategy"
+described at a design level in §7. Background: resize source to fill output
+height, center-crop to output width, then blur at **quarter resolution**
+(`cv2.GaussianBlur(small_bg, (13, 13), 0)`) before scaling back up —
+*"visually identical for a defocused backdrop, an order of magnitude
+cheaper than a 51px Gaussian at full size."* Foreground: resize to fit
+output width exactly, vertically centered over the blurred background. The
+"blurred sidebar" look every short-form editor uses for wide shots.
+
+### 15.3 A real negative result: the abandoned text-heavy-scene router
+
+```
+# NOTE: a "route text-heavy scenes to GENERAL" rule was tried here and removed
+# on 26-jul-2026. The problem it targets is real — a screencast that happens to
+# contain one face gets cropped to the face and its headlines come out cut
+# mid-word — but edge density is the wrong signal for it. Measured: a
+# constructed talking-head-beside-a-chart scored 0.012 while the SAME shot
+# without the panels scored 0.029, because a flat panel of text has far fewer
+# edges than ordinary scene detail. Canny measures visual busyness, not text.
+# A real fix needs an actual text detector (MSER/EAST) validated against clips
+# that contain the failure mode; this corpus has almost none.
+```
+Canny edge-density was tried as a cheap proxy for "this frame has important
+text/UI a face-crop would cut off," and it measured **backwards** on the
+constructed test case (0.012 vs 0.029) because flat text blocks have fewer
+edges than natural scene detail. A documented dead end worth remembering:
+the right tool for this is a real text detector (MSER/EAST), not an
+edge-density proxy.
+
+### 15.4 `analyze_scenes_strategy` — the real TRACK/GENERAL decision logic
+
+Samples 5 frames per scene, clamped away from scene edges (fixing a bug
+where "the old start+5/end-5 samples landed outside scenes shorter than ~10
+frames"), skips near-black frames (`frame.mean() < 16`), averages face count:
+```python
+# 0 faces -> GENERAL (Landscape/B-roll)
+# 1 face -> TRACK
+# > 1.2 faces -> GENERAL (Group)
+if avg_faces > 1.2 or avg_faces < 0.5:
+    strategies.append('GENERAL')
+else:
+    strategies.append('TRACK')
+```
+Then a **hysteresis pass**: a short scene (under 2s) whose strategy
+disagrees with both neighbors (which agree with each other) gets overwritten
+to match them — *"a short scene whose two neighbors agree on the opposite
+strategy is almost always a sampling miss... flapping is worse than an
+occasional wrong-but-stable choice."* A reusable principle: when a
+per-segment classifier drives a visually disruptive layout change, bias
+toward stability over local accuracy.
+
+### 15.5 Filename byte-budget discipline: `MAX_TITLE_BYTES`, `truncate_bytes`, `sanitize_filename`
+
+```python
+# Byte budget for the sanitized video title used as the stem of every derived
+# file. Filesystems cap a name in BYTES (255 on ext4), not characters...
+# The old cap was 100 CHARACTERS, which is 300 bytes of Bengali or Arabic — over
+# the limit before any decoration. It surfaced as OSError 36 killing the hook
+# endpoint in prod on 26-jul-2026.
+MAX_TITLE_BYTES = 120
+```
+`truncate_bytes` encodes to UTF-8 and hard-slices with `errors="ignore"` so
+a truncated multi-byte character doesn't raise or corrupt. **The single
+clearest, most portable bug-class finding in this file**: the bug is
+specifically about non-Latin scripts (a 100-char English title is fine; a
+100-char Bengali/Arabic title is ~300 bytes and blows the limit). Directly
+relevant to us — Twitch titles are just as likely to be non-Latin as
+YouTube ones. **Port this pattern verbatim.**
+
+### 15.6 `download_youtube_video` — production-hardened downloader, real incident history
+
+SSRF guard first (`security_utils.assert_public_url`), cookies from env var
+written to a container-local file (never logging content: *"this would leak
+live YouTube session cookies to logs"*), optional `PROXY_URL`, an HD-then-
+fallback download ladder. A real quantified regression:
+```
+# Cap at 720p ONLY when the bytes actually go through the paid proxy...
+# This is per-attempt on purpose. Deciding it once from `_proxy` capped the
+# DIRECT attempt too, so with DIRECT_FIRST=1 (which serves most downloads)
+# every YouTube source arrived at 720p ... 80% of delivered clips came out
+# 406x720 (audited 25-jul-2026).
+```
+The bug: resolution cap was decided once from whether a proxy was
+*configured*, not per-attempt from whether it was actually *used* — 80% of
+delivered clips measured 406×720 before the fix. Bounded 403-retry
+(*"3 of 62 downloads hit this on 22-jul-2026"*), `DIRECT_FIRST=1` needs
+cookies+PO-token or "YouTube flags the datacenter IP after the first
+request (verified in prod, 21-jul-2026)." **Recommendation**: YouTube-specific,
+doesn't port as-is (we're on yt-dlp/Twitch per Stage 1), but three patterns
+generalize: per-attempt (not per-config) cost/quality capping, narrow
+string-matched retry conditions, and a concrete actionable failure message.
+
+### 15.7 `finalize_clip_passthrough`, `render_clip` — format routing
+
+Stream-copy remux (`-c copy`) for horizontal output, no re-encode. `render_clip`
+is a thin router: horizontal→passthrough, square→1:1 reframe, else→configured
+`ASPECT_RATIO` reframe.
+
+### 15.8 `auto_caption_clip` — captions on by default, and why
+
+*"Captions are mandatory for short-form to land, but they were opt-in
+behind a modal and only 9% of delivered clips ever got them (prod audit,
+25-jul-2026). So every clip now ships captioned by default."* The `.ass`
+file gets a neutral name (never derived from the clip title) because it's
+interpolated into an ffmpeg filter string where a literal apostrophe breaks
+quoting — same bug family as `subtitles.py`'s `_escape_ffmpeg_filter_value`
+(§17.3), dated the same day as this research pass (29-jul-2026). The output
+filename, by contrast, safely carries the real stem since it's only ever an
+argv element. `generation_id=int(time.time())` alone isn't unique enough
+across parallel `CLIP_WORKERS`, so a `uuid4` hex is appended. Failure is
+silent-degrade (`return None`): *"a caption problem must never cost the user
+the clip they already paid for."*
+
+### 15.9 Watermark geometry — `apply_watermark`
+
+```python
+WATERMARK_WIDTH_RATIO = 0.30
+WATERMARK_MARGIN_RATIO = 0.05
+WATERMARK_Y_RATIO = 0.40
+WATERMARK_OPACITY = 0.85
+```
+`WATERMARK_Y_RATIO = 0.40` is deliberately anti-crop: top/bottom strips of a
+9:16 clip are black bars/blur (no real content), so a mark there is
+trivially cropped out. At 40% height it sits inside the real 16:9-into-9:16
+content band (~34%-66%), so cropping the mark means cropping real footage
+too — a genuinely clever anti-tamper design for a free-plan watermark.
+
+### 15.10 `process_video_to_vertical` — the v1 frame-loop fallback engine
+
+```python
+if os.environ.get("REFRAME_ENGINE", "v2").strip().lower() != "v1":
+    try:
+        import reframe_v2
+        result = reframe_v2.render(input_video, final_output_video, aspect_ratio)
+        return result
+    except Exception as e:
+        print(f"   ⚠️ Reframe v2 failed ... falling back to v1 frame loop")
+```
+A genuinely good resilience shape independent of the v1/v2 specifics: the
+newer, more sophisticated engine is tried first, but *any* exception falls
+through to an older, simpler, battle-tested implementation — a v2 edge case
+degrades render quality rather than failing the job. The v1 path itself
+pipes raw `bgr24` frames to an ffmpeg subprocess's stdin (the "old way" v2's
+`sendcmd` approach replaced), resets the cameraman to dead-center during
+GENERAL scenes so it doesn't drift while inactive, and force-snaps the
+camera on every scene's first frame.
+
+### 15.11 `_run_gemini_stage` — the actual retry wrapper
+
+```python
+except gemini_worker.GeminiBlockedError:
+    raise  # deterministic policy block — never retry
+except Exception as e:
+    msg = str(e)
+    transient = any(tok in msg for tok in (
+        '503', 'UNAVAILABLE', '429', 'RESOURCE_EXHAUSTED',
+        '500', 'INTERNAL', 'overloaded', 'Deadline',
+        'empty response body', 'did not contain a JSON object',
+        'Failed to parse Gemini JSON response'))
+    if attempt == max_attempts or not transient:
+        raise
+    wait = 5 * (2 ** (attempt - 1))
+```
+`GeminiBlockedError` is re-raised *before* the generic handler runs, so a
+policy block can never accidentally match a transient-error substring. The
+transient list includes strings *this codebase's own parsing code* raises,
+not just transport errors — *"Gemini sometimes returns 200 with an empty
+body... Retrying that recovered every occurrence seen in prod
+(22-jul-2026)."* Backoff: `5 * (2 ** (attempt-1))` across 3 attempts (5s,
+10s).
+
+### 15.12 `get_viral_clips` — the real two-pass implementation (concrete parameters)
+
+`SCORE_BATCH = 8` windows per call; shortlist size
+`target = max(3, min(10, int(video_duration // 90) + 2))`; falls back to
+`windows[:target]` unscored if scoring returns nothing; **every** returned
+clip is run through `snap_clip_to_words()` unconditionally; cost is summed
+across every call in both passes into one `cost_analysis`; `GeminiBlockedError`
+is re-raised (not swallowed) so a content-policy block propagates as a real
+failure rather than "found zero clips."
+
+### 15.13 `get_visual_clips` — vision-only fallback, concretely
+
+Uploads the raw video, polls `client.files.get` every 2s for up to a
+**180-second deadline**, calls `generate_content` with
+`contents=[file_upload, prompt]` and a `VisualResponse` schema. Clips are
+clamped to real video duration and anything under 1s dropped. **Always**
+cleans up the uploaded file in a `finally` block, even on every failure path.
+
+### 15.14 The CLI entrypoint — fail loud, not fake-success
+
+```python
+if not clips_data or 'shorts' not in clips_data:
+    # Deliberately fail instead of reframing the whole video: that path
+    # wrote no metadata.json, so app.py marked the job failed anyway
+    # (app.py:1087) after burning GPU on a render nobody could see.
+    raise RuntimeError(
+        "Clip detection failed — Gemini did not return usable clips for this video.")
+```
+A real prior failure mode: an earlier "just reframe the whole video on
+failure" fallback *looked* like graceful degradation but burned a full GPU
+render for output nobody ever saw, since `app.py` still required
+`metadata.json` to mark success. The fix is "fail loud immediately," not
+"handle the failure better" — a specific instance of "don't degrade into a
+fake-success state that still costs full price." Clips render in parallel
+via `ThreadPoolExecutor` (`CLIP_WORKERS`, default 3), with each clip's
+cut/render/watermark/caption steps allowed to fail independently
+(`as_completed` catches+logs per-clip exceptions).
+
+**Recommendations for §15**: (1) the try-v2-fallback-to-v1 wrapper (§15.10)
+is worth copying verbatim for our own reframe engine if we ever build a
+face-tracked v2 on the static-crop v1; (2) the fail-loud-not-fake-success
+lesson (§15.14) directly matters for our budget-enforcement work — don't
+let a soft-degrade path burn Gemini/GPU budget for output nobody sees;
+(3) the byte-budget filename pattern (§15.5) should be ported before it
+bites us on a non-Latin Twitch title; (4) per-clip independent failure
+handling in a `ThreadPoolExecutor` batch (§15.14) is worth adopting directly
+once we parallelize our own multi-clip rendering.
+
+## 16. `hooks.py` — hook text/image overlay generation (408 lines, read in full)
+
+Generates the hook-card images composited onto clips — the visual
+counterpart of the hook *text* copy from §2's prompts.
+
+**`HOOK_STYLES`** — six named looks (classic/dark/yellow/red/outline/
+outline_yellow), one flag (`has_box = box_fill[3] > 0`) steering both the
+shadow-drawing and text-drawing branches, so a 7th style is just one dict
+entry.
+
+**Emoji handling** — a real cross-platform problem solved by degrading, not
+crashing: the hook font (`NotoSerif-Bold.ttf`) has no emoji glyphs, so the
+code probes hardcoded platform-specific emoji-font paths (Windows
+`seguiemj.ttf`, WSL's mount of it, two Linux/Docker Noto paths) and, if none
+load, **strips emoji from the text entirely** rather than rendering tofu
+boxes, collapsing the resulting double-space.
+
+**Pixel-based text wrapping** — measures actual rendered width per
+candidate line, and hard-wraps character-by-character
+(`_break_long_word`) when a single word is wider than the box on its own,
+"so the word can't get cut off at the edges." Font size is `int(target_width
+* 0.05)` — 5% of the target box width, "tuned to match Noto Serif Bold
+metrics in browser" — so it scales correctly across resolutions, not a fixed
+pixel size.
+
+**Byte-budget filename discipline again**: `add_hook_to_video`'s temp
+overlay filename is trimmed by the *same* dated incident as `MAX_TITLE_BYTES`
+(§15.5) — *"Embedding it untrimmed raised OSError 36 and killed the endpoint
+in prod on 26-jul-2026"* — confirming one real bug surfaced through at least
+two call sites, fixed identically at both (truncate by UTF-8 byte count, via
+a locally-duplicated `_truncate_bytes` so this module "stays free of main's
+heavy imports (cv2, mediapipe, torch)").
+
+**Recommendation**: port the pixel-wrap-with-hard-fallback and the
+emoji-strip-if-no-font logic directly if we ever build our own hook-card
+generator — both are real, non-obvious, easy-to-get-wrong-the-first-time
+problems already solved correctly here.
+
+## 17. `subtitles.py` — caption/subtitle generation and burning (561 lines, read in full)
+
+**`merge_continuation_words`** — short enough to quote in full, and it's
+the actual reference implementation of the transcript contract (leading
+space = true word start) already committed to in our Architecture Outline
+(Stage 2):
+```python
+def merge_continuation_words(words):
+    merged = []
+    for word in words:
+        text = word.get("word", "")
+        if merged and isinstance(text, str) and text and not text.startswith(" "):
+            prev = merged[-1]
+            prev["word"] = f"{prev.get('word', '')}{text}"
+            if word.get("end") is not None:
+                prev["end"] = word["end"]
+        else:
+            merged.append(dict(word))
+    return merged
+```
+Called defensively a *second* time inside `_collect_word_blocks` even for
+already-merged transcripts, because "transcripts from old jobs on disk store
+unmerged tokens" — i.e. deliberately idempotent-safe.
+
+**`_escape_ffmpeg_filter_value` — the apostrophe bug, dated the same day as
+this research pass (29-jul-2026)**:
+```
+NOTE: an apostrophe in the path cannot be made safe here. ffmpeg's
+filtergraph parser is not a shell — the shell idiom `'\''` was tried on
+29-jul-2026 and is worse than doing nothing: it drops the apostrophe AND
+swallows the following option, so `ass='…Earth'\''s.ass':fontsdir='…'`
+resolved to a filename of "…Earths.ass:fontsdir=…" and failed to open.
+```
+A documented *failed* fix attempt: the classic POSIX shell trick for
+embedding a literal quote doesn't work against ffmpeg's filtergraph parser —
+it corrupts the *following* filter option too. The real fix is
+architectural: never let an apostrophe-bearing path reach this function;
+always generate a neutral filename. **Directly actionable**: any subtitle
+file we burn via an ffmpeg `-vf ass=...`/`subtitles=...` filter must get a
+UUID/counter-based name, never one derived from a video/creator title.
+
+**`SAFE_MARGIN_V = 43`** (was 25): *"The old hardcoded 25 (8.7%) put
+captions underneath TikTok's and Reels' own bottom UI — the caption/username
+block and the music ticker — where they were partly covered on the platform
+even though the exported file looked fine."* A real category of bug — looks
+fine in isolation, breaks under the platform's own persistent UI chrome —
+worth a QA checklist item once we post to TikTok/Reels/Shorts for real.
+
+**`AUTO_CAPTION_STYLE`** — real A/B-tested defaults, not guesses: white
+Anton uppercase, `#FFE500` yellow active-word highlight chosen "because it
+is the one colour that almost never occurs in footage," `"pop"` scale effect
+tuned from 75→112% down to a gentler 90→108% after the wider range "started
+the word so small that any frame caught mid-animation read as a sizing bug
+rather than a beat," `max_chars: 16` / `max_duration: 1.4`. Dimming
+inactive words uses **RGB scaling, not alpha** — libass draws the outline
+*under* the fill, so a semi-transparent fill blends into muddy grey with its
+own outline; scaling toward black instead keeps text crisp.
+
+**Recommendation**: port `merge_continuation_words` near-verbatim (it's our
+already-committed transcript schema); adopt the neutral-filename-for-
+ffmpeg-filter rule as a hard project rule, not a suggestion; the complete
+karaoke-word-highlight ASS generator (one `Dialogue` event per word, `{\r}`
+reset, RGB-scaled dimming) is a fully-working, tuned implementation of
+exactly the "TikTok-style" caption look every source in our video research
+called table-stakes — no reason to design it from scratch.
+
+## 18. `thumbnail.py` — thumbnail/title/description generation (339 lines, read in full)
+
+Metadata layer (titles, thumbnails, description+chapters) for the *source*
+video, not clip extraction. No dated bug-fix comments anywhere in this file
+— unlike every other file read, this one reads as comparatively
+un-battle-tested.
+
+**`analyze_video_for_titles`** uploads the actual video (not just
+transcript text) and asks for 10 titles plus a self-selected top-2 with
+justification in the *same* call — a real, distinct prompting pattern from
+the two-stage score/detail split (§1): ask for candidates and a
+self-critique together, trading independent re-scoring rigor for one fewer
+round-trip. **No `response_schema` enforcement anywhere in this file** —
+manual markdown-fence-strip + `find('{')`/`rfind('}')` JSON extraction
+instead, a real regression relative to the schema-enforced pattern used
+throughout `gemini_worker.py`/`main.py`.
+
+**`generate_thumbnail`** composes actual reference images (face/background)
+directly into a multimodal `contents` list alongside text, with an
+`"⚠️ MANDATORY USER INSTRUCTIONS (MUST follow these exactly — they override
+any default behavior)"` block — a real technique for making user overrides
+reliably beat a function's own prompt defaults. `image_config=
+types.ImageConfig(aspect_ratio="16:9", image_size="2K")`, `count` (default
+3) independent try/excepted attempts, hard-fails only if *all* attempts
+failed — the same "collect partial successes, only hard-fail if the whole
+batch is empty" shape used elsewhere in this codebase.
+
+**`generate_youtube_description`** generates YouTube chapter markers from
+*real* transcript timestamps, not model-guessed ones — the model only picks
+which existing timestamps deserve a chapter break, sidestepping the
+"LLM is bad at precise numbers" problem `snap_clip_to_words` (§3) exists to
+fix elsewhere.
+
+**Recommendation**: our output is explicitly "YouTube Shorts + long-form
+compilations" (Architecture Outline Stage 5), so this is directly relevant,
+not a tangent. Port the chapter-generation-from-real-timestamps technique
+directly. Treat the missing `response_schema` enforcement here as a real
+inconsistency in openshorts itself, not something to copy — apply our own
+schema-enforced pattern uniformly, including to title/description
+generation.
+
+## 19. `translate.py` — ElevenLabs dubbing/translation (285 lines, read in full)
+
+A complete, small, self-contained ElevenLabs **Dubbing API** wrapper (full
+audio-track translation via voice cloning, not just subtitle translation).
+30 real supported language codes. `_with_retry` — a clean, generic
+exponential-backoff wrapper (2s/4s over 3 attempts), retrying only a
+self-raised `_TransientHTTPError` (429/500/502/503/504) or a raw
+`httpx.TransportError`, everything else fails fast — the same "classify by
+whether retrying could help" philosophy as `_run_gemini_stage` (§15.11), just
+for generic HTTP. `create_dubbing_project` re-opens the video file *inside*
+the retried closure so a retry doesn't resend a partially-consumed stream.
+`download_dubbed_video` streams to disk in 8KB chunks, correctly calling
+`response.read()` before `.text` on a non-200 streamed response.
+
+**Recommendation**: multi-language dubbing isn't in our current Architecture
+Outline (Stage 5 is YouTube/Reels distribution, not localization) — lower
+priority, but keep this filed as a complete, ready-to-port reference if that
+changes. The generic retry wrapper (§19's `_with_retry`) is worth lifting
+for *any* of our own outbound HTTP integrations (YouTube Data API, Twitch
+Helix, cross-posting APIs), not just ElevenLabs.
+
 ---
 
 ## Bottom line: what to actually take from this repo
@@ -741,11 +1173,33 @@ and correctly.
    own plan we didn't know we had. Also port `editor.py`'s dry-run-before-
    full-encode + one-shot Gemini self-repair loop (section 11) for any
    future case where we hand an LLM authority over ffmpeg filter syntax.
+   From the `main.py`/`hooks.py`/`subtitles.py` pass (sections 15-17): the
+   byte-budget (not character-budget) filename-truncation pattern behind
+   `MAX_TITLE_BYTES` (§15.5, §16) — a real, dated `OSError 36` incident,
+   specifically about non-Latin-script titles, that applies just as much to
+   Twitch stream/VOD titles as YouTube ones; `merge_continuation_words()`
+   (§17), the actual short reference implementation of the transcript
+   contract already committed to in Stage 2 of our Architecture Outline;
+   the hard rule that any filename interpolated into an ffmpeg filter string
+   must be neutral/UUID-based, never derived from user- or creator-supplied
+   text (§17 — a proven, not hypothetical, apostrophe-breaks-the-filtergraph
+   failure mode); and the complete karaoke-style per-word-highlight ASS
+   caption generator (§17, RGB-scaled dimming + `{\r}`-reset inline color
+   overrides) — a working, tuned implementation of exactly the TikTok-style
+   animated-caption look every source in our video research named as
+   table-stakes, with no reason to design it from scratch.
 2. **Adopt the prompting patterns**: the 2-second test, the diversity rule,
    the named hook-pattern list, the two-stage cheap-score/expensive-detail
    split (sections 1-2) — but verify any prompt text we port for internal
    consistency first; even this repo ships at least one self-contradictory
    prompt (section 12's duration-bounds conflict in `saasshorts.py`).
+   `thumbnail.py` (§18) adds two more real prompting techniques: "generate a
+   batch, then have the same call self-select and justify its top picks,"
+   and a "⚠️ MANDATORY USER INSTRUCTIONS... override any default behavior"
+   block for making user-supplied overrides reliably beat a function's own
+   prompt defaults — plus the chapter-generation-from-real-timestamps
+   technique, a clean way to keep an LLM constrained to ground-truth
+   numbers instead of inventing new ones.
 3. **Adopt the resilience patterns**: fail-fast on content-policy blocks
    instead of retrying (section 5), a real per-model pricing table instead
    of one flat rate (section 4), an output-quality heuristic for ASR
@@ -754,7 +1208,20 @@ and correctly.
    process (section 13), "verify real output exists, don't trust exit code
    alone" as a success check (section 13), and error-marker-filtered log
    classification instead of naive tail-grabbing for any failure
-   summarization we build (section 13).
+   summarization we build (section 13). From sections 15-19: the
+   try-the-newer-engine-fall-back-to-the-older-one-on-any-exception wrapper
+   shape around `process_video_to_vertical`'s v2/v1 reframe engines
+   (§15.10); the "fail loud instead of a fake-success degrade that still
+   burns full cost" lesson from `main.py`'s own documented prior incident of
+   reframing whole videos nobody could see (§15.14); per-item independent
+   failure handling inside a `ThreadPoolExecutor` batch, used consistently
+   for both parallel clip rendering (§15.14) and multi-attempt thumbnail
+   generation (§18); the captions-shipped-by-default product decision,
+   backed by the same 9%-opt-in-rate stat independently cited in both
+   `main.py` (§15.8) and `app.py` (section 13); and `translate.py`'s small,
+   clean, generic HTTP exponential-backoff wrapper (§19), reusable for any
+   of our own outbound HTTP calls (YouTube Data API, Twitch Helix,
+   cross-posting APIs), not just Gemini.
 4. **Defer, but don't forget**: face-tracked dynamic cropping (section 7) —
    real, tuned, valuable design, but a v2 feature, not a v1 blocker. Ship
    the static crop first (already proven working in our own `pipeline.py`).
@@ -777,16 +1244,23 @@ and correctly.
    split (a real answer to "how do we isolate the expensive part without
    paying subprocess overhead everywhere"), and the two-axis (age + size)
    disk cleanup if our own output directory ever needs pruning across
-   repeated runs.
-6. **A meta-lesson, not a technique**: two separate close reads of this
-   repo (this one and the parallel pass over `main.py`/`hooks.py`/
-   `subtitles.py`/`thumbnail.py`/`translate.py`) each turned up at least one
-   concrete, real bug or rough edge in "production-hardened, 2,784-star"
-   code — unreachable dead code in `saasshorts.py` (section 12), a
-   self-contradictory prompt in the same file, and an unaddressed
-   scaling gap admitted only in a code comment in `s3_uploader.py`
-   (section 10). None of these are damning, and none change the
-   recommendation to learn from this repo — but they're concrete evidence
-   for the project's own standing rule that "real and popular" is not
-   "beyond scrutiny," gathered specifically because we read the actual
-   code line-by-line instead of trusting star count or README claims.
+   repeated runs. Also skip for now: `translate.py`'s ElevenLabs dubbing
+   integration (section 19) — multi-language localization isn't in our
+   current Architecture Outline — but keep it filed as a complete,
+   ready-to-port reference for whenever that changes.
+6. **A meta-lesson, not a technique**: multiple close reads of this repo
+   (sections 1-19) each turned up at least one concrete, real bug or rough
+   edge in "production-hardened, 2,784-star" code — unreachable dead code
+   in `saasshorts.py` (section 12), a self-contradictory prompt in the same
+   file, an unaddressed scaling gap admitted only in a code comment in
+   `s3_uploader.py` (section 10), a documented-and-abandoned Canny-edge-
+   density heuristic that measured backwards on its own test case (§15.3),
+   a live, dated (29-jul-2026 — the same day as this research pass) failed
+   fix attempt for an ffmpeg apostrophe-escaping bug (§17), and
+   `thumbnail.py`'s complete absence of the schema-enforced JSON parsing
+   pattern used everywhere else in the codebase (§18). None of these are
+   damning, and none change the recommendation to learn from this repo —
+   but they're concrete evidence for the project's own standing rule that
+   "real and popular" is not "beyond scrutiny," gathered specifically
+   because we read the actual code line-by-line instead of trusting star
+   count or README claims.

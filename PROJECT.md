@@ -12,7 +12,46 @@ YouTube Shorts + long-form compilations, cross-posts to multiple platforms.
 Separate project from `youtube-auto-videos` (Parents Teach Kids), kept in
 its own folder/repo, but actively salvaging verified-working code from it.
 
-## Current status (2026-07-29)
+## Current status (updated 2026-07-30 — read this first if resuming)
+
+**Where things actually stand right now:**
+- ✅ **Done:** repo scaffold, `SALVAGE_INVENTORY.md`, `validate_environment.py`
+  (untested against real Twitch creds), all 17-video research (full real
+  transcripts + two independent re-reads), all 6 Gemini dossiers saved
+  verbatim, dossiers 1-5 fully verified (34 repos + Reddit + YouTube
+  devlogs), the full Architecture Outline (below), the cost-philosophy
+  correction pass (don't discard free resources — see
+  `feedback_dont_dismiss_free_resources` in cross-session memory), a local
+  git checkpoint (commit `20875eb`), and the `mutonby/openshorts` deep-dive
+  — **now fully complete, sections 1-19 in
+  `reference/deep_dive_openshorts.md`, every core Python file read,
+  licensing checked.**
+- 🔶 **Partially done:** the 6-repo audit (verifying the other five
+  deep-dived repos got genuinely complete file-by-file coverage, not just
+  the obviously-relevant files). Confirmed complete: `TwitchDownloader`
+  (real corrections found — see `deep_dive_ingestion_and_pipelines.md`'s
+  audit-pass section) and `Auto-clipper`. **Still not confirmed complete:**
+  `ClipsAI/clipsai`'s remaining files, `nirvagold/stream-clipper`'s actual
+  Rust backend (only the high-level architecture has been documented so
+  far), `metaleey/AI-auto-segment-edit-video-pipeline`'s remaining files.
+- 🔶 **Just landed, not yet verified:** Gemini dossier #6
+  (`reference/gemini_dossier_6_raw.md`) — has real, unverified new claims
+  (`htek/VidPipe`, `indiser/ViralContent-Factory`, `Kuonirad/AutoCutAI`,
+  monetization platforms "Clip Money" and "Vyro") and two **owner
+  conflicts** against already-verified repos (`PyTwitchAPI/twitchAPI` vs.
+  our confirmed `Teekeks/pyTwitchAPI`; `agnostic-apollo/ffsubsync` vs. our
+  confirmed `smacke/ffsubsync`) that need a real check before trusting
+  either version.
+- ⏳ **Blocked on the user:** Twitch Developer Console app (Client ID +
+  Secret) — guidance given in chat, not yet confirmed done. Nothing in
+  Stage 1 (ingestion) can be tested for real without this.
+- **Not started at all:** any actual pipeline code. Still deliberately in
+  the pre-flight/research phase.
+
+**To resume after a break:** finish the 6-repo audit gaps above, verify
+dossier 6's new claims and the two owner conflicts, get the Twitch
+credentials, then the pre-flight checklist below is the actual next
+concrete step — run `validate_environment.py` for real.
 
 **Pre-flight phase. No pipeline code has been written yet — by design.**
 Per explicit instruction: prove out every hard dependency before writing any
@@ -85,11 +124,13 @@ reference/inspiration only per standing project rule, see `CLAUDE.md`):
   first architecture + reference-script dump, evaluated (real bugs found in
   the code, useful architecture shape kept).
 - [`reference/gemini_dossier_1_raw.md`](reference/gemini_dossier_1_raw.md)
-  through [`_5_raw.md`](reference/gemini_dossier_5_raw.md) — five "50
+  through [`_6_raw.md`](reference/gemini_dossier_6_raw.md) — six "50
   sources" / architecture tool lists, saved verbatim (dossiers 4 and 5 are
   mostly generic technique descriptions rather than specific repo claims;
   the middle two blocks of the message that produced 4/5 were exact repeats
-  of dossiers 1 and 2 and were not re-saved as duplicates).
+  of dossiers 1 and 2 and were not re-saved as duplicates). **Dossier 6 is
+  not yet verified** — see Current Status above for its specific new claims
+  and owner conflicts.
 - [`research/tool_verification.md`](research/tool_verification.md) — the
   full independent-verification audit trail for every specific claim across
   all five dossiers (real GitHub API lookups, PyPI checks, search
