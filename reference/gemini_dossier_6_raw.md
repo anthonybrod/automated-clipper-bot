@@ -5,19 +5,23 @@ standing instruction to record everything, not summarize. Two documents
 pasted together in one message — reproduced in full below, in the order
 given.
 
-**Flagged on sight, before any independent check:** two entries here give a
-**different repo owner** than what this project already independently
-verified for the same tool:
-- `PyTwitchAPI/twitchAPI` (this dossier) vs. `Teekeks/pyTwitchAPI` — the
-  owner we confirmed real via GitHub API in dossier 1/2 verification
-  (`research/tool_verification.md`). One of these is wrong.
-- `agnostic-apollo/ffsubsync` (this dossier) vs. `smacke/ffsubsync` — the
-  owner we confirmed real earlier. Same situation.
+**Both owner conflicts resolved, 2026-07-30 — checked directly via GitHub
+API, both dossier-6 attributions are hallucinated:**
+- `PyTwitchAPI/twitchAPI` — **404, does not exist.** Real repo remains
+  `Teekeks/pyTwitchAPI` (291 stars, pushed 2026-02-15, confirmed again).
+- `agnostic-apollo/ffsubsync` — **404, does not exist.** Real repo remains
+  `smacke/ffsubsync` (7,807 stars, pushed 2026-07-24, confirmed again, not
+  a fork).
 
-Both need a real check before trusting either version — could be a fork,
-could be a hallucinated owner substituted for a real one (the same pattern
-already caught once this session with `samyaksgupta/Clips` →
-`tryvinci/vinci-clips`).
+Same pattern as `samyaksgupta/Clips` → `tryvinci/vinci-clips` in dossier 1:
+a real, already-correctly-identified tool gets a plausible-sounding but
+nonexistent owner substituted in on a later pass. That's now happened 3
+times across 6 dossiers — worth knowing about as a specific thing to
+double-check when a later dossier re-cites a tool under a different owner
+than one already confirmed. It is not grounds to assume any *new,
+not-yet-checked* claim from this source is false — most repo claims across
+all six dossiers have checked out real (roughly 85% of named repos so
+far). Every new claim still gets verified on its own, the same as before.
 
 ---
 
@@ -114,8 +118,20 @@ signal.
   Money, and Vyro"** running campaigns paying clippers on a CPM basis ($1
   to $3 per 1,000 views), yielding payouts from $500 to $1,500+ per viral
   clip. "Whoop" is likely a misspelling of **Whop** (already confirmed real
-  via video research). **"Clip Money" and "Vyro" are new, unverified
-  claims** — not encountered in any prior dossier or video research.
+  via video research). **Checked directly, 2026-07-30:**
+  - **Vyro — real and significant.** `vyro.com`, launched October 2025,
+    MrBeast as its public face (built by the team behind his analytics
+    company ViewStats), also used by Mark Rober and Unwell. Real rate
+    corroborated at ~$3/1,000 views, matching the dossier's claimed range
+    closely. A real, current, notable player in the clip-bounty economy —
+    add to the business-model context alongside Whop/Biro.
+  - **"Clip Money" — a real company, wrong domain entirely.**
+    `clipmoney.com` is a real business, but it's a retail/business
+    cash-management fintech platform ("Modernizing cash management for
+    every business") with nothing to do with content clipping. The dossier
+    attached a fabricated clip-bounty function to a real company name that
+    has no actual connection to it — a different, more subtle failure mode
+    than a fully nonexistent repo, worth remembering as its own pattern.
 - **Agency Scaling Model**: transitioning from manual editing bottlenecks
   to a 1-day-a-week batch production system handling multiple clients
   simultaneously (echoes video 1/COMMAND-LABS' real "1-day-a-week" framing
@@ -134,11 +150,22 @@ claims, all already in `research/tool_verification.md`.
 
 ### Section 1: Advanced Open-Source AI Clipping & Editing Repositories
 
-1. **`htek/VidPipe`** — "A 15-stage AI pipeline built with GitHub Copilot
-   SDK and TypeScript that ingests raw long-form recordings and breaks
-   them into 6 format variants, karaoke captions, and silence removal."
-   URL given is a blog article, not a repo: `https://htek.dev/articles/vidpipe-copilot-cli-challenge`
-   — **new, unverified.**
+1. **`VidPipe`** — **verified real, 2026-07-30.** The dossier's owner
+   attribution (`htek`) was wrong — checked the linked blog post
+   (`htek.dev/articles/vidpipe-copilot-cli-challenge`), which itself links
+   to the real repo: **`htekdev/vidpipe`** (205 stars, TypeScript, pushed
+   2026-07-27, actively maintained). Confirmed via GitHub API. Real
+   description: "CLI tool that auto-processes video recordings:
+   transcribes, removes silence, generates captions, creates shorts,
+   social posts, and more" — matches the dossier's claim closely. The blog
+   post itself states real, specific numbers: 131 TypeScript files, ~12,000
+   lines of source, 51 test files, ~10,500 lines of tests, 8 specialized
+   AI agents built on `@github/copilot-sdk`. A real, substantial,
+   well-tested project — worth a proper look given its scope (auto
+   silence-removal, chapter detection, multi-platform social copy are all
+   directly relevant capabilities), same "don't write off on a surface
+   detail" lesson as `AutoCutAI` above — the wrong owner name almost made
+   this look like a dead end before the real repo was found one link away.
 2. **`indiser/ViralContent-Factory`** — "Python-based autonomous pipeline
    that ingests long-form content, applies multi-provider LLM routing,
    integrates neural voice synthesis (Edge-TTS), and handles moviepy
@@ -152,14 +179,23 @@ claims, all already in `research/tool_verification.md`.
    (`reference/deep_dive_ingestion_and_pipelines.md`).
 6. `nirvagold/stream-clipper` — already deep-dived
    (`reference/deep_dive_ingestion_and_pipelines.md`).
-7. **`Kuonirad/AutoCutAI`** — "Autonomous multimodal video editing engine
-   that parses visual semiotics and models affective trajectories to
-   generate coherent cinematic sequences."
-   `https://github.com/Kuonirad/AutoCutAI-Autonomous-AI-Video-Editor-that-Understands-Semiotics-Rhythm`
-   — **new, unverified.** Note: this description reads as unusually
-   grandiose/academic-jargon-heavy ("visual semiotics," "affective
-   trajectories") compared to every other real repo found this session —
-   worth treating with extra skepticism until checked directly.
+7. **`Kuonirad/AutoCutAI`** — **verified real, 2026-07-30**, and checked
+   past the surface: real repo, 3 stars, confirmed via GitHub API, and its
+   actual `editor/v1.py` code was read directly (not just the README). The
+   grandiose description ("visual semiotics," "affective trajectories,
+   induces rhythmic structure") is the *repo's own* framing, not Gemini
+   exaggerating — but the real code is more modest and genuinely
+   functional: `rough_cut_v1()` implements a real, defensively-coded
+   beat-synced rough-cut algorithm (`SimpleBeatSyncPolicy`) — detects
+   rhythm onsets, builds a `BeatGrid`, aligns each shot's cut point to the
+   nearest beat on or after its natural start, validates the resulting
+   segment still meets a minimum duration after alignment, drops shots that
+   don't. This is real, working, portable logic, not vaporware — worth
+   keeping as an optional technique for music/gaming-highlight content
+   where cuts landing on the beat matters (initially almost dismissed on
+   star-count/jargon-density alone before actually reading the code — same
+   too-quick-to-write-off mistake as the YOLO/Parakeet/`fer` cases, caught
+   before it repeated a fourth time).
 
 ### Section 2: Ingestion, Scraping & Stream Capture Utilities
 

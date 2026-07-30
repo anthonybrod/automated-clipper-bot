@@ -108,6 +108,7 @@ pending
 ## 7. Business-model context (not tools — market/economics facts)
 
 - **Whop Clipping, Biro** — real paid clipper marketplaces (platforms pay people/bots per clip). Separate business model from running your own compilation channel. Confirmed via video research (videos 12, 13).
+- **Vyro** (`vyro.com`) — real, notable, launched October 2025, MrBeast-backed (built by the team behind his analytics company ViewStats), also used by Mark Rober and Unwell. Real rate ~$3/1,000 views. Confirmed via web search 2026-07-30 (Gemini dossier 6).
 - **Headliner** (free tier) — real, named clipping tool with a genuinely free tier. Confirmed via video 12.
 - Streamer clip-farming/bounty economy (Discord submission channels) — corroborated independently by both the video research and the first Gemini dossier's "Lacy" tangent.
 
