@@ -1,0 +1,407 @@
+# How to Automate Cross-Platform Social Media Posting (Pabbly)
+# https://www.youtube.com/watch?v=av06ZI2bKW4
+
+[00:00] Hello and welcome back to our channel.
+[00:02] In this video, we are going to
+[00:03] understand how you can auto post your
+[00:06] social media post on different social
+[00:08] media platforms automatically with
+[00:10] without wasting your time. So now here
+[00:12] my objective is whenever I'm going to
+[00:14] create a new post on my Facebook page
+[00:16] over here, then automatically the same
+[00:18] post should be shared on my Instagram
+[00:20] account and my LinkedIn account with the
+[00:22] same caption and the same image. So now
+[00:26] here I've already built an automation
+[00:27] where I've connected my entire
+[00:29] applications using an automation
+[00:31] software and now firstly in this video
+[00:34] we are going to see the working of this
+[00:35] amazing automation to understand this
+[00:37] entire process more clearly. So now here
+[00:40] to see the working of this automation
+[00:42] what we going to do is that we are going
+[00:44] to create a new post on our Facebook
+[00:46] page. So I'm going to create a new post.
+[00:48] So let me add the caption and the image.
+[00:51] And here you can see I have successfully
+[00:53] added a caption and a relevant image for
+[00:55] my post. So now we're going to click on
+[00:57] this next. And then here we're going to
+[01:00] post this particular post on our
+[01:02] Facebook page. And here you can see we
+[01:05] have successfully created a new post on
+[01:07] our Facebook page. So now let's go and
+[01:09] check our Instagram account and our
+[01:11] LinkedIn account to see whether a new
+[01:13] post with the same caption and image has
+[01:15] been created on our accounts or not. So
+[01:17] let's go on Instagram first. Here I'm
+[01:19] going to refresh it.
+[01:21] And here you can see we have
+[01:23] successfully created a new post on our
+[01:24] Instagram account where you can see the
+[01:26] same image and the caption of our post.
+[01:29] Now let's go and check our LinkedIn
+[01:31] account as well. So this is my LinkedIn
+[01:33] profile and here you can see we have
+[01:35] successfully created a new post on our
+[01:37] LinkedIn account where you can see the
+[01:39] same image and the caption posted over
+[01:41] here like this. All right. So with this
+[01:43] we have successfully seen the working of
+[01:45] this amazing automation and now here in
+[01:47] this video we are going to learn step by
+[01:49] step that how you can build this
+[01:50] automation by simply connecting your
+[01:52] Facebook page with your Instagram
+[01:54] account and your LinkedIn account using
+[01:56] an automation software named as public
+[01:59] connect. So to access the PB connect you
+[02:01] need to search for pabyt.com/connect
+[02:04] in your browsers and it will take you to
+[02:06] the homepage of Paby connect. There you
+[02:08] can see two options. One is sign in and
+[02:11] the another one is sign up free. If
+[02:13] you're a new user, click on sign up free
+[02:15] and get free 100 task every month to
+[02:17] explore the software. And if an existing
+[02:19] user like me, then simply sign in. Now
+[02:22] after signing in, you can see all Pabi
+[02:24] apps window where you can see all the
+[02:26] applications of Pabi. From here, you
+[02:28] need to access Pab Connect by clicking
+[02:30] on this access now and it will take you
+[02:33] to the dashboard of Pab Connect. So here
+[02:35] before moving forward with the
+[02:37] connection let me tell you about public
+[02:39] community. So public community is a
+[02:41] space where automation users, business
+[02:43] owners and marketers connect. You can
+[02:45] ask questions, share workflows and get
+[02:47] instant replies and helpful feedback
+[02:49] from others who have faced these similar
+[02:51] challenges. It is an active and
+[02:53] supportive space to learn and grow
+[02:55] together. And now you can find the link
+[02:57] to join the Pab community in the
+[02:59] description box below. Make sure to
+[03:01] check it out and join the PABY community
+[03:03] as soon as possible. All right, let's
+[03:06] move back to our PABY's dashboard. And
+[03:08] now here to create a new connection, I
+[03:10] need to create a workflow first. So for
+[03:12] that, I'm going to click on this create
+[03:13] workflow button. Then here is asking me
+[03:15] to select the workflow builder. So here
+[03:18] you can see two options. One is your
+[03:19] beta and the another one is classic. So
+[03:21] beta version is modern, fast and more
+[03:23] flexible whereas classic one is stable
+[03:25] and the familiar approach. So in this
+[03:27] video we are going to use this beta
+[03:29] version by clicking on the select button
+[03:31] and then a create workflow dialog box
+[03:33] appeared in front of us. So I'm going to
+[03:35] give a name to my workflow that says
+[03:37] automate crossplatform social media
+[03:39] posting and then here is asking me to
+[03:41] select the folder. So in the left side
+[03:43] corner of this dashboard you can see a
+[03:45] folder section under which you can see
+[03:47] the multiple folders that I've already
+[03:49] created with different names to save my
+[03:51] workflows accordingly. So in this case
+[03:53] I'm going to select my folder as
+[03:55] automations. You can select it as per
+[03:57] your need. Also, you can create multiple
+[03:58] folders to save your workflows
+[04:00] accordingly. And now here to learn how
+[04:02] to create a new fold inside Pab Connect,
+[04:04] you need to click on this learn mahyper
+[04:06] link given over here. And it will take
+[04:08] you to our forum window where you can
+[04:10] see all the instructions to how to
+[04:12] create a new fold inside connect. All
+[04:15] right, let's move back to our PAL's
+[04:16] dashboard. And here to create a new
+[04:18] workflow, we're going to click on this
+[04:20] create button given over here. Now in
+[04:23] this workflow window you can see we have
+[04:24] successfully created a workflow. And
+[04:26] here let me tell you that there are two
+[04:28] most important principles of an
+[04:30] automation process that are trigger and
+[04:32] action. Where trigger says when this
+[04:34] happens an action says do this that
+[04:36] means action is a response towards a
+[04:39] trigger. Your automation can have a
+[04:41] single trigger but multiple action
+[04:42] steps. Now let's begin with our
+[04:44] automation by simply setting up a
+[04:46] trigger. So I'm going to select my
+[04:48] trigger as Facebook pages because I'm
+[04:50] going to create a new post on my
+[04:51] Facebook page first. So I'm going to
+[04:53] select it as trigger and here for the
+[04:55] app event I'm going to select it as new
+[04:57] post. Then we're going to click on this
+[04:59] connect here to build a new connection.
+[05:01] I'm going to select add a new
+[05:02] connection. If your Facebook pages
+[05:04] account is already connected with public
+[05:05] connect then you can click on select
+[05:07] existing connection. And now here to
+[05:09] build a new connection I'm going to
+[05:11] click on this connect with Facebook
+[05:12] pages. Here I'm going to select my
+[05:14] desired account. Then I'm going to click
+[05:16] on this continue. And here you can see
+[05:19] we're now successfully connected. So
+[05:21] here it easily got connected because
+[05:22] here I was already logged in my Facebook
+[05:24] account. So to build an easy connection,
+[05:26] make sure you're already logged in your
+[05:27] Facebook account in the same browser. Or
+[05:30] else if you're building a new
+[05:31] connection, then it is going to ask for
+[05:32] the account credentials first. All
+[05:34] right, let's move forward. Here it is
+[05:36] asking me to select the Facebook page.
+[05:38] So I've already shown you that I have my
+[05:40] Facebook page with the name Digital
+[05:41] Dynamics. So I'm going to select my page
+[05:44] as digital dynamics over here. So this
+[05:46] is my Facebook page. And now I'm going
+[05:48] to click on the save and send as
+[05:50] request. But here before clicking on the
+[05:52] save and send us request I'm going to
+[05:53] turn on the simple response button in
+[05:55] order to receive the response in a
+[05:57] simple format that means in an organized
+[05:59] format. But here if you wish to receive
+[06:01] the response in an advanced format that
+[06:03] means in an error format then you can
+[06:06] simply turn it off. All right. So now
+[06:08] here after that we're going to click on
+[06:10] the save and send request.
+[06:12] And now here you can see as it is
+[06:14] waiting for webbook response. That means
+[06:15] here to receive a webbook response we
+[06:17] need to do a test submission. And to do
+[06:19] a test submission we need to create a
+[06:21] new post on our Facebook page. So now
+[06:23] here I'm going to create a new post on
+[06:25] my Facebook page. So let me add the
+[06:27] caption and the image. And here you can
+[06:30] see I've successfully added the caption
+[06:31] and the image. So we're going to click
+[06:33] on this next. And then we're going to
+[06:35] create a new post on our Facebook page.
+[06:37] For now I'm going to select it as not
+[06:39] now. And here you can see we have
+[06:41] successfully created a new post on our
+[06:43] Facebook page where we have received the
+[06:44] caption and the image. So let's go and
+[06:47] check our Pab's workflow. And here you
+[06:50] can see we have received a successful
+[06:51] response where we have received the
+[06:53] success message from ID from name. Here
+[06:55] you can see the link of our image. And
+[06:58] here you can see the caption of our
+[07:00] post. So let me open this link for you
+[07:02] in a new tab. And here you can see it is
+[07:05] exactly the same image. All right. So
+[07:07] let's move back to our Baby's workflow.
+[07:09] And with this we have successfully set
+[07:11] up a trigger over here. So once we have
+[07:13] created a new post on our Facebook page
+[07:15] then automatically and instantly I want
+[07:17] to share that same post on my Instagram
+[07:20] account and on my LinkedIn account as
+[07:22] well. So for that we're going to connect
+[07:23] these applications inside connect. But
+[07:26] here before connecting these
+[07:27] applications I'm going to use a feature
+[07:29] of Pabi that is file uploader by Pabi to
+[07:32] shorten the URL of the image that we
+[07:34] have received over here because this is
+[07:36] a very long URL that we have received
+[07:38] and we need to shorten this URL in order
+[07:40] to post the same media on our different
+[07:43] social media platforms. So for that
+[07:45] we're going to add action step over here
+[07:47] and here I'm going to select my action
+[07:49] application as file uploader by Pabi.
+[07:52] Then here for the app event we going to
+[07:53] select upload file and get URL. Then
+[07:56] we're going to click on this connect.
+[07:58] Here it is asking me to add the file URL
+[08:00] and the file name. So now here instead
+[08:02] of entering the details manually here
+[08:04] I'm going to map the data. Mapping data
+[08:06] means insert data from previous step.
+[08:08] That means here I'm going to map the
+[08:10] data from the response that received in
+[08:12] my trigger step or my previous action
+[08:14] steps. Mapping makes a text dynamic so
+[08:16] that when I'm going to receive a new
+[08:18] post from a Facebook page then
+[08:20] automatically this previously existing
+[08:21] detail will be updated with the new one.
+[08:23] So here for the URL I'm going to map
+[08:25] this file URL that I want to get shorten
+[08:28] and here for the file name we are going
+[08:30] to add the file name as photo ID. So
+[08:33] this is the photo ID. And in the last
+[08:35] I'm going to mention the extension of my
+[08:38] file that is JPG. All right. So we're
+[08:41] going to click on the save and send as
+[08:42] request now. And here you can see we
+[08:45] have received a successful response
+[08:46] where we have received the shorten link
+[08:48] for this particular media. Let me copy
+[08:51] it and open it in a new tab to show you
+[08:53] how it actually looks. So this is
+[08:55] exactly the same image. All right. So
+[08:57] with this we have successfully set up
+[08:59] this action step as well. All right. So
+[09:01] now after shortening the link we are
+[09:02] going to use these details to create a
+[09:04] new post on our Instagram account and on
+[09:06] our LinkedIn account as well. So let's
+[09:08] create the post first on Instagram
+[09:10] account. So we're going to add action
+[09:11] step over here. And here we're going to
+[09:13] select the application as Instagram for
+[09:15] business and the app event as publish
+[09:17] photo. Then we're going to click on this
+[09:19] connect here to build a new connection.
+[09:21] We're going to select add a new
+[09:22] connection. If your Instagram account is
+[09:24] already connected with public connect
+[09:26] then you can click on select existing
+[09:28] connection. And now here to build a new
+[09:30] connection I'm going to click on this
+[09:31] connect with Instagram for business.
+[09:33] Here I'm going to select my desired
+[09:35] account. Then you're going to click on
+[09:37] this continue. So here I've already
+[09:38] connected my Instagram account with my
+[09:40] Facebook account. And here it easily got
+[09:42] connected because here I was already
+[09:44] logged in my account. If you also want
+[09:46] to build an easy connection, make sure
+[09:47] you're already logged in your accounts
+[09:49] in the same browser. Or else, if you're
+[09:51] building a new connection, then you need
+[09:52] to add your account credentials first.
+[09:54] All right, let's move forward. Here, we
+[09:56] need to select the Instagram account
+[09:57] that I want to use. So, I'm going to
+[09:59] select my account from the drop-down.
+[10:01] And here for the URL, I'm going to map
+[10:03] the link of the URL that we have
+[10:04] received from our file uploader by Pably
+[10:07] action step. So, this is a file URL. And
+[10:09] here for the caption, we're going to map
+[10:10] the caption that we have received from
+[10:13] our Facebook trigger. So these are the
+[10:15] details. Now we're going to click on the
+[10:16] save and send as request. And here you
+[10:19] can see we have received a successful
+[10:21] response. That means we have
+[10:22] successfully created a new same post on
+[10:24] our Instagram account as well. So let's
+[10:26] go and check it here. I'm going to
+[10:28] refresh it. And here you can see we have
+[10:30] successfully created a new post over
+[10:32] here with the same image and the same
+[10:34] caption. So with this we have
+[10:36] successfully set up this action step as
+[10:38] well. So now after posting the same post
+[10:40] on Instagram account, I want to post the
+[10:42] same post on my LinkedIn account as
+[10:44] well. So for that we're going to add
+[10:46] action step over here. Here we are going
+[10:48] to select action application as LinkedIn
+[10:51] and app event as share text with image.
+[10:54] Then we're going to click on this
+[10:55] connect. Here to build a new connection
+[10:57] I'm going to select add a new
+[10:58] connection. If your LinkedIn account is
+[10:59] already connected with public connect
+[11:01] then you can click on select existing
+[11:03] connection. And now here to build a new
+[11:05] connection I'm going to click on this
+[11:06] connect with LinkedIn. Here you need to
+[11:08] add your account's email address and the
+[11:10] password. Here you can see it is autof
+[11:12] filled over here. So we're going to
+[11:13] click on the sign in. And we are now
+[11:16] successfully connected. So let's move
+[11:17] forward. Here for the author I'm going
+[11:19] to refresh the fields. And you can see
+[11:21] automatically my account author has been
+[11:23] selected over here. Then here is asking
+[11:25] for the file URL and the text content.
+[11:28] So again I'm going to map this
+[11:29] particular URL. And here for the content
+[11:31] I'm going to map the caption received.
+[11:33] So this is the caption received and here
+[11:35] for the visibility I'm going to select
+[11:37] it as public. You can select it as per
+[11:39] your requirement. Then here after
+[11:41] entering all the required details I'm
+[11:42] going to click on the save and send as
+[11:44] request. And here you can see we have
+[11:47] received a successful response. That
+[11:49] means we have successfully created a new
+[11:50] post on our LinkedIn account as well. So
+[11:53] let's go and check it. Here I'm going to
+[11:54] refresh it. And here you can see we have
+[11:57] successfully created a new post on our
+[11:59] LinkedIn account with the same image and
+[12:01] the same caption. So with this we have
+[12:04] successfully set up entire automation.
+[12:06] Now let me summarize this whole video
+[12:08] for you. So if we have selected our
+[12:10] trigger as Facebook pages and our
+[12:11] actions file uploaded by Pabi, Instagram
+[12:13] for business and LinkedIn. So that
+[12:16] whenever going to post a new post on our
+[12:18] Facebook page then automatically and
+[12:20] instantly using file uploaded by Pabi it
+[12:22] is going to shorten the URL of that
+[12:24] media and after that automatically the
+[12:27] same post will be posted on our
+[12:28] Instagram account and on our LinkedIn
+[12:30] account as well without wasting our
+[12:32] minutes. All right. So these were the
+[12:34] steps to how to automate crossplatform
+[12:36] social media posting. I hope these steps
+[12:38] were clear to you. Now if you want to
+[12:40] use the same workflow then you can find
+[12:41] the clone link in the description box
+[12:43] below. And now if you found this video
+[12:45] helpful then don't forget to like, share
+[12:46] and subscribe for more automation
+[12:48] tutorials. Also if you have any doubts
+[12:50] then feel free to drop them in the
+[12:51] comments below and I would be really
+[12:53] happy if you let us know what type of
+[12:55] automation you would like to see the
+[12:56] next. All right that's all for this
+[12:58] video. See you in the next one. Thanks
+[13:00] for watching. Not only these
+[13:02] applications you can integrate many
+[13:04] other applications with Pab Connect. If
+[13:06] you have any doubt then you can email us
+[13:08] at supportpy.com.
+[13:10] If you have any query then you can write
+[13:11] it at forum.py.com. pavi.com and if you
+[13:14] have any pricing related issue then you
+[13:16] can visit this URL. Now if you like the
+[13:18] video then please subscribe to our
+[13:19] channel and share it with your friends.

@@ -1,0 +1,79 @@
+# How To Auto-Post Twitch Clips to Social Media (Repurpose io)
+# https://www.youtube.com/watch?v=zNtNYkgCnSA
+
+[00:00] Twitch creators, this is huge. If you're
+[00:03] a gamer, a podcaster, an IRL streamer, a
+[00:06] music artist, or even an e-sports pro,
+[00:09] your content is way too good to just sit
+[00:11] there on Twitch. Twitch is where you
+[00:13] create, but if you're not repurposing
+[00:16] your clips, highlights, and full streams
+[00:18] to YouTube shorts, Instagram reels, or
+[00:21] even backing them up to Google Drive,
+[00:23] you're throwing away growth. But that
+[00:25] changes right now. With repurpose.io,
+[00:28] you can automate everything and get your
+[00:30] content everywhere without lifting a
+[00:32] finger. And I'm about to show you
+[00:33] exactly how easy it is. So, let's go
+[00:35] ahead and get started. First up, stop
+[00:38] losing your content. Twitch doesn't save
+[00:40] your videos forever. If you're not
+[00:41] backing them up, they're eventually
+[00:43] gone. But now, you don't have to worry
+[00:46] about that. With the repurpose.io, you
+[00:48] can automatically back up all of your
+[00:49] uploads, highlights, and clips to Google
+[00:51] Drive or Dropbox, so nothing ever
+[00:54] disappears. No more manual downloads, no
+[00:56] more lost VODs, no more oh crap, that
+[00:59] stream is gone forever. All's you have
+[01:01] to do is go to create new workflows on
+[01:03] the top right. And you select Twitch on
+[01:05] the left side as the source. You select
+[01:08] Twitch, and you select your Twitch
+[01:09] account, and then you do back up all my
+[01:11] content, and then you select Google
+[01:13] Drive or Dropbox, and then you choose
+[01:15] that one. And you can do highlights,
+[01:17] uploads, or clips, and back up back it
+[01:19] up and just do create workflow, and
+[01:21] you're good to go. You can also
+[01:22] automatically schedule all of your old
+[01:24] content. If you've got killer clips, and
+[01:26] you just wanted to repurpose all those,
+[01:29] all's you have to do is go to
+[01:30] repurpose.io, and in the workflows tab,
+[01:33] you just do repurpose existing content.
+[01:35] You select Twitch as your source on the
+[01:37] left side, and then you can choose the
+[01:39] destination to any of the platforms.
+[01:40] Let's say YouTube shorts, for example.
+[01:42] And then when you do, let's say
+[01:44] highlights, you can do create workflow.
+[01:47] And you see now you can select the days
+[01:49] and times that you want your old content
+[01:51] to go and publish for you on all these
+[01:54] other separate platforms. And lastly,
+[01:56] you can automate all of future content,
+[01:58] so it's set it and forget it.
+[02:00] Every new Twitch stream highlight or
+[02:02] clip can instantly be repurposed to all
+[02:04] platforms without lifting a finger
+[02:05] moving forward. Select Twitch as your
+[02:07] source, and then select the destination
+[02:10] moving forward. Let's say Pinterest, for
+[02:12] example.
+[02:13] And then when you do create workflow,
+[02:14] all content that goes from Twitch
+[02:16] uploads or highlights, whatever you
+[02:19] choose or clips, will automatically go
+[02:22] to the destination, which in this case
+[02:24] is Pinterest. So, if you are not using
+[02:26] this, you're missing out on free growth.
+[02:29] So, make sure you connect your Twitch
+[02:30] and start repurposing right now.
+[02:32] Remember, it's less effort, more
+[02:34] content, less burnout, more reach.
+[02:36] Repurpose and Twitch. Let's make your
+[02:39] content work for you.

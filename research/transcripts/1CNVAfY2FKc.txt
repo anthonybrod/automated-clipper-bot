@@ -1,0 +1,679 @@
+# How I made a Fully-Automated Clipping System (Vaika / StreamerBot)
+# https://www.youtube.com/watch?v=1CNVAfY2FKc
+
+[00:00] Hi, it's Viker, feral deity, VTuber and
+[00:03] streamer on Twitch, ready to finally
+[00:05] share my creation with you guys. My
+[00:07] fully automated clipping system. This
+[00:10] isn't your ordinary clipping system,
+[00:12] either. This will happen without the
+[00:13] need to even hit a button so you can sit
+[00:16] back and let your saved clips get
+[00:18] recorded in bulk directly to your hard
+[00:21] drive and ready to edit into content.
+[00:23] Now, I've spent over a year refining and
+[00:26] testing this on my own streams. I've
+[00:28] locked down what works and what doesn't
+[00:30] and tested how load may affect your PC.
+[00:33] I do want to preface this whole auto
+[00:35] clipping system I made to streamline
+[00:37] editing. Its results may vary depending
+[00:39] on each individual streamer and how your
+[00:42] stream activity is. This system is
+[00:44] highly beneficial to smaller streamers
+[00:47] without editors in particular and it's
+[00:49] them that I hope to help take out all
+[00:51] the hassle of editing and creating
+[00:53] content. Just a warning, this whole
+[00:55] clipping system may be dependent on if
+[00:57] your PC can handle the extra load. So,
+[01:00] please be sure when setting up you're
+[01:02] aware of that and maybe could consider a
+[01:04] secondary PC just to take off any extra
+[01:06] load when streaming using this process.
+[01:09] Before we begin, this is a really long
+[01:11] tutorial and has taken a lot to put
+[01:14] together. Please bear with me for the
+[01:15] whole video as I explain everything. And
+[01:18] also, don't make me regret sharing this,
+[01:21] but I have to take that risk. I don't
+[01:23] want to gateip it. And with how well
+[01:26] it's been functioning for me, it's a
+[01:28] gamecher in the sphere. I hope so. All I
+[01:31] ask is that you credit me and share my
+[01:33] tutorial around. I'd love to do more
+[01:36] tutorials on all of my streaming bot
+[01:38] creations I use. So would hate to be
+[01:40] discouraged seeing my work taken. All
+[01:42] right, let's begin. So the core programs
+[01:45] you're going to need is Streamerbot,
+[01:47] OBS, and the ATM vertical plugin for
+[01:51] OBS. So, if you don't have any of these
+[01:53] programs, this tutorial and auto clipper
+[01:56] isn't for you. But I'll leave some links
+[01:58] in the description to where you can get
+[02:00] these programs for free and some simple
+[02:01] tutorials on setup, as this video would
+[02:04] be far too long if I had to explain
+[02:05] installing these programs. I will help
+[02:08] you with a visual guide for my whole
+[02:09] setup of the auto clipping I use. So,
+[02:11] don't worry, just follow along with me.
+[02:13] Note as well, this whole auto clipper
+[02:16] will only work with OBS as it's what
+[02:18] I've tested on and ran integrated
+[02:20] through Streamer. I'm also unfamiliar
+[02:23] with Streamlabs or other streaming
+[02:25] programs. First step, you need to open
+[02:27] OBS and check in your docs menu that you
+[02:30] have all the eight vertical plugins
+[02:32] properly installed. You should see
+[02:34] vertical scenes, vertical sources,
+[02:36] vertical transitions, and vertical.
+[02:39] Click on vertical first to activate the
+[02:41] dock. We can have the dock undocked for
+[02:43] now so we can see what we're working
+[02:45] with while we set everything up. This
+[02:47] dock essentially will give you a live
+[02:49] preview of the vertical canvas that is
+[02:52] going to be recorded. You shouldn't have
+[02:54] anything in there just yet as we haven't
+[02:55] added anything. I've obviously got mine
+[02:58] set up already though. We need to click
+[03:00] on the cog icon to open up the settings
+[03:02] and change some things first. In
+[03:05] general, make sure that the resolution
+[03:07] is 1080x
+[03:09] 1920. This is a vertical format that
+[03:12] most platforms like YouTube and Tik Tok
+[03:15] use for their uploads. You can actually
+[03:17] set it up however you want and for what
+[03:19] needs suit you as well. One interesting
+[03:22] idea I saw from another VTuber Ricky VT
+[03:24] was that he made his resolution as wide
+[03:27] as two monitors and put his gaming
+[03:29] screen on one side and V Studio of his
+[03:32] VTuber on the other with a green screen
+[03:35] behind it. This is a great way to record
+[03:37] two instances of a stream together and
+[03:40] edit your VTuber over anything you need
+[03:42] later. I'll link his tutorial in the
+[03:44] description.
+[03:46] We need to set up the core process in
+[03:48] this whole auto clipper. Backtracking.
+[03:51] Backtracking actually runs the entire
+[03:53] time you're streaming. It's essentially
+[03:55] recording the entire time, but it will
+[03:57] only save these clips when you tell it
+[04:00] to. So, in the backtrack section, make
+[04:03] sure the box backtrack runs while
+[04:05] streaming recording is checked. Now, the
+[04:09] next step is up to you. This will
+[04:10] determine how far back from the moment
+[04:13] the backtrack is triggered will save as
+[04:15] a clip. The clip length basically. I've
+[04:18] set mine up at 120 seconds, which is a
+[04:22] 2minut clip. I found they capture just
+[04:24] about everything needed at that length.
+[04:27] This following step is really important.
+[04:29] Depending on how many times the auto
+[04:31] clipper is going off, you need to be
+[04:33] sure the location you are selecting to
+[04:35] save these clips is large enough to hold
+[04:38] them. I often go through my auto clips
+[04:40] after my stream and delete anything
+[04:43] obsolete or not needed. Browse for the
+[04:45] location and scroll down. Now, setting
+[04:48] up our hotkey. Please be sure you're in
+[04:51] the save backtrack hotkey, not the
+[04:54] record. We don't want to start or stop
+[04:57] the backtrack. That should always be
+[04:59] running when your OBS starts streaming
+[05:01] if you check the box earlier. I set mine
+[05:04] as shift + F4. Make sure you aren't
+[05:07] triggering anything conflicting. I like
+[05:09] to use the right shift, right, or right
+[05:12] alt keys when running out of hotkey
+[05:14] combinations.
+[05:15] Vuber toggle skill issue. You can
+[05:18] actually stream directly from these
+[05:20] scenes, too. So, you can output them to
+[05:21] Tik Tok in this format live if you want
+[05:23] to explore any other features. eight and
+[05:25] vertical has. But we're done setting up
+[05:26] the backtracking and resolution. Time to
+[05:29] fill our scenes. Head up to the dock
+[05:31] menu and select vertical scenes. The
+[05:33] dock will pop out. Feel free to leave
+[05:35] the vertical dock open so you can see
+[05:37] the preview. Your scene should be blank.
+[05:39] I've already made mine as you can see.
+[05:42] What we're first going to do is add some
+[05:43] of our own new scenes. Note that these
+[05:46] are separate from your OBS scenes, so
+[05:49] you can essentially name them anything
+[05:51] you want. I'll just use tutorial gaming
+[05:56] so I can show you how to set up your
+[05:58] main gaming screen first. With your
+[06:00] first scene created in the vertical
+[06:02] scenes, it's time to add some sources.
+[06:05] Go back to the dock menu and select
+[06:07] vertical sources. This new dock will pop
+[06:09] out, too. We can have all the docs open
+[06:12] for now. Click the plus icon like
+[06:15] before, but this time we're actually
+[06:16] going to add an entire existing OBS
+[06:20] scene into the ATIM vertical dock. Why
+[06:23] you add the entire scene itself is
+[06:25] because we want to capture every element
+[06:28] of your stream on the auto clipper
+[06:30] recording. This way you can capture
+[06:32] alerts, overlays, and all of your sound
+[06:35] sources, too. Plus, it's just tidier
+[06:37] that way. Very important to note, do
+[06:40] not, I repeat, do not rename the sources
+[06:44] as it will cause issues on your existing
+[06:47] scenes in OBS. If you're looking at a
+[06:49] vertical dot preview, you can see the
+[06:51] gaming scene has been added, but it
+[06:54] doesn't fit. But what we can try to do
+[06:56] is manipulate the scene scale and
+[06:58] position to align all the action
+[07:00] happening in the game. grabbing the
+[07:02] corners to shrink or grow it or holding
+[07:05] the alt key on your keyboard while
+[07:07] dragging the sides to crop the source.
+[07:09] This next part is up to you and how you
+[07:11] orient your shorts or Tik Toks. I
+[07:14] personally have my game slightly smaller
+[07:17] and at the top of my vertical clips. I'd
+[07:20] advise having a game open screenshot or
+[07:23] a VOD recording open in your OBS scene
+[07:27] so you can be sure you have aligned
+[07:29] where all the gaming action is
+[07:30] happening. Plus, grab yourself a
+[07:33] vertical content sizing template, too,
+[07:34] so you can see safe zones. Tik Tok, for
+[07:37] example, has heaps of icons and UI
+[07:40] covering the screen, so you have to keep
+[07:41] in mind your game and cam or VTuber are
+[07:45] visible, especially with captions, too,
+[07:47] if you use them. You can easily add a
+[07:50] safe zone template into an OBS scene and
+[07:52] then get it at to add the source into
+[07:54] the vertical sources. Align everything
+[07:57] and then just delete it or turn off the
+[07:59] visibility with the eye icon.
+[08:01] Now you're wondering, "But Vikica,
+[08:03] there's a blank gap. I need my camera or
+[08:07] VTuber there." Well, you can add another
+[08:10] OBS scene. Nothing is stopping you from
+[08:12] adding exactly the same scene in a
+[08:15] second time. So, let's do that. And
+[08:18] align our VTuber or camera, too. This is
+[08:21] where you can find what personally works
+[08:23] for you. I try to have my VTuber scene
+[08:26] overlay the top of the game scene. So,
+[08:28] going back into the vertical scene dock,
+[08:31] use the up down arrows to make sure the
+[08:33] scene you want is in the correct order
+[08:35] when aligning everything. If you're like
+[08:37] most streamers, you'll maybe have a just
+[08:40] chatting screen in your OBS as well. So,
+[08:43] we can go create another scene in the
+[08:45] vertical scenes dock. I'll show you mine
+[08:48] that I've already created now that you
+[08:49] know how to do it. Just select your just
+[08:52] chatting scene instead when adding them
+[08:53] to the vertical sources. I've aligned my
+[08:56] VTuber and my chat is in focus too as
+[08:59] that's what funny clippable moments can
+[09:02] stem from. Chat saying something stupid.
+[09:05] Now this final step for ATM is vital. Go
+[09:09] into your vertical scenes dock. Right
+[09:12] click on a scene and scroll down to
+[09:14] linked scenes. This is how we connect
+[09:17] the vertical recordings to the same OBS
+[09:20] scene you are currently streaming in.
+[09:23] So, gaming goes to gaming. Just chatting
+[09:26] goes to just chatting. Link all of the
+[09:29] scenes you've made, and the ATM section
+[09:31] of this tutorial is done. You can now
+[09:34] dock all of the ATIM docks anywhere on
+[09:36] your OBS. I put mine on top of each
+[09:38] other over in the corner and have the
+[09:40] vertical dock visible so I can see how
+[09:42] the recording is aligned. Whether or not
+[09:44] the backtracking will be too large a
+[09:46] load for your PC while you're streaming
+[09:49] will be up to your individual hardware.
+[09:51] I would advise testing backtracking and
+[09:54] resolution for your vertical
+[09:55] backtracking. I tried to stream and
+[09:57] backtrack with a resolution larger than
+[09:59] vertical format and my 4080 struggled.
+[10:02] So, be aware of that. Next up is OBS
+[10:06] itself. OBS actually does have its own
+[10:09] in-built backtracking recording of its
+[10:11] own, too, but it doesn't have the
+[10:13] vertical options, and I found Adom has
+[10:15] less load when streaming. You can test
+[10:18] out what you prefer as well, but you
+[10:19] won't have the same options as ATM for
+[10:22] vertical setup. This next part of my
+[10:24] tutorial is optional, but I highly
+[10:27] recommend all these steps as the
+[10:29] backtracking won't always cover an
+[10:31] entire section of clippable content. So,
+[10:34] head into the settings. We're setting up
+[10:36] our ability to create markers directly
+[10:40] embedded into our ATIM clips and any
+[10:43] recordings you do while streaming. That
+[10:46] way, if you record streams live, like I
+[10:48] do, you can have a VOD saved, preferably
+[10:52] with split audio for all tracks and then
+[10:55] have your editing program have markers
+[10:57] on the VOD. I've tested having
+[11:00] backtracking and OBS recording happening
+[11:02] simultaneously, but be sure your rig can
+[11:05] handle it. First off, head into the
+[11:08] output tab. Use the output mode dropown
+[11:11] to see advanced. Go into the recording
+[11:14] tab. Now, the most important thing to
+[11:17] know is only hybrid MP4 currently
+[11:21] supports embedded markers, so make sure
+[11:23] to use that format. Anything else is
+[11:26] pretty standard settings for recording.
+[11:28] The audio tracks are ones I use to split
+[11:30] my audio. I won't go into how to split
+[11:31] audio in this video. The only other
+[11:34] thing to note is that you can bump up
+[11:35] your bit rate higher than you would your
+[11:38] streaming bit rate if your PC will take
+[11:40] the load. I have mine set at 6,000 so my
+[11:44] VOD recordings are crispy, clear, and
+[11:47] not crunchy. The final setting is in
+[11:49] general. Scroll down to the output
+[11:51] section and check the box that says
+[11:53] automatically record when streaming if
+[11:56] you want your hybrid MP4 V of the screen
+[11:58] to automatically record when you hit
+[12:01] start stream. I actually have my
+[12:03] recording automatically start and stop
+[12:05] being controlled by Streamerbot itself.
+[12:07] Now that's all sorted, we get to the
+[12:09] entire brains of this tutorial, using
+[12:12] Streamerbot to control everything
+[12:15] automatically.
+[12:17] So, let's open Streamerbot. I won't
+[12:20] include in this tutorial how to connect
+[12:23] Streamerbot to your Twitch and OBS, but
+[12:25] watch this tutorial video here from
+[12:27] Nutty. I think he does a really good job
+[12:29] explaining. I'll leave the link in the
+[12:31] description, too. Now, it's important to
+[12:35] have OBS running before Streambot so
+[12:37] it's easier for it to find the web
+[12:39] socket to connect the programs together.
+[12:42] You can tell if it's connected by the
+[12:43] status monitor down in the bottom right.
+[12:46] You can click on it and see if all of
+[12:47] your linked programs are connected. If
+[12:50] not, just head up to the stream apps tab
+[12:52] and find OBS. Right click to
+[12:55] autoreonnect or force the connection.
+[12:58] Okay, so bear with me. This part is
+[13:01] going to take you getting to grips with
+[13:03] creating actions and navigating
+[13:05] Streamerbot's interface. It can be a
+[13:08] little confusing. I'd highly advise
+[13:10] watching some of Nutty or Gale Level's
+[13:13] videos on Streamerbot to really learn
+[13:15] how many crazy ways you can use this
+[13:17] program. For now, we need to create the
+[13:20] main auto clipper action. So, head to
+[13:23] the actions tab. As you can see, I have
+[13:26] a lot of actions. These can trigger most
+[13:28] of my fun creations or auto actions like
+[13:30] auto shoutouts completely automated. So,
+[13:34] let's make our first action. Right click
+[13:36] any blank space in the action pane and
+[13:39] select add. Call this any name you want.
+[13:43] I'll name mine auto clip. Make sure
+[13:46] enabled is checked. I'd also advise
+[13:49] creating a group so that you can
+[13:51] organize all of your actions you might
+[13:52] want to create. I'll name mine tutorial
+[13:55] for this video. Then click okay. So now
+[13:58] we have an action. We need some suba
+[14:00] actions. So navigate to the sub actions
+[14:03] panel on the right. Right click in the
+[14:06] panel and you'll start to see all of the
+[14:08] amazing tools and integrations
+[14:10] streamerbot has. This is why it's my
+[14:13] preferred bot and program. If you can
+[14:17] think of it, you can make it even
+[14:20] without knowing coding, which you can
+[14:22] also input too if you have the
+[14:24] knowledge. Our first sub action is our
+[14:28] marker for OBS recordings if you wanted
+[14:30] to use that feature we set up earlier.
+[14:33] Scroll to OBS and create record chapter.
+[14:38] You can leave the connection at default,
+[14:40] but I'd advise to select your connected
+[14:42] instance of OBS from the drop down. The
+[14:45] beauty of this marker system is that you
+[14:47] can name the markers that get embedded.
+[14:50] This helps when editing as you can see
+[14:52] what the marker is called depending on
+[14:54] what the event on stream triggered it by
+[14:57] hovering over it. Name this one clip so
+[15:01] we know that this was the auto clipper
+[15:03] that we are asking to mark. Click okay.
+[15:07] This next step is optional but I would
+[15:09] advise we can actually create a Twitch
+[15:12] marker on the VOD 2. So, if you are
+[15:15] making clips directly through Twitch,
+[15:17] the highlighter editing page will
+[15:19] include Marcus 2. The reason I advise
+[15:22] not to create clips directly through
+[15:24] Twitch through Streamerbot auto clipping
+[15:26] everything would be because you'll end
+[15:28] up with many, many clips that you'll
+[15:31] have to edit and go over published
+[15:33] directly to your Twitch page. I find
+[15:36] recording your own is easier and using
+[15:38] the Twitch markers can help to find
+[15:40] clippable moments, too. Right click,
+[15:43] scroll to Twitch channel, and then
+[15:47] create clip marker.
+[15:50] Next up, we're going to make our sub
+[15:52] action to control our ATM backtracking.
+[15:55] Right click. First option is what we're
+[15:57] looking for, core. Find system, and then
+[16:01] click keyboard press. Use the same
+[16:05] combination of keys that you previously
+[16:07] made to control the hotkey for the ATM
+[16:09] backtracking. So, mine was shift + F4.
+[16:13] Check the boxes for your modifiers.
+[16:16] At this point, you can actually press
+[16:19] the test button and see in OBS if the
+[16:22] backtracking is triggered. Hi, editing
+[16:24] Viky here. Just making a quick
+[16:26] correction. You can actually use
+[16:27] backtrack recording even when you aren't
+[16:29] streaming. But you do have to be
+[16:32] recording. So, go to the vertical plugin
+[16:34] and just hit this little icon here. Make
+[16:37] sure the backtrack is running before you
+[16:39] can test the save backtrack hotkey.
+[16:41] Okay, back to the video. It should start
+[16:44] and stop depending on your clip length.
+[16:46] Then save in your folder destination
+[16:48] where you wanted to store your clips.
+[16:50] Now you're scratching your head. How
+[16:53] does this all automatically happen on
+[16:56] stream though? Well, this is where over
+[16:59] a year of testing and experimenting
+[17:02] eventually led me. finding the variables
+[17:05] and criteria to trigger the auto
+[17:07] clipping live with no input from me.
+[17:10] Capturing exciting, funny, or memorable
+[17:13] moments on stream. Here's how to do it.
+[17:16] Here is the core systems I found worked
+[17:19] as well as some extras that you can play
+[17:21] with. It was all really so simple. I was
+[17:24] surprised nobody used this method.
+[17:27] What's one thing that your chat does
+[17:28] when something funny happens? They
+[17:31] laugh, right? Yeah. And now you might be
+[17:34] getting it. Your chat is actually going
+[17:36] to help you automatically clip things
+[17:39] depending on what they are typing in
+[17:41] chat. Head to the top of Streamerbot and
+[17:44] go to the commands tab. We're going to
+[17:46] create our own custom command. Right
+[17:49] click anywhere in the panel and click
+[17:51] add. You can name this whatever you
+[17:53] want, but if you want to keep it simple,
+[17:55] I'd advise calling it something like
+[17:57] exclamation point autoclipip controller.
+[18:01] I use exclamation points as a way to
+[18:04] distinguish my commands as ones that can
+[18:06] be triggered in chat manually by typing
+[18:08] if you want. But we want chat to help
+[18:11] out, not type anything ourselves. Here's
+[18:14] where the hilariously simple commands
+[18:17] come in. In the commands box, literally
+[18:21] type
+[18:22] lmao.
+[18:24] That's it. So now, anytime your chat
+[18:29] says lmao and is laughing at you, we
+[18:33] have a command that triggers. It doesn't
+[18:36] stop there, though. We can add as many
+[18:38] words as you can possibly think of that
+[18:41] you want to trigger off. Kek, lol,
+[18:45] funny, silly, laughing, hilarious.
+[18:49] For every word you can think of, be it
+[18:51] laughing or maybe GG for if you make a
+[18:54] good play, add them in each word on
+[18:57] their own line by hitting enter. These
+[18:59] are your prefixes that will be matched.
+[19:03] Now things get even better because
+[19:06] emotes have their own individual names.
+[19:08] Yep, you can add them in too. Like one
+[19:11] of mine is Viker V. Wow. You got scared
+[19:16] emotes, laughing ones, crying ones, even
+[19:19] if you want to clip off them, do it.
+[19:22] Make sure enabled and include are
+[19:25] checked. For location, select the drop
+[19:28] down to be anywhere. This means the
+[19:30] words triggered can be anywhere in a
+[19:32] sentence typed in chat. Make sure ignore
+[19:35] bot account and ignore per user counter
+[19:38] are checked. Source is Twitch message or
+[19:42] whatever platform you use. I wouldn't
+[19:44] check case sensitive either. So it will
+[19:47] capture in either spelling. Now vital to
+[19:50] this auto clipper is that we don't want
+[19:53] this triggering constantly.
+[19:56] Depending on if you have a very active
+[19:58] chat, this thing would be going off like
+[20:01] crazy. So down in the cool down section,
+[20:04] make the global cooldown as long as the
+[20:08] length you set your backtrack clip to
+[20:10] record. So in my case it was 2 minutes
+[20:14] or 120 seconds. Do the same length of
+[20:18] time for user cool down too so the same
+[20:20] person doesn't trigger it constantly
+[20:22] type the same thing over and over
+[20:24] laughing at you for example. Finally the
+[20:27] permissions should be left at default
+[20:29] which are open to you mods and chat
+[20:32] grant type all so anyone can trigger it.
+[20:36] You can actually go into the
+[20:37] permissions. So you can select
+[20:39] individual user permissions too if you
+[20:41] want only one person controlling this if
+[20:43] you prefer. Now we go back to our
+[20:45] actions tab. We have to add our freshly
+[20:48] created command to our action. The
+[20:51] trigger rightclick in the triggers panel
+[20:54] and select core commands and then
+[20:57] commands triggered. You can actually
+[20:59] quickly create commands from this menu
+[21:01] but we needed the advanced view in
+[21:03] commands to enter all of our prefixes.
+[21:06] Plus, if you ever forget what you
+[21:07] created, they're all in the commands
+[21:09] tab. So, select the command from the
+[21:12] dropown that we created. And that's it.
+[21:14] This is the basic core of the auto
+[21:17] clipper. You did it. But the fun doesn't
+[21:21] stop there. I know. If you want even
+[21:23] more variables to clip off, you can add
+[21:26] anything. Just take a quick explore
+[21:28] through the triggers and you can see you
+[21:30] can clip off raids, follows, gift subs,
+[21:35] anything. I have mine personally
+[21:38] clipping off raids as you never know
+[21:40] when a big streamer might raid you and
+[21:42] you want to capture that moment. You can
+[21:45] clip off redeems, too. Chat throws
+[21:47] something at you, the auto clipper will
+[21:49] trigger. Dono goal reached. If
+[21:52] Streamerbot has it in its integrations,
+[21:54] like the Tiltify plugin you can
+[21:56] download, you got yourself another
+[21:58] trigger. Shout out a particular chatter.
+[22:01] Clip that, too. If you have TTS set up,
+[22:04] you might want to record something funny
+[22:06] chat says too. I use the sister program
+[22:09] to stream what speakerbot to handle all
+[22:12] of my TTS and fully integrate it because
+[22:15] the stream marker and OBS marker are
+[22:18] activated from this action. I'd
+[22:20] recommend creating new actions for each
+[22:23] event you want to trigger off. That way
+[22:26] you can name the stream marker something
+[22:28] to separate it from the word auto
+[22:30] clipper. So I have mine say raid. So, my
+[22:33] VODs have a marker on them for when I'm
+[22:35] editing. And I hover over the marker and
+[22:38] it says raid and that's exactly when the
+[22:40] raid occurred during stream. It's up to
+[22:43] you as well if you want the auto clipper
+[22:45] recording the event or just the marker
+[22:47] tool. You can also directly get
+[22:50] Streamerbot to tell Twitch to create a
+[22:52] clip to if you want to make things fast
+[22:55] and easy creating new marker names. Just
+[22:57] copy the action in the action panel and
+[22:59] then rename it. remove the triggers and
+[23:01] set up all your new ones. The amount of
+[23:04] events, words, and variables I've tested
+[23:07] on stream for over a year should do a
+[23:10] huge bulk of work capturing some funny,
+[23:12] scary, or memorable moments. I did have
+[23:15] some extra ideas, too, if you
+[23:17] interested. I'll only quickly run
+[23:19] through them as this tutorial is quite
+[23:21] long. Two more variables unfortunately
+[23:23] require having a much older version of
+[23:25] OBS to run the plugin. So I wouldn't
+[23:27] advise these, but it can be used to
+[23:30] monitor when your mic peaks. So if
+[23:32] you're screaming, it will trigger the
+[23:34] auto clipper. The other is more
+[23:36] scenario-based. It's actually really
+[23:39] powerful. I've used it to read screen
+[23:41] data on a Dark Souls you died screen. So
+[23:45] it triggers a death counter. You will
+[23:48] need to roll back to OBS version 30.2.3.
+[23:50] 2.3. The plugin you need is called
+[23:53] Advanced Scene Switcher. The reason you
+[23:56] need to roll back OBS is that this
+[23:58] plugin is sadly no longer supported for
+[24:00] newer versions of OBS. Once installed,
+[24:03] head to tools, macro, and create your
+[24:05] macro. Just quickly following my
+[24:07] on-creen settings and drop downs. You
+[24:09] want if audio output volume of then
+[24:16] select your mic source is
+[24:20] above.
+[24:21] Then tweak the percentage or use the
+[24:23] slider to see where you peak over
+[24:25] screaming.
+[24:26] That will then trigger hotkey and
+[24:29] whatever your auto clipper hotkey form
+[24:31] vertical was. The reason this is
+[24:34] experimental is if you have a powerful
+[24:36] gate or don't scream a lot like me, it's
+[24:39] not going to work, but it's an option if
+[24:41] you want it. Now, the screen reader is
+[24:44] more complicated and specific to what
+[24:46] type of game you want to read screen
+[24:48] info off. I'd advise using it if you
+[24:51] stream one particular game a lot, like
+[24:53] maybe Marvel Rivals, and you have screen
+[24:57] info to read, like a kill or death. One
+[25:01] unique thing you can play with is if
+[25:03] you're on a lobby screen, you can
+[25:04] actually tell OBS to play your music for
+[25:07] you and when it reads screen data that
+[25:10] isn't the lobby, it will stop your
+[25:12] music. Just go ahead and look at all
+[25:14] this plugin can do. It's actually
+[25:16] insane. So, the main thing you need is a
+[25:19] screenshot source of your game in OBS to
+[25:22] screen match to while testing and to
+[25:25] read the screenshot from file too. Use
+[25:28] different methods and adjust the
+[25:30] threshold till the match is found. This
+[25:32] is very resourceheavy and will likely
+[25:35] crash OBS sometimes, so be warned. Try
+[25:38] use perform check only in area to narrow
+[25:41] down the pattern match. Click show match
+[25:44] and toggle the source on and off in OBS
+[25:46] to see if it's detecting. Then you just
+[25:49] simply add in your hotkey trigger for
+[25:51] the auto clipper in ADM again and it's
+[25:53] done. Lastly, I was in talks with
+[25:56] someone in Streamlabs Discord on a chat
+[25:58] rate trigger. So, the auto clip would
+[26:00] trigger if there was a high rate of
+[26:02] chat. Helpful if you're a small streamer
+[26:04] like me because chat rate means
+[26:06] something interesting and clippable is
+[26:08] happening. I didn't get very far in
+[26:10] working out the sub actions, but anyone
+[26:12] who wants a crack at it, feel free.
+[26:14] Would also be really useful to monitor
+[26:16] chat rate and trigger shield mode if bot
+[26:18] raids come in. So, I might still try
+[26:21] work on that one some more. Congrats on
+[26:24] making it to the end of this tutorial.
+[26:25] You should all be set up getting more
+[26:27] and more clips generated per stream and
+[26:29] in an easily editable format. You can
+[26:32] just throw in some captions and upload
+[26:34] them raw if you need. The most important
+[26:37] thing when starting out as a streamer is
+[26:39] just getting your content out there. So,
+[26:41] do what you can with the time you have
+[26:43] and hopefully this streambot creation I
+[26:45] created can help out with that too for
+[26:47] small creators. It took a lot of
+[26:49] planning and work to get this out for
+[26:51] release. So, please like and subscribe.
+[26:54] Leave a comment if you found this
+[26:56] tutorial helpful or tell me how your
+[26:58] auto clipping went after stream. I'd
+[27:00] love to hear from you and if it's
+[27:02] helped. I have heaps of streamer
+[27:04] creations I'd like to share in the
+[27:05] future, so sharing this video around
+[27:07] helps a lot and makes it worth the time
+[27:09] getting it all together. Please don't be
+[27:12] a dick and piggyback off my creation,
+[27:15] too. I was considering only releasing
+[27:17] this to a small amount of people because
+[27:19] of the fear all the work I've done would
+[27:21] be easily taken and used by bigger
+[27:23] creators, but I couldn't hold on to it
+[27:26] in secret. It wouldn't have been right.
+[27:28] And I can't gatekeep my tech. When I
+[27:31] found out how useful it was, how
+[27:33] gamechanging it was for me streamlining
+[27:35] content creation, I had to release it.
+[27:38] Don't let me feel like I've made a
+[27:39] mistake, okay? All right. Happy to
+[27:41] finally get this out into the wild.
+[27:43] Consider stopping by my streams on
+[27:45] Twitch as I'm currently partner pushing.
+[27:48] And don't say your feral data doesn't
+[27:50] ever give you anything. Enjoy my little
+[27:52] mortals. Peace.
+[27:58] [Music]
+[28:08] Heat. Heat. N.
+[28:13] [Music]

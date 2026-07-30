@@ -1,0 +1,540 @@
+# Automate Streamer Clipping with Claude Code + Submagic (Damian Malliaros)
+# https://www.youtube.com/watch?v=lge0jth5sl0
+
+[00:00] Streamers are paying clippers thousands
+[00:02] of dollars per month to turn their
+[00:04] content into short form videos for
+[00:06] TikTok, Instagram, and YouTube Shorts.
+[00:09] And in this video, I will show you
+[00:10] exactly how you can automate that entire
+[00:13] process using Cloud Code and an AI
+[00:16] clipping tool called Sub Magic. Walking
+[00:19] you through how to find streamers that
+[00:21] are looking for clippers, how to
+[00:22] generate dozens of clips per day, and
+[00:25] how to automatically post them in all
+[00:28] the social media platforms. So, by the
+[00:30] end of the video, you will have a fully
+[00:32] automated system that allows you to
+[00:34] jump-start your clipping business. So,
+[00:37] close all of your other tabs and let's
+[00:39] dive right into it. But before I show
+[00:41] you how to set up the system, I first
+[00:43] want to talk about the phenomenon of
+[00:45] stream clipping, where many of the most
+[00:47] popular streamers hire people to turn
+[00:50] their long-form streams into short clips
+[00:53] that they then repurpose on platforms
+[00:55] like TikTok, Instagram, and YouTube
+[00:57] Shorts. And these streamers actually pay
+[01:00] their clippers a lot of money, with many
+[01:03] of them publicly saying that they
+[01:04] constantly pay over $1 million to
+[01:07] clippers every single month. And
+[01:09] usually, they end up paying around 1 to
+[01:12] 3 dollars per 1,000 views generated,
+[01:15] which means if you manage to create a
+[01:17] clip and that clip gets 500,000 views on
+[01:20] a platform like TikTok, which is not an
+[01:23] unreasonable amount, then you can end up
+[01:25] making anywhere from 500 to 1,500
+[01:29] dollars just from that clip alone. But
+[01:32] the problem with stream clipping was the
+[01:34] fact that making videos like these can
+[01:37] take you up to 1 hour and sometimes even
+[01:40] more, which drastically limits how many
+[01:42] clips you can generate and post in the
+[01:44] social media platforms, which in turn
+[01:46] means you have less chances of one of
+[01:49] your clips going viral. But thankfully,
+[01:51] we live in 2026 and we have AI, which
+[01:55] allows us to automate this entire
+[01:58] process and create tens or even hundreds
+[02:01] of clips with just a few prompts by
+[02:03] using the combo of Cloud Code and the
+[02:06] clipping tool Sub Magic AI, which I will
+[02:08] show you how to use in this video. Which
+[02:10] in turn means that we can post up to 20
+[02:13] different clips per day with almost zero
+[02:16] effort since the AI will generate the
+[02:19] clips for us. And that obviously
+[02:21] increases our chances of going viral
+[02:24] since we're posting more clips and these
+[02:26] clips also tend to be highly engaging
+[02:28] because the AI picks the most engaging
+[02:30] parts out of the full stream. So now
+[02:32] that you understand how clipping works
+[02:34] and how we're going to automate it, I
+[02:36] want to talk about the road map of this
+[02:38] video. Because first, I'm going to show
+[02:40] you how to actually automate the
+[02:42] creation of the shorts using the AI tool
+[02:45] that is called Sub Magic. Then I will
+[02:47] show you how to set up this tool to also
+[02:50] automatically post the clips that you
+[02:52] generate in all of your social media
+[02:53] platforms. And then that will show you
+[02:55] how to find streamers that are actively
+[02:57] looking for clippers and that are
+[02:59] willing to pay for the amount of views
+[03:01] that you can generate them. So now let's
+[03:03] start with step number one, which is
+[03:05] automatically generating the clips from
+[03:07] a full stream. Now, as I said before,
+[03:10] we're going to use this third-party
+[03:11] platform that is called Sub Magic, which
+[03:14] automatically generates relevant clips
+[03:16] as you can see over here. So all you
+[03:18] have to do is to go over to submagic.co,
+[03:21] which I will also leave a link for in
+[03:23] the description below. And then you
+[03:24] simply need to come and sign up for an
+[03:26] account. And once you do that, you will
+[03:28] be brought over in this interface over
+[03:30] here. Now, don't get intimidated by this
+[03:32] interface. It is actually super simple
+[03:34] to navigate. Over here to the top of the
+[03:36] page, Sub Magic has all of its different
+[03:39] functions. But the main function that we
+[03:41] are interested in on is the magic clips
+[03:43] function, which can generate clips with
+[03:46] relevant video from long-form videos or
+[03:49] streams. So all you need to do is to
+[03:51] simply click on it and then this tab is
+[03:53] going to pop up where it's going to ask
+[03:55] you to either paste the YouTube URL or
+[03:57] upload something from your computer or
+[04:00] from Google Drive. Now, for the purposes
+[04:01] of this example, let's say that we were
+[04:04] to clip it for Ice Spice which is
+[04:06] currently the biggest streamer on the
+[04:08] planet and we wanted to turn this stream
+[04:11] that he did one day ago over to engaging
+[04:13] clips that can get thousands or even
+[04:15] possibly millions of views on social
+[04:17] media where all we would have to do is
+[04:19] to simply come over here and copy the
+[04:21] URL of this stream and then we will
+[04:23] simply paste it in over here and Sam
+[04:25] Magic will actually recognize the video
+[04:27] and import it on its interface where
+[04:29] then it will ask us to adjust the
+[04:31] settings if we actually want to. And
+[04:33] first we have the clip duration which
+[04:35] you can select either less than 30
+[04:37] seconds, 30 to 60 seconds, or 60 to 90.
+[04:40] Now, we'll leave it on auto since this
+[04:42] way Sam Magic's trained AI will judge
+[04:45] how long each clip should be. Then we
+[04:47] have the caption theme where we can
+[04:49] basically select specific type of
+[04:50] captions that we want our clip to have.
+[04:52] Now, as you can see what Sam Magic has
+[04:54] done is they have all the captions from
+[04:56] all the popular shorts creators like
+[04:59] Hormozi, like Daniel, like Kendrick, and
+[05:01] a bunch of other which is a very useful
+[05:04] feature because people are already
+[05:06] familiar with those captions and when
+[05:08] they see our video, they are going to be
+[05:10] more likely to stick and watch it. Now,
+[05:12] I personally really like the Hormozi two
+[05:14] captions so I will leave it as it is,
+[05:16] but if you want a different type of
+[05:17] caption, you can select the one that you
+[05:19] want. And then we have tracking which I
+[05:21] would advise you to leave on so the
+[05:23] camera actually tracks the faces that
+[05:25] are moving. And once you're done with
+[05:26] the settings, you can simply click on
+[05:28] generate clips and this is going to
+[05:30] start generating clips from this live
+[05:32] stream. Well, as you can see, this does
+[05:34] take some time, but you don't actually
+[05:36] need to do anything else since now Sam
+[05:38] Magic is going to go, analyze this
+[05:40] video, find the most engaging moments,
+[05:42] and generate clips from it that are the
+[05:44] most likely to go viral. Well, as you
+[05:46] can see, just finished, and now I am
+[05:49] able to see all the clips that Sub Magic
+[05:51] automatically generated for me. And if I
+[05:53] actually play one of those,
+[05:54] >> It's on the world cup of Alabama.
+[05:56] >> [screaming]
+[05:57] >> you can see that this actually did pick
+[06:00] an engaging moment, and it also does
+[06:02] follow speed while he moves, along with
+[06:04] having this nice engaging captions at
+[06:06] the bottom. Plus, next to each one of
+[06:08] the clips generated, it has this score
+[06:10] over here, which is called the virality
+[06:12] score, and it basically ranks how likely
+[06:15] this short is to go viral based on these
+[06:18] four metrics. And as you can see, this
+[06:20] one has a 98 virality score, which is
+[06:22] very good and means that it's way more
+[06:24] likely to go viral than one with a
+[06:26] lesser score. So, now you understand how
+[06:28] Sub Magic actually works. But the bad
+[06:31] thing with this is that, in order for us
+[06:33] to generate clips with the way that I
+[06:35] just showed you, we manually need to do
+[06:37] it by ourselves by going over to
+[06:39] submagic.co. Thankfully though, Sub
+[06:42] Magic recently launched their own MCP
+[06:44] server, which allows you to access all
+[06:47] the functions of Sub Magic from any
+[06:49] other app or AI agent, which means that
+[06:52] we can basically connect Sub Magic to an
+[06:54] AI agent like Cloud Code, and then
+[06:56] automate this entire process. And that's
+[06:59] exactly what we're going to set up right
+[07:01] now. So, first make sure you go over to
+[07:03] cloud.com/download
+[07:05] and download the Cloud desktop app for
+[07:07] your operating system. And once you do
+[07:09] that, make sure you open it up and then
+[07:11] navigate over in the code section, in
+[07:13] which we will be able to connect Sub
+[07:15] Magic and automate this entire process.
+[07:18] Now, to actually do this, we simply need
+[07:20] to come over here to Cloud Code and say
+[07:21] the following. Hey, what I want to do is
+[07:24] automate the creation of streamer clips,
+[07:27] and I want to do that by connecting to
+[07:29] Sub Magic via the brand new Sub Magic
+[07:32] MCP server that they recently launched.
+[07:35] And once I connect to this server, I
+[07:37] will either give you a YouTube URL with
+[07:39] a live stream or a Google Drive URL that
+[07:42] contains the content of the specific
+[07:44] streamers live stream and then I will
+[07:46] want you to use the sub magic MCP and
+[07:49] turn my clip into multiple engaging
+[07:51] shots that I will then be able to
+[07:53] publish in the social media platforms.
+[07:55] This is a link to the sub magic MCP
+[07:57] documentation and just to make Claude's
+[08:00] life easier, I will actually go over to
+[08:02] docs.submagic/mcp
+[08:04] server, which I will also leave a link
+[08:06] for in the description below. I will
+[08:07] copy it and then I will come back over
+[08:09] to Claude and I will paste it in over
+[08:11] here, I send over this prompt just so
+[08:13] Claude has the full context. Now, even
+[08:15] if I hadn't actually given it a link, it
+[08:17] more than likely would be able to go and
+[08:19] find it, but just to make sure, I just
+[08:21] did a simple copy and paste and it's now
+[08:23] telling us that in order for it to be
+[08:25] able to connect to the sub MCP server,
+[08:27] it needs a sub magic API key, which to
+[08:30] create, all we have to do is to come
+[08:31] back over to sub magic, then navigate
+[08:34] over here in our personal profile tab
+[08:36] and then click on my account and this is
+[08:38] going to pop up this interface over
+[08:40] here, where all we have to do is to
+[08:42] click on the API section, where we will
+[08:45] be able to see our API key section over
+[08:47] here, in which we can generate a new API
+[08:50] key, which for me is this one over here.
+[08:52] So, now I'll simply copy it, come back
+[08:54] over to Claude, say, "This is my sub
+[08:56] magic API key and I'm going to paste it
+[08:59] in over here." I click on enter. So, now
+[09:00] Claude can take our sub magic API key,
+[09:03] fully connect to the sub magic MCP
+[09:05] server and once it does that, then we
+[09:08] will be able to basically fully automate
+[09:10] the shots, the clip creation process,
+[09:12] since Claude will be able to create all
+[09:15] these clips for us. But as you can see,
+[09:16] first it is telling us that in order for
+[09:18] it to recognize the MCP server, we need
+[09:20] to restart it, which is exactly what I
+[09:22] did. I just restarted the app and now
+[09:24] I'll ask it, "Hey, I just restarted,
+[09:26] have you successfully connected to the
+[09:28] MCP server?" And I will send this over
+[09:30] and then it is telling us connected and
+[09:32] authenticated, 15 sub magic tools
+[09:35] available, which means that we
+[09:36] successfully connected it, Which now
+[09:38] means that we can turn this into a full
+[09:41] automation, where we will either be
+[09:43] giving in a YouTube URL or a Google
+[09:45] Drive link, depending on where we have
+[09:47] the stream stored, and then our
+[09:49] automation is going to run and turn that
+[09:51] stream into shorts. So, to make this
+[09:53] happen, all we have to do is to say
+[09:55] something like, "Hey great, now what I
+[09:57] want to do is to turn this into a full
+[09:59] automation, where I will either be
+[10:01] giving you a YouTube URL or a Google
+[10:03] Drive link, and then you're going to
+[10:05] turn that stream into engaging shorts.
+[10:08] The shorts can be any length, so make
+[10:10] sure you leave the setting on auto.
+[10:12] Then, let's use the Hormozi 2 caption
+[10:14] style, and feel free to also use
+[10:16] relevant b-roll for the shorts if they
+[10:19] actually fit." These are the settings
+[10:20] that I want for Sub Magic. Now, what I
+[10:22] want you to do is to go over and set up
+[10:25] this workflow for me. And now that we
+[10:26] explained basically how we want the
+[10:28] workflow to work, we can simply send
+[10:30] this over. And you specifically saw that
+[10:31] I told it I will either give it a
+[10:33] YouTube URL or a Google Drive link,
+[10:35] since not all streamers stream on
+[10:37] YouTube like Speed does. Some actually
+[10:39] stream on Twitch, some stream on Kick,
+[10:41] but these streamers almost always
+[10:43] actually give you the full stream in a
+[10:45] Google Drive link, which you can then
+[10:47] give over to the workflow that we're
+[10:48] currently building, and that workflow is
+[10:50] going to immediately turn that long
+[10:52] stream into 20 or 30 engaging clips. And
+[10:55] if you want to take this a step even
+[10:56] further, we could also build an
+[10:58] automatic scraper that would either look
+[11:00] in that streamer's YouTube channel to
+[11:02] see if he did a new stream, or it would
+[11:04] look inside the specific Google Drive
+[11:06] folder to see if anything else was added
+[11:08] into that, and then that can
+[11:10] automatically trigger the workflow and
+[11:12] turn the content of that stream into
+[11:14] shorts as well. And boom, as you can
+[11:16] see, this just finished, and it's
+[11:17] telling us that the workflow is live,
+[11:19] which auto triggers when I say things
+[11:21] like, "Clip the stream." or make shorts
+[11:24] from this URL, or any other phrase like
+[11:26] this. And these are the settings that I
+[11:28] used. It used Hormozi 2 for captions,
+[11:31] language on auto, Clip length on auto
+[11:33] decides, along with magic b-rolls
+[11:36] enabled, which is the function that
+[11:38] Submagic has that automatically adds
+[11:40] relevant b-roll and magic zooms. And
+[11:42] this workflow takes YouTube URLs and
+[11:44] Google Drive URLs as well, which seems
+[11:47] to be correct. But just to test it out
+[11:49] to make sure that this is working
+[11:50] correctly, I will come over to Google
+[11:52] and I will select a different stream
+[11:54] that Speed did. Let's say we take this
+[11:56] IRL stream in Ethiopia, for example, and
+[11:58] then I copy the URL. And then I simply
+[12:00] come back to Cloud Code, I paste it in,
+[12:03] and I say something like turn this into
+[12:05] clips. And I send over this prompt. Now
+[12:07] the workflow should start triggering and
+[12:10] should send a request over to Submagic
+[12:12] to actually turn this long 4-hour stream
+[12:15] into engaging clips. And as you can see,
+[12:17] that's exactly what is happening. Our
+[12:18] workflow is submitting this project over
+[12:21] to Submagic, and now the status is
+[12:23] processing. And if I actually come over
+[12:25] in my Submagic interface, we can see
+[12:27] that the video has indeed been submitted
+[12:30] and is currently being processed by
+[12:31] Submagic and creating all the different
+[12:33] engaging clips that we want, which means
+[12:36] that our workflow is working correctly.
+[12:38] But we still have a problem, which is
+[12:40] that currently we manually need to take
+[12:42] the shorts that we generated with
+[12:44] Submagic and post them over in all of
+[12:46] our social media platforms, which can
+[12:49] also take us a significant amount of
+[12:50] time, especially if we post 20 of them
+[12:53] per day. But thankfully, Submagic
+[12:55] recently launched their own scheduling
+[12:57] tool that allows you to automatically
+[12:59] schedule the shorts that you generated
+[13:02] for posting in all of your social media
+[13:04] platforms. And to set this up, simply
+[13:06] navigate over here in the calendar
+[13:07] section, where this interface is going
+[13:10] to pop up, where it is going to ask us
+[13:12] to connect to all the social media
+[13:13] platforms that we want to post on. So if
+[13:15] you want to post on TikTok, Instagram,
+[13:18] and on YouTube, you simply have to come
+[13:20] over here and connect to these platforms
+[13:21] by simply allowing Submagic access to
+[13:24] your account. Again, don't worry, this
+[13:26] is a fully safe process. Sub Magic will
+[13:28] only post things when you actually
+[13:31] specifically tell it to. So, there is
+[13:33] nothing to actually worry about. As you
+[13:34] can see, my TikTok connection was
+[13:36] successfully created, and now I can also
+[13:39] come back here and connect to other
+[13:41] platforms as well by clicking on connect
+[13:43] platforms and then selecting another
+[13:45] platform that I want to connect to.
+[13:46] Let's say I want to connect to
+[13:47] Instagram. I simply have to allow Sub
+[13:50] Magic access to my Instagram account,
+[13:51] click on allow, and this will also
+[13:53] successfully connect over to my
+[13:55] Instagram as well. But remember, right
+[13:57] now we are in the Sub Magic interface,
+[14:00] which means that if we actually want to
+[14:01] schedule a shot for posting, we manually
+[14:03] have to do it from within Sub Magic. But
+[14:06] since we have access to the Sub Magic
+[14:08] MCP server that we have connected to, we
+[14:10] can also automate the scheduling process
+[14:13] by simply adding in one more step to our
+[14:16] workflow in Cloud Code. That's why I
+[14:18] will simply come back over to Cloud
+[14:19] Code, and I'm going to say, "Hey, great.
+[14:22] Now, what I also want you to do is to
+[14:24] automate the scheduling process of the
+[14:27] clips as well, and I want you to put
+[14:29] another step in the workflow. So, every
+[14:31] time I generate clips, the workflow
+[14:33] looks and finds the 20 best ones based
+[14:37] on the score that Sub Magic gives us,
+[14:39] and then it automatically schedules them
+[14:41] for posting in that day." Now, I'm
+[14:43] currently aiming to post around 20 per
+[14:46] day on every single platform like TikTok
+[14:49] and Instagram and YouTube Shorts. So,
+[14:51] make sure you go over and do that for
+[14:53] me. So, that is a prompt that you would
+[14:54] type, and then you would send this over,
+[14:56] and Cloud Code is going to go and add in
+[14:58] that next extra step. But since most of
+[15:01] you all assume are going to start with
+[15:03] completely brand new pages to post these
+[15:06] clips on, I will actually would strongly
+[15:08] advise you to not post 20 per day
+[15:11] immediately once you start. You will
+[15:12] first have to warm up the page for one
+[15:15] or two days, and then slowly start
+[15:17] increasing your posting volume. So, at
+[15:19] first, post two or three a day. Then,
+[15:21] after a week, increase that to 10 per
+[15:23] day. And then, after 3 to 4 weeks, you
+[15:26] can start posting normally 20 videos per
+[15:28] month. And I'm telling you this because
+[15:30] if you immediately start posting 20 per
+[15:32] day, you will see that your account is
+[15:34] going to get flagged, and you're going
+[15:35] to get zero views on those posts. That's
+[15:37] why I would strongly advise you to not
+[15:39] immediately post 20 per day. And if you
+[15:41] want to tell the Claude code you can
+[15:43] simply say, "But since my accounts are
+[15:45] brand new, for the first week I only
+[15:47] want to post around two or three per
+[15:49] day. Then, after the second week, I want
+[15:51] to increase that to 10 per day. And
+[15:53] then, after 3 to 4 weeks, I want to have
+[15:56] the normal posting of 20 per day. So,
+[15:58] make sure you set this up for me
+[16:00] correctly." And then, you can send over
+[16:02] this prompt. So, Claude code can now go
+[16:04] and add that extra step, which will also
+[16:07] automate the posting work that you would
+[16:09] otherwise have to do. And remember, in
+[16:11] the end of the video, I will also show
+[16:13] you how to find streamers that are
+[16:15] actively looking for clippers to hire.
+[16:18] And boom, as you can see, Claude code
+[16:20] just finished setting up the scheduling
+[16:22] layer of our automation. And over here,
+[16:24] we can see exactly how it works. And it
+[16:26] is telling us in the first week, it is
+[16:28] only going to post three times per day.
+[16:30] In the second week, it's going to post
+[16:32] 10 times per day. And in the third week
+[16:34] plus, it's going to increase it to 20
+[16:36] times per day, which is exactly what we
+[16:38] asked it to do. And over here, we can
+[16:40] see the platforms that it is going to
+[16:41] post on, along with specific captions
+[16:44] and titles that it is going to use,
+[16:46] which it will actually take from the
+[16:47] captions and titles that Submagic
+[16:50] automatically generates for us, which
+[16:52] means that they're going to be highly
+[16:53] relevant to that specific piece of
+[16:55] content. And now, just to test this out
+[16:57] and see that this actually works
+[16:59] correctly, I will come over here and I'm
+[17:01] going to say, "Hey, great. Just to test
+[17:03] this out, I want you to publish one of
+[17:05] the clips that we generated before.
+[17:07] Publish the one with the highest score."
+[17:09] And I will simply send over this message
+[17:11] to see if our workflow is indeed working
+[17:14] correctly, and if we can in fact publish
+[17:17] one of the latest shorts that we
+[17:19] generated, and that's exactly what our
+[17:21] workflow went over did. And you can
+[17:23] clearly see it since it went over and
+[17:25] published this video over in my TikTok
+[17:28] account and also in my Instagram page,
+[17:30] as you can see over here, which is
+[17:31] literally exactly what we wanted. It
+[17:34] means the scheduling part of our
+[17:35] workflow also is working correctly. And
+[17:37] now it's time for the part that I
+[17:39] promised you in the beginning of this
+[17:41] video, which is showing you how to find
+[17:43] streamers that are actively looking for
+[17:45] clippers. And you can mainly do this
+[17:48] through a platform that is called Whoop,
+[17:50] where multiple popular streamers and
+[17:52] YouTubers go set up clipping campaigns.
+[17:55] And then you can join these campaigns
+[17:57] and start clipping for them and get paid
+[17:59] per 1,000 views. But if you don't want
+[18:01] to use Whoop, go over to your favorite
+[18:03] streamer over in Kick or even in Twitch.
+[18:06] And once you do that, you will see that
+[18:08] the moderators are constantly spamming
+[18:10] and advertising their clipping
+[18:12] communities. So you're very likely in
+[18:14] the first 5 minutes of watching the
+[18:15] stream see a moderator send over a link
+[18:18] say, "Hey, if you want to clip for this
+[18:19] person, click on this link and apply."
+[18:21] And then all you have to do is to simply
+[18:23] apply to join the streamer's clipping
+[18:25] community. And once they accept you,
+[18:27] then you will be able to start clipping
+[18:29] for them and start getting paid. But if
+[18:31] you want my personal recommendation, I
+[18:33] would suggest you to start through Whoop
+[18:34] since they also have open campaigns
+[18:37] there which you can join without even
+[18:39] having to apply. So you can immediately
+[18:41] start clipping with a workflow that I
+[18:42] showed you in this video. But remember
+[18:45] to successfully set up this workflow,
+[18:47] you will need to go over to submagic.co
+[18:49] and create an account. And to make this
+[18:51] process easier for you, I will also
+[18:53] leave a link for it in the description
+[18:55] below. So make sure you click on it and
+[18:57] you create an account. But also get this
+[18:59] things that you're going to enjoy this
+[19:00] video, it will also show you how you can
+[19:02] automate all of your Instagram posts
+[19:04] using Cloud Code and Sub Magic. So make
+[19:06] sure you go and watch that next and I
+[19:08] will see you over there.

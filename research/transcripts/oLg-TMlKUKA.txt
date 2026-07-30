@@ -1,0 +1,274 @@
+# I Let an AI Run My Twitch Clips for 7 Days (Cal's Creation)
+# https://www.youtube.com/watch?v=oLg-TMlKUKA
+
+[00:00] So, I didn't clip anything for a full
+[00:02] week. No editing, no uploading, no
+[00:04] researching, nothing more than just
+[00:06] streaming. And then I let an AI do
+[00:08] everything else for me for my short form
+[00:09] clips. So, for 7 days straight, this bot
+[00:12] ran my entire content pipeline. It
+[00:14] picked the moments, it edited the clips,
+[00:16] it added subtitles, and posted them for
+[00:18] me. And the question is, did this
+[00:19] actually work or did I just let a robot
+[00:21] tank my channel? So, the tool that I use
+[00:23] personally is Nexus Clips, which I've
+[00:25] shown a few times on this channel. And
+[00:26] it's an AI platform that scans your
+[00:28] Twitch VODs for you or your YouTube
+[00:30] videos as well. And it finds moments
+[00:32] from those that could go viral, edits
+[00:33] them for you into short form clips with
+[00:35] automatic subtitles and a bunch of extra
+[00:37] features that you can add in too. And
+[00:39] then it also lets you link and post
+[00:40] directly to your Tik Tok or YouTube
+[00:42] Shorts account in one click. And as I
+[00:44] said, I've done a few videos on this
+[00:45] before where I've edited these and shown
+[00:47] you how to do this effectively and how
+[00:48] to make them go more viral and perform
+[00:50] better. But this time, I wanted to leave
+[00:52] it completely up to the AI and just post
+[00:54] them raw. So, can the AI actually do
+[00:57] better than me, who is not too bad at
+[00:58] editing myself? Well, after my stream,
+[01:00] Nexus Clips automatically pulled this
+[01:02] clip as the highest ranked, most viral
+[01:04] option because you do get a list of
+[01:06] virality, which lets you know which
+[01:08] clips are going to do well and which
+[01:09] maybe won't perform as well, but are
+[01:11] still obviously good if you do want to
+[01:12] get a bunch of content out. And I would
+[01:14] have never really thought to clip this
+[01:15] specific moment, which is something that
+[01:16] this does really well is it catches the
+[01:18] moments that you might miss or not even
+[01:20] consider to be worthy of making a clip
+[01:22] out of. So, I posted that as my first
+[01:23] clip of the week. And over the next few
+[01:25] days, the clips just kept on coming.
+[01:26] Some were great. They were perfect picks
+[01:28] with solid pacing, good edits. And some
+[01:30] were weird, like it clipped moments like
+[01:32] this that I didn't even remember or
+[01:34] things that I wouldn't have considered
+[01:35] to clip myself. And somehow someway
+[01:37] those dumb moments end up getting more
+[01:39] views than some of the stuff I actually
+[01:40] put effort into editing anyway, which is
+[01:42] cool to see cuz it means that this is
+[01:43] working. By clip four, I realized
+[01:45] something. I hadn't opened Premiere Pro,
+[01:47] Da Vinci Resolve, anything like that,
+[01:48] not even Cap Cut once this week so far
+[01:50] for my shorts. I was just reviewing the
+[01:52] clips the Nexus Clips made for me and
+[01:54] clicking post. And that's it. Obviously,
+[01:56] if I wanted to make tweaks, I could
+[01:58] change a caption or change some of the
+[02:00] fonts and make it my own colors. I could
+[02:02] add my Twitch name to direct people
+[02:03] there. Or I could add a hook to the
+[02:05] start of the video to make it maybe a
+[02:06] little bit more retentionbased. And
+[02:08] yeah, I could have gone in and done that
+[02:09] with these clips for this video. And
+[02:11] I've done that in the past. And that's
+[02:12] how I personally use Nex's clips is I
+[02:13] use it to kind of get the clips for me,
+[02:15] but then I go in and kind of tweak it.
+[02:17] Sometimes I'll even put them in Premiere
+[02:18] Pro afterwards if I really want to, but
+[02:20] most of the time I will just tweak the
+[02:21] subtitles, make it kind of a similar
+[02:23] color way. I like to add a hook to kind
+[02:25] of reel people in and all of that fun
+[02:26] stuff that you just saw on the platform.
+[02:28] But again, today we are just letting the
+[02:30] AI take full reign over my channel. The
+[02:31] auto captions and hashtagging as well, I
+[02:33] find to actually be really quite good.
+[02:35] This is normally where I would arguably
+[02:36] make the most changes when I'm posting
+[02:38] on a regular basis with Nexus Clips.
+[02:39] However, this AI does consider the
+[02:41] context of your clip and the niche
+[02:42] that's kind of in, and it will do the
+[02:44] hashtag research essentially for you to
+[02:46] save you having to go and find what
+[02:47] might help that clip go viral in that
+[02:49] niche. So, I left all of those as they
+[02:50] were and posted them as is. So, again,
+[02:52] if you're a streamer that works
+[02:53] full-time or maybe you want to do more
+[02:54] content in more streams and not have to
+[02:56] just sit through your entire VOD just to
+[02:58] find the clips and chop them up and edit
+[03:00] them and export them and post them and
+[03:01] hashtag them. It just really does take
+[03:03] away all that hard work for you. So,
+[03:04] after all of that, did the AI actually
+[03:06] help my channel grow? Well, my plan was
+[03:08] to do one clip a day every day on my
+[03:10] channels for seven days. And that was
+[03:11] going to be across YouTube, Tik Tok, and
+[03:13] Reels. So, essentially for seven clips,
+[03:15] it would be 21 posts total for that
+[03:17] week. I ended up stretching this to 14
+[03:19] days and doing 42 clips total across one
+[03:22] a day on all of my platforms just purely
+[03:24] because it was spitting out so many
+[03:25] clips for me that I figured I might as
+[03:26] well use them all cuz I was kind of like
+[03:28] looking through some and binning off the
+[03:30] ones that were actually still quite good
+[03:31] and I didn't want to waste those. So, I
+[03:32] ended up posting those as well. And I
+[03:34] also use their in-built scheduling
+[03:35] option here. So, not only can you post
+[03:37] them directly to Tik Tok and Shorts by
+[03:39] linking your accounts and just posting
+[03:40] them there without having to export, you
+[03:42] can also schedule these in advance. And
+[03:43] there's a content calendar, too, so you
+[03:45] can track this in advance of all of the
+[03:46] content you've planned. And after day 1
+[03:48] to day 14 of posting one clip a day
+[03:50] across all those platforms, they totaled
+[03:51] around 100,000 views. And compared to
+[03:54] the usual performance of my short form
+[03:55] clips across those channels, this is
+[03:57] more views than I would have gotten
+[03:58] naturally just me doing it. And
+[04:00] honestly, I would probably not have
+[04:01] posted that many clips anyway and
+[04:03] definitely not across that many
+[04:04] platforms just purely because of the
+[04:06] workload because I would have had to go
+[04:07] through the VOD, find the moment, edit
+[04:08] it in Premiere Pro, which would take me
+[04:10] a little bit of time anyway. Export it
+[04:12] and then having to caption and tag it
+[04:13] and do all the descriptions and do
+[04:14] everything for YouTube and then Tik Tok
+[04:16] and then reals. Like, I'm not doing
+[04:18] that. So, essentially, this handled
+[04:19] YouTube and Tik Tok completely for me.
+[04:21] And then I would just copy and paste the
+[04:22] tags and caption from that and use that
+[04:24] for my posting on reals, which took an
+[04:26] extra, you know, 30 seconds of my time,
+[04:28] which has clearly led to a vast amount
+[04:29] of views for a stream that I didn't
+[04:31] really plan to clip anyway. I just
+[04:32] wanted to experiment with it with Nexus
+[04:34] Clips for this video's purpose to show
+[04:36] you how it works. And of course, not
+[04:37] every clip within that mix did well.
+[04:39] There were some flops and some that
+[04:40] didn't hit the stratosphere of views
+[04:42] that the others did. But compared to the
+[04:43] effort I normally have to put in to clip
+[04:45] stuff up and put short form stuff out
+[04:47] for my streams versus the views you
+[04:48] normally get as well for those kind of
+[04:50] clips cuz stream clips are a little bit
+[04:51] saturated and they do perform less for
+[04:53] me compared to my other channel shorts.
+[04:55] This method worked incredibly well and I
+[04:57] think more importantly this is a really
+[04:58] good way of keeping your channel
+[04:59] consistent and professional looking
+[05:01] because you're constantly posting daily
+[05:02] content which keeps you in people's
+[05:04] minds and keeps that kind of relevancy
+[05:06] up and all that for basically zero
+[05:08] effort on my part for these two weeks
+[05:09] especially. So it doesn't replace human
+[05:12] editors for fulllength content and you
+[05:13] can make tweaks to make the short form
+[05:15] better too. You can make improvements. I
+[05:17] do prefer my personal kind of strategy
+[05:18] of Nexus clips of getting the clips and
+[05:20] then making slight tweaks myself just
+[05:22] for branding and imaging purposes. But
+[05:24] with experimenting it on a completely
+[05:25] hands-off basis other than me doing the
+[05:27] actual stream and just clicking yes a
+[05:29] few times. This is the closest thing
+[05:31] you'll get to hands off short form
+[05:33] growth. So, if you are a streamer or
+[05:34] even a YouTuber that has gaming content
+[05:36] or any content that you can clip up cuz
+[05:38] it also does YouTube videos, not just
+[05:39] Twitch VODs, and you're not turning your
+[05:41] content into clips and having daily
+[05:43] posts, then you are just leaving views
+[05:45] and growth on the table because, as you
+[05:47] can tell, Nexus Clips can basically help
+[05:48] you make this fully automatic. So, I
+[05:50] will drop my link below if you want to
+[05:52] try it. It's free to test out. So, you
+[05:53] can have a little play with it, see if
+[05:54] you like the features and if it will
+[05:55] work for you. And even if you don't go
+[05:57] viral immediately, at least you can get
+[05:58] some really good content out of your
+[05:59] streams, which you otherwise probably
+[06:01] wouldn't have. And if you find this
+[06:02] useful and it works for you and your
+[06:03] schedule, then you can use code cal to
+[06:05] get 10% off of any purchase on their
+[06:07] website. And let me know in the
+[06:08] comments, how do you feel about these AI
+[06:09] tools that kind of take away some of the
+[06:11] workload for you. I'm personally all for
+[06:12] it when it comes to efficiency like this
+[06:14] because it's content I've already made
+[06:16] and streamed and it kind of just clips
+[06:17] it for me and segments out the work. I
+[06:19] think the only ones I don't like is
+[06:20] stuff that uses AI generated images or
+[06:22] AI generated videos that takes the human
+[06:25] element out of the content. Like at that
+[06:26] point, you kind of haven't made the
+[06:28] stream or the video. you've kind of just
+[06:30] got robots to fathom up this thing. But
+[06:32] stuff like this where it auto captions
+[06:34] for you, clips up a stream and saves you
+[06:36] some time and there's a lot of AI voice
+[06:37] changes as well. I think that niche of
+[06:39] AI is super important to start looking
+[06:40] at as a creator or streamer just because
+[06:42] it is going to streamline your process
+[06:44] and help you get that growth, especially
+[06:45] if you do work full-time or if you don't
+[06:47] have certain skills with editing, then
+[06:49] you can set yourself apart and still
+[06:50] succeed and not have loads of AI jumbo
+[06:53] like a lot of these channels do. You'll
+[06:54] still have the organic human content.
+[06:56] And all this does for you is makes it a
+[06:58] little bit easier to get to that finish
+[06:59] line. But that's all from me today. If
+[07:00] you want some free Twitch artwork
+[07:01] though, there is a link to my website
+[07:03] down below where I've made a bunch of
+[07:04] free stuff for you to help you get going
+[07:05] on Twitch, as well as a very budget
+[07:07] everything pack that just has a bunch of
+[07:09] files with everything you need to get
+[07:10] you going. Whilst you're down there,
+[07:11] you'll also see our community Discord,
+[07:13] which has 300 plus other streamers and
+[07:14] creators like you. So, if you still need
+[07:16] any advice or any help or you want to
+[07:18] make some friends, then join cuz we'd
+[07:19] love to have you in. And in the
+[07:20] meantime, here is your last chance to
+[07:22] subscribe in this video. And here's
+[07:24] another video that might help you on
+[07:25] your creative journey.

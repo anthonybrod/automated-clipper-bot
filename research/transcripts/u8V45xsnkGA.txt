@@ -1,0 +1,315 @@
+# I Built an AI To Run My Social Media on Autopilot (Creator Magic)
+# https://www.youtube.com/watch?v=u8V45xsnkGA
+
+[00:00] Hello, I'm Mike.
+[00:00] Now imagine this.
+[00:01] You publish one long form video,
+and then in moments, an AI agent spins up,
+[00:06] chopped them all into viral clips,
+[00:08] and publishes them somewhere
+like Instagram Reels.
+[00:11] And it does all this
+while you do literally nothing.
+[00:14] Yes. Today
+[00:14] I'll show you how I've built that pipeline
+using Opus Clip completely hands off.
+[00:18] Let's build our
+AI employee for short form content.
+[00:22] Okay, first
+here we are in the Opus dashboard.
+[00:24] Now I can just drop in a link from pretty
+much any platform online that does video
+[00:28] and have it converted into short clips,
+By the way,
+[00:31] if you want to try this growth tool out
+for yourself, click
+[00:33] the link down below for a free week
+plus 50% off your first three months.
+[00:37] I want to be specific.
+[00:38] I want to use my brand style
+for the channel to make all my clips
+[00:42] look super cool and slick we'll start
+[00:43] by adding some brand vocabulary
+so it never messes up in captions.
+[00:47] I'm building a comprehensive list.
+[00:49] Next up I can add a custom font.
+This is the font
+[00:51] I use all the time on my channel.
+[00:53] And there it is uploaded to use.
+[00:55] Finally, here on the media.
+[00:56] I've added a little outro here.
+Now we've got the building blocks.
+[00:59] Let's build a template for each short
+that my AI agent will create.
+[01:02] And the brand template.
+We'll choose some styles.
+[01:04] I'm going to go to Instagram,
+so I'm going to go for four by five scale.
+[01:08] Then under caption
+we'll scroll down and go for simple.
+[01:10] This is where we can customize the fonts.
+[01:12] Scroll up and find my custom fonts.
+[01:14] Looking really good.
+[01:15] I can go to effects
+[01:16] and I can choose to add on a light bounce
+or something like that.
+[01:20] and we can just preview that it looks
+good.
+[01:21] Finally, I'll go ahead and add some
+AI features, such as removing filler words
+[01:24] and pauses to keep things nice and tight
+and snappy, and save the template.
+[01:28] Yes, my work is done in Opus Clip
+for the moment.
+[01:31] Let's head over to Zapier
+and automate the heck out of this.
+[01:34] It's worth to say Opus does have an API,
+but it's application only, and with Zapier
+[01:38] you can automate straight out the box.
+[01:40] So let's get started.
+[01:41] Okay, first we'll rename
+and we'll call this Opus Creator.
+[01:45] as the trigger.
+[01:46] All I'll do is type in YouTube,
+For trigger event I'll search for channel.
+[01:49] And we want new video in channel. Here.
+[01:51] I just need to paste in my channel ID
+[01:53] by going to more in the description
+channel and grabbing the channel ID.
+[01:57] That can go in here.
+[01:58] And when I test this trigger.
+[01:59] You'll see it pulls in videos
+I've published recently.
+[02:02] Next we can search for opus and there is
+Opus Clip available to automate.
+[02:07] Next is the action event.
+[02:08] Here I will go ahead and select Clip
+Your Video.
+[02:11] This is going to mobilize my agent
+that will create
+[02:14] viral shorts from every video
+I put out on my channel.
+[02:18] You'll see I can add a video file or URL.
+[02:20] Well that's easy, I just do forward slash
+and then from YouTube
+[02:23] I map in the video URL
+which is right here.
+[02:26] Okay.
+[02:27] Now we get to customize a ton of features
+as to how our AI agent will work.
+[02:30] And I'm going to customize
+to do the clip length of 30 to 60s.
+[02:34] I believe this is the sweet spot
+for posting of my clips on Instagram.
+[02:38] Next is the brand template.
+[02:39] We'll select Creator Magic.
+That's the one I just made.
+[02:42] I'm finally done.
+[02:43] Don’t Clip should be false
+because we do want clips.
+[02:46] It was as simple as that to set up
+our first automation.
+[02:48] Let's spin it up and get our AI agent
+working and see just how good it is.
+[02:52] We'll click Test.
+[02:53] Check here
+and we can see there's an E.T.A.
+[02:55] of six minutes.
+[02:56] Yes, my agent is working away on a video
+I've recently published on my channel.
+[03:01] Right. I'll go make some coffee.
+[03:02] We'll come back in a moment and see what
+it's done. Actually, do you know what?
+[03:05] While it's doing this, in the meantime,
+we can do more automating.
+[03:08] This has to be one of the simplest
+automations I ever made.
+[03:11] I publish a new video.
+[03:12] My AI agent clips the video for me.
+[03:15] So now is a great time
+[03:15] to make a second automation that watches
+for my AI agent completing the task,
+[03:19] and then publishes those videos
+to Instagram.
+[03:22] Select Opus Clip again and look at this.
+[03:24] There's a trigger event
+new project completed
+[03:26] and it will instantly set a notification
+for this automation to commence.
+[03:30] Now is the second action
+in this automation.
+[03:33] We'll set the action event as Get clips.
+[03:35] And let's just have a quick look.
+[03:37] In the time
+it's taken me to set up this automation,
+[03:39] I've got lots of viral
+clips pre edited for me.
+[03:42] How cool is that?
+[03:43] And we can see that there are five
+clips here with high virality scores.
+[03:46] Look at this.
+[03:47] Very likely to go viral on shorts
+Tik Tok reels.
+[03:50] And get this Opus
+also has this cool feature that tells you
+[03:54] why a video will trend
+powered by Google Gemini.
+[03:58] And that's the fact that what I've spoken
+about was recently released at Dev Day
+[04:01] 2025 and people are searching for this
+right now.
+[04:05] This is absolutely amazing, Right,
+I can't waste any more time.
+[04:09] I need to get this automation completed
+so I can get my reels viral on Instagram.
+[04:13] So I've mapped that in here to the top
+And then this is really cool.
+[04:17] Liked clips only I'm saying all clips.
+[04:19] But if you want a human in the loop.
+[04:21] So let's go ahead and like this clip.
+[04:24] Let's go ahead and watch this clip.
+[04:25] If you're only looking to receive data
+from the web.
+[04:28] yes, I love that clip.
+[04:29] So again,
+it's another heart going on this clip.
+[04:32] And it's as simple as that to make sure
+I have complete control of what
+[04:36] I'm putting out on Instagram,
+[04:37] and not just throwing slop out there
+without monitoring it.
+[04:40] Now the coolest thing here is Opus
+actually
+[04:41] has the ability to edit the clips.
+It makes.
+[04:44] As you'll see here, it's
+95% of the way here,
+[04:46] but sometimes it just doesn't quite
+get it in the screen.
+[04:49] So I can just rejig exactly
+what I want to be center of attention.
+[04:52] Just like this.
+[04:53] And then I can just trim
+the end of my video.
+[04:55] Should take one attempt.
+[04:57] For the full breakdown,
+head to the link in my bio.
+[04:59] Absolutely perfect.
+We'll save those changes.
+[05:01] We then quickly get a reedit
+on that video.
+[05:03] Here's
+my final clip and it's trending as well.
+[05:06] Just a small quick
+edit on this very hot viral clip.
+[05:09] Ready to publish.
+[05:10] And with those edits and five likes, let's
+take it back to my Zapier automation.
+[05:15] My Opus publisher,
+where I'll choose to use likes clips only.
+[05:19] And now we've got lots of data here.
+[05:20] Well don't worry about that
+because we're going to hand that off
+[05:23] to have it published on Instagram
+for us at randomize times.
+[05:27] This is where we're going to loop over
+all of the clips using looping.
+[05:30] As action
+we'll choose Create Loop from line items.
+[05:33] Now the values are very important.
+[05:35] We'll use the clip title.
+We'll call that title.
+[05:38] And we'll use the URL to the video clip
+itself.
+[05:41] We'll call this video URL
+And when we go ahead and test the step
+[05:44] you'll see it makes a loop of the five
+different videos that I liked previously.
+[05:49] So a quick recap. At this stage.
+[05:51] We started by watching for a new video
+on my channel.
+[05:53] We sent it off
+to be clipped up by opus clip.
+[05:56] We waited in a new automation
+for that project to complete.
+[05:58] Got all the clips that I liked inside
+Opus Clip.
+[06:02] if I want to be hands off,
+I can just ask it to ingest all the clips
+[06:05] and publish them out for me.
+[06:06] And then next we're heading into a
+[06:08] loop down here so we can publish each clip
+at a randomized time.
+[06:11] And I want these viral clips
+to go out to Instagram.
+[06:13] It is important you have an Instagram
+for business account.
+[06:16] As an action event will use API request.
+[06:19] The actual Instagram video
+publish action is broken on Zapier right
+[06:21] now, but I've got a workaround
+that I've posted up down below for you.
+[06:24] It's really simple. You just connect
+your Instagram business accounts.
+[06:27] all the details will be down below.
+[06:29] And you'll see I've mapped in the title
+and video URL that we created before.
+[06:33] With that done,
+we can test the first step. Boom.
+[06:35] Now don't worry,
+that doesn't mean it's on Instagram yet.
+[06:38] It means I've notified Instagram
+that I want to publish that video.
+[06:41] Next will complete the automation.
+[06:43] By adding Instagram for business again.
+[06:45] And the second request
+actually publishes again.
+[06:48] We'll go for slash
+and we'll map in what we got back
+[06:50] from the first Instagram,
+which is the response data ID.
+[06:54] Well, that wasn't too bad
+with a couple of steps.
+[06:56] We've got an automated Instagram
+viral Reels posting machine.
+[07:00] Okay, let's test it and see if it works.
+[07:03] Let's test the step. And.
+[07:06] Yes we have success will refresh and boom.
+[07:09] There is my video published on Instagram
+and you can play it.
+[07:13] And there it is
+playing right there inside Instagram.
+[07:17] And there you go.
+[07:18] That indeed is our opus publisher.
+[07:20] Ready to go.
+[07:21] And I'll post these two automations
+in the link down below,
+[07:24] along with the link
+to get started with Opus Clip
+[07:26] that really can overpower
+your shorts creations by clipping up
+[07:30] your videos that you publish on YouTube
+and making them into viral shorts.
+[07:34] Click the link down below.
+[07:35] Use the coupon code magic for a free week,
+plus 50% off your first three months.
+[07:40] So there you go.
+[07:41] Let me know how you'll be using this.
+[07:43] You don't just have to use it for viral
+YouTube clips.
+[07:46] You can record meetings,
+have them transcribed and clipped,
+[07:49] and have highlights dished out
+via automations.
+[07:52] Anything you can think of, you can build,
+and you can use
+[07:55] Opus Clip as your overpowered
+AI clipping agents.
+[07:58] Well, the link will be down below
+if you want to go
+[08:00] and try it out for yourself,
+and I highly recommend you do.
+[08:03] Thank you so much for watching!
+[08:04] And YouTube is showing a video
+on your screen now you should watch next.
+[08:08] Thanks!

@@ -1,0 +1,1095 @@
+# This AI Machine automatically clips & posts 100+ Shorts from 1 Video (Jay E / RoboNuggets)
+# https://www.youtube.com/watch?v=LiWf_BGg87o
+
+[00:00] I just built this AI system that
+[00:02] automatically clips 100 or even more
+[00:04] shorts from any long- form video and
+[00:07] publishes them to every social media
+[00:09] channel that matters to you. And this is
+[00:11] important because a lot of content
+[00:12] creator businesses now are looking to
+[00:14] broaden their reach. And clipping is
+[00:17] recently but quickly becoming one of the
+[00:19] best ways to do that. I paid them out
+[00:21] like 140k for a month. $140,000 on
+[00:25] clippers. Yeah. Wow. And that is just
+[00:27] one example of a content business. this
+[00:29] guy Neon who is paying clippers
+[00:31] regularly to further widen his reach.
+[00:34] And if you look at this article by
+[00:35] roster and consider clipping to be an
+[00:37] entry-level editor job that can fetch
+[00:39] roughly a rate of $15 per 1 minute
+[00:41] video, which also aligns with the recent
+[00:43] data by Upwork. So if you're a content
+[00:45] creator or someone who wants to clip
+[00:47] content as a service that you want to
+[00:49] sell, then you can build this system
+[00:50] once so that you can autogenerate those
+[00:53] clips on autopilot. Because once you set
+[00:55] up this system, it will effortlessly
+[00:57] generate those clips for you every day
+[00:59] or even every hour whenever it runs. And
+[01:02] it will use AI to understand the context
+[01:04] of the video, cut your long- form
+[01:05] footage so that the people speaking are
+[01:07] properly framed in place and even adding
+[01:10] subtitles to get clips like this. In my
+[01:13] experience, if you're trying to have a
+[01:15] sense of where you are going to end up,
+[01:20] um, you shouldn't look at the
+[01:22] technology, you should look at the
+[01:24] people. And you can see that goes for
+[01:25] roughly a minute long, which you can
+[01:27] also define through this system. And the
+[01:29] system also automatically publishes
+[01:30] those clips to every social media
+[01:32] channel that you want. So you can be
+[01:34] present on Tik Tok, on Instagram,
+[01:36] YouTube shorts, or even LinkedIn. And
+[01:39] it's also built using this no code tool.
+[01:41] So, if you have zero technical
+[01:42] background or just beginning with AI, as
+[01:44] long as you know how to operate a mouse
+[01:46] and keyboard, then that's pretty much
+[01:47] all you need. And learning about AI
+[01:49] automation is also a good investment of
+[01:51] your time given the demand for it, which
+[01:53] you can clearly see if you just hop over
+[01:55] at Google Trends. And if you stick till
+[01:57] the end, I'll also talk about three
+[01:58] specific methods of how you can monetize
+[02:00] this system along with the business case
+[02:02] against the costs to run it so that you
+[02:04] know what a reasonable profit margin
+[02:06] will look like. So, if you have the
+[02:07] time, invest the next few minutes
+[02:09] watching this walkthrough, and you might
+[02:10] just learn a skill that will set you up
+[02:12] to be at the forefront of AI and
+[02:16] automation. By the way, if you're new
+[02:18] here, my name is Jay, and our mission
+[02:20] here at Robo Nuggets is to make AI easy
+[02:22] to learn and earn from for anyone who
+[02:24] wants to. We run one of the largest
+[02:26] learning communities for AI
+[02:28] practitioners globally with around 1,400
+[02:30] members now, who are all AI
+[02:31] professionals located across the globe.
+[02:33] and where in fact to make this tutorial
+[02:35] as easy as possible, we've collected all
+[02:37] of the resources and prompts that you
+[02:39] need for this lesson in this page in our
+[02:41] community with a specific call out for
+[02:43] this blueprint file which you can just
+[02:44] download and import to the no code tool
+[02:46] that we'll be using and that will
+[02:48] generate the workflow for you without
+[02:50] you even having to do anything. So check
+[02:52] out that space just in the link in the
+[02:53] description if getting the best
+[02:55] education on practical AI is something
+[02:57] that interests you. All right, let's dip
+[02:59] into this. So the framework of what
+[03:01] we'll set up is rather simple because if
+[03:04] you break it down into steps, there's
+[03:05] only really four where the first step is
+[03:07] for you to provide your input, which is
+[03:09] the long- form video in this case, which
+[03:11] we then pass along to step two, which
+[03:13] analyzes that long- form video through
+[03:15] the AI tool that we'll be using.
+[03:17] Essentially looking at the transcripts
+[03:18] of that long form video and identifying
+[03:21] which parts of that video can be clipped
+[03:23] to short form. And then once we have
+[03:24] that identified, the third step will now
+[03:27] produce or export those short clips and
+[03:30] also automatically adds subtitles to
+[03:32] them which we now pass along to this
+[03:34] final step which is autopublishing them
+[03:36] to any social channel that you want. So
+[03:39] what I'll do is I'll go over this per
+[03:41] node so that you can follow along and
+[03:43] also understand some of the principles
+[03:44] with creating an AI system like this
+[03:46] one. And the tool that we'll be using to
+[03:48] orchestrate this whole system is called
+[03:50] N8N, which if you click on this link
+[03:52] just in the video description, that will
+[03:54] take you to N8N's page where you can get
+[03:56] a free trial. And just in case you're
+[03:58] new to this and it's your first time
+[03:59] hearing of N8N, what it is, it's
+[04:02] basically a no code tool similar to
+[04:04] Zapier or Mink.com. But if you just look
+[04:06] over at Google Trends, you'll see that
+[04:08] it shot up in demand quite recently
+[04:10] because of how flexible it is with
+[04:11] implementing AI systems like the one
+[04:13] we're about to set up. So it's
+[04:14] definitely a good time to learn. And
+[04:16] it's also not that complicated if you
+[04:17] have someone guiding you because once
+[04:19] you sign up, what you just need to do is
+[04:21] to click create workflow here at the top
+[04:23] right and then just go ahead and rename
+[04:24] this workflow with whatever that you
+[04:26] want and then add your first step here
+[04:28] which is going to be a trigger. So for
+[04:31] this one, we'll set up the trigger to be
+[04:32] a schedule. So if you click that, you'll
+[04:34] see that this just displays the
+[04:36] frequency by which this automation will
+[04:38] run. Right now we have it set once per
+[04:40] day. And if we click away, that's
+[04:41] basically your first node setup. And the
+[04:43] trigger is a special node in N8N because
+[04:45] it is basically going to dictate how
+[04:48] this system is triggered and the
+[04:50] regularity and frequency by which it
+[04:53] runs. So now if we just look at our end
+[04:55] in my automation here you'll see that
+[04:57] our next node is a Google sheet node. So
+[04:59] to add that just click on this plus icon
+[05:02] and find the Google sheet specifically
+[05:04] the get row in sheet action. And once
+[05:06] you open that, you'll see here N8N's
+[05:08] common design of working across every
+[05:10] node, which in case you're new to N8N,
+[05:12] it's probably good to step back and just
+[05:14] go through what each of these sections
+[05:16] mean because it's very simple. At the
+[05:18] very left here in the yellow section,
+[05:19] you just have all of the inputs that are
+[05:21] coming from previous nodes. And you'll
+[05:23] see later, this contains all of the data
+[05:25] that are getting passed along to the
+[05:26] node that you are configuring. And this
+[05:28] green section varies for every node. But
+[05:31] this region houses the configuration of
+[05:33] your node specifically and what it's
+[05:35] going to do with this input data which
+[05:37] once it's done with its action, it will
+[05:39] now pass along the transformed values
+[05:42] into this output section which is pushed
+[05:44] towards all succeeding nodes after this
+[05:46] one that you're configuring. So if we go
+[05:48] back to the system we're setting up, it
+[05:50] is the same thing where you have the
+[05:51] input here, the configuration and the
+[05:53] output. And you can also resize this as
+[05:55] you see fit. So now with Google Sheets,
+[05:57] what you want to do first is to just
+[05:59] rename this node into something like get
+[06:01] long form so that you know what it does.
+[06:03] And to connect to your Google Sheets,
+[06:04] it's rather simple with N8N because you
+[06:07] just need to click here and create a new
+[06:08] credential and you'll be able to sign in
+[06:11] with Google here, which is quite simple.
+[06:12] And once you have that connected, the
+[06:14] next step would just be for you to find
+[06:16] your Google sheet template here, which
+[06:19] if you go back to our community page,
+[06:21] you can just click on this link and that
+[06:22] will take you to this template, which
+[06:24] you can just click on file and click
+[06:25] make a copy and that will create a copy
+[06:27] of that template in your Google Drive.
+[06:29] Or you can also just set this up
+[06:30] yourself because there's only really
+[06:32] four columns. Quite easy. And we'll go
+[06:33] through these columns in a bit. But the
+[06:35] most important part is just this column
+[06:37] B which is going to contain all of the
+[06:39] links to your long- form videos that you
+[06:41] want to get clips out of. And for this
+[06:43] exercise, we'll use this video as an
+[06:45] example. And this is just a long form
+[06:47] video interview of Sergey Brin that this
+[06:50] content creator Cat GPT has done
+[06:51] recently and her content is great
+[06:53] because she also talks about AI in
+[06:55] nontechnical terms. So check out her
+[06:57] stuff if you haven't yet. But basically
+[06:58] what we'll need here is this YouTube URL
+[07:01] which you can just go ahead and paste
+[07:02] here in long form link and under
+[07:04] production status you just want to
+[07:05] change this to for production. And if
+[07:07] you have a long list of YouTube videos
+[07:09] you can just do this once in less than a
+[07:11] minute. So that once you've set up your
+[07:12] system every time it runs it's just
+[07:14] going to run through each and every
+[07:16] video that you put here. So now if you
+[07:18] go back to N8N now in our document we
+[07:20] can find that template that we just
+[07:22] copied which for me would be this one.
+[07:24] And then the sheet would be sheet one
+[07:26] which is where this initial template is
+[07:28] located. And then you just want to add a
+[07:30] filter so that N8N knows which row you
+[07:32] want in particular from that Google
+[07:34] sheet. So under column here just look
+[07:36] for production status and type in the
+[07:38] value as for production which is
+[07:41] matching with what you just had here.
+[07:43] And then the final thing you want to add
+[07:45] here is to add an option for return only
+[07:47] first matching row and toggle that as
+[07:49] on. And what that will do is just allow
+[07:52] us to work with one long form video
+[07:54] every time this N8N system runs. So now
+[07:57] if you click on test step, you'll see
+[07:59] that it returned one item to us
+[08:01] corresponding to that YouTube link that
+[08:02] we're about to make clips out of. So
+[08:04] that's good. And that is step one
+[08:06] actually already done. So if you want to
+[08:08] add those notes that we had, similar to
+[08:09] the ending workflow that we showed, you
+[08:11] can just do a right click and add a
+[08:13] sticky note there and change this
+[08:14] accordingly and also change the color
+[08:17] here. Cool. So now if we go to step two,
+[08:19] now that we've loaded our long form
+[08:21] video in N8N, we can now analyze it
+[08:23] using the AI tool that we're going to
+[08:24] use. So if we just go back to the
+[08:26] workflow we're setting up, you can just
+[08:28] drag this so that it continues at the
+[08:30] bottom and then find the node called
+[08:32] HTTP request and then just rename this
+[08:34] as analyze long form so that you can
+[08:37] remember what it does just for good
+[08:38] hygiene. And the HTTP request node in
+[08:41] N8N is actually one of the most used
+[08:43] because it's the main way by which you
+[08:45] can call on other thirdparty tools just
+[08:48] like the AI model that we're about to
+[08:49] use. So to use this node, just change
+[08:52] this method from get to post because
+[08:54] we'll be posting a request to that third
+[08:56] party tool same way that you would be
+[08:57] posting a mail. And then in this URL is
+[09:00] where you'll input the special URL of
+[09:02] that tool that we're about to request
+[09:04] from. And if you go back to our page
+[09:06] here, you can just grab the URL there
+[09:08] and copy it here. And you can see that
+[09:10] the tool that we're going to use is
+[09:12] called Clap, which if you go to their
+[09:14] website, you'll immediately see that
+[09:16] it's essentially an AI tool that
+[09:17] provides this service where you provide
+[09:19] it a long form video and turns it into
+[09:21] shorts. But what is different about
+[09:23] ClapF versus other providers similar to
+[09:25] it is that they actually have an API now
+[09:27] available which stands for an
+[09:29] application programming interface that
+[09:31] simply explained just allows us to
+[09:33] connect to it using N8N to automate the
+[09:36] process and use their service under the
+[09:37] hood even without a person logging into
+[09:39] Clap to manually clip these videos. So
+[09:42] for you to use it, you'll just need to
+[09:44] have an authentication or a pass key
+[09:46] that you need to pass along to Clap
+[09:47] every time, which is sort of going to be
+[09:49] your password so that you can use their
+[09:50] service. So to set that up, just click
+[09:52] on authentication here and find generic
+[09:55] credential type. And for the
+[09:57] authorization type, you would want this
+[09:58] header authorization. There's multiple
+[10:00] ways to do this, but this is what I
+[10:02] recommend because it's easy and it will
+[10:04] save you a lot of time later on. But
+[10:06] under this header O, just go ahead and
+[10:07] create a new credential and then name
+[10:09] this credential to something like clap
+[10:12] credential so that you know what it is.
+[10:14] And under name here, type this out
+[10:16] exactly authorization making sure that
+[10:19] the capitalization is correct. And
+[10:20] there's no extra trailing spaces because
+[10:22] this is just the value that Clap accepts
+[10:24] for us to use their service. So it needs
+[10:26] to be typed out exactly or it won't
+[10:28] work. Now you can see it's requesting
+[10:30] for a value here and this is where your
+[10:32] API key or pass key comes in. And for
+[10:35] you to get one, you can just go to this
+[10:37] URL. Click on get started to sign up.
+[10:39] And once you're in your dashboard, just
+[10:41] scroll down to the bottom and find this
+[10:43] API link which takes you to your API
+[10:45] page where you can just click on new API
+[10:47] key. And what that will do is ask you to
+[10:50] set up your API billing, which you can
+[10:51] just click on continue. And to use Clap,
+[10:53] they do just require a credit card to be
+[10:55] logged. But the good news is to use
+[10:57] their API, you don't really need to
+[10:59] subscribe to their monthly recurring
+[11:01] plans because their API is charged on a
+[11:03] per usage basis, which just helps to
+[11:06] keep your costs low. And if you're
+[11:07] curious about their pricing structure,
+[11:09] we have the documentation here. And
+[11:10] these operations, you'll understand in a
+[11:12] bit. But in a nutshell, each clip will
+[11:14] roughly be around 1 USD, which is still
+[11:16] very competitive versus hiring someone
+[11:18] to do it manually for you. And I
+[11:20] mentioned this because as we set it up,
+[11:22] we're only going to generate just a few
+[11:23] clips so that you don't end up
+[11:25] generating 50 clips, which would just
+[11:27] result to higher costs for you as you
+[11:29] test it out. But once you do that step,
+[11:31] you'll now have access to their API,
+[11:33] which if you create an API key, you'll
+[11:35] see it here. And if you're new to using
+[11:37] APIs, this is actually sort of like a
+[11:39] password. So you can see I have it
+[11:40] blurred out here because if people have
+[11:42] access to your API then they'll be able
+[11:44] to use your account as well. So make
+[11:46] sure to safeguard that. But if you go
+[11:48] back to N8N you can just paste that API
+[11:50] key here under the value and click on
+[11:52] save. And so with that you now have the
+[11:54] configuration of where you'll send this
+[11:56] request and also the authority so that
+[11:58] you can make that request with claps
+[12:00] permission. But the remaining question
+[12:02] is how do we define what request we are
+[12:04] actually making in the first place. And
+[12:06] to do that, you just want to toggle this
+[12:08] send body as on because the body is
+[12:10] where we'll be outlining or defining
+[12:12] that request. And under here, you just
+[12:14] want to keep this as JSON, which stands
+[12:16] for JavaScript object notation.
+[12:18] Essentially, it's just a standard way of
+[12:20] passing along a request to APIs. At
+[12:23] least for our use case, that's what it
+[12:24] is. And you want to specify the body
+[12:26] using JSON as well. And you'll see it's
+[12:28] waiting for some input here. And to make
+[12:30] it easy, you can just copy this whole
+[12:32] piece in our community page. change this
+[12:34] to expression and paste it here. And the
+[12:37] reason why we want to change this to
+[12:38] expression is if we open that up through
+[12:40] this button at the bottom right, you'll
+[12:42] see that we have a couple parameters
+[12:44] here which is outlined in this JSON
+[12:46] format with all the brackets and
+[12:48] formatting essentials. But the key piece
+[12:51] here is this source video URL which is
+[12:53] in green text because in N8N that's a
+[12:56] dynamic value. And so it's referencing
+[12:58] your long form link from this previous
+[13:00] node that you just set up. And so it's
+[13:02] getting this value and what's going to
+[13:04] do in reality for this specific run is
+[13:07] it's going to pass along the YouTube URL
+[13:09] that we originally had in our Google
+[13:11] sheet which we just loaded in the
+[13:13] previous node. So that's important that
+[13:15] that is green. And then obviously if
+[13:17] your column name in Google Sheets is not
+[13:20] named as long form links then it won't
+[13:22] be able to reference that properly as
+[13:24] well. So just make sure to watch out for
+[13:26] that. We have the caption set as true.
+[13:27] so that we get captions refframes that
+[13:30] is true which just lets Claps AI crop
+[13:32] the video properly depending on where
+[13:34] the speaker's face is at. You have
+[13:36] emojis here removing silences or pauses
+[13:39] and this intro title which we kept as
+[13:41] true just so you can see it and some
+[13:43] self-explanatory parameters here which
+[13:44] you can just read through in Claps
+[13:46] documentation. But cool, now that is
+[13:48] fully set up, it's actually going to be
+[13:49] much easier for us to use Claps service
+[13:52] down the line. And if you just click on
+[13:54] test step here and resize that a bit,
+[13:56] you'll see that the output says that we
+[13:58] are now successful in sending that
+[14:01] request to clap and they are now
+[14:03] processing that on their side. And
+[14:04] obviously they're running this analysis.
+[14:06] So if I now go to clap and look at my
+[14:09] videos here, you'll see that for this
+[14:11] particular run there is this instance
+[14:13] that we just passed, which if we click
+[14:15] on that, it's now telling us that it's
+[14:17] currently analyzing the video. And
+[14:18] obviously the time it takes to do this
+[14:21] depends on the length of our video. And
+[14:23] so if we go back to N8N, what we want to
+[14:26] do as a next node would be to literally
+[14:28] wait for that processing to finish. So
+[14:31] just type in wait. And later on we'll be
+[14:33] setting this as something like 5
+[14:34] minutes, which is usually enough. But as
+[14:37] we set it up, it's actually good to just
+[14:39] set this as 1 second for now. So that we
+[14:41] can click on test step and just pass
+[14:43] along those values from input to output
+[14:46] so that we can continue setting this up.
+[14:48] So that's good. Now before we go to the
+[14:49] next node, a good tip is to just
+[14:51] highlight all of these nodes and do a
+[14:53] right click and find pin the nodes or
+[14:55] you can also just press on P as a
+[14:57] shortcut. And what that will do, it will
+[14:59] turn these nodes to violet, which means
+[15:01] the data within them is pinned. And that
+[15:03] is useful because if you need to close
+[15:05] this automation and come back to it on a
+[15:07] later time, you'll find that this run
+[15:09] that you are working with will retain
+[15:11] this data that you have, which is useful
+[15:13] so that you don't have to keep on making
+[15:15] these requests and spend extra credits
+[15:17] as you test it out and learn. So that's
+[15:19] just a good tip to do. Now for the next
+[15:21] node to make it easy, what you can do is
+[15:23] to just click on this clap HTTP request
+[15:25] you did and copy it via Ctrl + C and
+[15:28] just connect it like so. Because this
+[15:30] one if we open it up we can just go
+[15:32] ahead and unpin the data here because
+[15:34] it's going to be a new node altogether
+[15:35] and rename the node to be get status
+[15:38] because that's exactly what it will be
+[15:39] doing because this time instead of
+[15:41] posting a new request we'll just be
+[15:43] getting the status of the request that
+[15:45] we posted. And with clap we just need to
+[15:47] change this URL which to make it easy
+[15:49] you can just copy this from the course
+[15:50] page change this again to expression and
+[15:53] paste it. And what that essentially is
+[15:55] is claps URL for getting the status of
+[15:58] your specific task which has this ID
+[16:01] that is coming from our previous node
+[16:03] pointing to that analysis job that we
+[16:05] have asked it to do. So now these
+[16:06] credentials will remain the same which
+[16:08] is good to save you time and all you
+[16:10] just need to do is to remove this body
+[16:12] because we're actually not posting a
+[16:13] request. We'll just be getting the
+[16:15] status of the request that we posted. So
+[16:18] I just hit test step there and you can
+[16:20] see here that the output is now ready
+[16:22] instead of processing which tells us
+[16:24] that it is now possible to get details
+[16:26] of the results of claps analysis. But
+[16:29] before that, if you look at our end in
+[16:31] mind workflow here, you can see that
+[16:33] after the get status, yes, we'll be
+[16:35] getting the details of the analysis that
+[16:37] we just did. But prior to that, we have
+[16:38] this node called an if node that if we
+[16:41] just zoom in there, all it really does
+[16:43] is check if the analysis job that we
+[16:45] posted is already ready or not. So to
+[16:48] set that up, it's very simple. Just
+[16:49] click on plus, find if, click on that.
+[16:52] You can rename this if you want, and
+[16:54] click on rename. And you can see it asks
+[16:56] for a condition here where you just want
+[16:58] to set value one and drag the status
+[17:01] parameter from this previous node into
+[17:03] there. And it will be returned as true
+[17:06] if it's equal to ready which is our
+[17:09] signal that this analysis is ready. So
+[17:11] if you just click away what you now see
+[17:13] is there are now two pathways here. This
+[17:15] is the true pathway. So if the analysis
+[17:17] by clap is ready then we can proceed as
+[17:20] intended to this next node which we're
+[17:21] about to set up. But if it's not yet
+[17:23] ready, then what we'll basically do is
+[17:25] map that route and bring it back to the
+[17:28] wait node because clap for some reason
+[17:30] is taking a long time for it to do the
+[17:32] analysis. And so what'll happen here is
+[17:34] we'll just wait for that request to
+[17:36] finish again and then we get status
+[17:38] again. Hopefully that time it's ready.
+[17:40] If it's not, it will just loop back. So
+[17:42] that's a very easy way to handle
+[17:43] processing times from third party tools.
+[17:45] But anyway, since we know the analysis
+[17:47] is ready, the next step now is to get
+[17:49] the details of that analysis. So if we
+[17:51] copy this get status node and place that
+[17:54] there and map it accordingly, we can
+[17:56] then double click on this and set it up
+[17:57] and name it as something like get shorts
+[18:00] details which under this URL is going to
+[18:02] be a different URL once again which if
+[18:04] you go back to the community page you
+[18:06] can just copy this change that make sure
+[18:08] that's under expression and place that
+[18:10] accordingly. Now you can see this is
+[18:12] still grayed out because we don't have
+[18:13] input data here yet and that is because
+[18:15] we haven't really run this if node yet.
+[18:17] So just click on play. that has run
+[18:19] properly and we've identified that the
+[18:22] analysis is ready. So it mapped here
+[18:24] accordingly and if we click on this
+[18:25] you'll now see that we are mapping the
+[18:28] output ID coming from that status of the
+[18:30] analysis and placing it here. Now all of
+[18:33] this can remain the same. So now if you
+[18:35] click test step that now return to you
+[18:36] two items which is the number of clips
+[18:39] that we asked clap for in the earlier
+[18:41] node. And if we click on this table view
+[18:43] and zoom out a bit, you'll see those two
+[18:45] items. And now you'll find the name of
+[18:48] the clip that we just generated, which
+[18:50] would be useful for a title, and also
+[18:52] some customized captions that are
+[18:54] specific for each social channel, which
+[18:56] is pretty good. And a few other details
+[18:58] here, which you can peruse in your own
+[19:00] time. And apart from those, we also now
+[19:02] have these ID for the shorts, which is
+[19:04] pretty much what we need to proceed to
+[19:06] the next step of exporting them so that
+[19:08] we can get those final videos. So now if
+[19:10] we look at our ended my workflow here
+[19:12] again, you'll see that is now step two
+[19:15] already done. And now it's time for us
+[19:17] to proceed to the third part which is
+[19:18] actually producing the shorts and
+[19:20] previewing them for the first time. But
+[19:22] just to fully save your work, well first
+[19:24] off you just need to hit save so that
+[19:26] those changes are properly saved. And if
+[19:28] you select all of this and select P, you
+[19:30] now have that data pinned again so that
+[19:32] if you come back to it, you'll be able
+[19:34] to retain your clips without having to
+[19:36] request again, which is always good to
+[19:38] save on costs. But basically to continue
+[19:40] this, the easy way is to just click on
+[19:42] this post request that you did and click
+[19:45] Ctrl D to duplicate that and connect it
+[19:48] like so. Because this is once again
+[19:50] going to be a request to Clap, but this
+[19:52] time if you rename this, it will just be
+[19:54] to export our shorts. And once again, we
+[19:57] have a different URL. So this is just as
+[19:59] per Clap's documentation. For some
+[20:01] reason, they have so many URLs. But same
+[20:03] as for the others, you can just copy
+[20:04] that URL here. Change that to expression
+[20:07] and paste that accordingly. So now you
+[20:09] can see that once again it contains some
+[20:11] dynamic values specifically this folder
+[20:13] ID which is this value again we're
+[20:16] getting from the previous node. So now
+[20:17] we have a location where we'll be
+[20:19] posting this request to our credential
+[20:21] remains the same which is good. But the
+[20:23] only thing remaining to be changed is
+[20:25] this body of the request itself which
+[20:27] you can just delete that and copy this
+[20:29] short snippet. Make sure that's under
+[20:31] expression and paste it there. So now
+[20:33] this preset ID is a required field with
+[20:36] clap, but I think they're still building
+[20:37] this out. So you can literally type
+[20:39] whatever here and it will still work. I
+[20:41] think in the future they hope to have
+[20:42] some templates where you can just input
+[20:44] the ID of the template here and it will
+[20:47] allow you to change the font of the
+[20:48] captions and all that. But as of the
+[20:50] time of this recording, when I tested
+[20:51] it, it wasn't working as intended yet.
+[20:53] So you can just type in 1 2 3. That's
+[20:55] good. So if you click on test step, it
+[20:57] will probably ask us to remove the pin
+[21:00] data because remember we just copied
+[21:01] this from the previous pinned node. But
+[21:03] just go ahead and confirm that. And what
+[21:05] it just did for us is process those two
+[21:08] shorts and export them. So you can see
+[21:10] the status is now processing. And once
+[21:12] again, if we go back to clap, you'll see
+[21:15] that in real time, it is exporting those
+[21:17] shorts for you because of that request
+[21:20] that you just did. So it doesn't take a
+[21:21] while. Couple of seconds and it's done.
+[21:23] But if we just click away, similar to
+[21:26] last time, you just want to set a wait
+[21:28] node here because obviously it still
+[21:30] takes a few seconds to finish. And then
+[21:32] once again, we just put this as 1 second
+[21:34] for now. Once we're fully set up, we can
+[21:36] just change that to something like 5
+[21:37] minutes again. And then if you click
+[21:38] test step, all that really does is allow
+[21:41] us to continue the workflow. And then
+[21:42] for the next node to make it easy, just
+[21:44] hit Ctrl D on this export shorts and
+[21:47] connect that properly. And if we open
+[21:49] that up, you can just rename this to get
+[21:51] shorts because that's what it will do.
+[21:54] It will give you the final video files.
+[21:56] And then change the method to get and
+[21:57] then just copy that snippet under the
+[21:59] get shorts URL here and paste that
+[22:02] there. And that should map your values
+[22:04] dynamically correctly. So everything
+[22:06] here remains the same. But since it's a
+[22:08] get request, we don't really need to
+[22:09] send any body there because all we're
+[22:11] doing is asking clap how this job is
+[22:14] doing and what is the status. So, if you
+[22:17] see this as already, what you can now do
+[22:19] is to preview your clips through this
+[22:21] source URL, which you can just copy and
+[22:24] paste in any tab in your browser, and
+[22:26] you'll be able to preview the clip that
+[22:27] it just generated for you. And I I think
+[22:31] these models will be capable of
+[22:32] producing really compelling videos.
+[22:35] um they'll be able to and there you can
+[22:37] see that it has the intro title, it has
+[22:39] the captions, it properly framed the
+[22:41] speaker correctly and it was also able
+[22:43] to get a pretty interesting section of
+[22:45] that 24-minute clip automatically. And
+[22:48] then if you go to the table view, you'll
+[22:50] be able to preview that second video. I
+[22:52] would love if you could compare the
+[22:53] moment which got the second highlight of
+[22:56] this interview all on autopilot as well.
+[22:58] So that is good and you now have your
+[23:00] clips ready. Now, same as before, you
+[23:02] just want to add an if node here just in
+[23:04] case the processing time from clap
+[23:06] requires more time than the time that
+[23:08] you have set. So, just drag the status
+[23:10] here and check if it's equal to ready,
+[23:14] which we know it already is. And then
+[23:16] click on test step. And all that really
+[23:18] did is to pass along your inputs to the
+[23:20] true branch, which you can see visually
+[23:23] represented here by this green line. But
+[23:25] this false branch, it's just important
+[23:27] to map it back to the weight node here
+[23:29] so that it maps back properly and it can
+[23:31] loop back if in case it requires more
+[23:33] processing time. So now to complete this
+[23:36] step, you actually just want to add in a
+[23:38] final Google Sheets node here and then
+[23:41] find the action called update row in
+[23:43] sheet. And what this node will be doing
+[23:45] is update the status of our long form
+[23:48] video. So you can just renamed it as
+[23:50] such because if we go back to our
+[23:52] template here, you remember that we
+[23:54] pasted our long form video here on this
+[23:56] list. We've marked it as for production.
+[23:58] What this node step will do will just
+[24:00] change this for production into done. So
+[24:03] that the next time your workflow runs,
+[24:05] it's now going to skip this long form
+[24:07] video because you just converted that
+[24:08] into clips and then look for the next
+[24:10] row which has for production in its
+[24:13] status if any. So let's just undo that
+[24:15] so that we can let the automation do
+[24:16] that instead of us. So here all you
+[24:18] really need to do is to once again find
+[24:21] that Google sheet that you were working
+[24:22] with. Find the sheet which is sheet one
+[24:25] for my case and then it will
+[24:26] automatically load the columns for you.
+[24:28] And what you just need to do here is to
+[24:30] update the production status as done.
+[24:32] But of course you need to instruct N8N
+[24:34] on which row to update specifically. And
+[24:37] so this using to match column is how you
+[24:40] would do that. So, if we go back to our
+[24:42] very first Google sheet by scrolling
+[24:44] down, you'll find the ID of that
+[24:46] specific long form video is one. So, you
+[24:48] can just map it back here and you'll see
+[24:50] it's red here because with N8N, if you
+[24:53] work with multiple items in this case,
+[24:55] we did two clips, right? So, there's two
+[24:56] items. Sometimes it has trouble
+[24:58] identifying which item to work with. So,
+[25:00] to resolve this, we just replace that
+[25:02] with something like first open close
+[25:04] parenthesis and that will just map the
+[25:06] ID of one properly. And also just for
+[25:09] good practice, I usually add a column
+[25:11] here for date produced so that we have a
+[25:12] proper log of when we actually produce
+[25:15] clips out of this long form video. So
+[25:17] your intention here is to return today's
+[25:18] date. And to do that dynamically, you
+[25:20] can just copy this script, change that
+[25:23] to expression and paste it there. So you
+[25:25] can see that it's returning today's date
+[25:27] which is May 28th. Now before you click
+[25:29] on test step, just make sure that you
+[25:31] pin these nodes just so that they keep
+[25:33] the data that you already ran. So if I
+[25:35] click on P there now we can go back to
+[25:37] our Google sheet and click on test step.
+[25:39] You'll see an output here. But more
+[25:41] importantly if you go back to our Google
+[25:43] sheet it has updated this specific row
+[25:45] in our logging as done and have logged
+[25:48] the date by which we produced this
+[25:49] video. And there you now have part three
+[25:52] completed. So now to proceed to our
+[25:54] final step there's just a couple more
+[25:55] nodes here with the first one being this
+[25:57] Google sheet node again. And to set that
+[25:59] up what we can just do is to duplicate
+[26:01] this same Google sheet and map that
+[26:03] accordingly. And as you configure this,
+[26:06] you can just rename it into something
+[26:07] like log shorts because what this will
+[26:10] basically do is to make sure that we
+[26:11] don't lose these URLs of the shorts that
+[26:14] we just generated so that we have access
+[26:16] to them right in our Google sheet. And
+[26:18] so here the piece you want to change is
+[26:20] this operation which you want to change
+[26:22] as append row. your document will be the
+[26:25] same, but you can just change the sheet
+[26:26] from one to two. Because if we go back
+[26:29] to our template from before, if you go
+[26:30] to sheet two, you'll see that this is
+[26:32] now where you will store all of your
+[26:34] generated clips. So, you can see two
+[26:36] here that are already marked as
+[26:38] published because it came from a
+[26:39] previous run that I did while testing
+[26:40] this out. But the end in mind for this
+[26:42] node is for it to update the URLs,
+[26:45] provide us the captions for each of the
+[26:47] specific channels and then have a status
+[26:49] here for publishing which is going to be
+[26:50] useful so that we can track which clip
+[26:53] has been already published to the social
+[26:55] channels and which ones are still for
+[26:57] publishing. So once you have those
+[26:59] columns set up the columns here in N8N's
+[27:01] workflow side should appear
+[27:03] automatically and now it's just a matter
+[27:04] of mapping the right attributes to these
+[27:07] values. So if we go back to this get
+[27:10] shorts node, you'll see the URL for the
+[27:12] clip is there. So just drag it here. For
+[27:14] these captions, you remember it was
+[27:16] coming from this get shorts details
+[27:19] node. And what you can just do is to
+[27:21] drag each of those to their respective
+[27:23] columns. This one's for YouTube. This
+[27:26] one is for LinkedIn. And then you want
+[27:28] to change this publishing status to for
+[27:30] publishing because that's just useful so
+[27:32] we can identify which ones haven't been
+[27:34] published yet. And then under this date
+[27:35] published, you can just copy that same
+[27:37] script from before. Place that here.
+[27:39] Make sure that is expression and that
+[27:41] will just return today's date. Now
+[27:42] there's one column we skip which is this
+[27:44] ID. And what I like to do is to just
+[27:46] type in this very simple Excel formula.
+[27:49] So if you change that to expression and
+[27:50] change that to equals row open close
+[27:53] parenthesis minus one. If we now click
+[27:55] on test step here, you'll see it
+[27:57] succeeded. And if we go back to our
+[27:59] Google sheet here, it just logged all of
+[28:01] those details for us. marked these clips
+[28:03] as for publishing and that Excel formula
+[28:05] that we type it just goes here and it is
+[28:08] returning to us that ID properly. So
+[28:10] this is going to be the third video and
+[28:11] this is going to be the fourth video and
+[28:13] so on. So now that you have those clips
+[28:15] properly loaded in your Google sheet.
+[28:17] They're now ready to go and be published
+[28:19] in the social channels of your choice.
+[28:21] The step that really remains is setting
+[28:23] up these nodes which are all using a
+[28:26] tool called blot. So if we open up this
+[28:28] text node, you'll see that it's another
+[28:30] post request where the tool that we are
+[28:32] requesting form is BLO. And what Blot is
+[28:35] is basically an AI content engine. So it
+[28:37] lets you manage a lot of your content
+[28:38] and also autopublish them across any
+[28:41] social media channel of your choice. So
+[28:42] to get a free trial in Plot, you can
+[28:44] just use this link. And if you're part
+[28:46] of the community, you can also get a
+[28:47] discount code on Plot to give you a
+[28:49] significant discount for life. But
+[28:51] essentially to set up all of these
+[28:53] nodes, all you'll really need to follow
+[28:55] is this step-by-step tutorial which
+[28:57] teaches how to use Blotato more
+[28:58] in-depth. So you can just find that in
+[29:00] our community or in our YouTube channel.
+[29:02] Because all this really does if we open
+[29:04] that up is it loads all of those clips
+[29:06] that we generated into Blato's servers.
+[29:09] So if we click on test step here, it
+[29:11] generated two items for us which just
+[29:12] contains URLs of those same clips but
+[29:15] now in potato servers which is important
+[29:18] because the way these social channels
+[29:20] work is with automations like these
+[29:22] they're quite sensitive and they only
+[29:24] want an accredited third party to be
+[29:26] auto posting to them which is one of
+[29:28] them and is also one of the cheapest
+[29:30] options that you can find. And then if
+[29:32] we open up Tik Tok for example, you'll
+[29:34] see that this is just another post
+[29:35] request again using Blotato with our API
+[29:38] key for blot set up here. And then the
+[29:40] request that we are passing along if we
+[29:42] open that up is just this text parameter
+[29:44] which is the caption that clap has
+[29:47] generated for us. So you can see here it
+[29:48] is mapping correctly. And then we have
+[29:50] this media URL which is the URL that we
+[29:53] just generated in the previous step
+[29:54] mapping to that clip. The only call out
+[29:56] I have here is that you can also add
+[29:58] this option for batching. So if you add
+[30:00] option click on batching if you change
+[30:02] this to one and something like 60,000
+[30:06] what that will basically do is pass
+[30:07] along your items in this case your
+[30:09] videos your clips one by one every 60
+[30:13] seconds which is 60,000 milliseconds in
+[30:16] this parlance. So now if we click on
+[30:18] test step here you'll see that it
+[30:20] autopublished to our test Tik Tok
+[30:21] account along with the caption to go
+[30:23] with it. And then if we inspect these
+[30:24] nodes for Instagram, YouTube and
+[30:26] LinkedIn. It's pretty much the same
+[30:27] thing where we are passing along a
+[30:29] request to Blato to post those clips for
+[30:31] us one by one which again if you want to
+[30:33] set up you can just watch this tutorial
+[30:35] and that'll teach you step by step how
+[30:36] to set up those nodes properly. And
+[30:38] finally with those set up the last node
+[30:40] here is just another Google Sheets node
+[30:42] which you can just add name it as update
+[30:45] shorts status. And you can see here that
+[30:47] the operation that we're doing is just
+[30:49] updating our row for the same template
+[30:52] and again for sheet two which houses our
+[30:54] shorts. So the job of this node is to
+[30:56] just mark these ones that we just
+[30:58] published and change them from for
+[31:00] publishing into done. And to do that you
+[31:02] just need to match on the column of the
+[31:05] short form links so that you can
+[31:06] properly attribute which row to update
+[31:08] specifically. And so here under short
+[31:10] form links, all you really need to do is
+[31:12] to map the one you have from this Google
+[31:14] sheet node, the previous one, and map it
+[31:16] here. So that it will look for the clip
+[31:18] that you just published in the other
+[31:20] channels and then change this one to
+[31:21] done for the publishing status. And the
+[31:23] date published would be the same
+[31:25] expression as before to return today's
+[31:26] date. And if I click on test step there,
+[31:28] you'll see that that just succeeded. And
+[31:30] if you go back to our template, those
+[31:32] two clips that we just generated have
+[31:34] been now marked as done. So there you
+[31:35] go. You just set up the AI clip factory.
+[31:38] And when you're ready to toggle this as
+[31:39] on, you just need to set this as active.
+[31:41] And make sure to change the weight nodes
+[31:43] from your 1 second into something like 5
+[31:46] minutes so that there's time for it to
+[31:48] generate. And same with this second
+[31:50] weight node here. And now you're done.
+[31:52] And as a final tip, what you can
+[31:53] actually do if you want to set this up
+[31:55] in practice is you can also split this
+[31:57] workflow into two where you have this
+[31:59] workflow that produces the shorts for
+[32:01] you and you can schedule that to run
+[32:03] let's say every day. And then you have
+[32:04] this second workflow which is just
+[32:06] around publishing. And all it really
+[32:08] does is connect to your list of clips.
+[32:10] And you have another schedule trigger
+[32:12] here which you can set to run let's say
+[32:14] every 3 hours if you want to post a clip
+[32:16] every 3 hours. So that's just a simple
+[32:18] way by which you can better control the
+[32:20] posting and the schedule of those clips
+[32:22] being published while also still having
+[32:24] this workflow produce those clips for
+[32:26] you whenever you have a new long form
+[32:28] video to feed it. So now the question is
+[32:31] how do you monetize an automation like
+[32:33] this? And the first way would be to
+[32:34] build it for a business. In fact, this
+[32:36] was why we built this automation in the
+[32:38] first place because we have a content
+[32:40] business client who was looking for a
+[32:42] solution like this. And over at YouTube,
+[32:44] there's lots of content creators here
+[32:45] who have long- form content who are
+[32:47] interested in broadening their reach
+[32:49] through short form channels like Tik
+[32:51] Tok, Instagram reels, and even YouTube
+[32:53] shorts. And remember, for each YouTube
+[32:54] channel, most of the creators, if you
+[32:56] just go through their info, you can find
+[32:58] their email address here, which you can
+[32:59] use to connect with them. And if you
+[33:01] already run a clipping business, then
+[33:03] congratulations because you just learned
+[33:04] how to make those clips automatically.
+[33:06] And if they're paying you $15 per clip,
+[33:08] then you can use this system behind the
+[33:10] scenes to autogenerate those clips, thus
+[33:12] giving you a wider profit margin. The
+[33:14] second method you can think about is
+[33:16] through this platform called And
+[33:18] this platform, if you haven't heard of
+[33:19] it, in a nutshell, basically this is
+[33:20] where creators post jobs like this where
+[33:23] you submit clips that you have posted.
+[33:25] And if those clips get a certain amount
+[33:27] of views, they will provide you monetary
+[33:29] rewards in return, which makes sense for
+[33:31] them because these content creators,
+[33:32] they're also looking to expand their
+[33:34] reach. And so WP has systemized that
+[33:36] through their platform here. So you can
+[33:38] see it's very transparent on how much
+[33:39] budget each of these businesses have.
+[33:41] And you can see there's also some AI
+[33:43] tools here like Bolt. Fireflies is here
+[33:46] as well as lovable. So in here it's not
+[33:48] just content creators who are looking
+[33:49] for clips. It's also some of these new
+[33:52] AI tools and softwares who are looking
+[33:53] to recruit for their user base. I
+[33:55] haven't tried WO personally, but it
+[33:57] seems to be a pretty interesting
+[33:58] platform to try out. And if you're
+[33:59] anyway already publishing clips for
+[34:02] these content creators, then the third
+[34:04] way that you can monetize this is
+[34:05] through affiliate programs that they may
+[34:07] have. So to give one example for school
+[34:10] communities, usually the affiliate
+[34:11] commissions are pretty high. In our
+[34:13] community, for example, we've just set
+[34:15] the commission to be the highest
+[34:16] possible percentage allowed, which is
+[34:17] 50% for life, which is quite
+[34:19] significant. So, if you just explore
+[34:21] some of the communities here in school,
+[34:23] then you may be able to find a few of
+[34:24] them that are offering affiliate
+[34:26] commissions as well as a content channel
+[34:28] that you can use to grab clips from.
+[34:30] There's probably more ways to monetize
+[34:31] this, but those are just three thought
+[34:33] starters. And you can also do all three
+[34:35] of them if you want to. And finally, if
+[34:36] you're curious on costs, we just have
+[34:38] them clearly broken down here where here
+[34:40] at the top you have the variable costs
+[34:42] per clip. And Clap AI has a kind of
+[34:44] complex charging structure here, but
+[34:46] roughly if you're going to get 10 clips
+[34:48] for one long form video, that will
+[34:50] translate to around 85 cents per clip,
+[34:52] which is still much more economical
+[34:54] versus creating the clips manually. And
+[34:55] it's just important to separate out
+[34:57] those variable costs are fixed per
+[34:59] month. So what that means is that
+[35:00] they're non-incremental if you're
+[35:02] already using these tools anyway for
+[35:04] other automations. But it is true that
+[35:06] after their free trials, N8N charges $24
+[35:09] per month for their starter plan and
+[35:11] Plotato $29 per month, which you can
+[35:14] reduce if you use the discount in our
+[35:16] community. But the good news is they do
+[35:18] have free trials so you can test it out
+[35:19] and learn and see if they're for you
+[35:21] before you fully commit. And that's it.
+[35:23] Hope you learned something from this
+[35:24] video. Feel free to give a like or
+[35:26] subscribe because that helps the channel
+[35:27] a lot so that we can provide more
+[35:28] tutorials like this. And if you're not
+[35:30] yet part of the RoboNuggets community,
+[35:32] you can just check that out in the link
+[35:33] in the description. It's a strong
+[35:35] community of AI practitioners. We have
+[35:36] something like 1,400 members now, which
+[35:38] if you're getting started in this space
+[35:40] and are looking for partners here in the
+[35:42] community, we have a section exactly for
+[35:44] that. So, you can see we regularly post
+[35:46] paid opportunities here either by myself
+[35:48] or by other members of the community.
+[35:50] And then we also have tons of other
+[35:52] lessons around artificial intelligence
+[35:54] which are all step by step. And each of
+[35:56] them have the resources and prompts and
+[35:58] even the blueprint templates cleanly
+[35:59] organized across each one. And we also
+[36:01] have a lot of events so that you can
+[36:03] meet cool people in the space. And in
+[36:04] fact, this automation solution was
+[36:06] co-created by one of our most active
+[36:08] members. So this guy, Savvy, who is
+[36:10] amazing. And if you want to see more of
+[36:11] his stuff, then check out his website
+[36:13] just below. And there, check out the
+[36:14] RoboNuggets community if you're looking
+[36:16] for a group where you can learn AI and
+[36:18] connect with more people in the space.
+[36:20] That's it for this one. See you guys
+[36:21] next time. Thank you.

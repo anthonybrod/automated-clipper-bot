@@ -1,0 +1,2015 @@
+# AI-Powered Viral Clips - 100% Automated, No Editing! (Stephen G. Pope)
+# https://www.youtube.com/watch?v=Yb01G77xscQ
+
+[00:00] in this video I'll show you how to build
+[00:01] this AI automation that will turn your
+[00:03] podcast or YouTube videos into hundreds
+[00:05] of viral videos completely automated and
+[00:07] add a fraction of the cost that you will
+[00:09] pay for services like Opus clips and
+[00:11] we'll use AI to detect where your face
+[00:13] is in the video and also autoc caption
+[00:15] it like they do no editing no hassle
+[00:17] just content that works for Instagram
+[00:19] reals Tik Tok and YouTube shorts all
+[00:21] generated for you in this video I'll
+[00:23] show you how to build out this
+[00:24] automation step by step from scratch so
+[00:26] that we can take your podcast episodes
+[00:29] just like this video here of me on the
+[00:30] school games podcast and how to
+[00:32] automatically convert those into social
+[00:34] media Clips here you can see we
+[00:36] generated four new engaging Clips with
+[00:38] captions all automatically and not only
+[00:40] will I show you how to build this step
+[00:42] by step but I will also walk you through
+[00:43] my thought process on how I build these
+[00:45] Advanced content automations by the end
+[00:47] of this video you'll have a video clip
+[00:49] generating machine that does all of the
+[00:52] heavy lifting at a fraction of the cost
+[00:55] you'll have a working system to grow
+[00:56] your personal brand or your clients or
+[00:58] you could take this Automation and sell
+[00:59] it to other businesses so here's the
+[01:01] plan I'm going to go through and demo
+[01:03] this system so you can see how it works
+[01:04] then I'll show you how to build out the
+[01:05] air table database the make scenarios
+[01:08] and also how to install the NCA toolkit
+[01:11] which is the free tool that gives us an
+[01:12] API that allows us to transcribe media
+[01:15] and to cut and crop clips and also
+[01:18] caption those clips all automatically
+[01:20] for nearly free so I'm going to demo the
+[01:22] system build out air table and make help
+[01:24] you install the NCA toolkit so you can
+[01:25] transcribe and edit videos and
+[01:27] automations in a cost-effective way and
+[01:29] then we'll finish the the entire
+[01:30] automation if you're tired of trying to
+[01:31] figure out all of this stuff on your own
+[01:33] this step-by-step video will save you
+[01:35] hundreds of hours let's get into it all
+[01:37] right so now let me give you a quick
+[01:38] demo of the system I call content clip
+[01:41] magic which takes you long form videos
+[01:43] and chops them up into shorter Clips
+[01:45] with captions automatically everything
+[01:47] starts in the video tab you can add a
+[01:49] new row here I'm just going to go ahead
+[01:50] and copy this previous example this is
+[01:53] an interview that I did with the school
+[01:55] Stories podcast so you put in a
+[01:57] description and then a link to a video
+[01:59] for the system to use I'm going to go
+[02:01] ahead and copy this into this new row
+[02:03] here and then you're just going to want
+[02:04] to define the width and height of this
+[02:08] particular video and then the width and
+[02:09] height of the clips that you want to
+[02:11] generate again I'll just go ahead and
+[02:13] copy
+[02:14] this once you have this information here
+[02:17] there is an automation that will
+[02:19] automatically trigger it's a very simple
+[02:20] automation here we can go ahead and run
+[02:22] that this is going to call your NCA
+[02:24] toolkit which is going to automatically
+[02:26] transcribe the video once this
+[02:27] automation completes it's going to send
+[02:29] the transcript to error table and then
+[02:32] it will populate the transcription and
+[02:34] the SRT in these two columns here and
+[02:36] we're going to use that transcript and
+[02:38] that SRT file to find clips from this
+[02:42] longer video and then also we'll use the
+[02:44] SRT file for the various timestamps that
+[02:47] it found for the transcripts so that we
+[02:50] have precise start and end times just
+[02:53] like you can see here for each of our
+[02:55] Clips so if this is a long video this
+[02:57] could take a while so while that's
+[02:59] processed I'm going to go ahead and use
+[03:01] our example here except I'll jump back
+[03:03] to clips and I'll erase all of these so
+[03:06] we can start from scratch and then once
+[03:08] you have your transcript URL and your
+[03:10] SRT URL and we don't have any Clips then
+[03:13] this next automation will run this
+[03:15] automation here will scan the transcript
+[03:17] and will actually build out the clips so
+[03:20] we'll go ahead and run this automation
+[03:22] here it's downloading the transcript
+[03:24] here it's downloading the SRT here we
+[03:26] have Cloud processing the transcript to
+[03:29] find Clips to split up if you'd like you
+[03:31] can also use chat GPT I just happen to
+[03:34] find that Claude did a good job at
+[03:36] finding Clips this next module here is
+[03:38] simply taking a look at all of those
+[03:40] clips and it's just building us a Json
+[03:42] that's going to make the processing of
+[03:44] the clips a lot easier it's going to put
+[03:46] everything into a Json that we can
+[03:48] iterate over so that then we can drop
+[03:49] those new clips into air table so if we
+[03:51] take a quick look at what anthropic came
+[03:53] back with here and we look at the text
+[03:55] response you're going to see we have
+[03:56] these clips here in text format and then
+[03:58] what this module did here is it simply
+[04:00] took that and it structured it into an
+[04:02] array of collections of the clip and the
+[04:05] description and we can actually see the
+[04:07] clip in here and then it goes into an
+[04:09] iterator I was experimenting with using
+[04:11] AI to actually find that clip in the SRT
+[04:14] but I found that actually doing that
+[04:16] manually with old school tools was
+[04:19] actually a more predictable way so it is
+[04:20] good to understand is that there's good
+[04:22] times to use Ai and there's also good
+[04:23] times when to use something more
+[04:25] deterministic like some of these modules
+[04:27] here and we'll talk more about that but
+[04:29] what these modules here are doing is
+[04:30] simply extracting specific segments of
+[04:33] the SRT file to pull from when you look
+[04:35] at an SRT file you have all of these
+[04:38] segment numbers and so what's happening
+[04:39] here is that we're searching the SRT
+[04:41] file for the transcripts we're matching
+[04:44] up what is in the SRT file with what
+[04:47] clip we want to pull and then we're
+[04:48] grabbing the starting and ending segment
+[04:50] numbers to pull a specific clip from the
+[04:55] SRT file so here we grab the starting
+[04:57] segment the ending segment and then
+[04:58] using the beginning and ending segment
+[05:00] this parser here actually pulls the
+[05:02] entire clip from the SRT file then we
+[05:05] insert those new clips into air table so
+[05:08] if we jump over here to Clips we're
+[05:09] going to see five new clips so here you
+[05:11] can see the transcript and then you can
+[05:13] see the actual SRT file that is
+[05:15] associated with this particular
+[05:17] transcript and the reason why we do it
+[05:18] this way is because it's better to find
+[05:20] the clips using the transcript but it's
+[05:22] much easier to find the start and end
+[05:24] times of a given clip using the SRT file
+[05:27] so then using the SRT file we will
+[05:29] gather the start and end times and the
+[05:31] duration of that clip and then once we
+[05:33] have this information then we can
+[05:34] actually go into that long form video
+[05:38] and then cut out the clips so now I
+[05:40] jumped over to the automation that will
+[05:42] actually cut up the clips again we're
+[05:44] calling the NCA toolkit if we run this
+[05:46] it should run this five times for each
+[05:48] of our Clips so now it's processing
+[05:51] those clips and when those clips are
+[05:52] done they're going to come back here and
+[05:54] you can see that they're being populated
+[05:56] now then once all of the clips are in it
+[05:57] will run the next automation which will
+[06:00] crop the video remember that most
+[06:02] podcasts are in a horizontal format and
+[06:06] we want to pull a specific clip so we've
+[06:08] got to crop out the vertical clip we'll
+[06:11] go ahead and run this automation now
+[06:13] this automation here is looking at the
+[06:16] thumbnail of the clip so if we come into
+[06:18] the details of the clip we do have a
+[06:20] thumbnail right here and in order to
+[06:23] properly get the right clip we do need
+[06:25] to calculate the X and Y coordinates of
+[06:28] where the faces so that's what that
+[06:31] module is doing there then this module
+[06:33] simply just makes this information more
+[06:34] readable in a Json so if we take a look
+[06:37] here and we look at the result we have
+[06:39] the width of the image and then the X
+[06:41] and Y coordinates of where the face is
+[06:43] and then we're updating air table with
+[06:45] those calculations and then we go ahead
+[06:47] and crop and then scale those clips so
+[06:49] here you can see one of the cropped
+[06:51] Clips is coming back now we have it in
+[06:53] that vertical format and it took that
+[06:54] from the more horizontal format so this
+[06:57] was the clip notice it's not the full
+[06:59] podcast but it's still in that
+[07:01] horizontal format and then finally once
+[07:04] all of these cropped Clips have come
+[07:06] back we can run that final option here
+[07:08] which is to use the NCA toolkit to
+[07:11] caption these videos for almost free
+[07:13] it's going to run for however many times
+[07:15] we have actual cropped Clips ready to go
+[07:17] so here we ran it two times and once
+[07:19] it's done captioning those videos it's
+[07:21] going to send them back to air table and
+[07:23] then we'll be able to see them pop up
+[07:24] right here I went ahead and ran this now
+[07:26] so that we didn't have to wait for all
+[07:28] of these to finish so we're just just
+[07:29] going to see two clips pop up so now
+[07:31] we've got these final Clips coming back
+[07:32] with the captions we can take a look at
+[07:34] them and here are the captions so there
+[07:36] you go that's how it works let's get
+[07:37] into the build and if you're enjoying
+[07:38] this video make sure to like And
+[07:39] subscribe to the channel it tells me
+[07:41] what type of content you want more of
+[07:42] all right so now let's actually build
+[07:43] this out I'm going to go ahead and
+[07:45] provide a template to this aor table
+[07:47] database for free there's a link in the
+[07:50] description below click on that link and
+[07:51] then once you open it up you should be
+[07:53] able to come up to the top here and then
+[07:56] duplicate the base I'm just going to go
+[07:57] through that process so that you can see
+[07:59] how it works and just so I don't get
+[08:02] confused I'm going to come to the front
+[08:03] here I'm going to put YouTube
+[08:07] demo I'm going to remove the copy here
+[08:09] at the end I'm going to go ahead and
+[08:11] duplicate everything click here
+[08:14] duplicate base I'm going to open up that
+[08:16] base and then I'm also just going to
+[08:17] come up here to My Demo and change the
+[08:19] color just so I don't get confused all
+[08:22] right so now we're in this demo there's
+[08:24] a few things that we're going to have to
+[08:25] set up along the way there are a few
+[08:27] different automations that are already
+[08:28] pre-built in this air table database
+[08:31] that we'll need to test and turn on I do
+[08:34] have a couple of test rows in here that
+[08:35] you can use for your automations here's
+[08:38] a long form video and then here's also a
+[08:40] short one so that we can test generating
+[08:42] the transcripts and the srts very
+[08:44] quickly when you're transcribing videos
+[08:46] they can take a while to finish up so
+[08:49] when you're testing things out it's nice
+[08:50] just to use a very short file so that
+[08:53] these transcripts and srts come back
+[08:55] quickly so that you're not wondering if
+[08:56] something's wrong and then once you know
+[08:57] it works then it's easier to trust trust
+[08:59] the process when these longer
+[09:01] transcriptions are running now if you
+[09:02] want access to all of the blueprint
+[09:04] templates that we create in today's
+[09:05] video so that you can simply come in and
+[09:08] import those Blueprints and have them
+[09:10] pop right up just like that with all of
+[09:11] the prompts pre-filled and configured so
+[09:14] that you don't have to type all of this
+[09:15] by watching the video make sure to jump
+[09:17] into the no code Architects Community
+[09:18] it's a thriving group and you can get
+[09:20] access to today's templates and a whole
+[09:22] lot more all right so now let's go ahead
+[09:23] and build out the first automation which
+[09:25] is going to transcribe these larger
+[09:27] videos that we put into the system so we
+[09:29] can generate the clips and that's this
+[09:31] automation here it's very simple we just
+[09:32] search Air table for any new records
+[09:34] that need to be transcribed and then we
+[09:36] send that over to the NCA toolkit for
+[09:38] transcription now before we can actually
+[09:40] build out this automation we should go
+[09:41] ahead and build out the NCA toolkit to
+[09:43] build that out I'm going to go to a
+[09:44] platform called digital ocean this is a
+[09:48] platform where you can launch your own
+[09:49] lowcost servers if you don't already
+[09:51] have an account go ahead and sign up I
+[09:53] already do so I'm going to go ahead and
+[09:54] log in now typically I install the NCA
+[09:56] toolkit in a platform called Google
+[09:58] Cloud here you you can see I'm running
+[10:00] two instances of the NCA toolkit in the
+[10:02] Google Cloud platform but when we're
+[10:04] processing really long videos the Google
+[10:06] Cloud platform will time out in those
+[10:08] situations and so when we're processing
+[10:10] really large media files and automations
+[10:12] it's much easier to use digital ocean
+[10:14] because it doesn't have that same
+[10:15] timeout problem the cost for running one
+[10:17] of these servers depends on which CPU
+[10:20] and memory you use the server that I'm
+[10:22] using right now is $50 a month you can
+[10:24] definitely go a lot cheaper it's just
+[10:26] going to be a little bit slower so if
+[10:27] you're just testing this out remember
+[10:28] you can just Just Launch this for one
+[10:30] day get it working test it out and then
+[10:32] delete it before you pay this amount and
+[10:34] just remember you can get a much smaller
+[10:36] server as well so if you don't already
+[10:37] have a project you're going to want to
+[10:38] come up here to new projects I already
+[10:41] have one called API so I'm going to go
+[10:42] ahead and use that then the first thing
+[10:43] we're going to do is come over here to
+[10:44] manage and we are going to create a
+[10:46] space so what this space does is it
+[10:48] allows you to upload files to their
+[10:51] cloud storage so that once we process
+[10:53] files once we create transcripts or
+[10:56] videos then we can actually store them
+[10:57] somewhere to be downloaded so I'm to
+[10:59] come up here and create a new bucket I'm
+[11:01] going to go ahead and use the New York
+[11:03] data center I'll create a bucket name
+[11:06] YouTube demo I'll use my API project and
+[11:10] then I'll go ahead and create this
+[11:12] bucket all right so now that we have
+[11:13] that space created I'm going to come
+[11:14] back to this in just a minute I'm going
+[11:16] to jump over here to the app platform
+[11:18] I'm going to create a new tab I'm going
+[11:19] to come and create an app and again
+[11:21] remember what we're doing here is we're
+[11:23] creating our own app our own server our
+[11:26] own API that uses the NCA tool kit and
+[11:29] again you might not be familiar with
+[11:31] this but this is an open- source project
+[11:32] it's completely free and open to the
+[11:34] public and what it allows us to do is it
+[11:36] allows us to transcribe videos and
+[11:39] caption videos and manipulate video cut
+[11:41] them crop them whatever we need to do
+[11:43] for free all we need to do is to pay for
+[11:46] the server that we hosted on but paying
+[11:48] for this server is going to be a lot
+[11:51] cheaper than having to have a bunch of
+[11:54] different monthly subscriptions to a
+[11:56] bunch of different services to get all
+[11:58] of this work done and and if you're
+[11:59] interested in this project make sure to
+[12:01] get involved cuz there's a whole lot
+[12:02] more that this can do than we're
+[12:03] demonstrating here in this video today
+[12:06] so here for resources we're going to
+[12:07] come here to container image and we're
+[12:10] going to use Docker Hub so go ahead and
+[12:12] select Docker Hub and then here in the
+[12:13] repository you'll want to paste this
+[12:15] I'll leave it in the description below
+[12:17] then you can leave this on latest and
+[12:19] then for credentials you can just go
+[12:21] ahead and click next looks like I had a
+[12:23] typo in mind I'm going to go ahead and
+[12:25] fix that but if you copy from below I'll
+[12:27] have already fixed that for you then go
+[12:29] and click next it looks like we do need
+[12:31] to actually type latest here I thought
+[12:32] it was just there but we have to type
+[12:34] latest now I believe we have everything
+[12:36] I'll go ahead and click next now here's
+[12:37] where you want to be careful this is
+[12:38] where you're selecting which type of
+[12:40] server that you want to use I've
+[12:42] actually never tested this with a 1 gab
+[12:45] server it may work but it may not you'll
+[12:47] have to just test that if you want to go
+[12:48] as cheap as possible I'm going to go
+[12:50] ahead and edit this so here you can see
+[12:52] the resource size I'm already noticing
+[12:54] that this is going to cause an error
+[12:56] right now if you see that little Dash
+[12:58] here at the end of the name I'm going to
+[12:59] go ahead and fix
+[13:00] that I'm going to go ahead and save so
+[13:03] resource sius I'm going to check this
+[13:04] out what do we got first make sure that
+[13:06] you only launch one container these are
+[13:08] performance settings that you can set up
+[13:11] down the line you can have more than one
+[13:13] container to make your service a lot
+[13:14] faster and there's a bunch of other
+[13:16] options as well like having dedicated
+[13:17] instances this is actually a very
+[13:19] reasonable price if you are generating a
+[13:21] lot of videos at scale I'm going to go
+[13:23] ahead and just for the demo I'm going to
+[13:25] move this up just to a faster server so
+[13:27] that the demo goes quicker after you've
+[13:29] set this up you'll want to make sure to
+[13:31] save it however I have tested this on
+[13:34] the 2 gig ram server it was just a lot
+[13:37] slower and if you send a lot of requests
+[13:39] to it at the same time it really slows
+[13:41] down so again I'm just going to use that
+[13:42] again make sure your containers are on
+[13:44] one for testing I'm going to go ahead
+[13:46] and click save you don't need to change
+[13:48] any of this then for environment
+[13:50] variables go ahead and click there and
+[13:52] then we'll go ahead and go into Global
+[13:54] we'll go into edit here you want to put
+[13:56] in API uncore key and and then just for
+[13:59] testing I'm going to go ahead and put
+[14:00] test 1 2 3 now make sure you don't put
+[14:03] any spaces before or after this and that
+[14:05] you use an underscore and not a dash
+[14:08] make sure you're copying this exactly or
+[14:09] you're just going to run into issues
+[14:11] then we have to install three other
+[14:13] variables as well so I'm going to go
+[14:15] ahead and add those now this is to
+[14:17] connect up to our digital ocean space
+[14:20] that we created earlier remember as our
+[14:23] system generates new files we need a
+[14:24] place to upload them so that you can
+[14:26] actually download them and use them so
+[14:27] now we're going to come over to the
+[14:29] settings we need to take some settings
+[14:31] from here on this page and copy them
+[14:34] into these sections here I'm going to go
+[14:36] ahead and type these out first make sure
+[14:37] you copy them exactly as I'm typing them
+[14:39] no spaces make sure you use underscores
+[14:42] everything must be exactly as I type it
+[14:44] same with the values make sure there are
+[14:45] no spaces before and after and it's
+[14:47] exactly as I have it otherwise you're
+[14:49] just going to run into trouble and not
+[14:51] understand why it doesn't work so here
+[14:52] we're going to type
+[14:53] S3 endpoint URL come to the next one S3
+[14:59] [Music]
+[15:00] access key come to the next one S3
+[15:04] uncore secret key so I'm going to come
+[15:07] back to the spaces I'm going to create
+[15:09] the access key I'm first going to come
+[15:11] up here to the original endpoint I'm
+[15:13] going to copy that come back to our
+[15:16] environment variables and I'll add that
+[15:18] there then I'm going to go ahead and
+[15:19] create a new access key all we should
+[15:21] really need is read and write access
+[15:23] then you can name the key I'll go ahead
+[15:25] and put YouTube demo I'm going to create
+[15:27] the access key let create it here now
+[15:29] this secret key will only be displayed
+[15:31] one time so we're going to grab that
+[15:33] right now jump back and put that in the
+[15:35] secret if you lose that for some reason
+[15:37] then you'll need to just generate new
+[15:39] keys and then I'm going to come down
+[15:41] here and grab the access key ID and drop
+[15:44] that right here and that's all we need
+[15:47] now I can go ahead and click next if you
+[15:50] want to double check anything feel free
+[15:52] to do so resources is make sure you pick
+[15:53] the right server server size and for the
+[15:56] budget again remember you can launch
+[15:57] this for one or two days and not pay
+[15:59] that full amount but if you're
+[16:01] transcribing a lot of videos and
+[16:02] generating a lot of videos this is a
+[16:04] very cheap monthly price we'll go ahead
+[16:06] and go to info go ahead and go to next
+[16:09] and for review just double check
+[16:11] everything one more time and we'll go
+[16:13] ahead and create the resource at this
+[16:14] point it's going to actually build out
+[16:16] your NCA toolkit given the settings
+[16:19] should just take just a few minutes all
+[16:21] right so you should see that come up
+[16:23] that green box that it is live if you
+[16:25] get any other era you're just going to
+[16:26] want to walk back through the
+[16:28] configuration and make sure you did
+[16:29] everything as is and fix anything that
+[16:31] might have been done differently now
+[16:33] what we should do is just double check
+[16:34] to make sure that this is working
+[16:37] properly I'm going to jump over to a
+[16:39] software called Postman go to post
+[16:40] man.com here's what it looks like if you
+[16:43] do not have an account and you're not
+[16:44] logged in you can go ahead and sign up
+[16:45] for free and then you can go ahead and
+[16:47] sign in in the description below I've
+[16:49] provided a link that will pull up a
+[16:51] suite of tests for your NCA toolkit once
+[16:54] you click on that link and you're logged
+[16:56] in even if you're in your browser you
+[16:57] should get this link here you will want
+[17:00] to duplicate this into your own
+[17:03] workspace just like that and then once
+[17:05] you've done that you should be able to
+[17:06] come down here to toolkit and then we've
+[17:08] got these two tests that we want to run
+[17:10] to make sure your toolkit's working
+[17:12] properly again you're going to want to
+[17:13] click that link and use your copied
+[17:15] version in your own account but we can
+[17:17] go ahead and click on authenticate now
+[17:19] for the base URL here we're going to
+[17:20] come back to digital ocean and we're
+[17:22] going to come up to this link here
+[17:24] rightclick copy link address and we can
+[17:27] come back to postman and we can replace
+[17:29] that base URL with the URL from digital
+[17:33] ocean make sure there are not two
+[17:34] slashes here and then you're going to
+[17:36] also want to jump over to headers and
+[17:38] we're going to replace this value here
+[17:41] with your test API key so we type test 1
+[17:46] 2 3 and now if we go ahead and click
+[17:48] send over on this right side if it's
+[17:49] grayed out that means that you do not
+[17:51] have this installed in your own account
+[17:53] yet you need to duplicate this into your
+[17:55] own account but if you have you should
+[17:56] be able to send and then that should
+[17:58] send the first request over to our new
+[18:00] server and you should get a response
+[18:03] like this that says authorized now keep
+[18:05] in mind this is the same password that
+[18:07] we set up in our environment variables
+[18:10] in our new server if we come here and we
+[18:12] check out the environment variables
+[18:14] again remember test 1 23 is where we
+[18:17] added this here the API key now we
+[18:19] should be able to come up here to this
+[18:21] next section here and we can go to test
+[18:24] again you're going to want to replace
+[18:26] this base URL with our digital ocean URL
+[18:28] L again make sure there are not two
+[18:30] slashes there like I have there then
+[18:32] we're going to jump back to the headers
+[18:33] again you're going to replace this as
+[18:36] well 1 two 3 and then we can go ahead
+[18:39] and test it and you should get a
+[18:41] response back like this response code
+[18:44] 200 and then we should see a response
+[18:46] with a URL and if we click on that we
+[18:48] should see a text file if we open that
+[18:50] up you have successfully installed the
+[18:52] NCA toolkit API great job so now we are
+[18:56] good to go now if anything here is not
+[18:58] working you're going to need to stop and
+[18:59] go back and make sure that you can get
+[19:00] through these points here because if
+[19:02] this doesn't work then nothing else in
+[19:05] the rest of this automation will work
+[19:06] all right so now that we have our NCA
+[19:08] toolkit server up and running let's go
+[19:10] ahead and continue on with our
+[19:12] automation I'm going to go ahead and use
+[19:13] this test row that you should have as
+[19:15] well I'm going to use this video URL in
+[19:18] order for this to work if you have
+[19:19] anything here in the transcription URL
+[19:21] or the SRT URL you do need to remove
+[19:23] those and when you remove those and you
+[19:25] have this video URL here if you come up
+[19:27] here to generate transcript that row
+[19:29] should be here so now let's jump up to
+[19:32] make and let's go ahead and create a new
+[19:34] scenario and then let's go ahead and
+[19:36] connect to air table and search for
+[19:38] those records that are in this view here
+[19:41] so we'll go ahead and do search for
+[19:42] records there are better triggers to use
+[19:45] other than a search you can use an
+[19:47] instant trigger that will trigger
+[19:49] directly from Air table it's a bit more
+[19:51] complicated to set up and you can change
+[19:53] that on your own I'm going to go ahead
+[19:54] and show you how to do it with a search
+[19:56] this will run at any interval that you
+[19:58] provide if you don't already have a
+[20:00] connection to air table you'll need to
+[20:01] add that now I'm going to go ahead and
+[20:03] use one of my existing connections I'm
+[20:05] going to use the Bas I'll type YouTube
+[20:07] demo and I'm going to use this new base
+[20:10] that I created just at the beginning of
+[20:12] this video then for the table I'm going
+[20:14] to go ahead and select videos and now
+[20:16] here for the view I'm going to go ahead
+[20:18] and select generate transcript for the
+[20:20] output Fields you can go ahead and just
+[20:22] select all you can leave formula and
+[20:24] limit alone I'm going to go ahead and
+[20:25] click save now I should be able to run
+[20:27] this I'm going to right click on this
+[20:28] module run this module only and now we
+[20:30] are seeing the output we have that one
+[20:32] row coming from our video we have our
+[20:35] video URL so all we need to do is build
+[20:37] one other additional module here we're
+[20:39] going to use the HTTP module here you're
+[20:41] going to want to come down and say make
+[20:43] an API key off request then we're going
+[20:46] to go ahead and create some credentials
+[20:48] for our new NCA toolkit app let's go
+[20:51] ahead and add those credentials I'm
+[20:53] going to name this YouTube demo NCA
+[20:57] toolkit then for the key I'm going to go
+[21:00] ahead and type what we created which was
+[21:02] test 1 2 3 I'll go ahead and show that
+[21:04] so you can see it test 1 2 3 API
+[21:07] placement key is in the header and you
+[21:09] can go ahead and leave this as is x-
+[21:11] api-key go ahead and create and now for
+[21:15] the URL I recommend to continue to pull
+[21:17] this from our Postman example API calls
+[21:22] here I'm going to go into media and then
+[21:24] I'm going to come here to transcribe and
+[21:26] I'm simply going to take this ending
+[21:28] portion of this URL with the slash just
+[21:31] like that copy come back to make I'll
+[21:34] drop that here in the URL and then I'm
+[21:36] going to jump back over to digital
+[21:37] lotion I'm going to grab this URL again
+[21:39] copy link address and put that here at
+[21:41] the beginning and then again double
+[21:43] check that I don't have double slashes I
+[21:45] do pull that out the method is going to
+[21:47] be a post not a git we can leave the
+[21:50] headers and the query string alone now
+[21:52] for body type we're going to want to go
+[21:53] with raw content type we're going to
+[21:55] want to go with application Json and
+[21:57] then for the request content I'm going
+[21:59] to go ahead and copy this in from my
+[22:01] previous example you'll want to stop the
+[22:04] video and copy this exactly as I have it
+[22:07] just like this you'll also want to
+[22:09] change this to parse response now I'll
+[22:12] go ahead and position this and open it
+[22:13] up so it's easy to see again copy
+[22:16] everything exactly as you see here for
+[22:19] this here you can use a couple of spaces
+[22:22] that's all it is 1 2 3 4 it doesn't
+[22:26] actually matter you don't have to have
+[22:27] it formatted like this in fact sometimes
+[22:29] I find when people are entering these in
+[22:32] they end up accidentally putting in an
+[22:33] invalid character somewhere here so if
+[22:35] you end up getting a bad request an
+[22:37] error 400 copy everything as I have here
+[22:40] exactly with the quotes and the colon
+[22:42] and the quotes and everything and the
+[22:44] commas and everything but just remove
+[22:45] all of the spaces and all of the enters
+[22:48] so it's just one big long line there's
+[22:50] no spaces at all you know be real
+[22:52] careful if you run into that 400 error
+[22:54] I'm going to go ahead and leave mine as
+[22:56] is but if you are hitting that 400 err
+[22:58] it's simply because something here is
+[22:59] not exactly right now mine copied over
+[23:03] these placeholders so I'm going to
+[23:04] remove these to show you how to get
+[23:05] those in there so I'm going to come in
+[23:07] between these two quotes here and then
+[23:09] I'm simply going to copy in the media
+[23:12] URL which is this video URL that's
+[23:14] coming from our error table database
+[23:16] click that you can also drag it just
+[23:18] like this and then for the ID again go
+[23:20] in between the quotes and we're going to
+[23:22] come here and grab this ID you can drag
+[23:24] it in make sure it's in between the
+[23:26] quotes and now for the web hook URL
+[23:29] you can't use that that was my example
+[23:32] you're going to come up here to air
+[23:33] table you're going to go to automations
+[23:35] and we're going to go up to transcript
+[23:36] web hook the automation is off and we're
+[23:38] going to click on this and over here
+[23:40] you're going to see a web hook and we're
+[23:42] going to copy that we're going to come
+[23:43] back to the Automation and we're going
+[23:44] to copy that in right
+[23:46] here now we need that because if a
+[23:48] transcript takes more than 5 minutes to
+[23:51] run this make automation is going to
+[23:53] time out so what this is going to do is
+[23:54] it's going to allow that transcription
+[23:56] to happen in the background and when
+[23:57] it's done it's going to send a request
+[23:59] into aor table and then that way we can
+[24:01] save the transcript back into our system
+[24:04] but we do need to go through this test
+[24:06] once you have everything in here I'm
+[24:07] going to go ahead and click save I'm
+[24:09] going to save this automation you can
+[24:10] rename it up here now you probably also
+[24:12] want to add a filter here a condition so
+[24:15] that your total number of bundles and
+[24:17] then we can change this comparison here
+[24:19] to is greater than zero so what that
+[24:23] means is that if we run this search and
+[24:25] there's zero here don't run this but if
+[24:27] there's more than one go ahead and run
+[24:29] this so let's go ahead and run this
+[24:30] automation as long as you set up your
+[24:32] authentication connection correctly
+[24:34] should open this up and see a status
+[24:36] code 202 we can go to the data we can
+[24:38] see that it's now processing so it's
+[24:40] going to process this video here which
+[24:43] was a short video so it should take a
+[24:44] little bit less time but you do need to
+[24:46] come back to your automations and
+[24:48] monitor this here so notice here we just
+[24:50] had a success what that means is that it
+[24:52] finished the video so we need to take a
+[24:56] look down here the body open it scroll
+[24:58] down a bit you should see a success and
+[25:00] if we look at the response we should see
+[25:02] a text URL and an SRT URL so this URL
+[25:05] contains our transcription and this one
+[25:07] contains our SRT file so as long as
+[25:09] you're seeing a success here all you
+[25:11] have to do is come up here to test
+[25:12] automation we're going to run it both of
+[25:14] these should be successful as long as
+[25:15] they are then you can go ahead and come
+[25:17] turn this on and then if you come back
+[25:18] to data you'll notice that it's no
+[25:20] longer in this view anymore because we
+[25:22] have the transcript URL and the SRT URL
+[25:24] and here they are so now if this is
+[25:25] working for you what I recommend is that
+[25:28] you run this on the longer video example
+[25:31] that I have here you'll want to remove
+[25:34] these two items here now they're going
+[25:36] to show up in the view of course they're
+[25:39] here now so now when we run this
+[25:41] automation again it will now generate
+[25:43] the transcript and SRT file for the much
+[25:46] larger video which is important for
+[25:48] generating Clips it wouldn't be fun to
+[25:50] create clips from a 9-second video here
+[25:52] but it was good for testing but now we
+[25:54] need to generate the full transcript and
+[25:56] SRT for this file so once you have it in
+[25:59] that condition go ahead and run this
+[26:00] again it'll go ahead and run it's going
+[26:02] to take a bit of time again remember you
+[26:05] do have to have this automation on now
+[26:07] or it won't automatically come back in
+[26:09] it's going to take 20 30 minutes for
+[26:11] that to process you can always come into
+[26:13] digital ocean and just take a look at
+[26:14] the activity the insights you know if
+[26:17] you you'll be able to see when
+[26:19] something's running things can take a
+[26:20] little bit longer than you might think
+[26:21] you can always come in here to the
+[26:23] runtime logs as well this is going to
+[26:24] show you that things are coming into the
+[26:26] endpoint and things are working if you
+[26:27] don't see any errors just have a trust
+[26:29] that it's that it's transcribing in the
+[26:31] background especially if you can see the
+[26:34] activity here so once this comes through
+[26:36] we'll move on to the next piece all
+[26:38] right so now that you have the
+[26:39] transcript URL and the SRT of the much
+[26:42] larger video we can continue forward
+[26:44] what we need to do now is actually scan
+[26:47] the transcript and look for really good
+[26:49] clips and then add those clips into our
+[26:52] database like we have here so to get
+[26:54] started if you already have any Clips
+[26:56] here associated with this video you'll
+[26:59] want to go ahead and delete these here
+[27:01] just come up here and
+[27:03] delete then we'll come back to videos
+[27:07] and if these are here then if we come to
+[27:08] this view generate clip scripts then we
+[27:11] should have two different stories here
+[27:13] that are ready to go at this point you
+[27:15] probably want to delete the test row or
+[27:18] just remove the transcripts so they
+[27:20] don't show up here because creating
+[27:21] clips from that test is not a good idea
+[27:23] so now we have just one row here come
+[27:25] back to make here I'm going to create a
+[27:27] new scenario now once again we're just
+[27:28] going to start with an air table search
+[27:31] except this time we're going to pull
+[27:32] from this view here instead of this one
+[27:35] going to go ahead and use a connection
+[27:36] that I already had YouTube
+[27:39] demo here's the content clip magic for
+[27:42] this demo the right base now I'm going
+[27:43] to go to the table videos and now this
+[27:45] time we're looking for the view for
+[27:47] Generate clip scripts really we're
+[27:49] trying to identify the clips to be more
+[27:52] specific all right select all we can
+[27:53] leave formula limit that's fine so now
+[27:55] I'm going to go ahead and save it if we
+[27:56] run this we should now have the output
+[27:58] of that one row here and we have the SRT
+[28:01] and the transcript so now this is the
+[28:03] automation that we're actually building
+[28:04] we don't need to build out this section
+[28:05] here this is was a test that I was
+[28:07] performing to see if AI could do a good
+[28:09] job at actually finding the SRT but I
+[28:12] found that some standard old tools were
+[28:14] actually working better here so we'll go
+[28:16] through that pretty easy automation to
+[28:18] build the first thing that we need to do
+[28:20] is we have the transcripts as a remote
+[28:23] file so we need to download those so
+[28:25] that we can actually use those so let's
+[28:27] come to make let's go ahead and add a
+[28:28] new HTTP module we're going to get a
+[28:31] file in this case we're just going to
+[28:33] grab the transcript URL and drop it in
+[28:35] there we can go ahead and continue
+[28:36] forward HTTP get a file this time we're
+[28:40] going to drag the SRT URL here save let
+[28:44] me just make sure did I get the yeah
+[28:46] transcript URL make sure you get that
+[28:48] and not the video URL so this is going
+[28:50] to download the transcript and then it's
+[28:52] going to download the SRT file so we can
+[28:54] use it in our Automation and next up I'm
+[28:56] going to go ahead and add a cloud module
+[28:57] here we're going to create a prompt if
+[28:59] you wanted to use chat GPT you can go
+[29:00] ahead and give that a try instead for
+[29:02] the model I'm going to go ahead and use
+[29:04] Sonet for Max tokens I'll just put 3,000
+[29:07] and we'll go ahead and add a message for
+[29:09] the user we'll go with user for Content
+[29:11] We'll add a new piece of content it'll
+[29:13] be text and then we have the text here
+[29:16] now I'm going to copy and paste this in
+[29:18] from my automation if you want to do the
+[29:20] same jump into the no code Architects
+[29:22] Community but I'll go ahead and explain
+[29:24] everything I'll expand it so that you
+[29:26] can copy this from here as well so the
+[29:30] first thing that I'm doing here and I'll
+[29:31] show you how to build this from scratch
+[29:33] is I'm converting the data that is
+[29:35] downloaded here into a string it's not
+[29:37] that important but this downloads it as
+[29:38] a binary and so we need to just turn it
+[29:40] into a string so it's looking at that
+[29:42] transcription as text so you can find
+[29:44] this function I believe on the a page
+[29:47] here it is two string if you type that
+[29:48] it's going to create this little
+[29:49] function here and then if you go inside
+[29:51] those parentheses you can come back here
+[29:53] to your controls and we can drop in the
+[29:57] data from this module which is the
+[29:59] transcript don't get confused with with
+[30:01] these two here this is the SRT this is
+[30:04] the transcript so I'm going to put the
+[30:05] data in there and then we can take a
+[30:07] look at this prompt so we're putting the
+[30:09] transcript at the top and then we're
+[30:10] saying please Analyze This transcript
+[30:12] above and extract compelling segments
+[30:14] that are roughly 1 to two minutes in
+[30:15] length approximately 100 to 300 words
+[30:18] each clip should and then I describe a
+[30:20] bunch of different requirements for
+[30:22] picking those different clips deliver
+[30:24] complete value make sure each of the
+[30:26] clips is independently meaningful so you
+[30:28] want to pause the video and look through
+[30:30] these and copy them just as I have them
+[30:33] here topics of Interest some special
+[30:36] requirements these are all geared
+[30:38] towards producing the best clip possible
+[30:40] reiterate critical requirements then I
+[30:43] say to create five unique clips and then
+[30:45] I give sample output try to be as
+[30:47] detailed as I can and there you go
+[30:49] that's it so we can go ahead and click
+[30:51] save we can go ahead and build out the
+[30:53] next module this time I'm going to use
+[30:55] chat GPT we're going to create a
+[30:58] completion in this case for the model
+[31:00] I'll use 40 mini and now what I'm doing
+[31:02] in this prompt here is I'm taking the
+[31:04] results here which are in text and I'm
+[31:06] going to convert them into a Json which
+[31:08] makes the rest of the automation easier
+[31:10] to process makes it so we can execute
+[31:12] things a bit more programmatically text
+[31:14] is often hard to work from so we'll go
+[31:16] ahead and create a new message and
+[31:18] actually one thing I am remembering
+[31:20] before I move on is I forgot the system
+[31:22] prompt here come back to anthropic real
+[31:24] quick scroll down click on advanced
+[31:26] settings system prompt you are a video
+[31:29] editor task with looking at a video and
+[31:31] pulling out shorter clips from a longer
+[31:33] video but that those clips still make
+[31:35] sense and are enjoyable to watch so
+[31:36] we'll go ahead and save that again come
+[31:38] back to chat jpt the r user for the text
+[31:42] content again I'm going to copy this
+[31:44] from my automation copy and then I'll
+[31:47] paste it here and then I'll explain
+[31:48] what's going on expand it a bit so it's
+[31:50] easier to read now at the top here we
+[31:51] have the text response from here it
+[31:53] broke because I copied and pasted that
+[31:55] so I'm going to erase that and then I'm
+[31:56] going to drag in this here so we have
+[31:59] the response at the top and then the
+[32:01] prompt is saying read the text above
+[32:02] which contains the clips taken from the
+[32:04] longer video transcript return the exact
+[32:07] text from each clip in a Json and then
+[32:09] this should say with a short
+[32:11] autogenerated four to five word
+[32:12] description do not change the clip in
+[32:15] any way so I'm asking it to give the
+[32:17] clip but not to interpret anything and
+[32:19] then I also provide an example of that
+[32:21] Json here so that it knows how to
+[32:23] actually create it then we're going to
+[32:25] go ahead and show advanced settings
+[32:26] we're going to change the respon resp
+[32:28] format to Json object and then we are
+[32:30] going to parse that object automatically
+[32:33] and we can go ahead and click save and
+[32:35] now this is a good time to go ahead and
+[32:36] run this because we need the output from
+[32:38] this before we can continue on so let's
+[32:40] go ahead and run our new automation it's
+[32:43] going to find that one row here we
+[32:44] should probably also add a filter so it
+[32:46] doesn't go on if there's nothing in that
+[32:48] view so now what this is doing is it's
+[32:50] looking at the transcript and creating
+[32:51] those clips and now we have those clips
+[32:53] so we can take a look at the result just
+[32:55] like we asked for here are the clips
+[32:57] that's the format we wanted got five
+[32:59] different clips and so now this is
+[33:01] taking that text output and creating
+[33:03] something more structured that is better
+[33:05] for automations so if we take a look at
+[33:07] the output now we've got this result
+[33:09] here it's a collection inside clips and
+[33:13] then we've got the array of those five
+[33:15] Clips with the clip itself and then also
+[33:18] the description so we're good to go here
+[33:19] now we need to add an iterator go to
+[33:22] flow control iterator and now we're
+[33:24] going to pass in the array that's right
+[33:26] here Clips go ahead and click save now
+[33:28] again here we're going to add this line
+[33:30] here I tried to do it with AI and it
+[33:32] would work sometimes but sometimes it
+[33:33] would just give me the wrong answer and
+[33:35] so what I found was is that using these
+[33:37] text parsers actually got me a better
+[33:39] more consistent result for something
+[33:41] that's more just mechanical we want
+[33:44] Precision in terms of where these clips
+[33:46] start and end and this was a better
+[33:48] solution in this case so here I'm just
+[33:50] going to add three go ahead and show
+[33:52] more I'm going to add three of these
+[33:53] modules real quick match pattern Advance
+[33:55] go ahead and pick that one and then I'm
+[33:56] going to go ahead and just clone these
+[33:57] these real quick so I have them and then
+[34:01] I'll go ahead and just add that air
+[34:03] table module we're going to update a
+[34:05] record so for the text parser here for
+[34:08] Global match leave that alone case
+[34:10] sensitive no multi-line yes single line
+[34:13] no continue no and then for the pattern
+[34:16] I'm going to come back and copy this
+[34:19] directly just like that I'll go ahead
+[34:21] and expand this a bit so you can copy
+[34:23] exactly as it is now remember here I'm
+[34:25] using a function I've also got a
+[34:27] placehold there so I'll go ahead and
+[34:28] just retype this so you can see how that
+[34:30] would work I'll erase everything
+[34:34] here just want to make sure you do
+[34:36] everything that I do if you're trying to
+[34:39] do it from the video here I'm going to
+[34:41] type sub string open parentheses and I'm
+[34:44] going to go ahead and add in these other
+[34:45] elements even though they're empty just
+[34:47] CU it's easier to see so I'm going to
+[34:48] add a semicolon semicolon close
+[34:51] parenthesis so now I just need to fill
+[34:53] in these sections here so this first
+[34:55] section here I'm going to grab the clip
+[34:57] that is coming from this iterator right
+[34:59] here I'm going to go ahead and grab clip
+[35:01] now if you are not seeing this sometimes
+[35:04] you have to save the Automation and
+[35:06] refresh in order for that to show up if
+[35:09] you're not seeing it but if you remember
+[35:10] we passed in the clips into this
+[35:12] iterator so it knows what to pull and
+[35:14] then here I'm going to go ahead and just
+[35:16] put
+[35:16] one and then here I'm going to go ahead
+[35:19] and just put 25 and so now what we're
+[35:22] doing here is we are searching for a
+[35:24] small portion of the string in a given
+[35:27] SRT
+[35:28] so that we can extract this start number
+[35:30] so we have the clip here and it says and
+[35:32] what benefit do you feel right so we're
+[35:34] searching for a little piece of that
+[35:37] inside this big SRT file so that then we
+[35:39] can isolate this starting number and
+[35:41] then in the next one we're going to do
+[35:43] the same thing we're searching for the
+[35:44] ending so that we can find the ending
+[35:46] right so you want to make sure you copy
+[35:47] all of that just as I have it and you
+[35:49] want to replicate what I wrote here
+[35:52] using this function here notice here
+[35:53] that it's gray and it looks a little bit
+[35:55] different than normal text because it
+[35:56] was able to convert it into into an
+[35:58] actual function you can also access
+[36:00] these by clicking into these and coming
+[36:03] up here and you could just select
+[36:06] substring and it would bring in the
+[36:07] function that same way going to go ahead
+[36:09] and erase that now from the text we're
+[36:11] going to pass in the SRT data that we
+[36:13] downloaded here so here we're going to
+[36:15] type to string open parenthesis you
+[36:18] should see it convert to a function then
+[36:22] we're going to pass in the data from
+[36:24] Step number three so we're going to come
+[36:25] back here go to step number three and
+[36:27] pass in this data and then we're going
+[36:28] to close the parentheses so now
+[36:30] everything should be good to go go ahead
+[36:32] and click save now we need to do a setup
+[36:35] on this one here Global match no case
+[36:37] sensitive no multi-line yes no no and
+[36:41] then for the pattern I'm going to copy
+[36:42] this in as well again I'll expand it so
+[36:45] that you can copy it more easily now we
+[36:47] have an additional function that we need
+[36:49] to build let's remove everything here
+[36:52] I'm going to paste it down here just so
+[36:53] I can repeat it so we're coming right in
+[36:56] here between this question mark and this
+[36:59] parenthesis here I'm going to copy this
+[37:00] in because it didn't copy correctly so
+[37:02] we got going to be right here I'm going
+[37:04] to type
+[37:07] subring open parenthesis turns to a
+[37:09] function semicolon semicolon close
+[37:12] parenthesis and now what you can see
+[37:13] here is that we have these little
+[37:14] calculations that are embedded in there
+[37:17] so the first thing I'll do is I'll just
+[37:18] put the clip in there because we know
+[37:20] that's going to go right here but now we
+[37:22] have these two length functions here so
+[37:25] I'm going to add those first and
+[37:26] foremost so I'm going to type
+[37:30] length open parentheses close
+[37:32] parenthesis and then you see here we
+[37:34] have a minus so I'm going to come over
+[37:35] here where's the math I'm going to grab
+[37:37] this minus here put the minus and then
+[37:39] I'll put
+[37:43] 25 then I'm going to come into this
+[37:45] section here in this last semicolon with
+[37:47] the parenthesis I'm going to type length
+[37:51] again open parenthesis close
+[37:55] parenthesis and I'm going to come back
+[37:57] and drag the clip into that one in
+[37:59] between there and then all I need to do
+[38:01] here is also drag the clip right there
+[38:04] so now we have our new function here so
+[38:06] we'll run that and test it and just
+[38:08] double check everything as I have it and
+[38:11] then for the text we're going to pass in
+[38:13] the SRT file again so here we'll go to
+[38:17] string open parentheses we'll use the
+[38:19] data from Step number three close
+[38:21] parenthesis and we can go ahead and save
+[38:24] what we did here is we found the
+[38:25] starting position found the starting
+[38:26] position then we on the ending position
+[38:28] and now based off of those we're going
+[38:30] to grab the whole chunk so that we have
+[38:32] the whole SRT file so let's open this up
+[38:34] here Global match no case sensitive no
+[38:37] multi-line yes single line these are
+[38:40] both no so for the pattern here I'll
+[38:42] copy this from my example we'll expand
+[38:44] this so we can see everything again now
+[38:46] you're going to want to copy everything
+[38:47] as I have it two of my placeholders
+[38:49] broke so I'm going to erase those and
+[38:51] then I'm going to use these placeholders
+[38:53] so we're going to put this one here
+[38:54] which is this first one so we'll take
+[38:56] the value
+[38:58] drag it right where it needs to be right
+[39:00] after that parentheses then we're going
+[39:02] to do the same thing to this one notice
+[39:03] here I've got a parentheses that I
+[39:05] opened so I'll just rebuild this whole
+[39:06] thing here so right here in between that
+[39:10] little carrot and the SLB in this case
+[39:12] you have to come up here for the
+[39:15] parentheses and you have to add them so
+[39:17] go to the gear and then add the
+[39:19] parenthesis and we're going to come in
+[39:21] here come back to the star and I will
+[39:24] add in the value from the second piece
+[39:28] piece and I'm going to come
+[39:30] over here and add in one so what I'm
+[39:35] doing here and you can play around with
+[39:37] this when you build this but what I was
+[39:38] doing here is I was taking the section
+[39:42] from 299 to 302 and then I was also
+[39:46] adding one so that it would go one extra
+[39:48] segment I don't know that I actually
+[39:49] need to do that now that I've perfected
+[39:51] how I get these values here so you can
+[39:53] play around with whether you want to add
+[39:55] an extra one or not or just trust
+[39:56] exactly what came out but that's all you
+[39:58] need right here so now we just need to
+[40:00] fill out the text and that is going to
+[40:02] come from the SRT file as well so we'll
+[40:04] type to string open parentheses and
+[40:07] we'll come back over here we'll go to
+[40:09] the
+[40:09] data we'll be using this data from Step
+[40:12] number three again remember data here is
+[40:15] transcript this is SRT so here we want
+[40:17] to pull from the SRT close parenthesis
+[40:20] we'll go ahead and click save let's go
+[40:21] ahead and save it and now I'm going to
+[40:23] go ahead and just unlink air table real
+[40:24] quick just so I can run this from
+[40:27] beginning to end and see how
+[40:29] everything's running just to make sure
+[40:30] it's good save it anyway run the module
+[40:33] it's going to give us a warning just run
+[40:35] it anyway it's creating the clips clips
+[40:37] are done now it's just processing those
+[40:39] into a Json so that the automation can
+[40:41] iterate over them so now everything
+[40:43] process we can take a look so operation
+[40:45] one we passed it in the text here is the
+[40:48] SRT and then here was the pattern we
+[40:50] were looking for and then you can see we
+[40:51] have that little section of the script
+[40:53] we're looking for and it came back with
+[40:55] 301 it found that 30 one is the right
+[40:59] place well I have another says and then
+[41:01] it says well I have another so it found
+[41:03] this and then got us the number and then
+[41:05] we can say the same thing in the second
+[41:07] one passed in the ending of the sentence
+[41:10] and then it found as 316 which is down
+[41:12] here 316 and then in this section here
+[41:15] it actually extracted the SRT file here
+[41:19] starting at 301 and so now what we can
+[41:21] do is we can go ahead and put this back
+[41:23] and configure the air table module
+[41:25] actually I put update but we want to
+[41:27] delete so I'm going to delete that add
+[41:29] another module air table create record
+[41:32] base YouTube demo YouTube content clip
+[41:35] magic table clips now this time for clip
+[41:39] description we can go ahead and use the
+[41:41] description from the iterator and for
+[41:43] the transcript itself you can go ahead
+[41:45] and use the clip and then for the SRT
+[41:48] you're going to want to use the value
+[41:49] out of that final text parser now the
+[41:51] start and end time will be calculated
+[41:53] automatically in order for that to
+[41:55] happen we do need to come back to air
+[41:56] table we're going to go to our
+[41:57] automations and then we're going to turn
+[41:59] on this automation here detect start end
+[42:01] time and so what happens here is every
+[42:02] time we add a new clip into the air
+[42:04] table database if that SRT is not empty
+[42:06] then we're going to run a little bit of
+[42:08] code here to calculate the start and end
+[42:10] time using the SRT start and end time
+[42:15] for a given segment so if we have this
+[42:17] segment here then that code is going to
+[42:20] grab this start time right here and then
+[42:23] this end time and then that way we know
+[42:25] how to pull this specific clip so make
+[42:27] sure that is on and then everything else
+[42:29] here we can leave as is go ahead and
+[42:33] click save and now let's go ahead and
+[42:34] run this module again this time actually
+[42:37] creating the clips here in our database
+[42:40] in the clips table right here so now
+[42:42] this automation has finished you can see
+[42:43] that we have three Clips in our database
+[42:45] we have transcripts and SRT files the
+[42:47] start end time and duration so now we
+[42:49] can actually make the clip now you will
+[42:52] notice that there's only three instead
+[42:53] of five remember here in Cloud we did
+[42:55] ask it to create us five clips but every
+[42:57] once in a while when you're running this
+[42:59] you will find that this will actually
+[43:01] limit the amount of Clips we actually
+[43:03] create based off of the quality of
+[43:05] information that we were able to get
+[43:07] from these two modules so this module
+[43:09] here will only run if this one was
+[43:10] successful and this one will only run if
+[43:12] this one was successful so if you get
+[43:14] fewer rows it's not really an issue you
+[43:16] can always just run this again and
+[43:18] generate more Clips just by running this
+[43:20] here and it will generate five more
+[43:22] Clips but this is to ensure the quality
+[43:24] of the final clip if there was something
+[43:26] a little bit different in one of these
+[43:27] these AI models tried to tweak the
+[43:29] output of the clip this is what catches
+[43:32] that and it prevents us from just
+[43:33] producing clips that aren't useful but
+[43:35] again if you want more Clips you can run
+[43:37] this as many times as you want or
+[43:39] generate more Clips up front to generate
+[43:41] more clips into air table and so now we
+[43:43] can move on to the next spot and
+[43:45] actually generate the clips from the
+[43:47] longer video using our start end and
+[43:51] duration time values all right so let's
+[43:53] continue on you'll want to make sure you
+[43:55] save this automation then we'll go back
+[43:59] to make and create a new scenario from
+[44:03] here we're going to go ahead again and
+[44:05] we're going to go ahead and search a
+[44:06] table records in this case from our a
+[44:09] table database we're now in the clips
+[44:11] and we need to actually cut the clips so
+[44:13] now we have these three Clips or you
+[44:15] might have more that we're ready to
+[44:16] process now I am noticing one thing that
+[44:18] I did forget to do in my previous
+[44:19] automation so I'm going to go ahead and
+[44:21] help you fix that notice here that these
+[44:23] clips are not associated with this video
+[44:26] here so if we come here to this video we
+[44:29] just created these clips here but
+[44:30] there's no actual video clips connected
+[44:31] here so we do need to come back to our
+[44:33] automation you're going to want to go
+[44:34] into the automation we were just in the
+[44:36] identify Clips you'll want to reload
+[44:38] this Automation and come back here to
+[44:40] your aor table record and now we need to
+[44:42] come down here to videos we're going to
+[44:45] add a item here and for the record ID
+[44:47] we're going to go ahead and pass in the
+[44:48] record ID from our search so what this
+[44:51] is going to do is it's going to connect
+[44:52] these clips back up to our video so I'll
+[44:55] go ahead and click save I'm going to
+[44:57] come back to our database going to go to
+[44:59] the clips I'll erase these easy to
+[45:01] forget some of these things then I'll
+[45:03] come back to that Automation and I'll go
+[45:05] ahead and run it again it'll create new
+[45:07] clips again remember I had to delete the
+[45:10] clips that were already here because
+[45:11] this particular view here that creates
+[45:14] those clips is looking for videos that
+[45:17] do not have any Clips so it's looking
+[45:18] for videos that don't have Clips which
+[45:20] of course you can change if you'd like
+[45:22] to but that's how it's designed for now
+[45:24] so I'm going to come back here wait for
+[45:25] this to finish wait for it to regenerate
+[45:27] those rows that are actually linked to
+[45:30] this story here right there and right
+[45:32] there you can see that it just added
+[45:33] those clips so if I come back here we've
+[45:35] got four new clips that came in all now
+[45:38] associated with the proper video here so
+[45:40] now when we continue on with our
+[45:42] automation here that we were building
+[45:43] we'll actually have clips that are
+[45:45] properly associated with the master
+[45:47] video which we need because we need this
+[45:49] video here because we still need to go
+[45:51] cut the videos out of here and transfer
+[45:55] them into this section right here so
+[45:57] I'll come back to make again I'll use a
+[45:58] connection that I already have existing
+[46:00] for the base YouTube demo content clip
+[46:03] magic in this case we're going to search
+[46:05] the table clips and we're going to look
+[46:07] for the view where we need to cut the
+[46:10] clips that is this one right here so
+[46:12] it's going to process anything that's
+[46:13] here and always feel free to investigate
+[46:15] the filters here to explain why things
+[46:17] are showing up when they do we'll go
+[46:18] ahead and select all the fields we can
+[46:21] leave formula and limit alone go ahead
+[46:23] and click save now if I run this it
+[46:24] should bring back those four Clips see
+[46:26] right here here bundle one bundle two
+[46:28] bundle three and bundle four so we're
+[46:30] good to go now the only thing we need to
+[46:32] add for this one is a single HTTP call
+[46:35] to our NCA toolkit this is going to
+[46:37] actually go to the video and based off
+[46:39] of the timestamps it's going to cut the
+[46:43] video from that Tim stamp and just give
+[46:45] us back a video of a shorter length from
+[46:48] 1 to three instead of the whole video so
+[46:50] I'll go ahead and add the HTTP module
+[46:53] right here we're going to make an API
+[46:55] key off request test again I can go
+[46:57] ahead and use the credentials that I
+[46:59] created before YouTube demo NCA toolkit
+[47:02] for the URL I'll go ahead and copy that
+[47:04] from this test automation you'll need to
+[47:06] change the base of this URL to your
+[47:09] digital ocean server I'm going to grab
+[47:11] this this is mine paste that into the
+[47:13] URL so you'll want to grab your url from
+[47:17] here and you'll paste that in right here
+[47:20] so that your NCA toolkit URL is right
+[47:23] here and you don't have double slashes
+[47:25] here but then after that it should say
+[47:27] slv1 ffmpeg SL compose and then you'll
+[47:31] want to change method to post and so
+[47:34] what this API call is going to do is
+[47:36] it's going to cut up that video right
+[47:37] where we said at this start time at this
+[47:39] end time with this duration and then
+[47:40] it's going to add that clip here so we
+[47:42] need a post we don't need any headers or
+[47:44] query string for body type we're going
+[47:45] to go ahead with raw for content type
+[47:47] you're going to need Json application
+[47:49] Json and for the request content I'm
+[47:51] going to copy this from my Module come
+[47:53] down here paste I'll expand this so you
+[47:56] can see and copy it from the video
+[47:58] you'll want to copy this exactly as I
+[48:00] have it here and feel free to use spaces
+[48:02] so that it's indented the same way so I
+[48:04] have some placeholders in here I'm going
+[48:06] to go ahead and remove them so that I
+[48:08] can show you how you'll add them
+[48:09] yourself I'm also going to remove this
+[48:10] web hook because we need to replace it
+[48:12] with our web hook we'll do that in just
+[48:13] a second feel free to just slowly copy
+[48:16] this from the video Just as I have it
+[48:19] and then we can come back here for the
+[48:20] ID you're going to want to use the ID
+[48:22] from Air table you can just drag that in
+[48:24] right between the quotes for the file
+[48:26] URL going to want to use the video URL
+[48:29] right here you can just go ahead and
+[48:31] drag that in between these two quotes
+[48:33] that you put for the file URL and so
+[48:35] here we have the start and the duration
+[48:36] we don't actually need the end time we
+[48:38] just need the start and the end time so
+[48:40] I'm going to come over here grab the
+[48:41] start time put it right here then I'll
+[48:43] copy in the duration right between the
+[48:46] quotes and then I'll start to scroll
+[48:47] down I think we only need the web hook
+[48:49] I'll double check mine here here's the
+[48:51] source ID video URL start then we just
+[48:54] need that web hook so if we come back to
+[48:56] airt come up to automations we're going
+[48:58] to come to cut Clips this time and we're
+[49:01] going to click into the trigger here and
+[49:03] grab this URL and we will drop that into
+[49:06] the web hook URL section here that we
+[49:08] talked about so now you got the ID the
+[49:09] input URL the start time the duration
+[49:12] and the web hook that should be all that
+[49:13] we need we'll go ahead and click save I
+[49:15] forgot to do this on the last one so
+[49:16] you'll want to make sure you do this to
+[49:18] each one but come here and add total
+[49:20] number of bundles come here just change
+[49:23] this to greater than and then put zero
+[49:26] that way if there's there's no clips it
+[49:27] won't try to process anything I'll go
+[49:29] ahead and save it and just for testing
+[49:30] I'm going to come in here and I'm going
+[49:32] to limit this to one cuz I can only
+[49:33] process one right now for the test so I
+[49:36] might as well just only run one I'm
+[49:37] going to run this automation it's going
+[49:39] to run it to the toolkit 202 looks like
+[49:41] everything's okay I do realize here that
+[49:43] it's giving me the data back as text I'm
+[49:45] going to come back in you want to make
+[49:47] sure you change this to parse response
+[49:49] click save so now let's go back to air
+[49:52] table and we're going to want to wait
+[49:54] for that process to finish and then when
+[49:56] it does you're going to see this popup
+[49:58] right here that it was able to clip from
+[50:00] the bigger video now again if you're
+[50:01] ever wondering you can always come over
+[50:03] to your NCA toolkit you can take a look
+[50:05] and see if it's running anything do you
+[50:07] see any activity does it show that it's
+[50:09] actually running the process that you
+[50:11] just requested and we can see here that
+[50:13] it sent it to our web hook VM sometimes
+[50:16] it takes a second to come over so be
+[50:17] patient but there you can see it came in
+[50:19] I can take a look at the body looks like
+[50:20] it was a success so once you see this
+[50:22] then you can just come up here to test
+[50:24] Automation and you can run that
+[50:25] Automation and then everything should be
+[50:27] configured and once you do that you
+[50:28] should be able to turn it on we should
+[50:29] be able to come back to the data and
+[50:30] we'll come back to all clips and we'll
+[50:32] see we have one of the clips from the
+[50:33] video you can click on that open it up
+[50:35] and then you'll actually see the clip 40
+[50:37] this one's 46 seconds long so now we can
+[50:40] come back to our automation change our
+[50:42] airtable search back to 10 because we
+[50:44] were just testing one click save and
+[50:47] then I'll run this Automation and we're
+[50:48] going to see it run those remaining
+[50:50] three and then once those are done
+[50:52] processing those will come back into our
+[50:54] web hook and then we'll have the clips
+[50:56] for the rest and then we can continue on
+[50:58] with the next Automation and there's
+[50:59] that final clip so now we can continue
+[51:01] on with the next automation that will
+[51:03] actually crop those larger clips into
+[51:07] vertical videos so next up we're going
+[51:09] to build this Automation and what this
+[51:11] automation does is it helps us actually
+[51:14] crop out and scale the clip from the
+[51:17] long form video so in any given podcast
+[51:21] there's usually a guest at some X and Y
+[51:24] coordinates so what this first module
+[51:27] here is going to do is it's going to
+[51:29] figure out using the analyze image
+[51:31] module in open AI it's going to figure
+[51:35] out where the person is located in that
+[51:38] video so that then we can crop it out so
+[51:40] first we need to figure that out so we
+[51:42] can crop it in the right spot and then
+[51:44] we're going to send another request to
+[51:46] the NCA toolkit to crop it and also to
+[51:48] scale it because this video is
+[51:52] 1920 by 1080 so this section here is
+[51:56] only
+[51:57] 1080 but vertical videos are actually
+[52:00] 1920 from top to bottom so not only do
+[52:04] we need to extract it but we also need
+[52:05] to scale it up so that it it's the
+[52:09] proper format on Tik Tok or YouTube and
+[52:11] all that stuff we'll jump back to make
+[52:12] and we'll create a new scenario and now
+[52:15] of course we're going to be using the
+[52:17] clips that we've previously generated
+[52:18] where we have the clip URL keep in mind
+[52:21] in the background it's hidden but if we
+[52:23] turn this on here thumbnail URL you're
+[52:25] going to see that it also oo generated a
+[52:27] thumbnail and this is the image that we
+[52:30] actually send to chat jpt Vision so that
+[52:33] it's able to isolate the X and Y for the
+[52:38] face we also calculate a bunch of other
+[52:40] values here just to Ure that we crop in
+[52:43] the right spot you can imagine that if
+[52:45] you have a clip here and the person's
+[52:47] right at the edge here right there if
+[52:49] you calculate that spot there might not
+[52:51] be enough room over here to have a
+[52:53] proper clip so in those scenarios it
+[52:55] still has to build the clip
+[52:57] here ideally you're not in this
+[52:58] situation hopefully you recorded it so
+[53:00] you're not way off to the edge but we do
+[53:02] need to make some of those calculations
+[53:04] and that's what the aot table database
+[53:06] is helping us do in the background with
+[53:08] some of these formulas feel free to
+[53:11] investigate them to see how I went about
+[53:13] doing that so let's jump back to our new
+[53:15] scenario and the first thing that we
+[53:16] need to do is just search our air table
+[53:18] View and we'll be using this one here
+[53:20] crop clip so we're going to search that
+[53:22] view again I'll use a connection that I
+[53:24] already have pick the base YouTube demo
+[53:28] content clip magic we're going to search
+[53:30] the clips and in this case we're going
+[53:32] to search the view for crop clip go
+[53:35] ahead and select all save then we can go
+[53:37] ahead and add our next module we're
+[53:39] going to go with open ai go ahead and
+[53:41] show more and we are going to analyze
+[53:43] images with vision should already have a
+[53:45] connection go ahead and update that now
+[53:47] I'm going to go ahead and copy over what
+[53:48] I have from my prompt going to come into
+[53:51] this section here copy and paste and
+[53:53] then we'll go over here expand this a
+[53:55] bit so you can see analyze the image in
+[53:57] great detail and get the height and
+[53:59] width of the image then analyze the
+[54:01] image in great detail and provide the X
+[54:03] and Y coordinates of the center of the
+[54:05] face spend time thinking about your
+[54:08] answer and then we can map in the image
+[54:10] itself how would you like to specify the
+[54:12] image we're going to pass it a URL and
+[54:14] we'll pass it the thumbnail URL now for
+[54:17] the model the only one that I found that
+[54:18] worked was C GPT for Turbo I'm sure
+[54:22] others work I didn't test each one it
+[54:24] was quite interesting using this module
+[54:27] in particular every once in a while it
+[54:28] would tell me that it was unable to do
+[54:30] this kind of work it would say hey I
+[54:32] can't actually find the coordinates of a
+[54:34] face but most every time it would so it
+[54:36] was a little bit bizarre again don't
+[54:37] worry about it if you hit errors along
+[54:39] the way this automation is here to
+[54:41] generate lots of videos so if you hit an
+[54:43] error on one clip it doesn't matter you
+[54:45] just ignore it and move on because we're
+[54:47] going to be generating hundreds of clips
+[54:49] from this and single errors should not
+[54:51] get in our way and that might be due to
+[54:53] the specific model that I picked but in
+[54:55] general this doesn't have an issue and
+[54:57] works just fine so I'll go ahead and
+[54:59] click save I'm going to go ahead and run
+[55:01] this just to see how it's performing
+[55:03] should grab a few different clips and
+[55:06] now it's going to run chat GPT on that
+[55:08] we can go ahead and stop it after it
+[55:09] runs one here so here you can see it
+[55:11] exported all of the details that we were
+[55:13] looking for again I'll add a filter here
+[55:14] so that it only runs if there are actual
+[55:16] bundles greater than greater than zero
+[55:20] save then we've got our Chad GPT module
+[55:22] now I'm going to add another module here
+[55:24] just to analyze the text and the answer
+[55:26] answer and to give it to us in a Json it
+[55:28] just makes a lot easier to work with
+[55:29] I'll come to my existing Automation and
+[55:32] we'll copy everything out from here I'll
+[55:33] go ahead and copy we're going to create
+[55:36] a completion you'll add your connection
+[55:38] for the model I'll go with 40 then we'll
+[55:41] add in the message roll user text this
+[55:45] is where I'll copy and paste what I had
+[55:48] before for the result my placeholder
+[55:50] broke so I have to add the placeholder
+[55:51] from the previous module just drag that
+[55:53] in here so basically I'm just saying hey
+[55:55] extract the image to dimensions and the
+[55:57] XY coordinates from the text above and
+[55:58] this text is the analysis of that
+[56:01] thumbnail of where I am located in it
+[56:03] and I say provide the dimensions in Json
+[56:05] format width image width height image
+[56:08] height x x value and Y yv value so I'm
+[56:12] being very specific on how I want that
+[56:14] output so that the rest of my automation
+[56:16] has this consistent Json to work with to
+[56:18] make it easy so now I'm going to come
+[56:20] down here to show advanced settings
+[56:22] going to go to Output we're going to go
+[56:23] to response format we're going to change
+[56:25] that to Json and then we will parse that
+[56:27] Json and that should be everything that
+[56:29] we need we can go ahead and click save
+[56:31] and then I'll go ahead and run that
+[56:32] because we do need those values here to
+[56:35] build out the rest of the automation so
+[56:36] we have some iterations coming back now
+[56:38] let's look at the result so you can see
+[56:40] here it's just giving this formatted
+[56:42] Json that makes it real easy to use
+[56:44] these values in the upcoming modules so
+[56:46] then next up what we need to do is we
+[56:48] just need to update air table with these
+[56:50] values by doing that it's going to
+[56:53] update some of these values here that we
+[56:55] can then use in this module here so by
+[56:58] updating it these functions will update
+[57:00] and then the output of this module we
+[57:02] can use here and it's going to be using
+[57:04] the updated values from these functions
+[57:07] here notice that these all have errors
+[57:09] they won't once we run this update so
+[57:11] let's come here we'll add the air table
+[57:13] update a record again select your
+[57:15] connection base YouTube demo use the
+[57:18] content clip magic demo table we're
+[57:20] going to update the clips so for ID
+[57:22] we're going to use the ID from Step
+[57:24] number one then we can scroll down for
+[57:26] assessed width we're going to use the
+[57:29] width here for the assessed height we're
+[57:31] going to use this height right here for
+[57:33] the assessed Center x width we're going
+[57:36] to use this here and then for the
+[57:38] assessed Center y height we're going to
+[57:40] use this here so basically we know the
+[57:43] size of the image and we also know the X
+[57:44] and Y coordinates within that image so
+[57:46] now we can build the proper values to
+[57:48] actually generate the image looks like I
+[57:51] didn't save this module I'll come back
+[57:52] here and save it so again that's going
+[57:54] to update air table with those values
+[57:56] and then when it has those values it can
+[57:58] actually calculate these values and then
+[58:00] once those are calculated then we can
+[58:02] use those calculations here in this next
+[58:04] module so I'm going to go ahead and add
+[58:05] that next module in this case it's going
+[58:07] to be an HTTP module again we're going
+[58:09] to use the make an API key off request
+[58:11] we'll go ahead and use the credentials
+[58:13] we made earlier now for the URL I'm
+[58:16] going to copy this over from my working
+[58:18] example I'll paste that in here again
+[58:20] remember you need to use your digital
+[58:21] ocean URL come here grab it copy link
+[58:24] address going to replace this this part
+[58:26] here with the URL and remember we want
+[58:29] this part here to be your digital ocean
+[58:31] URL slash not two slashes just one V1
+[58:34] FFM Peg SL compose now this API endpoint
+[58:38] is going to automatically come in and
+[58:42] grab the video segment and then it's
+[58:44] also going to scale it up to the proper
+[58:46] Dimensions so again super cool that we
+[58:49] can do this in our automations for free
+[58:52] using the NCA toolkit so method I'm
+[58:54] going to change that to post you can
+[58:56] leave the headers and query alone for
+[58:58] body type we're going to go with raw for
+[59:01] a content type we're going to go with
+[59:03] Json application Json and for the
+[59:05] request content you're going to want to
+[59:06] copy this in directly as I have it going
+[59:09] to come down here paste I'm going to
+[59:11] change this par response to yes I always
+[59:13] do that again there's a few things that
+[59:15] we need to change here I'm going to open
+[59:16] this up scroll to the top so you can
+[59:18] copy this but before I do that I'm just
+[59:20] going to remove these placeholders just
+[59:22] like that just like that just like that
+[59:25] so that you can copy this exactly as I
+[59:27] have it here and then you can replace
+[59:29] these back in here just need to be super
+[59:31] careful but everything should work as
+[59:32] long as you get it exactly as I have it
+[59:34] here and again if you just want these
+[59:35] templates so everything is here then
+[59:38] just jump into the no code Architects
+[59:39] Community you can download those
+[59:41] templates remove this web hook URL so
+[59:44] again I'm just going to open this up you
+[59:45] want to have this exactly as I have it
+[59:49] here filters output with the web hook so
+[59:53] now we just need to come back here and
+[59:54] replace these values so for the ID we're
+[59:57] going to use the ID from Step number one
+[59:59] here again you're just going to put that
+[60:00] right between the quotes you can drag it
+[60:02] or just click it right there now for the
+[60:05] file URL we're going to want to use the
+[60:08] clip URL so we're going to scale up the
+[60:10] clip right so we're going to take that
+[60:12] drop that right in here make sure it's
+[60:14] right between those quotes now here is
+[60:16] the hardest part I'll go back and forth
+[60:18] between my example here so that you can
+[60:21] see what it looks like when it's done
+[60:22] perfectly and then you can copy that
+[60:24] into yours the first one we have here is
+[60:26] the crop x width and then we'll have the
+[60:29] crop y height after that little colon
+[60:31] there so we'll come here and again this
+[60:33] is at the equal sign let me double check
+[60:36] so equals and then we're going to do
+[60:38] crop x width so we got crop x width here
+[60:41] just going to click that then I'm going
+[60:43] to go after the colon then I'm going to
+[60:45] add crop y height then I'm going to go
+[60:47] in between the next one what do we got
+[60:48] next we got clip left x width actually I
+[60:52] just realized I made a mistake I was
+[60:53] pulling this from module one but we need
+[60:56] to pull these from module 4 the update
+[60:58] so I'm going to scroll back up here we
+[61:00] can take the ID from one but everything
+[61:03] else should really be taken from four so
+[61:04] I'm going to take that back out can I
+[61:05] come up to four I'm going to grab the
+[61:07] clip URL from here cuz these hadn't been
+[61:09] created yet so a good catch there remove
+[61:12] remove so I'm going to go right to where
+[61:14] it needs to be crop x width then the
+[61:17] next one crop y height then I'll go to
+[61:21] the next one and that one is clip left x
+[61:25] width clip clip left x width then we
+[61:29] need clip top y height clip top y height
+[61:33] then we're going to come to the equals
+[61:35] and here we're going to add clip x width
+[61:37] from videos so that's here clip x width
+[61:40] from videos and you want to expand this
+[61:43] and grab that inner value here and then
+[61:45] you're going to go after that colon and
+[61:47] do the next one I believe which is clip
+[61:50] y height from videos clip y height from
+[61:53] videos again expand it drop this in
+[61:55] there and now we're good to go so let's
+[61:57] just double confirm that everything is
+[61:58] right here crop x width crop y height
+[62:02] crop x width crop by height and then
+[62:04] remember here we got the equals colon
+[62:07] colon colon so then it's clip left clip
+[62:10] top clip left clip top and then clip x
+[62:14] width and clip y height from videos clip
+[62:17] x width and clip y height from video so
+[62:20] we got that good after the equals so
+[62:23] that should be good then the last thing
+[62:24] we need to add is the web hook URL here
+[62:27] so now we can just come back to air
+[62:29] table going to go to our automations
+[62:31] we're going to crop clip we're going to
+[62:33] click into this we're going to grab this
+[62:34] web hook copy it back here into the
+[62:38] between the quotes and once you have
+[62:40] this you should be good to go if you run
+[62:42] in any errors it's likely because
+[62:43] something here is just a little bit off
+[62:45] make sure every little thing is here the
+[62:47] quotes and the brackets and the colon
+[62:49] and all that stuff and again if you ever
+[62:51] run into issues where it's saying that
+[62:52] there's a bad parameter it's usually
+[62:54] because something isn't typed in in
+[62:56] right or there's some sort of character
+[62:57] here that you can't see that is causing
+[62:58] an issue and in that case what I
+[63:00] recommend is just removing all of the
+[63:02] spaces and enters until it's just one
+[63:05] big long line and then you won't have
+[63:08] any hidden characters here that might be
+[63:09] causing an issue in your automation I'm
+[63:11] going to go ahead and click save and
+[63:13] then in this case here I'm going to come
+[63:14] back and just limit it to one again so
+[63:16] that we don't process all of these at
+[63:17] the same time just for testing click
+[63:19] save let's go ahead and run this got the
+[63:21] dimensions figured that out and now we
+[63:24] made the request to the NCA toolkit it
+[63:26] status 202 that looks good looks like
+[63:28] it's processing it so when it's done we
+[63:30] should see this pop up here that the
+[63:31] test is complete and again remember you
+[63:33] can always come back here to see if
+[63:34] things are happening you can see that we
+[63:36] just made another request then you can
+[63:38] always look at these graphs to see if
+[63:40] anything's happening the graphs are a
+[63:41] little bit delayed so you don't always
+[63:42] see things right as they're happening
+[63:44] but depending on what server that you're
+[63:46] working with that you created when you
+[63:47] started up these processes might take a
+[63:50] couple minutes to finish successfully
+[63:52] all right we can see that that test came
+[63:53] back successfully here let's go ahead
+[63:55] and take a look at the body we do want
+[63:56] to make sure it looks like a success
+[63:58] here as well it is possible that you
+[64:00] would get an error in which case you'd
+[64:01] have to debug what that was so once we
+[64:03] get this we can come back to the top we
+[64:05] can test the automation we can run the
+[64:07] automation that's going to update the
+[64:10] air table database with the information
+[64:13] we can turn this automation on now
+[64:14] anytime we run this again it will run
+[64:17] and we can come back to our automation
+[64:19] here and we can adjust the limit to 10
+[64:21] again so it'll process 10 at a time go
+[64:24] ahead and save it I'll save this here
+[64:25] and then we can go ahead and process the
+[64:27] rest of the clips while that's happening
+[64:29] and then we can jump back to air table
+[64:32] jump back to the data and we've got our
+[64:34] Clips here now if I scroll over notice
+[64:36] it's filling in the data that used to be
+[64:38] in error so that it has the coordinates
+[64:40] to figure everything out we have our one
+[64:43] cropped clip if we open this up it's
+[64:45] going to be a vertical video with me
+[64:47] positioned in the right spot but again
+[64:49] with no captions that's the last thing
+[64:50] that we need to do those remaining
+[64:52] videos will process and then we'll go
+[64:53] ahead to that final clip where we create
+[64:55] the cap and again here while we wait you
+[64:57] can see that it's calculating the X and
+[65:00] Y position of my face for each of these
+[65:02] different clips while you're testing if
+[65:05] you are using a slower or a smaller
+[65:07] server this could take longer when
+[65:08] you're processing more videos at a given
+[65:11] time once you get this up and running
+[65:13] and you've tested it then you'll start
+[65:14] to get a feel for how fast things are
+[65:17] and how much budget makes sense for you
+[65:19] and your specific situation and it's
+[65:21] also worth pointing out there are other
+[65:23] ways of setting this up that can be even
+[65:25] cheaper in this video I'm just covering
+[65:27] how to get this set up as quickly as
+[65:29] possible now we can see the rest of
+[65:31] these cropped Clips coming back again be
+[65:33] patient it can take a little bit of time
+[65:35] for these to come through especially if
+[65:37] you're running four or five operations
+[65:39] at the same time the more you run the
+[65:41] slower it goes and then they all kind of
+[65:43] come back at the same time now while
+[65:44] these are finishing up we can go ahead
+[65:46] and move on to the final piece which is
+[65:48] to caption these videos now any clip
+[65:52] that has a cropped clip is now going to
+[65:54] show up in this caption view here so now
+[65:57] let's go ahead and build out our last
+[65:58] automation to finalize everything while
+[66:01] these other Clips are coming back looks
+[66:03] like we just got another one jump over
+[66:05] to make and we'll create a new scenario
+[66:07] we'll go with air table and we'll search
+[66:10] for records this time again we're going
+[66:11] to go with all of the records that are
+[66:13] in caption clip got three right now pick
+[66:16] the proper connection then the base
+[66:18] YouTube demo content clip magic we'll go
+[66:22] with the table clips and for the view
+[66:25] we'll go with with caption clip go ahead
+[66:27] and select all and for the limit just
+[66:29] for testing I'm going to go ahead and
+[66:30] move this to one right now again when
+[66:33] you're done with testing you always want
+[66:35] to move that back to to 10 save now we
+[66:38] only need to make one HTTP call here so
+[66:40] I'm going to go add the module we're
+[66:42] going to make an API key off request
+[66:45] again you're going to want to use your
+[66:46] credentials and then for the URL I'm
+[66:49] going to come over to My Demo automation
+[66:52] I'll copy this over here into the URL
+[66:55] and again you'll want to change your URL
+[66:57] to your digital ocean server copy link
+[67:00] address put that in here again make sure
+[67:02] you don't have two slashes here just one
+[67:05] slash I'll expand this so it's easier to
+[67:07] see so what we should have is your
+[67:09] digital ocean server slv1 SLV video/
+[67:13] caption we'll change the method to a
+[67:16] post you can leave these as is for body
+[67:18] type we'll go with raw for content type
+[67:21] we'll go with Json application Json go
+[67:23] ahead and just change the parse response
+[67:25] to yes request content I'll copy this in
+[67:27] from my working example select all copy
+[67:31] come back put that into the request
+[67:32] content try to make this as big as I can
+[67:34] so that you can see everything in this
+[67:36] case it's mostly you're just passing a
+[67:37] video URL the settings for the captions
+[67:40] like the size and the Bold or what font
+[67:42] you want to use and then of course our
+[67:45] web hook so let's remove this I'll
+[67:47] remove these placeholders just so you
+[67:49] can see how you would add them in after
+[67:51] you copy and paste everything that you
+[67:53] see here in this request so for the
+[67:55] video URL we are going to pass in the
+[67:58] cropped clip you want to expand that and
+[68:00] you're going to want to use the URL here
+[68:03] drag that in between the quotes cropped
+[68:07] clip URL then you're going to scroll
+[68:08] down for the ID you'll want to grab the
+[68:11] ID from Step number one I didn't get it
+[68:13] in between the quotes so I'll try again
+[68:15] you can just put it in between the
+[68:16] quotes as well and just double click and
+[68:18] then for the web hook URL come back to
+[68:19] air table go to the automation come to
+[68:22] the caption clip web hook click in to
+[68:24] the first step grab that URL and then we
+[68:27] can put that right between these two
+[68:29] quotes here once you have that you're
+[68:30] good to go go ahead and click save I'm
+[68:32] going to save it so now this should just
+[68:35] run one here and we jump back to our
+[68:39] data here we have four now but it's just
+[68:41] going to only run one run this
+[68:42] automation we can check out the response
+[68:45] 202 data looks good so that's going to
+[68:49] take a little bit of time to process and
+[68:50] then when it's done just like our other
+[68:52] automations it's going to hit this web
+[68:54] hook we'll see that test down here we
+[68:56] can test it turn it on and then we'll be
+[68:58] completely done you can see here it just
+[69:00] came back with a response from the web
+[69:03] hook looking for a success that's good
+[69:06] we can come up here test the automation
+[69:08] run the automation it's going to run
+[69:10] both of these we jump back to our
+[69:12] database we're going to see we now have
+[69:14] the final clip here with the captions
+[69:16] you can see that clip pretty cool then
+[69:19] we can come back to our Automation and
+[69:22] we can process the rest of those clips
+[69:25] looks like I forgot to change the limit
+[69:26] here I'll put that back to 10 save run
+[69:29] that make sure to turn this automation
+[69:31] back on and there comes in those last
+[69:33] two clips with captions now if you want
+[69:35] these automation templates so that you
+[69:36] can simply import the blueprints and
+[69:38] have them pop up just like that with the
+[69:40] values and prompts preconfigured make
+[69:42] sure to jump into the no code Architects
+[69:44] Community it's a thriving group you can
+[69:45] also get text support directly from me
+[69:47] and we have calls almost every single
+[69:49] day there's a make and air table
+[69:50] beginner course a business course you
+[69:53] can get access to the templates you saw
+[69:54] today plus a a whole lot more and it's a
+[69:56] thriving Community Check out all the
+[69:57] wins from the community and all the
+[69:59] different issues and wins they've had
+[70:02] with the community I hope to see you
+[70:04] inside of the community either way I
+[70:05] hope you enjoyed this video and I'll see
+[70:07] you on the next one

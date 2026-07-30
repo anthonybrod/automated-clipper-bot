@@ -1,0 +1,245 @@
+# The Clip Farm Setup That Gets Your Stream Clips On TikTok In 10 Minutes (Cpaws Music)
+# https://www.youtube.com/watch?v=dOQS2q_ONG0
+
+[00:00] The streamers going viral right now
+[00:01] aren't the most talented. They're just
+[00:03] the ones who figured out how to turn one
+[00:05] stream into 20 clips automatically. So,
+[00:07] in this video, I'm going to show you how
+[00:09] to build the clip farm. And by the end
+[00:11] of this, you'll have clips posting on
+[00:13] TikTok in less than 10 minutes after you
+[00:14] went stream. There's only two parts.
+[00:16] Part one is the OBS replay buffer.
+[00:18] Basically, OBS silently records
+[00:20] everything while you're streaming. So,
+[00:21] when you have something crazy happen,
+[00:23] you just hit a button on your keyboard,
+[00:24] and it instantly saves the last 60
+[00:26] seconds as a clip. No digging through a
+[00:27] 3-hour VOD. Just press the hotkey, the
+[00:29] clip is saved, and you're done. You just
+[00:31] go to settings in the bottom right
+[00:32] corner, then you go to output, then you
+[00:34] go to replay buffer. Make sure enable
+[00:36] replay buffer is on. Maximum replay time
+[00:38] will do 60 seconds. Then we go to
+[00:40] hotkeys, and you'll be able to see one
+[00:42] that says start replay buffer, but
+[00:44] that's not actually going to save the
+[00:45] clip. That's just going to make sure it
+[00:46] runs while you're streaming. So, the one
+[00:48] that we want right here is replay buffer
+[00:49] save replay. Mine's on number pad nine,
+[00:52] so that way anytime the replay buffer is
+[00:54] running and I press save replay, aka
+[00:56] number pad nine, it's going to save the
+[00:58] last 60 seconds of my clip give me that
+[01:00] file that I can upload. All you have to
+[01:02] do is go to output and recording, and
+[01:04] then you'll see your recording path
+[01:05] here, and this is the folder it's going
+[01:06] to save the clips to. Now, I'll walk you
+[01:08] through all the quality settings and
+[01:09] little things you need to know about
+[01:10] replay buffer at the very end of the
+[01:11] video, but even with the clip saved to
+[01:13] our desktop now, you just have a raw
+[01:15] unedited horizontal file. That's not
+[01:17] TikTok content. But that's where part
+[01:19] two comes in. Now, real quick, I already
+[01:20] know what some of you are thinking.
+[01:21] Cody, can I just do all the editing
+[01:23] manually? Yeah, absolutely. The problem
+[01:25] happens when you're trying to run a real
+[01:27] clip farm. I'm talking five, 10, 15, 20
+[01:29] clips per stream. Manually reframing,
+[01:33] captioning, and exporting every single
+[01:34] one is going to burn you out in one or
+[01:36] two weeks. I've seen it happen over and
+[01:38] over again with my students. So, I
+[01:39] personally automate everything using a
+[01:41] tool called Nexus Clips. I have it
+[01:43] linked in the description down below,
+[01:44] but once you have your clip from OBS
+[01:47] replay buffer, just click on import
+[01:49] clip, and then you're going to choose
+[01:50] it. And then in just about 5 seconds, we
+[01:51] have access to our editing suite. I've
+[01:53] been using this for the past year or
+[01:54] two, and I love it, which is why I got
+[01:55] them to sponsor this part so I can show
+[01:57] you through how I do everything. We have
+[01:59] our timeline on the bottom and if we
+[02:00] want to chop up our footage, we can
+[02:01] press C and then C again and then we can
+[02:03] delete these little chops here. But we
+[02:05] need to reframe our video, so I'm just
+[02:07] going to simply click over here. It
+[02:09] automatically picks my face and then it
+[02:10] automatically grabs my gameplay. I'm
+[02:12] going to center it a little bit there.
+[02:13] Moving to the subtitles, we can
+[02:15] literally generate subtitles in about 5
+[02:17] seconds. Then with another click, we can
+[02:19] pick our template like this one and then
+[02:20] I'm going to drag it to the beginning
+[02:21] and play. Now we can see that it has
+[02:23] automatically added our sub titles right
+[02:25] here matching up perfectly. Then we can
+[02:27] pick a sticker if we want to promote our
+[02:28] different Twitch accounts or YouTube
+[02:30] accounts. I recommend putting these at
+[02:32] the very end of the video for only a
+[02:34] brief moment like so. Then you can drag
+[02:36] it on the screen to place where you want
+[02:37] it. Then we can have the hook here. I'm
+[02:39] just going to click one here for a
+[02:40] preset and I'm just going to make
+[02:41] something simple. And then in less than
+[02:43] a minute or two, we have our full edited
+[02:45] content that we got from OBS and then
+[02:47] drag it in here and now it's ready to
+[02:49] upload to TikTok. Best part is, we don't
+[02:50] even have to download it. We just have
+[02:52] to go to share in the top right and then
+[02:53] we can literally upload it to TikTok or
+[02:55] YouTube directly from here. But if you
+[02:57] want to share to Instagram or wherever,
+[02:58] you can download it here and manually
+[02:59] upload it as well. And a few tips that
+[03:01] have really helped my videos perform
+[03:03] well is when you're using these hooks,
+[03:05] make sure to keep it between about three
+[03:06] to nine words. Something simple, but
+[03:08] really you just want to spark their
+[03:10] curiosity to make them actually want to
+[03:11] watch the video. For your subtitles, you
+[03:13] want to make sure that they're not going
+[03:14] to be too far down or too far up because
+[03:17] they might get cut off by the little
+[03:18] text. So right in the middle or right
+[03:20] underneath your chin is usually a good
+[03:22] spot. And then when you're going through
+[03:23] and splicing this up, don't be afraid to
+[03:26] cut out too much because you don't want
+[03:28] to have too much dead air because pacing
+[03:29] is everything these days. Attention
+[03:31] spans are so low. And this is how you
+[03:33] can get 10 to 15 clips per stream
+[03:35] without burning yourself out. So if you
+[03:37] use the link in the description below,
+[03:38] you can save 10% off and give it a shot.
+[03:41] Just use code Cpause so you can start
+[03:43] your clip farm. If this has been helpful
+[03:44] so far, drop a like on the video because
+[03:46] it helps other streamers find this
+[03:48] video. But here's where most streamers
+[03:49] actually mess up and I see this
+[03:51] constantly because even with the full
+[03:52] clip farm running, they're still posting
+[03:54] clips that get zero traction. Not
+[03:56] because the tool is wrong, because
+[03:58] they're clipping the wrong stuff. There
+[03:59] are three types of clips that actively
+[04:01] perform well for streamers when they're
+[04:03] posting a TikTok, YouTube, Instagram.
+[04:05] And I'll give you a guide for each one
+[04:06] so you literally cannot mess it up. Type
+[04:08] one is the value tip clip. Share
+[04:10] something about your game that most
+[04:11] players don't know. Not a basic tip, but
+[04:13] something that makes someone say, "Wait,
+[04:15] seriously?" For example, in Fortnite,
+[04:17] visible footsteps is off by default. So,
+[04:19] turning it on is an instant competitive
+[04:21] edge that most players have no idea
+[04:23] about. That's 15 seconds of value that
+[04:25] people actually watch to the end and
+[04:27] send to their friends. The reason why I
+[04:28] like this type for newer streamers, you
+[04:30] don't have to be funny, you don't need
+[04:32] to be charismatic, you just need to know
+[04:34] your game and you already do. Type two
+[04:36] is going to be the best reaction clip.
+[04:37] Now, this is where most streamers waste
+[04:39] their time. Everyone does reaction
+[04:41] clips. Most of them don't perform. But,
+[04:43] why? Because they're clipping every
+[04:44] single reaction instead of their best
+[04:46] one. Here's the thing, your reaction
+[04:48] clip only works if it's genuinely great.
+[04:51] You got caught completely off guard,
+[04:52] your face says everything, and even
+[04:54] someone who has zero idea who you are
+[04:57] gets it immediately. The tell? Your chat
+[04:59] was going crazy before you even
+[05:00] processed what happened. They clipped it
+[05:02] before you did. That's the one we're
+[05:03] talking about. Not the one where you're
+[05:05] kind of amused, the one where you
+[05:07] rewatch it and you actually laugh out
+[05:09] loud. The third one, and this is the
+[05:10] most powerful in building a following,
+[05:13] is the personality clip. This is an
+[05:14] unscripted moment where your personality
+[05:17] shines through. Could be a funny
+[05:18] exchange with chat, a hot take that
+[05:20] people get arguing in the comments
+[05:21] about, or a one-liner that just
+[05:23] naturally happened during stream. This
+[05:25] is the clip that makes someone follow
+[05:26] for you and not just the game. There's
+[05:28] one rule for this one. Never try to fake
+[05:31] it. Only use it when it happens
+[05:32] naturally. You'll know you have this
+[05:34] clip if you cannot stop watching it back
+[05:36] yourself and chat goes crazy. And the
+[05:38] beautiful thing about running all three
+[05:39] of these types through Nexus, the same
+[05:41] workflow every time. Import, reframe,
+[05:43] captions, export. The The changes, but
+[05:46] the process doesn't. But, here's the
+[05:47] thing. Clipping the right content is
+[05:49] only half of it. The other half,
+[05:51] honestly, the part that most people
+[05:52] skip, is being consistent enough to
+[05:54] where the algorithm actually starts
+[05:55] pushing you. So, let me show you the
+[05:57] optimal schedule to use. Day one is your
+[05:59] stream. Replay buffer is running
+[06:01] automatically. You're just hitting that
+[06:02] hot key every time something good
+[06:03] happens. Day two is your 20-to-30-minute
+[06:06] Nexus session. Batch import everything,
+[06:09] reframe, captions, export. All of it
+[06:11] done in one sitting. Then, days three
+[06:13] through seven, post one clip a day,
+[06:15] schedule them out, and you're done. One
+[06:16] stream and seven days of content. The
+[06:18] people blowing up on TikTok right now
+[06:20] aren't grinding several hours a day.
+[06:22] They're running their system
+[06:23] consistently while everyone else is
+[06:24] doing the wrong thing. And look, if you
+[06:26] want to fast-track your entire process
+[06:28] of growing and being around streamers
+[06:30] who are also growing, my students in my
+[06:31] private Discord are posting wins every
+[06:34] single week. Like, over 150,000 views in
+[06:36] the first 2 days, or hitting Twitch
+[06:38] affiliate, or first streams with over 30
+[06:40] viewers. If you want to be in our
+[06:42] Discord, I have a free streamers
+[06:43] masterclass, which talks about my
+[06:45] ultimate streamer boot camp and how to
+[06:46] join the Discord. And that's linked in
+[06:48] the description down below. So, you've
+[06:49] got your clip farm set up. Now, the only
+[06:51] thing left to do is making sure that
+[06:53] your replay buffer clips are maximum
+[06:54] quality. And I'm breaking all that down
+[06:56] right here in this video to the side of
+[06:58] me, so give that a watch. My name's
+[06:59] Cody, and I will see you in the next
+[07:01] one.

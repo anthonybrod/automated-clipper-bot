@@ -1,0 +1,782 @@
+# Best AI Video Editing Tools in 2026 (Youri van Hofwegen)
+# https://www.youtube.com/watch?v=OHODMrUZlpo
+
+[00:00] editing videos the old way is dead. If
+[00:02] you're still spending hours in After
+[00:03] Effects or Premiere, you're already
+[00:05] behind because right now content is
+[00:07] everything. Doesn't matter if you're a
+[00:08] solo creator trying to grow an audience
+[00:10] or a business owner who knows content
+[00:12] brings in customers. You need it fast.
+[00:14] But the problem, you've only got two
+[00:16] options. Either do it yourself and waste
+[00:18] weeks stuck in editing instead of
+[00:19] growing your brand or outsource it and
+[00:21] get videos that are either cheap and bad
+[00:23] or expensive and slow. And that's why so
+[00:26] many creators and business owners hit
+[00:27] this bottleneck. Editing doesn't just
+[00:29] cost money. It costs time and
+[00:31] opportunities. But right now, the entire
+[00:33] world is changing thanks to AI. And
+[00:36] editing is no exception because a new
+[00:38] wave of tools has completely changed how
+[00:40] fast and how good your edits can be. And
+[00:42] the people who are using them are
+[00:44] producing way more content, reaching way
+[00:46] more people, and passing everyone else
+[00:48] who's still stuck in the old ways. And
+[00:49] the best part is these tools aren't the
+[00:52] same complicated software you need weeks
+[00:54] to learn. They're AI editors. They
+[00:56] handle the hard stuff of editing for
+[00:58] you, leaving a simple workspace with
+[00:59] shockingly good results. So, I've
+[01:01] personally gone through dozens of
+[01:03] different AI video editors. And for this
+[01:05] video, I picked out the four best tools
+[01:07] out there. I'll put them head-to-head,
+[01:08] show you what each one gets right and
+[01:10] wrong, and by the end, you'll know which
+[01:12] tool is best for you. So, for the actual
+[01:14] categories, here's how I'm going to
+[01:16] break it down. First, we're going to
+[01:17] test how easy each tool is to use and
+[01:20] what features it offers. Second, we'll
+[01:22] look at repurposing content. Third,
+[01:24] we'll cover editing itself. And finally,
+[01:26] we'll talk about price, whether the tool
+[01:28] is really worth it or not. All the tools
+[01:30] in our rating card will receive a score
+[01:32] from one to five stars. First up is
+[01:34] Captions.ai. When you log in, you'll see
+[01:36] a clean setup where you can describe
+[01:38] your topic or upload your video. Then on
+[01:40] the left, you have all the features. The
+[01:42] ones at the top are Mirage Studio and AI
+[01:44] Creator for making avatars. We are not
+[01:46] focusing on that today, so we'll skip
+[01:48] past them. And then there is the AI
+[01:50] editing tool. Here you can upload videos
+[01:52] and the AI will edit them for you. We'll
+[01:54] come back to that later. The next
+[01:55] [music] feature is AI shorts and this
+[01:57] one is pretty cool. Here you upload a
+[01:59] video or drop in a link and it
+[02:01] automatically creates short clips and
+[02:03] we'll come back to this one as well.
+[02:04] Overall, [music] captions has a very
+[02:06] simple and easy to navigate tool. It is
+[02:08] pretty limited though, but for ease of
+[02:10] use specifically, I'll give it five out
+[02:12] of five just because of how intuitive it
+[02:14] is. When you first log on the left side,
+[02:16] you have your templates, your brand
+[02:18] kits, and your asset libraries. Then in
+[02:20] the middle, you've got this workflow
+[02:22] with different AI apps. Now, the AI auto
+[02:24] editor is also pretty straightforward.
+[02:26] You just give it some quick information
+[02:27] about the video you wanted to autoedit,
+[02:30] and then it takes that information and
+[02:31] automatically edits your video. When it
+[02:33] comes down to the AI clips, this one is
+[02:35] a little bit different. This one
+[02:37] actually lets you customize a bit more
+[02:38] of the short form clips themselves.
+[02:41] That's also something we'll be taking a
+[02:42] closer look at later. So, yeah, Vit is
+[02:44] definitely a more complicated tool than
+[02:46] captions because it just has more things
+[02:48] inside of it. But when it comes down to
+[02:49] editing and clipping, it's still a
+[02:51] pretty straightforward tool to use. So
+[02:53] for Vit, I give this one a four out of
+[02:55] five because while it's not as smooth as
+[02:56] some other tools in today's lineup, it's
+[02:59] still very usable and has a lot more
+[03:00] depth than captions. Then there's
+[03:02] Submagic. It's built mainly for clipping
+[03:04] and repurposing content. So when you log
+[03:06] in here, you'll see that you can
+[03:08] generate captions, create multiple short
+[03:10] clips, or use magic clips that allows
+[03:12] you to automatically pull shorts from
+[03:14] longer videos. It also lets you generate
+[03:16] B-roll, fix eye contact, clean audio,
+[03:18] and even translate captions, which are
+[03:20] the main editing tools here. And that's
+[03:22] it for Submagic's interface. Pretty easy
+[03:25] to figure out. And so that's why it gets
+[03:26] a full score of five out of five. And
+[03:28] for our final tool, we've got Opus Clip.
+[03:31] Right when you log in, you're met with
+[03:33] this nice minimalistic window. You've
+[03:35] got shortcuts you can click on right
+[03:36] away. AI captions, video editing, speech
+[03:39] enhancement, reframing, B-roll, and AI
+[03:42] hook, which is a pretty cool feature
+[03:44] that we'll be looking at later. And then
+[03:45] in the middle, you can drop in a link
+[03:47] for your video. What's great here is
+[03:49] that Opus Clip actually supports a lot
+[03:51] of different links, YouTube, Rumble,
+[03:53] Twitch, and even Zoom. On the left side,
+[03:55] you've got your brand templates, just
+[03:57] like the other tools, and your asset
+[03:59] library where all your fonts and images
+[04:01] and videos live. But here's where Opus
+[04:03] really stands out. You've got analytics,
+[04:05] so you can actually connect your
+[04:06] accounts and see how your clips are
+[04:08] performing. That means you're not just
+[04:09] making content blindly. You can check
+[04:11] what's working and adjust. And then
+[04:13] you've got the calendar. You can just
+[04:15] upload a clip you made with Opus,
+[04:16] [music] pick a date, and it'll
+[04:18] automatically post it for you. That's a
+[04:20] big time saver, especially if you're
+[04:21] posting across multiple platforms. So
+[04:23] yeah, it's incredibly easy to
+[04:25] understand, and it's got some standout
+[04:27] features that really put it on top. For
+[04:29] Opus Clip, I'm giving this one a four
+[04:30] out of five for ease of use, just
+[04:32] because it has a lot more features,
+[04:34] which can make it a bit harder to figure
+[04:35] out. That will definitely make it much
+[04:37] more powerful when you know how to use
+[04:39] them. Looking back at our report card,
+[04:41] we can see that both Submagic and
+[04:43] Captions are the winners for this
+[04:44] category just because they are a bit
+[04:46] simpler and therefore easier to
+[04:48] navigate, which can be a plus when
+[04:50] you're first learning them, but can
+[04:51] easily turn into a problem if you do
+[04:53] want to do something a little bit more
+[04:55] advanced. Now, let's move to the actual
+[04:57] editing capabilities. each tool has
+[04:59] starting with captions. To access the
+[05:00] editing feature, I'll head over to the
+[05:02] AI edit tool. Here, I'll be able to
+[05:04] upload a video. Now, mind you, this only
+[05:06] accepts vertical style videos. So, if
+[05:09] you have a horizontal one, you'll need
+[05:10] to use one of the other tools in today's
+[05:12] lineup. But once you've done that, you
+[05:14] have the ability to choose between
+[05:15] various different templates. I'll just
+[05:17] go with this one right here. Select a
+[05:19] custom color. I'll go with green. And
+[05:20] then I'll create the project. Once it's
+[05:22] done generating, to access the other
+[05:24] editing capabilities, you need to click
+[05:26] on this button right here. And as you
+[05:28] can see, it drops you into the editor.
+[05:30] Now, for the AI side of things, you only
+[05:32] have the possibility to either generate
+[05:34] sounds, music, or images by prompting.
+[05:37] As you can see right here, you can also
+[05:39] add a voice over with AI. Now, on the
+[05:41] left side under the automatic tools, you
+[05:43] can remove the noise from the audio and
+[05:45] correct the eye contact. But besides
+[05:46] that, the only kind of editing you can
+[05:48] really do is to cut or change out the
+[05:50] captions. So instead of thinking of this
+[05:52] like a tool that edits your videos with
+[05:54] AI, you should rather think of it as a
+[05:56] tool that templatizes your videos and
+[05:58] then lets you tailor them according to
+[06:00] what you like. So I'll just export my
+[06:02] video and let's take a look at how it
+[06:03] was edited. Every week there's a new AI
+[06:06] tool making headlines. And right now
+[06:08] there are more AI video generators than
+[06:10] ever, but most of them don't work as
+[06:12] well as you'd expect. Some generate
+[06:13] great videos, but only if you stay
+[06:15] within their style limits. If you try to
+[06:17] get more creative like detailed anime or
+[06:19] wild fantasy worlds, they often mess up
+[06:21] and most of the time they're too
+[06:23] expensive or just confusing to use. And
+[06:25] I do really have to say it doesn't come
+[06:27] out looking bad at all. Even though you
+[06:29] don't really have a lot of editing
+[06:30] access, I'd still say this is all around
+[06:32] an okay result for what it is. So just
+[06:34] because of how limited the editing
+[06:36] aspect of captions is, I'd have to go
+[06:38] with a two stars out of five for this
+[06:40] one. With that being said, let's check
+[06:42] out our next tool. Now, Vit offers you a
+[06:44] lot more capabilities with editing.
+[06:46] Here, you access editing by clicking on
+[06:48] the edit icon and creating a new
+[06:50] project. Here, you'll be able to upload
+[06:52] your files for the video. Vit accepts
+[06:54] both vertical and horizontal style
+[06:56] videos. And from now on, you can
+[06:58] basically edit it however you like. To
+[07:00] access the AI editing tools, you want to
+[07:02] click on magic tools right here, where
+[07:04] you can clean up the audio, remove
+[07:05] filler words, remove silences, and add
+[07:07] magic B-rolls. This lets you
+[07:09] automatically add images related to your
+[07:11] spoken topics, creating some nice visual
+[07:13] assets for your video. You can also
+[07:15] touch up face appearance if needed. Use
+[07:17] the eye contact feature, remove the
+[07:19] background, add a green screen, or magic
+[07:21] cut it, which automatically removes your
+[07:23] ums, o's, and bad takes. Okay, now let's
+[07:25] edit. First, I'll add some magic B-roll.
+[07:27] So, I'll just click on magic b-roll in
+[07:29] the magic tool section. And as you can
+[07:31] see, it adds super tailored images to
+[07:33] your video. I'll also clean up the audio
+[07:35] and make sure my eye contact is on the
+[07:37] camera. Then I'll head over to the
+[07:39] subtitle settings and turn on my auto
+[07:40] subtitles. And as you can see, our video
+[07:42] is already starting to look great. I'm
+[07:44] pretty happy with it as it is right now.
+[07:46] So, I'll just export it. And let's take
+[07:48] a look at the final result. After
+[07:50] watching [snorts] this video, you'll
+[07:51] probably never edit a photo manually
+[07:53] again. Because after spending days
+[07:55] looking for the right AI editing tool, I
+[07:57] finally found one that removes the
+[07:58] entire manual editing process
+[08:00] completely. And in this video, I'll show
+[08:02] you exactly how to edit your photos
+[08:04] using nothing but a couple of sentences
+[08:06] and how to instantly turn them into
+[08:08] anything you want from Pixar style
+[08:10] posters to clean professional edits
+[08:13] without knowing a single thing about
+[08:14] photo editing. So, for this video, we're
+[08:16] going to be using a tool called and it
+[08:19] definitely came out looking quite
+[08:20] decent. All in all, I'd say Vit is a
+[08:22] very solid way to edit your videos. So,
+[08:24] for this result, I definitely rate it a
+[08:26] four out of five simply because even
+[08:28] though the tools that are already
+[08:30] included are pretty good. There's
+[08:32] definitely room for more and better
+[08:33] features, which some of the other tools
+[08:35] we'll look at today will cover better.
+[08:37] Next up is Submagic, and this one also
+[08:39] allows you to import horizontal style
+[08:41] videos. So, I'll just click on create a
+[08:42] new project. And as you can see, it adds
+[08:44] my video right here. On the left side,
+[08:47] we have the transcription that the tool
+[08:49] automatically generates. Here, you can
+[08:51] already access some of the AI features.
+[08:53] You can remove silences and remove bad
+[08:55] takes if you have any. I don't have any
+[08:57] in this one, so for me, I'll just leave
+[08:59] it as it is. Then, if you switch over to
+[09:01] brand, you can add images and text, but
+[09:03] text is already included in the caption
+[09:05] settings. So, let's head over there.
+[09:07] Here, you can choose the style of your
+[09:09] caption. I'm going to go with Horoszi,
+[09:11] and I'm pretty happy with the default
+[09:12] settings, so I won't change the
+[09:13] positioning or colors at the bottom, but
+[09:16] you can if you want to. Next up is
+[09:17] B-roll. And this is probably the coolest
+[09:19] feature among all the AI features
+[09:21] Submagic offers. Here you can add magic
+[09:23] B-rolls and magic zooms. Now magic
+[09:25] B-rolls are just normal secondary
+[09:27] B-roll, both images or videos, while
+[09:30] magic zooms are those dynamic zoom in
+[09:32] effects. So I'll add both of them, wait
+[09:33] for everything to reload, and then I'll
+[09:35] fine-tune it with some final AI settings
+[09:37] by clicking the AI button right here.
+[09:39] I'll again correct the eye contact,
+[09:41] clean up the audio, and that's pretty
+[09:42] much it. So I'll just export my video,
+[09:44] and let's take a look at this one as
+[09:46] well. After watching [snorts] this
+[09:47] video, you'll probably never edit a
+[09:49] photo manually again. Because after
+[09:51] spending days looking for the right AI
+[09:53] editing tool, I finally found one that
+[09:55] removes the entire manual editing
+[09:56] process completely. And in this video,
+[09:59] I'll show you exactly how to edit your
+[10:00] photos using nothing but a couple of
+[10:02] sentences and how to instantly turn them
+[10:05] into anything you want from Pixar style
+[10:07] posters to clean professional edits
+[10:09] without knowing a single thing about
+[10:11] photo editing. So, for this video, we're
+[10:13] going to be using a tool called Foder.
+[10:16] And man, it really cleaned it up. The
+[10:18] video came out looking much better than
+[10:19] the original one I started with. It has
+[10:21] all the most important things you need
+[10:23] with no weird silences, some nice visual
+[10:25] effects in the video, and of course, the
+[10:27] subtitles. All in all, I'd say this one
+[10:29] is pretty good. The only thing I'd say
+[10:31] I'm having an issue with is that the
+[10:33] interface feels a bit weirdly formatted.
+[10:35] It's just not as intuitive in the
+[10:36] editing workflow compared to V. So, for
+[10:39] this one, I'll give it a three and a
+[10:40] half stars out of five. And with that
+[10:42] being said, let's move over to OpusClip.
+[10:44] To edit your videos inside Opus Clip,
+[10:46] you'll want to click on this scissors
+[10:48] button right here. You'll be prompted to
+[10:50] either upload your video via a link or
+[10:52] just upload it directly from your
+[10:54] computer. I already have mine
+[10:55] downloaded, so I'll just upload it as a
+[10:57] normal video. As you can see, it opens
+[10:59] up this workflow right here. On the left
+[11:01] side, you have your transcribe text,
+[11:03] which you can change up however you
+[11:05] want. Then you can turn on or off the
+[11:07] tracker, which is a really cool feature
+[11:08] that tracks your face and makes sure
+[11:10] that even if you move outside the frame
+[11:12] in a horizontal video, it still keeps
+[11:14] you centered on screen. Now, for the AI
+[11:16] settings under the AI enhancement
+[11:18] section, you've got a lot of options to
+[11:20] choose from. You can remove filler
+[11:21] words, remove pauses, and even add
+[11:23] sensoring if you're someone who swears a
+[11:25] lot. Then there's speech enhancement,
+[11:27] which improves the vocal clarity and
+[11:28] just makes your overall sound richer and
+[11:31] more professional. Now, we've got two
+[11:32] settings that are probably the coolest
+[11:34] ones here. These are autogenerate stock
+[11:36] broll and autogenerate AI B-roll. The
+[11:38] difference between them is that the
+[11:40] first one gives you AI generated B-roll
+[11:42] while the second one uses clips from
+[11:44] their stock library. For this test, I'm
+[11:46] going to go with the AI B-roll since
+[11:48] it's going to give us a more accurate
+[11:50] and personalized result. Then you can
+[11:51] also autogenerate AI hooks, which adds a
+[11:54] natural voice over in whatever language
+[11:55] you prefer at the beginning of your
+[11:57] video. That's a super useful feature if
+[11:59] your clip doesn't already have a catchy
+[12:01] hook. This way, you can easily add one.
+[12:03] You can also add auto emojis, which add
+[12:05] a little extra visual appeal. And then
+[12:07] there are auto transitions and speaker
+[12:09] colors. Speaker colors basically
+[12:11] highlight whoever's talking if you have
+[12:13] multiple people in the video. I don't
+[12:14] have that here, so I'll just move on to
+[12:16] the next setting, captions. Here you can
+[12:18] choose between a bunch of different
+[12:19] caption styles. I'm going to go with
+[12:21] this style right here. And as you can
+[12:23] see, it automatically adds all the
+[12:25] captions to the video. You can select
+[12:26] different fonts, add effects, or even
+[12:29] change the position of the captions, but
+[12:31] I'm going to leave everything as it is.
+[12:32] Then if you have any transitions in your
+[12:34] video, you can very easily swap them out
+[12:36] or add your own. If you don't like the
+[12:38] ones AI picks, you can choose from
+[12:40] things like crossfade, cross zoom, or
+[12:42] zoom in. I'm going to select the fade in
+[12:44] one right here, and you can preview it
+[12:46] instantly, which is super handy.
+[12:48] Finally, you can add music. Once you're
+[12:50] done, you just click export here. You
+[12:52] can actually export it as an XML file if
+[12:54] you want to continue editing it in a
+[12:56] professional editor, but I'll just
+[12:57] export mine as a normal HD video. And
+[13:00] let's take a look at the result. There
+[13:01] are [snorts] three things you want to
+[13:02] know about prompting in photo. First,
+[13:04] you [music] have to be specific with
+[13:06] your edits. That means telling the AI
+[13:08] exactly what you want change. So,
+[13:10] instead of just writing, make me smile,
+[13:12] write something like change the facial
+[13:14] expression to a soft closed smile with
+[13:17] no teeth. That this came out looking
+[13:19] really, really good. I love how the
+[13:20] subtitles turned out. It looks like a
+[13:22] professionally edited video you'd see on
+[13:24] YouTube. The AI B-roll fits in really
+[13:26] well, too. I think Opus Clip's AI did a
+[13:28] great job finding the right clips, and
+[13:30] those transitions really elevate the
+[13:32] overall look of the video, making it
+[13:34] look super clean. Combining how easy
+[13:36] Opus Clip is to use with just how many
+[13:38] cool and useful AI features it offers,
+[13:40] like transitions, B-roll, speech
+[13:42] enhancement, I'd have to give it a four
+[13:44] and a half stars out of five for
+[13:46] editing. Now, let's take a look at our
+[13:47] report card so far. You can see that
+[13:49] Opus Clip just takes the victory over
+[13:51] Vit with half a star more, mainly for
+[13:53] its more advanced editing features. But
+[13:55] now let's move over to the next
+[13:56] category. One that's really important,
+[13:58] especially today with how popular short
+[14:00] form content and repurposing content has
+[14:02] become. Before we jump in, I quickly
+[14:04] want to mention that every tool allows
+[14:06] you to edit the short form clips that
+[14:08] you generate and it works the same as
+[14:10] the way we edit it right now. So we will
+[14:12] only be taking a look at the base
+[14:14] results each tool gives us. Starting off
+[14:16] with captions. Now in captions, you have
+[14:18] the option to repurpose your long- form
+[14:20] video into short form by clicking on AI
+[14:22] shorts. You can either upload your video
+[14:24] or paste in a link directly from
+[14:26] YouTube. Captions only supports YouTube.
+[14:28] So if you've got anything other than
+[14:30] that, you'd have to either use something
+[14:31] else or download the video first. Once
+[14:34] you upload your video, you can select
+[14:35] your original language, which for me is
+[14:37] English. And then you can pick your
+[14:39] template with the colors. You'll see
+[14:41] different options here. I'm just going
+[14:42] to go with the million option since I
+[14:44] think it fits my brand the best. You can
+[14:46] also select the maximum length. I'm
+[14:48] going for 30 seconds here since I want
+[14:50] something super short form. Then it
+[14:52] starts generating. And now that our
+[14:53] video is done generating, let's take a
+[14:55] look. Real quick before that, I just
+[14:57] want you to note that captions takes
+[14:59] quite a bit of time to generate these
+[15:01] videos. Definitely something worth
+[15:02] keeping in mind. So captions generated
+[15:04] five different clips. All about 30
+[15:06] seconds each. Let's check them out. At
+[15:08] this point, one thing should be clear.
+[15:10] There isn't a single AI video tool that
+[15:12] outshines the others. They all are great
+[15:14] at what they do. But the biggest problem
+[15:16] we still haven't solved is the large
+[15:17] amount of AI. something that looks like
+[15:19] a real person that is moving naturally
+[15:21] without needing motion capture or a
+[15:23] studio setup. That's where cling comes
+[15:25] in. If you're building talking head
+[15:26] content, personalled video, if you want
+[15:28] to take that realism to a full cinematic
+[15:30] level where the lighting, camera
+[15:32] movement, and scene composition feel
+[15:34] like a movie, this is where Google VO
+[15:36] really shows its strength. But this
+[15:37] comes at a cost. The first thing I'm
+[15:39] noticing is that the font is pretty
+[15:40] decent. It's not bad, but besides the
+[15:42] first clip, I don't really see a lot of
+[15:44] strong hooks that the AI filtered out.
+[15:46] And I also don't see a way to easily
+[15:48] sort between these videos, which as
+[15:50] we'll see later, other tools in today's
+[15:52] lineup are actually really good at. Now,
+[15:54] you do have the option to quickly edit
+[15:56] them by clicking on this button right
+[15:57] here, but the editor is something we'll
+[15:59] look at more in depth later on. So, with
+[16:01] that, I'm going to give captions a three
+[16:03] out of five for the videos. They came
+[16:05] out looking okay. Not amazing, but
+[16:07] usable enough that I could probably pick
+[16:08] a couple and move on. To create a clip
+[16:10] with V, you'd want to click on AI clips.
+[16:13] Right here, you can paste in your video.
+[16:15] So, I'm going to drop in a video I have
+[16:16] ready. The next thing you want to do is
+[16:18] select the goal of the video. For us,
+[16:20] it's going to be viral short. Then,
+[16:22] you've got the size in the original
+[16:23] language, which for me is already
+[16:25] correct, so I'll leave it. Then, you can
+[16:27] select the maximum length of the clip.
+[16:29] I'm going to go for 15 seconds this
+[16:30] time. Finally, you can pick between
+[16:32] various fonts. A lot of them aren't
+[16:34] really that good or practical to
+[16:36] actually use. Some I just don't see any
+[16:38] point in, but still, it's a pretty nice
+[16:39] selection overall. Then, you click
+[16:41] continue, and V starts generating your
+[16:43] clips. And in just a couple of seconds,
+[16:45] they're done. Now, Vit also gives you
+[16:47] this little section where it rates your
+[16:49] clips for flow, hook, interest, and
+[16:51] engagement, and it lists them
+[16:52] accordingly, which is exactly what I
+[16:54] mentioned was missing from captions. So,
+[16:56] let's take a look at some of the clips.
+[16:57] That is so much better than I expected,
+[16:59] especially for just $15. As you can see,
+[17:02] this video is getting recommended on
+[17:03] this video right here. As you can see,
+[17:05] it's in the next up section on this
+[17:06] video right here. Let me tell you, one
+[17:08] video is actually doing very well right
+[17:10] now organically. Starting off with the
+[17:12] cheapest promotion. This one is actually
+[17:15] performing really well. The most
+[17:17] horrible graph I've seen in my [music]
+[17:19] life, and I've been doing YouTube for 3
+[17:20] years. I have many successful channels.
+[17:23] This doesn't happen. As you can see, the
+[17:24] audience retention is basically just
+[17:26] zero. And all in all, I'd say the
+[17:28] selection is okay. I wouldn't say I
+[17:30] agree with how they rated them, though.
+[17:31] Honestly, I wouldn't give some of these
+[17:33] clips as high a score as they did. So,
+[17:35] to close up V, I'm also going to give it
+[17:37] a three out of five. The only real
+[17:39] difference from captions is that extra
+[17:41] rating section, which in my opinion
+[17:43] isn't super accurate. It makes you feel
+[17:45] like some clips are really strong, but I
+[17:47] just don't buy enough to bump it higher.
+[17:49] And now, let's move over to Submagic to
+[17:51] generate your clips in Submagic. You
+[17:53] click on get magic clips, and then you
+[17:55] can insert your video or paste in a
+[17:57] link. I'm going to paste in a link from
+[17:59] one of my videos. Then, as you can see,
+[18:01] we're prompted to select the language,
+[18:03] the clip duration, and the caption
+[18:05] theme. You've got a bunch of different
+[18:07] ones here. I'm going with the first
+[18:08] Hormosi style option. After that, you
+[18:10] click generate and Submagic gives you a
+[18:12] bunch of different clips. Let's take a
+[18:14] look at some of them. I've tested every
+[18:16] major tool that's come out recently and
+[18:18] I've seen where they shine and where
+[18:19] they completely fall apart. So, in this
+[18:21] video, I'm going to show you the AI
+[18:23] video tools that actually deliver. I get
+[18:25] that for a beginner this can be
+[18:27] challenging. So, I've come up with a
+[18:28] simple solution to help you out. To
+[18:30] create a very in-depth prompt, I head to
+[18:32] chat gpt and paste in this prompt.
+[18:34] Create point. One thing should be clear.
+[18:36] There isn't a single AI video tool that
+[18:38] outshines the others. They all are great
+[18:40] at what they do. But the biggest problem
+[18:42] we still haven't solved is the large
+[18:44] amount of and as you can see, some of
+[18:46] them are pretty decent, but if you
+[18:47] scroll through, you'll notice a lot of
+[18:49] clips are basically the same thing, just
+[18:51] slightly trimmed differently. That kind
+[18:53] of kills the whole point of generating a
+[18:55] lot of different options. On the plus
+[18:56] side though, I actually find Submagic's
+[18:58] rating system to be more accurate than
+[19:01] VITs. It feels more real in terms of how
+[19:03] it judges the clips. So yeah, I put Sub
+[19:05] Magic at a four out of five. It's better
+[19:06] than the others in terms of accuracy and
+[19:09] clip variety, but it's still a bit too
+[19:10] simple and repetitive at times. And
+[19:13] finally, let's take a look at Opus. If
+[19:15] you want to generate a clip with Opus,
+[19:16] it's really simple. On the homepage,
+[19:18] you've already got a space to paste your
+[19:20] YouTube link, and you don't even need to
+[19:22] click anything. It just automatically
+[19:24] starts generating. Once the video is
+[19:25] done, it shows up down here. And what's
+[19:27] great is that Opus doesn't just spit out
+[19:29] a ton of clips randomly. It actually
+[19:31] checks how many good clips it can
+[19:33] realistically pull from your video
+[19:35] without filling it with duplicates.
+[19:36] That's a big plus. Once you've got your
+[19:38] clips, you can enter your workflow and
+[19:40] easily switch between them. And then
+[19:42] there's the viral score. This isn't just
+[19:44] a random metric. It's based on actual
+[19:46] performance data from other videos
+[19:47] through their analytics tool. So, it's
+[19:49] way more trustworthy than what we saw on
+[19:51] Vit. Now, let's take a look at some of
+[19:53] the top rated clips. First, [snorts]
+[19:54] number two, I will do professional video
+[19:57] promotion in the USA. So, where the
+[19:59] other one was supposed to be worldwide,
+[20:01] we'll find out soon. This one is just
+[20:03] based in the US. This one is All right.
+[20:05] Now, it's time to spend some more money.
+[20:06] So, this one right there is going to
+[20:08] cost us €9. I will do super fast organic
+[20:11] YouTube promotion to go viral. Last time
+[20:13] I swipe my credit card on Fiverr, this
+[20:15] happened. So, this time I'm thinking of
+[20:17] buying some promotions on Fiverr to go
+[20:19] YouTube viral and get rich. I'm going to
+[20:21] take the videos that I received last
+[20:22] time, upload them to my and yeah, even
+[20:24] just in terms of hooks, Opus is a lot
+[20:26] better at grabbing those quick moments
+[20:28] that can actually go viral. Another
+[20:30] bonus is that you can instantly download
+[20:32] and edit your clips or even post them
+[20:34] automatically to your platform of
+[20:36] choice. You can also schedule posts with
+[20:37] one click, which is huge. So, when it
+[20:39] comes down to Opus, simply because of
+[20:41] the extra features like the trending
+[20:43] topics and the more accurate scoring and
+[20:46] just because the clips themselves came
+[20:47] out way better, I've got to give this
+[20:49] one a five out of five. So, to
+[20:51] summarize, we have captions scoring a
+[20:53] three. V also got a three, Submagic came
+[20:55] in at four, and Opus clip is at five.
+[20:57] And once again, as you can see, Opus
+[21:00] Clip is taking this category because
+[21:01] it's just better overall in terms of
+[21:03] clip quality, in terms of the little
+[21:05] extra features, and in terms of the
+[21:07] overall user experience. Finally, let's
+[21:09] talk about the price of each tool.
+[21:11] Starting [snorts] off with Captions.
+[21:12] Now, Captions does offer a cheap
+[21:14] subscription at first. The lowest option
+[21:16] is $10 a month, but honestly, you don't
+[21:18] really get much with it. Pretty much the
+[21:20] only thing you get is access to viral
+[21:21] caption styles, and I don't think that's
+[21:23] worth paying just for that. So,
+[21:25] realistically, you almost have to jump
+[21:27] up to their Mac subscription at $25 a
+[21:30] month. But, as we saw, this tool isn't
+[21:32] really built around editing in the first
+[21:34] place. So, the pricing feels off
+[21:35] compared to what you're actually
+[21:37] getting. So, for the price, I'd give
+[21:38] captions a 2 out of five. It's just
+[21:40] asking too much for features that don't
+[21:42] really deliver or that we are after.
+[21:44] Next up is V. Here you've basically got
+[21:46] two subscriptions. The light plan is $20
+[21:49] a month with no extra credits. You do
+[21:51] get rid of the watermark and get more
+[21:52] flexibility with upload size, which is
+[21:54] almost required if you actually want to
+[21:56] use the tool properly, but honestly, for
+[21:58] most people, you'd end up needing to
+[22:00] upgrade to the pro plan anyway. That's
+[22:02] around $50 a month and that's where you
+[22:04] get better export resolution, more
+[22:06] languages for captions and access to the
+[22:08] AI clips feature. So yeah, it does give
+[22:11] you more, but you're paying quite a lot
+[22:12] for it. For me, Vit also comes in at a 2
+[22:14] out of five on pricing. It's just a
+[22:16] little too steep for what you actually
+[22:18] need to make the most out of it. Now,
+[22:19] Submagic is a little bit better with
+[22:21] pricing. Their starter plan is $19, and
+[22:24] with that, you get no watermark, API
+[22:26] integrations, trimming, and the magic
+[22:28] clips we tested. But here's the catch.
+[22:30] The Magic Clips add-on is another $19 on
+[22:33] top. So once you include that, you're
+[22:35] looking at about $38 a month. Because
+[22:37] Submagic gave us better quality clips
+[22:39] than the other two tools and a pretty
+[22:41] decent AI editing, I'd say it's closer
+[22:43] to being worth it, but it's still a bit
+[22:45] pricey for what you're getting overall.
+[22:46] So I give Submagic a 3 and 1 half out of
+[22:49] five on pricing. And finally, let's look
+[22:51] at Opus. This one actually surprised me
+[22:53] with the price. The starter plan at $15
+[22:55] is already solid, and I think for most
+[22:58] people that would be more than enough.
+[22:59] But if you do want to upgrade, the pro
+[23:01] plan is $29, which is basically the same
+[23:04] price that most of these other tools
+[23:06] charge for their starter plan. With Pro,
+[23:08] you get about 300 minutes of video each
+[23:10] month, which is plenty. And if you need
+[23:12] more, you can just double the plan with
+[23:14] extra credits. So, it's flexible and
+[23:16] you're not forced into overpaying for
+[23:18] features you don't use. So, for pricing,
+[23:20] Opus Clip is easily one of the best
+[23:22] options. Not only does it give you the
+[23:23] best results, but it also gives you the
+[23:25] best deal. For me, that's a four and a
+[23:27] half out of five. So now let's actually
+[23:29] take a look at the results. And when you
+[23:30] put all of this side by side, it's
+[23:32] pretty clear that Opus just comes out on
+[23:34] top. No matter what we tested, it didn't
+[23:36] just win by a little. It clearly came
+[23:38] out on top. And the reason knowing what
+[23:40] tool to use matters so much is because
+[23:42] right now content is everything. And the
+[23:44] people who are winning are the ones who
+[23:45] can put out more content faster without
+[23:47] burning out or getting stuck waiting for
+[23:49] an editor to turn things around. Imagine
+[23:52] you've got someone editing the old way,
+[23:54] manually cutting clips, fixing captions,
+[23:56] syncing audio, and they might give you a
+[23:58] couple of videos in a week. But with
+[24:00] Opus, you could have 20 videos done in
+[24:02] minutes. You have 20 pieces of content
+[24:04] scheduled and ready to hit different
+[24:06] platforms, filtered by what's trending
+[24:08] and sorted by quality, while that other
+[24:10] guy is still waiting for his editor to
+[24:12] export the first draft. That's the
+[24:14] difference between missing out on more
+[24:16] views and revenue and actually keeping
+[24:18] up with the pace of how fast things move
+[24:20] online right now. And that's why Opus
+[24:22] isn't just another editor. It's not just
+[24:24] about saving time. With Opus, you can
+[24:26] post way more content a lot faster
+[24:28] without paying editors or spending hours
+[24:30] stuck in software. That means more
+[24:32] videos, more reach, and quicker growth.
+[24:34] So, if you're ready to start creating at
+[24:36] that level, click the link in the
+[24:37] description and get started with Opus
+[24:39] Clip today. And with that, I'll see you
+[24:41] in the next

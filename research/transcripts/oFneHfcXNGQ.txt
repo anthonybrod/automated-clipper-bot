@@ -1,0 +1,78 @@
+# How to Auto Share Posts to Multiple Social Media Accounts (Nuelink)
+# https://www.youtube.com/watch?v=oFneHfcXNGQ
+
+[00:00] Hello everyone and welcome to this
+[00:01] tutorial. Today we will show you how to
+[00:04] use New Link cross-posting automation to
+[00:06] auto share a Facebook reel, text, or
+[00:09] image post from your app to all of your
+[00:12] social media accounts automatically.
+[00:15] This cross-posting automation feature
+[00:17] works by instantly sharing any type of
+[00:20] post you make on your other social media
+[00:22] platforms shortly after you share it on
+[00:25] your Facebook account. So, let's begin
+[00:27] with the easy steps to set up this
+[00:29] automation once and let it share your
+[00:32] content forever.
+[00:34] Let's log into our New Link account.
+[00:37] Before we continue, make sure that you
+[00:39] link all of your social media accounts
+[00:41] including your Facebook pages to New
+[00:44] Link. And now click on automations, then
+[00:47] click on add automation. Go to
+[00:50] cross-posting
+[00:51] and click on add automation button under
+[00:54] Facebook cross-posting. Pick the
+[00:56] Facebook page you want to share your
+[00:59] content from and then select the social
+[01:02] media channels where you want to
+[01:03] automatically share your content. Don't
+[01:06] forget to select a Pinterest board.
+[01:09] Activate this option if you want to
+[01:11] choose a collection for your posts to be
+[01:14] cross-posted according to its schedule
+[01:17] or you can simply leave it turned off if
+[01:21] you want your content to be cross-posted
+[01:23] immediately and automatically after you
+[01:26] share it. If you scroll down a little
+[01:28] bit more, you can enable the send a
+[01:30] follow-up comment option.
+[01:32] This allows you to set a follow-up
+[01:34] comment to go with your posts after they
+[01:37] are cross-posted.
+[01:39] You can spice it up with AI and hashtags
+[01:42] and emojis and images and set a period
+[01:46] of delay for it to be added to your
+[01:48] post. Like this, I used AI to make it
+[01:50] more engaging and I set it to be added
+[01:53] to my cross-posted content after 2
+[01:55] minutes of publishing. If you scroll
+[01:57] down here, you could choose the type of
+[01:59] posts that you want to cross-post. You
+[02:01] can specify the type by selecting any
+[02:03] one of these. You can choose to only
+[02:06] cross-post text posts from Facebook or
+[02:09] single image posts, multimedia posts, or
+[02:12] video posts, or you can cross-post all
+[02:14] the content at once. Here you can choose
+[02:17] to only cross-post when there is a
+[02:19] specific hashtag in the caption. And
+[02:22] that's it. Go ahead and click on add
+[02:23] Facebook cross-posting automation,
+[02:26] and you're all set. Your cross-posting
+[02:28] automation will be up and running.
+[02:31] And from now on, when you create a post
+[02:33] on Facebook manually by using your
+[02:35] mobile app or your desktop app, you'll
+[02:38] link will keep scanning your account
+[02:40] every once in a while for new content,
+[02:42] and will share them all on your other
+[02:44] social media platforms automatically.
+[02:47] And that's it. You have set up Facebook
+[02:49] cross-posting with Newlink. For more
+[02:51] tips and tutorials, check out
+[02:53] newlink.com, and if you have any
+[02:55] questions, feel free to ask in the
+[02:57] comments. Thank you for watching, and
+[02:59] see you in another Newlink tutorial.

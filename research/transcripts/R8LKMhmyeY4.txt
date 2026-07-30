@@ -1,0 +1,267 @@
+# 3 FREE AI Tools Just KILLED Video Production Agencies (iampauljames)
+# https://www.youtube.com/watch?v=R8LKMhmyeY4
+
+[00:00] Listen, I spent the last two weeks
+[00:01] testing every free AI video tool I could
+[00:04] find, and three of them broke every rule
+[00:06] I thought existed about what free means.
+[00:08] I am talking about tools that have zero
+[00:10] usage caps, zero payw walls, and zero
+[00:13] quality drops. And before you assume
+[00:15] this is another tutorial about how to
+[00:17] make videos for yourself, hang on. What
+[00:19] I am about to show you is how to turn
+[00:21] these three platforms into a service you
+[00:23] can charge for starting this week. We
+[00:25] are going to build what I call the
+[00:26] triple stack video system. It is how you
+[00:28] go from zero video skills to delivering
+[00:31] finished content people will pay $4 to
+[00:33] $600 for. My name is Paul James. I help
+[00:36] people turn AI tools into real business
+[00:38] leverage. If you drop a like, share this
+[00:40] with someone who needs it, and comment
+[00:42] below, I will reply with a link to a
+[00:44] free training that shows you how to turn
+[00:46] AI tools like this into actual income.
+[00:48] And no, I will not try and sell you go
+[00:51] high level because there are free tools
+[00:53] out there now that do the same thing
+[00:54] just as good. Here is what breaks for
+[00:56] most people trying to use AI video tools
+[00:59] right now. You sign up for something
+[01:00] that looks promising. You start a
+[01:02] project, then you hit a limit. Maybe you
+[01:04] get five generations before it asks for
+[01:06] payment. Maybe the quality drops unless
+[01:09] you upgrade. Maybe it works great, but
+[01:11] only outputs 10-second clips when you
+[01:13] need 2 minutes. You end up paying for
+[01:15] three subscriptions just to cover what
+[01:17] one tool should do. That eats into
+[01:19] profit margins before you even land your
+[01:21] first client. When I was starting out
+[01:23] from my brother's garage, I could not
+[01:25] afford those subscription stacks. I
+[01:27] needed tools that worked without billing
+[01:29] me every month. That is what this system
+[01:31] solves. The triple stack video system
+[01:34] connects three platforms that each
+[01:36] handle one layer of production. One
+[01:39] platform builds long- form content with
+[01:41] narration already synced. Another
+[01:43] creates animated visuals you can stretch
+[01:46] as far as you need. The third adds
+[01:48] professional camera motion that makes
+[01:49] everything look intentional. When you
+[01:52] stack all three together, you can
+[01:54] deliver finished videos to clients
+[01:55] without owning expensive software or
+[01:57] hitting monthly limits. Let me walk you
+[01:59] through how each piece works and where
+[02:01] the money lives inside this. Start with
+[02:03] Cap Cut's AI Creator Mode. This is where
+[02:05] you go when you need a finished video
+[02:07] fast. Caput built this to compete with
+[02:09] bigger editing platforms, so they gave
+[02:11] it away with no restrictions. Open the
+[02:13] AI creator panel and look for the
+[02:15] instant video option. You will see a
+[02:17] style library. Pick something that
+[02:19] matches the vibe you want. Then choose
+[02:21] your format. Horizontal works for
+[02:23] YouTube. Vertical works for reals and
+[02:25] shorts. Now, here's the smart part. You
+[02:27] can either drop in a single sentence and
+[02:29] let the AI build everything around it,
+[02:31] or you can paste a full script if you
+[02:33] already know what you want the video to
+[02:35] say. If you go the script route, Cap Cut
+[02:37] handles the voice over, the visuals, the
+[02:39] cuts, and the captions automatically.
+[02:42] You pick a narrator voice from their
+[02:43] list. Test a few to find one that sounds
+[02:46] natural. The voices with green badges
+[02:48] tend to perform better. Hit generate and
+[02:50] Cap Cut builds your video. It can go as
+[02:52] long as 10 minutes, which means you can
+[02:54] create full YouTube content or longer
+[02:56] explainer videos without stitching clips
+[02:58] together. But here is what most
+[02:59] tutorials skip. Before you export, Cap
+[03:02] Cut drops you into an edit bay where you
+[03:04] can swap clips, rewrite text, or change
+[03:06] pacing. If a section does not feel
+[03:08] right, click replace and pull in
+[03:10] different footage. You can upload your
+[03:11] own clips here or grab stock from their
+[03:13] built-in library. This means you are not
+[03:15] locked into whatever the AI spits out.
+[03:18] You have control. When you are
+[03:19] satisfied, click edit more to access a
+[03:22] real timeline editor with transitions,
+[03:25] text overlays, and effects. [music]
+[03:26] Add polish where it matters. Then export
+[03:29] your final file. That is your base
+[03:31] layer. Now, let me show you how V fits
+[03:33] into this. V is a content suite that
+[03:35] does background removal, image
+[03:37] generation, and video creation. But the
+[03:40] feature that matters here is
+[03:41] imagetovideo with camera control. Most
+[03:44] free tools animate your image randomly.
+[03:47] V lets you write two separate prompts.
+[03:50] One for what happens in the scene and
+[03:51] one for how the camera moves. That is
+[03:54] the difference between amateur motion
+[03:55] and professionallook cinematography.
+[03:58] Upload an image, describe the action you
+[04:00] want, then add a camera instruction. You
+[04:02] can ask for a slow zoom, a pan left, or
+[04:04] an orbit around the subject. If you are
+[04:06] not sure what to write, click the
+[04:07] suggestion icon, and V will analyze your
+[04:09] image and recommend a camera move. Set
+[04:12] your export options to keep it inside
+[04:13] the free tier. 5-second clips at 768
+[04:17] resolution with quality mode turned on.
+[04:19] That configuration gives you unlimited
+[04:21] generations. Render as many clips as you
+[04:23] need and stack them together in your
+[04:25] edit. Here's where everything clicks.
+[04:27] Now bring in Meta AI for the visuals.
+[04:29] Meta built this tool to stay relevant
+[04:31] against ChatGpt and Google's AI
+[04:33] products. Their strategy was simple.
+[04:35] Remove every limit and make it better
+[04:37] than the competition. You can scroll
+[04:38] their platform and see what it creates.
+[04:40] Horizontal and vertical formats. No caps
+[04:43] on how much you generate. Here is the
+[04:45] workflow that actually works. Go to
+[04:47] create and start with images, not video.
+[04:50] Generate a frame that matches exactly
+[04:52] what you need. You control the aspect
+[04:54] ratio based on your final format. Adjust
+[04:57] the style settings until the output
+[04:59] matches your vision. Keep variety
+[05:01] moderate, weirdness low, and stylization
+[05:03] high for clean results. Write a detailed
+[05:06] prompt and meta generates four options.
+[05:08] Pick the best one or regenerate until it
+[05:10] nails what you want. Once you have the
+[05:12] right image, you can restyle it to shift
+[05:15] the aesthetic without changing the
+[05:16] content, or you can edit specific
+[05:18] details before animating. When you are
+[05:20] ready, click the animate button. Meta
+[05:22] reads the image and adds motion. If you
+[05:24] want more control, use the custom option
+[05:26] and write your own motion prompt. Your
+[05:28] clip renders in seconds. Now, here is
+[05:30] the hack. If 5 seconds feels short, hit
+[05:32] extend. Meta continues the video based
+[05:35] on the final frame. You can extend
+[05:37] multiple times to build a 30-se
+[05:38] secondond or 1 minute clip without
+[05:40] limits. That means you can create an
+[05:42] entire sequence by extending,
+[05:43] downloading, then extending again. Most
+[05:46] people never realize this part. Let me
+[05:48] give you a real example of how this
+[05:49] generates income. Say you connect with a
+[05:51] wedding photographer in Charlotte who
+[05:53] wants to expand into video highlight
+[05:55] reels, but does not have the time to
+[05:57] learn editing. You offer to create
+[05:59] 15-second teaser videos from their best
+[06:01] photos. You take five of their favorite
+[06:03] shots, upload them to Meta AI, animate
+[06:06] each one with smooth motion, extend the
+[06:08] clips to 15 seconds, then compile
+[06:10] everything in Cap Cut with a romantic
+[06:12] voice over and music. Total production
+[06:15] time maybe 2 hours. You charge $500 for
+[06:18] a package of five videos. The
+[06:20] photographer posts one every week, books
+[06:23] more weddings from the exposure, and
+[06:24] orders another package next month. You
+[06:27] just created a recurring revenue stream
+[06:29] using platforms that never charged you a
+[06:31] dollar. And listen, if you have not
+[06:33] already dropped a like and commented
+[06:35] below, do that now. [music] I will reply
+[06:38] with a link to that free training on how
+[06:40] to turn tools like this into real
+[06:41] income. Here is another angle. Say you
+[06:44] are a content creator trying to grow a
+[06:46] YouTube channel, but you hate being on
+[06:47] camera. Use Cap Cut to script and
+[06:49] generate your videos. Write your talking
+[06:51] points, paste them into Cap Cut, pick a
+[06:54] narrator voice, and let it build the
+[06:55] video for you. Then enhance key moments
+[06:58] with animated visuals from Meta AI, and
+[07:00] add camera movement with V. You can
+[07:02] produce three videos per week without
+[07:04] ever recording yourself. Build an
+[07:06] audience, drive traffic to your offers,
+[07:08] and monetize through affiliate links or
+[07:10] digital products. Or if you are running
+[07:12] an agency, combine all three tools to
+[07:14] deliver branded video ads for local
+[07:16] businesses. Meta AI creates the visuals.
+[07:19] V adds the professional camera work and
+[07:22] Cap Cut assembles everything with voice
+[07:24] over and captions. Charge per video or
+[07:26] build monthly retainers where you
+[07:28] deliver 8 to 12 videos for $1,200 to
+[07:30] $1,500 per month. This part used to
+[07:33] stress me out when I was trying to
+[07:34] figure all of this out. Here is a quick
+[07:36] breakdown of what this looks like step
+[07:38] by step. You land a client who needs
+[07:40] social media videos. You gather their
+[07:42] branding guidelines and any images or
+[07:44] logos they want featured. You generate
+[07:45] custom visuals in Meta AI that match
+[07:47] their brand colors and style. You
+[07:49] animate those visuals and extend them to
+[07:51] the length you need. You switch to V and
+[07:53] upload the key frames where you want
+[07:55] specific camera motion. You write
+[07:57] prompts for smooth pans or dramatic
+[07:59] zooms. You export those clips and move
+[08:01] everything into Cap Cut. You write a
+[08:03] script or use one the client provided.
+[08:05] You paste it into Cap Cut's AI creator,
+[08:08] select a voice, and generate the base
+[08:10] video. You drop in your custom animated
+[08:12] clips to replace generic stock footage.
+[08:14] You add captions, transitions, and your
+[08:17] client's logo. You export the final file
+[08:19] and deliver it. They post it, see
+[08:21] engagement, and ask for more. You repeat
+[08:24] the process every week, and collect
+[08:26] predictable income. Picture how much
+[08:28] easier content creation becomes once
+[08:30] this becomes your normal workflow. You
+[08:32] are not hunting for affordable software
+[08:34] every month. You are not worried about
+[08:36] hitting usage limits halfway through a
+[08:38] project. You have three platforms that
+[08:40] work together to create as much content
+[08:43] as you or your clients need. You can
+[08:46] test ideas without burning money. You
+[08:48] can build a portfolio that shows what
+[08:50] you are capable of. You can take on
+[08:52] bigger projects because you know your
+[08:54] tools will not fail you. If you drop a
+[08:57] like, share this with someone who needs
+[08:59] it and comment below, I will reply with
+[09:01] a link to that free training that shows
+[09:03] you how to turn AI tools into actual
+[09:05] income. And again, I will not try and
+[09:07] sell you go high level because there are
+[09:09] free tools out there now that do the
+[09:11] same thing just as
