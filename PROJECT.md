@@ -22,25 +22,25 @@ its own folder/repo, but actively salvaging verified-working code from it.
   devlogs), the full Architecture Outline (below), the cost-philosophy
   correction pass (don't discard free resources — see
   `feedback_dont_dismiss_free_resources` in cross-session memory), a local
-  git checkpoint (commit `20875eb`), and the `mutonby/openshorts` deep-dive
+  git checkpoint (commit `20875eb`), and the [`mutonby/openshorts`](https://github.com/mutonby/openshorts) deep-dive
   — **now fully complete, sections 1-19 in
   `reference/deep_dive_openshorts.md`, every core Python file read,
   licensing checked.**
 - 🔶 **Partially done:** the 6-repo audit (verifying the other five
   deep-dived repos got genuinely complete file-by-file coverage, not just
-  the obviously-relevant files). Confirmed complete: `TwitchDownloader`
+  the obviously-relevant files). Confirmed complete: [`TwitchDownloader`](https://github.com/lay295/TwitchDownloader)
   (real corrections found — see `deep_dive_ingestion_and_pipelines.md`'s
-  audit-pass section) and `Auto-clipper`. **Still not confirmed complete:**
-  `ClipsAI/clipsai`'s remaining files, `nirvagold/stream-clipper`'s actual
+  audit-pass section) and [`Auto-clipper`](https://github.com/bendawg2010/Auto-clipper). **Still not confirmed complete:**
+  [`ClipsAI/clipsai`](https://github.com/ClipsAI/clipsai)'s remaining files, [`nirvagold/stream-clipper`](https://github.com/nirvagold/stream-clipper)'s actual
   Rust backend (only the high-level architecture has been documented so
-  far), `metaleey/AI-auto-segment-edit-video-pipeline`'s remaining files.
+  far), [`metaleey/AI-auto-segment-edit-video-pipeline`](https://github.com/metaleey/AI-auto-segment-edit-video-pipeline)'s remaining files.
 - 🔶 **Just landed, not yet verified:** Gemini dossier #6
   (`reference/gemini_dossier_6_raw.md`) — has real, unverified new claims
-  (`htek/VidPipe`, `indiser/ViralContent-Factory`, `Kuonirad/AutoCutAI`,
-  monetization platforms "Clip Money" and "Vyro") and two **owner
+  (`htek/VidPipe`, `indiser/ViralContent-Factory`, [`Kuonirad/AutoCutAI`](https://github.com/Kuonirad/AutoCutAI-Autonomous-AI-Video-Editor-that-Understands-Semiotics-Rhythm),
+  monetization platforms "Clip Money" and "[Vyro](https://www.vyro.com/)") and two **owner
   conflicts** against already-verified repos (`PyTwitchAPI/twitchAPI` vs.
-  our confirmed `Teekeks/pyTwitchAPI`; `agnostic-apollo/ffsubsync` vs. our
-  confirmed `smacke/ffsubsync`) that need a real check before trusting
+  our confirmed [`Teekeks/pyTwitchAPI`](https://github.com/Teekeks/pyTwitchAPI); `agnostic-apollo/ffsubsync` vs. our
+  confirmed [`smacke/ffsubsync`](https://github.com/smacke/ffsubsync)) that need a real check before trusting
   either version.
 - ⏳ **Blocked on the user:** Twitch Developer Console app (Client ID +
   Secret) — guidance given in chat, not yet confirmed done. Nothing in
@@ -136,16 +136,16 @@ reference/inspiration only per standing project rule, see `CLAUDE.md`):
   all five dossiers (real GitHub API lookups, PyPI checks, search
   cross-references, real Gemini API docs checks). **Headline (dossiers 1-3):
   of 25 named GitHub repos, 19 clean matches, 5 real-but-mismatched
-  (including one dangerous one — `meitarbe/cognetivy` is real and popular
+  (including one dangerous one — [`meitarbe/cognetivy`](https://github.com/meitarbe/cognetivy) is real and popular
   but is an AI-coding-agent state-tracker, nothing to do with video), 1
   confirmed hallucinated attribution (`samyaksgupta/Clips` → real project is
-  actually `tryvinci/vinci-clips`). Reddit citations: 0/5 confirmable.
+  actually [`tryvinci/vinci-clips`](https://github.com/tryvinci/vinci-clips)). Reddit citations: 0/5 confirmable.
   YouTube "devlog" citations: 1/10 confirmed real.** Dossiers 4/5's new
   claims verification in progress. Treat anything from this source as
   unverified until it appears in this file with a ✅.
 - **Strongest reference-implementation candidate found across all research:
-  `mutonby/openshorts`** (openshorts.app) — 2,784 stars, actively developed,
-  confirmed real Gemini 3.0 Flash + YOLOv8/MediaPipe + faster-whisper
+  [`mutonby/openshorts`](https://github.com/mutonby/openshorts)** (openshorts.app) — 2,784 stars, actively developed,
+  confirmed real Gemini 3.0 Flash + YOLOv8/MediaPipe + [faster-whisper](https://github.com/SYSTRAN/faster-whisper)
   pipeline. **Fully read directly from source** (not just README) — see
   [`reference/deep_dive_openshorts.md`](reference/deep_dive_openshorts.md).
   Real, portable findings: a two-stage cheap-score/expensive-detail moment
@@ -158,9 +158,9 @@ reference/inspiration only per standing project rule, see `CLAUDE.md`):
 - [`reference/deep_dive_moment_detection.md`](reference/deep_dive_moment_detection.md)
   and [`deep_dive_ingestion_and_pipelines.md`](reference/deep_dive_ingestion_and_pipelines.md)
   — real source-level reads of the other strongest verified repos
-  (`ClipsAI/clipsai`, `jamesbaughnd/twitch-clip-miner`,
-  `bendawg2010/Auto-clipper`, `lay295/TwitchDownloader`,
-  `nirvagold/stream-clipper`, `metaleey/AI-auto-segment-edit-video-pipeline`).
+  ([`ClipsAI/clipsai`](https://github.com/ClipsAI/clipsai), [`jamesbaughnd/twitch-clip-miner`](https://github.com/jamesbaughnd/twitch-clip-miner),
+  [`bendawg2010/Auto-clipper`](https://github.com/bendawg2010/Auto-clipper), [`lay295/TwitchDownloader`](https://github.com/lay295/TwitchDownloader),
+  [`nirvagold/stream-clipper`](https://github.com/nirvagold/stream-clipper), [`metaleey/AI-auto-segment-edit-video-pipeline`](https://github.com/metaleey/AI-auto-segment-edit-video-pipeline)).
   **In progress.**
 - [`reference/verified_tools_catalog.md`](reference/verified_tools_catalog.md)
   — **the decision-ready version**: every confirmed-real tool from both the
@@ -190,7 +190,7 @@ a zero-quota model) and confirmed again this session (this account's own
 Claude spend limit was hit mid-research). Concretely, that means: **prefer
 a free/local tool over a paid API call wherever one genuinely covers the
 need**, and use paid Gemini calls only where nothing free does the job as
-well. This is *why* `fer`/MTCNN (facial-expressivity), Parakeet
+well. This is *why* `fer`/MTCNN (facial-expressivity), [Parakeet](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3)
 (GPU transcription), and the Arc-Raiders YOLO model are kept as real,
 documented, zero-cost optional components in this outline rather than
 being waved off in favor of "Gemini can do that too" — Gemini genuinely
@@ -202,9 +202,9 @@ actual implementation, not after a first overspend.
 
 ### Stage 1 — Ingestion
 
-- **VOD download**: `yt-dlp`. Real, well-known, already handles Twitch's
+- **VOD download**: [`yt-dlp`](https://github.com/yt-dlp/yt-dlp). Real, well-known, already handles Twitch's
   HLS extraction internally — no need to reimplement
-  `TwitchDownloader`'s lower-level technique (impersonating Twitch's web
+  [`TwitchDownloader`](https://github.com/lay295/TwitchDownloader)'s lower-level technique (impersonating Twitch's web
   player via hardcoded GraphQL Client-IDs to get a signed playback token,
   then pulling the m3u8 manifest from `usher.ttvnw.net`), though that
   technique is documented in full in `deep_dive_ingestion_and_pipelines.md`
@@ -212,27 +212,27 @@ actual implementation, not after a first overspend.
 - **Chat log format**: adopt `TwitchDownloader`'s real chat JSON schema
   (`content_offset_seconds`, `commenter`, `message.fragments[].emoticon`,
   `bits_spent`) as our own internal format — it's already a de facto
-  standard (`stream-clipper`'s own chat parser comments that it expects
+  standard ([`stream-clipper`](https://github.com/nirvagold/stream-clipper)'s own chat parser comments that it expects
   "Twitch JSON format (from TwitchDownloader)"), so adopting it means any
   future tool swap stays compatible.
-- **Primary highlight signal**: Twitch Helix `Get Clips` (viewer-curated,
+- **Primary highlight signal**: Twitch Helix [`Get Clips`](https://dev.twitch.tv/docs/api/reference/#get-clips) (viewer-curated,
   needs only an app access token — `client_credentials`, Client ID +
-  Secret, no user login). `Create Clip` (self-directed cutting at an exact
+  Secret, no user login). [`Create Clip`](https://dev.twitch.tv/docs/api/reference/#create-clip) (self-directed cutting at an exact
   timestamp) needs real user OAuth with `clips:edit` scope — deferred to a
   later phase; start with Get Clips.
 
 ### Stage 2 — Transcription
 
-- **`faster-whisper`**, local, free, word-level timestamps. Confirmed as
+- **[`faster-whisper`](https://github.com/SYSTRAN/faster-whisper)**, local, free, word-level timestamps. Confirmed as
   the primary choice by both the video research (video 1's real repo uses
   it) and independent library verification (24.6k stars, actively
   maintained).
-- **Adopt `openshorts`'s transcript contract** as our internal schema:
+- **Adopt [`openshorts`](https://github.com/mutonby/openshorts)'s transcript contract** as our internal schema:
   words carry a leading space on true word-starts (continuation subword
   fragments merged in), all timestamps are native floats, everything
   sorted chronologically. This isn't just tidiness — `snap_clip_to_words()`
   (stage 3) depends on exactly this shape.
-- **Correction, 2026-07-30 — keep NVIDIA Parakeet (`nemo-parakeet-tdt-0.6b-v3`)
+- **Correction, 2026-07-30 — keep [NVIDIA Parakeet](https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3) (`nemo-parakeet-tdt-0.6b-v3`)
   as a documented optional GPU path, don't just dismiss it.** Originally
   written off here as unnecessary since faster-whisper was already chosen —
   same mistake as the Auto-clipper YOLO model above. Parakeet is free,
