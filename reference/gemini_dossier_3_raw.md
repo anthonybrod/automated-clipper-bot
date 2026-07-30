@@ -34,10 +34,12 @@ version.
 | Repository / Project | Focus & capabilities | URL / reference |
 |---|---|---|
 | `ai-video-clipper` | Local-first alternative to OpusClip/Descript. Local Whisper transcription, Groq AI clip scoring, visual review editor, 9:16 export. | `github.com/PriyeshPandey2000/ai-video-clipper` |
-| `ai-clipping-comfyui` | ComfyUI nodes for server-side highlight ranking, deduplication, face-tracked auto-cropping via MuAPI. | `github.com/Anil-matcha/ai-clipping-comfyui` (already verified real — see dossier 2 entry, `research/tool_verification.md`) |
+| `ai-clipping-comfyui` | ComfyUI nodes for server-side highlight ranking, deduplication, face-tracked auto-cropping via MuAPI. | `github.com/Anil-matcha/ai-clipping-comfyui` |
 | `OpenShorts` | Cloud or self-hosted AI clip generator using Gemini 3.0 Flash, YOLOv8/MediaPipe face tracking, faster-whisper. | "OpenShorts Website" (no URL given) |
 | `AI-Video-Clipper-LoRA` | Windows dataset creator using WhisperX, Qwen2-Audio (ambient sound parsing), Qwen2-VL for video captioning. | `github.com/cyberbol/AI-Video-Clipper-LoRA` |
 | `Cognetivy` | Open-source workflow automation tool for structured multi-stage pipelines (ingest, segment detection, caption render, publish). | `github.com/meitarbe/cognetivy` |
+
+*(Note: `ai-clipping-comfyui`/`Anil-matcha` was already verified real via dossier 2 — see `research/tool_verification.md`. Noted separately here, not folded into the table cell above, to keep this table a pure record of what was pasted.)*
 
 ## Section 3: Technical Deep Dive & Code Patches
 

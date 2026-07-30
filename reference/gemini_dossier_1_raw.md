@@ -1,91 +1,94 @@
-# Gemini dossier #1 — raw, as pasted by the user
+# Gemini dossier #1 — raw, as pasted by the user, true verbatim
 
 **Status: reference only, not verified as a whole.** See
 [`../research/tool_verification.md`](../research/tool_verification.md) for
 the real, independently-checked status of every specific claim below, and
 [`verified_tools_catalog.md`](verified_tools_catalog.md) for the
-decision-ready summary. Saved here verbatim so the original claims are never
-lost, per this project's "log/persist everything, don't let it live only in
-chat" discipline.
+decision-ready summary.
 
-Preceded by the user's framing: *"Based on a deep web scan of open-source
+**Note, 2026-07-30: this file was originally saved as a condensed
+paraphrase (shortened bullet phrasing) instead of the exact original
+wording. Replaced here with the true verbatim text of what the user
+pasted, corrected after the user flagged that source material should never
+be reworded on my own judgment, only recorded exactly as given.**
+
+The user's preceding message: *"Based on a deep web scan of open-source
 repositories, developer forums (like Reddit's r/Twitch and r/commandline),
 and coding tutorials, here is a massive, heavily researched list of 50
 concrete tools, GitHub repos, libraries, and frameworks you can use to build
-an AI clipping bot."*
+an AI clipping bot.*
+
+*These represent the actual tech stack used by creators who post "I built
+an AI clipping bot" videos, broken down by how they fit into the pipeline
+we designed in `twitch_clipper_agent.py`."*
 
 ---
 
-## Part 1: Complete "AI Clipping Bot" Open-Source Repositories
+Part 1: Complete "AI Clipping Bot" Open-Source Repositories
+These are fully built, open-source clipping engines you can fork or study to see exactly how others are solving this problem on GitHub:
 
-1. `Vijax0/ai-clip-creator` — full-stack app handling multi-hour Twitch VODs, NVIDIA GPU, AI highlight extraction.
-2. `samyaksgupta/Clips` — local AI clipping tool, separates webcam from gameplay, face tracking, vertical 9:16 formatting, no watermarks.
-3. `ContentAutomation/TwitchCompilationCreator` — scrapes Twitch clips, composites with logo overlays, normalizes audio, auto-uploads to YouTube.
-4. `jamesbaughnd/twitch-clip-miner` — FFmpeg + AI, watches Twitch VODs, mines high-retention windows.
-5. `porplax/auto-highlighter-py` — CLI tool shared on Reddit, auto-highlights/clips Twitch VODs based on chat density.
-6. `TheDanniCraft/clipify` — Next.js/Drizzle ORM, auto-plays a streamer's best clips when AFK, heavy Twitch API integration.
-7. `HA6Bots/Twitch-Clips-Compilation-Generator-TCCG-` — 3-part bot: collects clips, stitches together, preps for social media via VPS.
-8. `offish/twitchtube` — highly starred Python bot, compiles most-viewed Twitch clips, uploads to YouTube via Selenium.
-9. `pelledrijver/twitch-highlights` — OS-independent Python module, fetches trending clips via Twitch API, stitches by streamer name.
-10. `Fittiboy/twitch-clip-archiver` — mass-downloading utility, scrapes a streamer's existing clips, backs up locally or to Google Drive.
+1. `Vijax0/ai-clip-creator`: A popular full-stack app on GitHub that handles multi-hour Twitch VODs, runs locally on NVIDIA GPUs, and uses AI to extract highlights.
+2. `samyaksgupta/Clips`: An open-source local AI clipping tool built specifically to separate webcam feeds from gameplay, track faces, and format vertical 9:16 shorts without watermarks.
+3. `ContentAutomation/TwitchCompilationCreator`: A fully automated Python system that scrapes Twitch clips, composites them with logo overlays, normalizes audio, and auto-uploads to YouTube.
+4. `jamesbaughnd/twitch-clip-miner`: A Python script leveraging FFmpeg and AI to watch Twitch VODs and specifically mine for high-retention windows.
+5. `porplax/auto-highlighter-py`: A CLI tool actively shared on Reddit built for live streamers to automatically highlight and clip Twitch VODs based on chat density.
+6. `TheDanniCraft/clipify`: A Next.js/Drizzle ORM tool that auto-plays a streamer's best clips when they go AFK, with heavy Twitch API integration.
+7. `HA6Bots/Twitch-Clips-Compilation-Generator-TCCG-`: A 3-part bot system that collects clips automatically, stitches them together, and prepares them for social media via VPS.
+8. `offish/twitchtube`: A highly starred Python bot that automatically makes compilations of the most-viewed Twitch clips and uploads them to YouTube using Selenium.
+9. `pelledrijver/twitch-highlights`: An OS-independent Python module designed to fetch trending clips via the Twitch API and stitch them based on streamer names.
+10. `Fittiboy/twitch-clip-archiver`: A mass-downloading utility to scrape a streamer's existing clips and back them up locally or to Google Drive.
 
-## Part 2: VOD Ingestion, Chat Scrapers, and Downloaders
+Part 2: VOD Ingestion, Chat Scrapers, and Downloaders
 
-11. `yt-dlp` — downloads high-res Twitch VODs and YouTube videos, bypasses rate limits.
-12. `twitchAPI` (`pyTwitchAPI`) — standard async Python wrapper for Twitch Helix API, VOD markers and chat streams.
-13. `chat-downloader` — Python package, scrapes chat logs from Twitch VODs (for finding "LUL"/"POG" spam spikes).
-14. `streamlink` — CLI utility, pipes Twitch live video streams into FFmpeg or a local file.
-15. `TwitchChatDownloader` — outputs VOD chat logs into structured JSON with precise timestamps.
-16. `CanadianZombies/download-twitch` — lightweight Python module, rips specific segments of a stream.
-17. `IcePanorama/TwitchClipsDLer` — wrapper around `yt-dlp`, bulk-downloads hundreds of bounty clips fast.
-18. `zigai/twitch-scraper` — scrapes metadata (viewer count spikes) to feed an AI decision engine.
-19. Twitch EventSub Webhooks — official Twitch API architecture, triggers a serverless function the moment a streamer creates a manual marker.
-20. `Thomrl/InstaGet` — rips media assets/thumbnails/clips across platforms for compilation pipelines.
+11. `yt-dlp`: The undisputed open-source king for downloading high-res Twitch VODs and YouTube videos bypassing rate limits.
+12. `twitchAPI` (`pyTwitchAPI`): The standard async Python wrapper for the Twitch Helix API to get VOD markers and chat streams.
+13. `chat-downloader`: A Python package to scrape chat logs from Twitch VODs. You parse this data to find "LUL" or "POG" spam spikes.
+14. `streamlink`: A CLI utility that pipes Twitch live video streams directly into FFmpeg or a local file for real-time capture.
+15. `TwitchChatDownloader`: Specifically outputs VOD chat logs into heavily structured JSON with precise timestamps.
+16. `CanadianZombies/download-twitch`: A lightweight Python module for ripping specific segments of a stream rather than the full 8-hour VOD.
+17. `IcePanorama/TwitchClipsDLer`: A wrapper around `yt-dlp` that makes bulk-downloading hundreds of bounty clips at once incredibly fast.
+18. `zigai/twitch-scraper`: A targeted tool to scrape metadata (viewer count spikes) to feed into your AI decision engine.
+19. Twitch EventSub Webhooks: The official Twitch API architecture used to trigger a serverless function the exact moment a streamer creates a manual marker.
+20. `Thomrl/InstaGet`: Open-source script to rip media assets, thumbnails, and clips across platforms for compilation pipelines.
 
-## Part 3: Spike Detection & AI Analysis Tools
+Part 3: Spike Detection & AI Analysis Tools
 
-21. `openai/whisper` — foundational open-source ASR, generates transcripts from downloaded VOD audio.
-22. `m-bain/whisperX` — optimized Whisper, word-level timestamps + speaker diarization.
-23. `SYSTRAN/faster-whisper` — CTranslate2 Whisper implementation, up to 4x faster on local GPUs.
-24. NLTK / VADER Sentiment Analysis — analyze chat logs to detect when chat turns highly emotional.
-25. `cut-the-crap` (GitHub) — analyzes audio volume, chops out silent "dead air."
-26. LangChain / LangGraph — orchestration framework, forces LLMs to validate narrative structure of a clip.
-27. Pydantic — Python data validation, forces AI to return exact `start_time`/`end_time` floats.
-28. Google Gemini Flash (1.5 / 2.5) — 1M+ token context window, passes a full 4-hour stream transcript in one prompt.
-29. OpenCV (Haar Cascades/DNN) — detects where the streamer's face-cam is located in a 16:9 frame.
-30. Google MediaPipe — advanced facial tracking, pans/crops the 9:16 vertical window to follow the streamer.
+21. `openai/whisper`: The foundational open-source ASR (Automatic Speech Recognition) model used to generate transcripts from the downloaded VOD audio.
+22. `m-bain/whisperX`: A heavily optimized version of Whisper that provides word-level timestamps and speaker diarization (knowing who is speaking), crucial for dynamic captions.
+23. `SYSTRAN/faster-whisper`: The CTranslate2 implementation of Whisper that runs up to 4x faster on local GPUs, saving massive compute time on long VODs.
+24. NLTK / VADER Sentiment Analysis: Python libraries used to analyze the downloaded chat logs to automatically detect when the chat turns highly emotional (hype, anger, laughs).
+25. `cut-the-crap` (GitHub): An open-source tool that analyzes audio volume in video files and automatically chops out all the silent "dead air."
+26. LangChain / LangGraph: The orchestration framework (which we used in your pipeline) for forcing LLMs (like Gemini or Claude) to validate the narrative structure of a clip.
+27. Pydantic: The Python data validation library used to force the AI to return exact `start_time` and `end_time` floats instead of conversational text.
+28. Google Gemini Flash (1.5 / 2.5): With its massive 1M+ token context window, it is currently the industry favorite for passing a full 4-hour stream transcript in a single prompt.
+29. OpenCV (Haar Cascades/DNN): Computer vision library used in Python to detect where the streamer's face-cam is located in a 16:9 frame.
+30. Google MediaPipe: Used for advanced facial tracking to actively pan and crop the 9:16 vertical window to follow the streamer if they move around their room.
 
-## Part 4: Video Processing & Rendering
+Part 4: Video Processing & Rendering
 
-31. FFmpeg — backbone of all open-source video bots: cropping, burning subtitles, hardware-accelerated rendering.
-32. `ffmpeg-python` — Python wrapper, human-readable complex FFmpeg filtergraphs.
-33. `auto-editor` — CLI app, automatically cuts out portions with no motion or audio.
-34. `MoviePy` — programmatic video editing: text overlays, watermarks, simple transitions.
-35. `ffsubsync` — automatically synchronizes out-of-sync subtitle text with the video's audio track.
-36. `whisper-subtitles-generator` — takes Whisper output, renders stylized "Alex Hormozi style" animated captions.
-37. FFmpeg `boxblur` + `scale` filters — take horizontal video, duplicate, blur background, unblurred video centered.
-38. ImageMagick — required by MoviePy for text cards, bounty overlay graphics, split-screen borders.
-39. NVENC (NVIDIA Hardware Encoding) — `-c:v h264_nvenc`, renders clips 10x faster via GPU.
-40. `rembg` — automatically removes background behind a streamer's webcam without a green screen.
+31. FFmpeg: The undisputed backbone of all open-source video bots. Used for cropping, burning subtitles, and hardware-accelerated rendering.
+32. `ffmpeg-python`: The Python wrapper that makes writing complex FFmpeg filtergraphs (like stacking gameplay under a face-cam) human-readable in your script.
+33. `auto-editor`: A command-line app that analyzes a video and automatically cuts out portions where there is no motion or audio.
+34. `MoviePy`: A Python module for programmatic video editing, great for adding text overlays, watermarks, or simple transitions without complex FFmpeg math.
+35. `ffsubsync`: Automatically synchronizes out-of-sync subtitle text with the video's audio track using cross-correlation logic.
+36. `whisper-subtitles-generator`: An open-source tool that takes Whisper output and renders stylized, animated "Alex Hormozi style" captions.
+37. FFmpeg `boxblur` + `scale` filters: The open-source command string to take a horizontal video, duplicate it, blur the background, and lay the unblurred video in the center.
+38. ImageMagick: Required by MoviePy to dynamically generate text cards, bounty overlay graphics, and split-screen borders programmatically.
+39. NVENC (NVIDIA Hardware Encoding): Appending `-c:v h264_nvenc` to your pipeline's FFmpeg commands to render clips 10x faster using your GPU.
+40. `rembg`: An open-source Python tool to automatically remove the background behind a streamer's webcam without a green screen.
 
-## Part 5: Bot Orchestration, Bounties, and Distribution
+Part 5: Bot Orchestration, Bounties, and Distribution
 
-41. `discord.py` — auto-posts finished vertical videos into Discord bounty submission channels.
-42. `python-telegram-bot` — push notifications when an 8-hour VOD finishes processing.
-43. Google API Python Client (`youtube-data-api-v3`) — auto-uploads finished 9:16 files as unlisted YouTube Shorts.
-44. `tiktok-api` / Playwright — headless browser automation to mimic a user uploading (official TikTok APIs restrictive).
-45. `instagrapi` — unofficial Instagram API wrapper, auto-publish Reels.
-46. Streamlit — quick local web UI, human previews AI's clip choices before rendering.
-47. SQLite (`sqlite3`) — logs which VOD URLs already processed, avoids duplicate work on server restart.
-48. Docker & `docker-compose` — packages Python scripts, FFmpeg binaries, API keys into one container for a VPS.
-49. Celery / Redis — task queues, scale to processing 50 streamers at once, distribute rendering workload.
-50. Google Drive API — auto-uploads finished `.mp4` clips to a shared cloud folder for editors/social managers.
+41. `discord.py`: The standard library used to make your clipping bot auto-post the finished vertical videos into your specific Discord bounty submission channels.
+42. `python-telegram-bot`: Used to push notifications to your phone when a massive 8-hour VOD finishes processing and the clips are ready.
+43. Google API Python Client (`youtube-data-api-v3`): Used to auto-upload the finished 9:16 files directly as unlisted YouTube Shorts.
+44. `tiktok-api` / Playwright: Because official TikTok APIs are restrictive, developers use headless browser automation (Playwright/Selenium) to mimic a user uploading a video.
+45. `instagrapi`: An unofficial open-source Instagram API wrapper used to automatically publish Reels.
+46. Streamlit: Used (as in your previous architecture) to spin up a quick local web UI so a human can preview the AI's clip choices before rendering them.
+47. SQLite (`sqlite3`): The built-in Python database used to log which VOD URLs have already been processed so your bot doesn't duplicate work on a server restart.
+48. Docker & `docker-compose`: How top bot creators package their Python scripts, FFmpeg binaries, and API keys into a single container so it runs flawlessly on any VPS.
+49. Celery / Redis: Open-source task queues used if you scale your bot to process 50 different streamers at once, distributing the rendering workload.
+50. Google Drive API: Python scripts to automatically upload the finished `.mp4` clips to a shared cloud folder where video editors or social media managers can grab them.
 
----
-
-Also pasted separately, same message thread: a link to
 [Build a Node API + Twitch bot using the Copilot CLI](https://www.youtube.com/watch?v=XCVdnvBam6c)
-— "walks through the developer workflow of constructing a functioning Twitch
-bot and API endpoints from scratch using AI coding assistants." Confirmed
-real by the tool-verification pass (matches the one YouTube devlog citation
-across both dossiers that turned out to actually exist).
+This tutorial walks through the developer workflow of constructing a functioning Twitch bot and API endpoints from scratch using AI coding assistants.

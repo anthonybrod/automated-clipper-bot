@@ -1,93 +1,90 @@
-# Gemini dossier #4 — "50 battle-tested tools" master resource list, raw, as pasted by the user
+# Gemini dossier #4 — "50 battle-tested tools" master resource list, raw, as pasted by the user, true verbatim
 
 **Status: reference only, not verified as a whole.** Saved in full per
-explicit instruction ("ADD ALL OF THESE DONT SUMMARIZE") — nothing below is
-condensed or paraphrased from the original paste.
+explicit instruction ("ADD ALL OF THESE DONT SUMMARIZE").
+
+**Note, 2026-07-30: this file was originally saved as a condensed
+paraphrase instead of the exact original wording. Replaced here with the
+true verbatim text, corrected after the user flagged that source material
+should never be reworded on my own judgment, only recorded exactly as
+given.**
 
 Preceded by the user's framing: *"Here is a comprehensive master resource
 list of 50 battle-tested tools, scripts, libraries, and architectural
 designs gathered from open-source repositories, developer forums, and 'I
-Built an AI Clipping Bot' creator guides across YouTube and GitHub. These
-options are categorized to help you build, optimize, or scale a
+Built an AI Clipping Bot' creator guides across YouTube and GitHub.
+These options are categorized to help you build, optimize, or scale a
 stream-clipping machine (whether you're targeting bounty programs like
 Lacy's or launching your own network)."*
 
-Note: many items in this dossier are generic technique/category names
-("Smart Face-Tracking Cropper (OpenCV)") rather than specific `owner/repo`
-claims, unlike dossiers 1-3. Only the specific-sounding named projects are
-independently checkable; the rest are technique descriptions already
-covered by real, confirmed libraries elsewhere in `verified_tools_catalog.md`.
+---
+
+Part 1: VOD & Chat Ingestion Utilities (Getting the Source Material)
+
+twitchAPI (Python Wrapper) — Asynchronous library for interacting with Twitch Helix API and EventSub to fetch VOD metadata and stream start times.
+yt-dlp — The gold-standard fork for downloading high-resolution VODs and highlights from Twitch and YouTube without getting rate-limited.
+twitch-clip-archiver — Python utility that automatically sweeps a channel for new clips or VOD archives and queues them locally.
+TwitchDownloader (CLI/GUI) — Open-source tool designed specifically for fast multithreaded downloading of Twitch VOD files and chat dumps.
+streamlink — Extracts live streams and VODs straight to a local player or file stream for real-time segment capture.
+chat-downloader — Python library to scrape live or VOD chat logs, letting your pipeline inspect viewer comments alongside video.
+TwitchChatDownloader — Specifically outputs VOD chat logs into heavily structured JSON with precise timestamps for spike correlation.
+Twitch-VOD-Downloader — Lightweight node/python script optimized for headless server execution during overnight processing.
+Twitch-Helix-Scraper — Pulls top-performing streamer metrics to identify which broadcast blocks had the highest viewer retention.
+Twitch-EventSub-Listener — Real-time webhook listener to trigger immediate clipping scripts the moment a stream ends or a big event occurs.
+Part 2: Highlight & Spike Detection Engines (Finding the Viral Moments)
+
+ClipsAI (Open-Source Library) — Python library that uses word-level transcripts and speaker diarization to find natural story breaks.  
+whisperx — Fast automatic speech recognition with word-level timestamps, essential for precise subtitle alignment.  
+ai-clipping-comfyui — ComfyUI node set bringing server-side Whisper and virality ranking into local visual workflows.  
+OpenShorts Engine — Self-hosted open-source alternative to commercial AI clippers with zero setup Docker configurations.  
+stream-clipper (Rust/Svelte) — Desktop utility combining audio track analysis and chat density spikes to auto-detect stream highlights.  
+cut-the-crap — Uses FFmpeg audio silence/volume analysis to carve out dead air and uninteresting lobby waiting screens.
+AI-auto-segment-edit-video-pipeline — Full pipeline using ASR, semantic LLM analysis, and smart video merging.  
+Clip-Maker-Streamers — Open-source desktop app template built to slice horizontal stream VODs into viral short chunks.
+AI-Clipping-Software — Repository implementing automated LLM clip selection and face tracking via .env configurations.
+twitch-clip-miner — Automated script that watches specific streamer VODs and mines high-probability engagement windows.
+Part 3: Video Assembly & Vertical Cropping (FFmpeg & OpenCV Power Tools)
+
+Smart Face-Tracking Cropper (OpenCV) — Automatically detects the streamer's face-cam layout in a 16:9 frame and centers the 9:16 crop window on them.
+FFmpeg Dynamic Scale & Pad — Core script command to pad horizontal gameplay with top/bottom blurred background layers instead of hard cropping.
+ffsubsync — Automatically synchronizes subtitle SRT files with audio tracks using cross-correlation.
+whisper-subtitles-generator — Generates styled, animated word-by-word karaoke captions directly onto vertical video outputs.
+GPU-Accelerated NVENC Filter — Custom FFmpeg flags (-c:v h264_nvenc) to leverage NVIDIA GPUs for 10x faster short rendering.
+Multi-Clip Stitcher — Combines multiple micro-highlights into a cohesive 60-second compilation video.
+Overlay Frame Compositor — Applies custom border frames, channel watermarks, or community bounty branding during assembly.
+Audio Normalization Filter (loudnorm) — FFmpeg filter ensuring all generated clips hit standard platform audio loudness levels (-14 LUFS).
+Aspect Ratio Matrix Transformer — Dynamically outputs 9:16 (TikTok/Reels), 1:1 (Instagram Feed), and 16:9 (YouTube) from a single run.
+Keyframe-Locked Trimming Utility — Prevents black frames or video stutter at cut boundaries by aligning -ss with video keyframes.
+Part 4: Agent Orchestration & State Management
+
+LangGraph State Machine (StateGraph) — Orchestrates multi-step clipping tasks (Ingest $\rightarrow$ Transcribe $\rightarrow$ Analyze $\rightarrow$ Render) with strict schema validation.
+SqliteSaver Persistence Layer — Backs up agent workflow states to local disk or Google Drive, preventing data loss during long processing runs.
+Pydantic Strict Response Schemas — Enforces JSON output guardrails so Gemini or local LLMs never return malformed clipping timestamps.
+Dead-Letter Queue Handler — Automatically quarantines corrupted VOD files or failed renders into an error folder for debugging.
+Non-Fatal API Retry Decorator — Implements exponential backoff to handle transient network hiccups or rate limits gracefully.
+Streamlit Local Command Center — Provides a lightweight browser-based UI to trigger batch clipping runs and review outputs manually.
+Dockerized Environment Containers — Dockerfile and docker-compose.yml packages containing pre-configured FFmpeg, Python dependencies, and system binaries.
+Multi-Agent Supervisor Pattern — Central router node that delegates tasks between transcription, AI analysis, and rendering agents.
+In-Memory Cache Manager — Caches VOD transcripts locally to avoid re-downloading or re-transcribing the same source video multiple times.
+Automated Integration Test Suite — Runs self-diagnostic checks on generated output paths before marking a batch job as complete.
+Part 5: Distribution, Bounties & Automation Hubs
+
+Discord Webhook Notifier — Automatically posts generated clip previews and metadata logs directly into a private Discord channel or bounty submission room.
+TikTok Content Posting API Integration — Python script utilizing official developer endpoints to auto-schedule vertical short uploads.
+YouTube Data API v3 Shorts Publisher — Automatically uploads rendered 9:16 files with optimized titles, descriptions, and hashtags.
+Instagram Graph API Reel Uploader — Publishes completed vertical videos directly to creator business accounts.
+Google Drive Batch Exporter — Automatically syncs finished short clips to a shared cloud folder for easy team review or mobile downloading.
+CSV Batch Manifest Reader — Reads a simple spreadsheet of VOD links and processes an entire creator backlog overnight.
+Local Storage Database (sqlite3) — Tracks which VODs have already been processed to prevent duplicate clipping runs.
+Telegram Bot Notification Alert — Sends instant push notifications and status updates to your phone when a batch finishes rendering.
+Engagement Analytics Scraper — Tracks view velocity and retention metrics post-upload to feed back into prompt improvement loops.
+Auto-Clean Temp File Manager — Purges raw multi-gigabyte VOD downloads automatically after clip extraction to save local hard drive space.
 
 ---
 
-## Part 1: VOD & Chat Ingestion Utilities (Getting the Source Material)
-
-1. `twitchAPI` (Python Wrapper) — async library for Twitch Helix API + EventSub, fetches VOD metadata and stream start times.
-2. `yt-dlp` — gold-standard fork for downloading high-res VODs/highlights from Twitch and YouTube without rate-limiting.
-3. `twitch-clip-archiver` — Python utility, sweeps a channel for new clips/VOD archives, queues locally.
-4. `TwitchDownloader` (CLI/GUI) — open-source tool for fast multithreaded downloading of Twitch VOD files and chat dumps.
-5. `streamlink` — extracts live streams/VODs to a local player or file stream for real-time segment capture.
-6. `chat-downloader` — Python library, scrapes live/VOD chat logs.
-7. `TwitchChatDownloader` — outputs JSON chat history with precise timestamps for spike correlation.
-8. `Twitch-VOD-Downloader` — lightweight node/python script optimized for headless server execution overnight.
-9. `Twitch-Helix-Scraper` — pulls top-performing streamer metrics to identify highest-viewer-retention broadcast blocks.
-10. `Twitch-EventSub-Listener` — real-time webhook listener, triggers immediate clipping scripts the moment a stream ends or a big event occurs.
-
-## Part 2: Highlight & Spike Detection Engines (Finding the Viral Moments)
-
-11. `ClipsAI` (open-source library) — Python library, word-level transcripts + speaker diarization, finds natural story breaks.
-12. `whisperx` — fast ASR with word-level timestamps, precise subtitle alignment.
-13. `ai-clipping-comfyui` — ComfyUI node set, server-side Whisper + virality ranking into local visual workflows.
-14. `OpenShorts Engine` — self-hosted open-source alternative to commercial AI clippers, zero-setup Docker configs.
-15. `stream-clipper` (Rust/Svelte) — desktop utility, audio track analysis + chat density spikes, auto-detects stream highlights.
-16. `cut-the-crap` — FFmpeg audio silence/volume analysis, carves out dead air and lobby waiting screens.
-17. `AI-auto-segment-edit-video-pipeline` — full pipeline: ASR, semantic LLM analysis, smart video merging.
-18. `Clip-Maker-Streamers` — open-source desktop app template, slices horizontal stream VODs into viral short chunks.
-19. `AI-Clipping-Software` — repo implementing automated LLM clip selection + face tracking via `.env` configs.
-20. `twitch-clip-miner` — watches specific streamer VODs, mines high-probability engagement windows.
-
-## Part 3: Video Assembly & Vertical Cropping (FFmpeg & OpenCV Power Tools)
-
-21. Smart Face-Tracking Cropper (OpenCV) — detects streamer's face-cam layout in a 16:9 frame, centers the 9:16 crop window.
-22. FFmpeg Dynamic Scale & Pad — pads horizontal gameplay with top/bottom blurred background layers instead of hard cropping.
-23. `ffsubsync` — auto-synchronizes SRT subtitles with audio tracks via cross-correlation.
-24. `whisper-subtitles-generator` — styled, animated word-by-word karaoke captions on vertical video.
-25. GPU-Accelerated NVENC Filter — `-c:v h264_nvenc` for 10x faster short rendering via NVIDIA GPUs.
-26. Multi-Clip Stitcher — combines multiple micro-highlights into a cohesive 60-second compilation.
-27. Overlay Frame Compositor — applies custom border frames, watermarks, or bounty branding during assembly.
-28. Audio Normalization Filter (`loudnorm`) — ensures generated clips hit standard platform loudness (-14 LUFS).
-29. Aspect Ratio Matrix Transformer — dynamically outputs 9:16 (TikTok/Reels), 1:1 (Instagram Feed), 16:9 (YouTube) from one run.
-30. Keyframe-Locked Trimming Utility — prevents black frames/stutter at cut boundaries by aligning `-ss` with keyframes.
-
-## Part 4: Agent Orchestration & State Management
-
-31. LangGraph State Machine (`StateGraph`) — orchestrates multi-step tasks (Ingest → Transcribe → Analyze → Render) with schema validation.
-32. `SqliteSaver` persistence layer — backs up agent workflow state to disk/Google Drive, prevents data loss on long runs.
-33. Pydantic strict response schemas — enforces JSON output guardrails so LLMs never return malformed clipping timestamps.
-34. Dead-Letter Queue Handler — quarantines corrupted VODs or failed renders into an error folder.
-35. Non-Fatal API Retry Decorator — exponential backoff for transient network hiccups/rate limits.
-36. Streamlit Local Command Center — lightweight browser UI to trigger batch runs and review outputs manually.
-37. Dockerized Environment Containers — Dockerfile + docker-compose.yml with pre-configured ffmpeg/Python/system binaries.
-38. Multi-Agent Supervisor Pattern — central router node delegates tasks between transcription/analysis/rendering agents.
-39. In-Memory Cache Manager — caches VOD transcripts locally, avoids re-downloading/re-transcribing the same source.
-40. Automated Integration Test Suite — self-diagnostic checks on generated output paths before marking a batch job complete.
-
-## Part 5: Distribution, Bounties & Automation Hubs
-
-41. Discord Webhook Notifier — auto-posts clip previews/metadata into a private Discord channel or bounty submission room.
-42. TikTok Content Posting API Integration — official developer endpoints, auto-schedules vertical short uploads.
-43. YouTube Data API v3 Shorts Publisher — auto-uploads rendered 9:16 files with optimized titles/descriptions/hashtags.
-44. Instagram Graph API Reel Uploader — publishes completed vertical videos to creator business accounts.
-45. Google Drive Batch Exporter — auto-syncs finished shorts to a shared cloud folder for team review/mobile download.
-46. CSV Batch Manifest Reader — reads a spreadsheet of VOD links, processes an entire creator backlog overnight.
-47. Local Storage Database (`sqlite3`) — tracks which VODs already processed, prevents duplicate runs.
-48. Telegram Bot Notification Alert — instant push notifications/status updates when a batch finishes rendering.
-49. Engagement Analytics Scraper — tracks view velocity + retention metrics post-upload, feeds back into prompt-improvement loops.
-50. Auto-Clean Temp File Manager — purges raw multi-gigabyte VOD downloads automatically after clip extraction.
-
-**Note on item 49 (Engagement Analytics Scraper):** this is the closest any
-dossier has come to directly naming the analytics-feedback-loop concept the
-user originally flagged as missing — "feeds back into prompt-improvement
-loops" is exactly the self-adjustment mechanism being hunted for. No
-specific tool/repo is named though, just the concept — worth treating as a
-design target to build, not an existing tool to adopt.
+**Note on item "Engagement Analytics Scraper" (Part 5):** this is the
+closest any dossier has come to directly naming the analytics-feedback-loop
+concept the user originally flagged as missing — "feeds back into
+prompt-improvement loops" is exactly the self-adjustment mechanism being
+hunted for. No specific tool/repo is named though, just the concept — worth
+treating as a design target to build, not an existing tool to adopt.
