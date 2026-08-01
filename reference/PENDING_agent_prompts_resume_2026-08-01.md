@@ -221,6 +221,86 @@ Once all 12 are done: update `PROJECT.md`'s backlog entry, and delete or
 rewrite this file so it stops describing a "pending" state that's no
 longer true.
 
+## HIGH-VALUE LEAD — verify before rebuilding anything (user-reported 2026-08-01)
+
+**Two claims from the user that, if true, save real work. Both need
+verification — do NOT treat either as fact until checked, and do NOT
+dismiss them either. The user was clear these are recollections
+("im sure there is notes"), not certainties.**
+
+### Lead 1: the sibling project may have actually produced working video
+
+The user's words: *"the project that built youtbe video from generated
+text worked. It wasn't free but that code produced a short and longer
+video with voiceover and the worst stick animation ever but it ran and
+worked im sure there is notes."*
+
+**This directly contradicts the current documentation.** The sibling
+project's own `C:\Users\AwBro\Desktop\youtube auto videos\CLAUDE.md`
+states: *"Current state: no full successful end-to-end Colab run has
+happened yet."* And `claude_failure_report.md` §14 says: *"The pipeline
+has never once run to completion."*
+
+**One of these is wrong.** Most likely explanation: a successful run
+happened *after* those docs were last updated, and nobody went back to
+correct them — exactly the "research produced, never applied to the code"
+failure mode this project already documented elsewhere (see mining report
+item B11).
+
+**Why it matters enormously if true:** a real, working
+text→script→voiceover→animation→assembled-video pipeline means real,
+proven ffmpeg muxing code, real TTS integration, and a real
+assembly/encode path — all of which the clipper bot needs for Stage 4
+(assembly/rendering) and would otherwise be built from scratch.
+`SALVAGE_INVENTORY.md` currently only lists these as "portable with
+adaptation," on the assumption they were never proven end to end.
+
+**How to verify (cheap, do this before any Stage 4 work):**
+1. `git -C "C:\Users\AwBro\Desktop\youtube auto videos" log --oneline -40`
+   — look for commits after the last doc update suggesting a successful run.
+2. Search that repo for real output artifacts or run logs — the pipeline
+   prints a "Cost Summary" (tokens + estimated cost) at the end of every
+   real run per `__main__`; a real completed run leaves that trace.
+3. Check `enterprise_workspace/` (or whatever the workspace dir is) for
+   actual produced `.mp4`/audio files, and the review/deliverables dirs.
+4. Ask the user where the produced video(s) ended up — they saw them, so
+   they know. That's the fastest confirmation of all.
+5. If confirmed: update the sibling project's `CLAUDE.md`/`PROJECT.md`
+   (they're wrong and misleading anyone who reads them), and re-grade the
+   relevant `SALVAGE_INVENTORY.md` entries from "unproven" to "proven by
+   a real run" — that changes how much they can be trusted.
+
+### Lead 2: `validate_environment.py` may be one small auth fix from passing
+
+The user's words: *"one of the validate_environment.py was a minor
+authentication (maybe my twitch api or something small) from a working
+test."*
+
+**Current documented status** (`PROJECT.md`): "Not yet run end-to-end
+with real Twitch credentials — blocked on the user creating a Twitch
+Developer Console app." If the user actually ran it and got as far as an
+auth error, that means **ffmpeg and `GOOGLE_API_KEY` checks likely already
+passed**, and the only remaining failure is the Twitch credential step —
+a materially smaller gap than "never run."
+
+**How to verify (very cheap):** just run it. The credentials are now in
+Colab as secrets (`GOOGLE_API_KEY`, `TWITCH_CLIENT_ID`,
+`TWITCH_CLIENT_SECRET`), and the project is cloned into Drive, so a
+single Colab cell does it:
+```python
+%cd "/content/drive/MyDrive/CLAUDE AI CLIP BOT V1 attempt"
+!python validate_environment.py
+```
+It prints PASS/FAIL/WARN per check with the real error text. That output
+immediately tells us which specific check fails and why — no guessing.
+**Do this before spending any agent budget on Stage 1 work**, since it
+directly resolves the project's single stated blocker.
+
+**Note the version caveat:** the copy now in Drive/GitHub is the *fixed*
+version (retry/backoff, token tracking, single token exchange, real
+`get_secret()` throughout) swapped in this session — newer than whatever
+the user last ran. So a previously-seen error may already be fixed.
+
 ## Still queued after the 12-item mine (from PROJECT.md's backlog)
 
 - **Phase 2**: extend the Hugging Face deep dive. The 3 original HF agents
