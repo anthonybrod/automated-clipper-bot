@@ -1,5 +1,106 @@
 # PENDING — resume here (plan revised, 1 of 12 done)
 
+## SESSION CONTEXT THAT ONLY EXISTS HERE — read before doing anything
+
+Written deliberately at the end of the 2026-08-01 session because it lives
+nowhere else and would otherwise be lost. Everything below is operational
+reality, not theory.
+
+### Where everything is
+
+| Thing | Location |
+|---|---|
+| Working repo (local) | `C:\Users\AwBro\Desktop\automated clipper bot` |
+| GitHub (source of truth) | `github.com/anthonybrod/automated-clipper-bot`, branch `master` |
+| User's Drive copy | `/content/drive/MyDrive/CLAUDE AI CLIP BOT V1 attempt` |
+| User's Colab notebook | `Claude's AI clip bot v1.ipynb` |
+| Sibling project (salvage source) | `C:\Users\AwBro\Desktop\youtube auto videos` — has `pipeline.py` (~4,059 lines) |
+| Raw research inputs | `C:\Users\AwBro\Desktop\AI\automated clipper bot\sample reference\` and `sample research\` |
+| The quality bar / history | `C:\Users\AwBro\Desktop\AI\claude_failure_report.md` |
+
+**Real Python on this machine** (`python`/`py` do NOT resolve — Windows
+Store stub): `C:\Users\AwBro\AppData\Local\Programs\Python\Python312\python.exe`
+
+### The Drive sync mechanism (proven working twice)
+
+Claude has **no** Drive access — no Drive Desktop app installed, no API,
+and the in-app browser + Chrome extension both hit sign-in walls (tried 3
+separate links, all failed; don't retry, it's not a permissions problem).
+So: **Claude pushes to GitHub, the user pulls into Drive.** One line:
+
+```python
+!git -C "/content/drive/MyDrive/CLAUDE AI CLIP BOT V1 attempt" pull
+```
+
+Prefer that over `%cd` — the `%cd` magic broke once on the spaces in the
+folder name ("No closing quotation"). The full bootstrap cell (mount +
+clone-or-pull, idempotent) is saved further down this file.
+
+### How the user works — read this before interacting
+
+- **Ask before launching agents. Confirm usage headroom first.** Not
+  optional. The session ended at 95% used with the user saying explicitly:
+  *"hold on more agents till we get more limit."*
+- **The user is the director.** They decide phase transitions and when
+  something is "complete." Claude reports what was done and how it was
+  tested; the verdict is theirs. They said it plainly: *"i am always the
+  final say before we move on and before we mark anything as complete or
+  finished."*
+- **Budget is a live constraint, not background.** Metered plan, hard
+  daily + weekly limits, hit repeatedly, and they've paid out of pocket to
+  continue. A failed agent run this session burned ~48 minutes and ~$15
+  for zero output and they were rightly angry about it. Weekly reset:
+  **Monday, 1:00 PM.**
+- **They catch real mistakes.** Over this session they caught: an
+  overstated "CONFIRMED" claim, two rules adopted without authorization,
+  three rules that pre-committed research outcomes, and rules I'd listed
+  as from-this-session that weren't. Take pushback seriously and check
+  before defending anything.
+- **Never delete or overwrite their content** without being asked
+  directly — append and preserve. Removed rules stay in `CLAUDE.md` struck
+  through with the reason, not erased.
+
+### What actually happened this session (so it isn't re-derived)
+
+The project folder **did not exist on disk** at session start — it was
+restored via `git clone` from GitHub. Before that, work was scattered
+across `AI\automated clipper bot\` (with confusing `sample `-prefixed
+duplicates), several Drive-export zips, and two Colab notebooks.
+
+Real findings, each already written up in the reference docs:
+- `validate_environment.py` on GitHub was **older** than a fixed local
+  copy; the fixed one (retry/backoff, token tracking, single token
+  exchange, `get_secret()` throughout) was swapped in and pushed.
+- A real, reproducible `KeyError: 'data'` crash in `chat_downloader`'s
+  Twitch GraphQL path, found in an actually-executed notebook — not
+  hypothetical. Needs defensive `.get()` chaining before Stage 1 depends
+  on it.
+- A real (empty) `pipeline_tasks` / `payout_logs` SQLite schema recovered
+  from a code-less Drive export — adopted as the basis for Stage 6 VOD
+  tracking rather than designing one.
+- **4 hallucinated repo-owner attributions** in Gemini's tool directory
+  (`cut-the-crap`→ real is `jappeace/`, Camoufox → real is `daijro/`,
+  `ffsubsync` → real is `smacke/`, plus a fabricated capability on
+  `CanadianZombies/download-twitch`).
+- **MediaPipe "Face Mesh" is wrong** — caught three times independently.
+  Correct component is lightweight **Face Detection / BlazeFace**.
+- Tier 2 (gambling-affiliate burner channel) is **out of scope** — its own
+  design is anti-shadowban/hash-randomization tooling built because it
+  expects bans. Deferred, not built. Only Tier 1 (compliant clipper) is
+  active scope.
+
+### The three research reports already saved (don't re-run these)
+
+`reference/research_2026-08-01_huggingface_{audio_transcription,
+vision_detection,local_llm_judging}_VERBATIM.md` — full Hugging Face
+passes, saved word-for-word. Concrete candidates found, none yet adopted:
+`distil-whisper/distil-large-v3` (~6.3x faster than large-v3),
+`MIT/ast-finetuned-audioset-10-10-0.4593` (real scream/shout/laughter
+classes), `dima806/facial_emotions_image_detection`,
+`meta-llama/Llama-Guard-3-1B` (Ollama-pullable content safety).
+
+---
+
 ## READ THIS FIRST — status as of end of session 2026-08-01
 
 **The 3 original broad-scope agents produced ZERO output.** Launched
