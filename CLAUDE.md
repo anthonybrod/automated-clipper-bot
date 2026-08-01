@@ -40,6 +40,24 @@ repeated user correction (2026-07-30), not a nice-to-have.
 
 ## Adopted rules (2026-08-01) — strict defaults, ask before straying
 
+**Provenance audit (run 2026-08-01 after the user pointed out that not all
+of these came from this session — Rule 12 applied to the rules
+themselves):**
+- **User-confirmed in-session, explicit OK given for each**: 2, 3, 4, 5,
+  6, 7, 10, 11, 12. These are fully adopted.
+- **⚠️ Rules 8 and 9 — NOT user-confirmed.** Both came from Gemini's
+  "Last Mile Technicalities" list and were adopted by Claude's own
+  judgment without asking, in direct conflict with this repo's standing
+  rule that external-AI material is reference-only until the user says
+  otherwise. They are marked below as **PROVISIONAL** and should be either
+  confirmed by the user or dropped. They may well be technically correct —
+  that is not the point; they weren't authorized.
+- **Rule 1 — carried over, not re-confirmed this session.** It is a real,
+  pre-existing standing rule already documented in this repo before today
+  (see the "Hard rule" paragraph above), so it isn't invented — but the
+  earlier note calling it "reconfirmed here" was inaccurate. Treat as
+  inherited, not freshly OK'd.
+
 Resolved one at a time with the user against real Gemini-sourced planning
 material, following an explicit process: nothing from Gemini becomes a rule
 just because Gemini said it, even when it overlaps with something true —
@@ -48,7 +66,8 @@ reasoning: `reference/handoff_2026-08-01_evaluation.md`. Once adopted,
 these are followed automatically; any real reason to deviate gets raised
 with the user first, not silently decided.
 
-1. **Reuse verified logic over re-deriving** (reconfirms the hard rule
+1. *(inherited from a prior session — not re-confirmed 2026-08-01)*
+   **Reuse verified logic over re-deriving** (restates the hard rule
    above, not new).
 2. **Chat-spike detection defaults to Z≥2.5 chat-velocity statistics**
    combined with keyword/emote-density weighting — not raw keyword-
@@ -71,9 +90,11 @@ with the user first, not silently decided.
    notes per VOD — extend the real `pipeline_tasks`/`payout_logs` schema
    found in a `Lacy_Clip_Bot` Drive export (see the evaluation file), don't
    design a new one from scratch.
-8. **MP4 exports always get `-movflags +faststart`.**
-9. **Karaoke/animated captions always use `.ass` format with `\an5`
-   centering** — never plain `.srt` for that use case.
+8. ⚠️ **PROVISIONAL — Gemini-sourced, never authorized by the user.**
+   MP4 exports always get `-movflags +faststart`.
+9. ⚠️ **PROVISIONAL — Gemini-sourced, never authorized by the user.**
+   Karaoke/animated captions always use `.ass` format with `\an5`
+   centering — never plain `.srt` for that use case.
 10. **The user has final say before any phase transition, and before
     anything is marked complete or finished.** Report what was done and
     how it was tested — the "complete/finished" designation itself belongs
