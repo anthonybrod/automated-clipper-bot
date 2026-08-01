@@ -59,7 +59,14 @@ preferences and reasoning belong in `PROJECT.md`'s Architecture Outline
 (where they can be revised freely); this file is for how we *work*, not
 which library wins.
 
-- **Genuinely adopted, active rules**: 3, 5, 7, 10, 11, 12.
+- **Genuinely adopted, active rules**: 3, 5, 7, 10, 11, 12, 13, 14, 15,
+  16, 17. (13–17 added at the end of the session: cost discipline, plus
+  the accuracy cluster — external-AI material is reference-only, preserve
+  source verbatim, keep raw record separate from evaluation, and verify
+  agent reports against real source before saving them. 14–16 restate
+  standing user rules that were being followed but had never been written
+  into this numbered list; 17 documents the check step that was actually
+  executed and proven this session.)
 - **REMOVED 2026-08-01 at the user's direction**: 2, 4, 6. Each entry
   below records what was actually agreed vs. what got written, and where
   the underlying finding still lives.
@@ -177,3 +184,78 @@ with the user first, not silently decided.
       on disk. The user caught it. See the correction notice in
       `reference/PENDING_agent_prompts_resume_2026-08-01.md` for the
       corrected version.
+13. **Don't waste tokens. The user's time and money are real constraints,
+    not background noise.** This user is on a metered plan with hard daily
+    and weekly limits, has hit them repeatedly, and has paid out of pocket
+    to keep working. Wasted spend directly costs them.
+
+    **How to apply, concretely:**
+    - **Scope agents small.** A broad multi-file agent that dies takes
+      everything with it. One source per agent, verified and saved
+      immediately. Proven this session: 3 broad agents = 48 minutes and
+      zero output; 1 narrow agent = ~7.5 minutes and a complete verified
+      report.
+    - **Save incrementally, never batch.** Commit and push each item as it
+      passes its check. Work that isn't pushed can vanish on a limit hit.
+    - **Do the free thing first.** Before spending on research, check
+      whether the answer already exists in the repo, in a transcript, or
+      in a file on disk. Three completed research reports were re-saved
+      verbatim this session at zero cost because the data already existed
+      — it had just never been written down properly.
+    - **Don't re-run what already succeeded.** Check for existing output
+      before launching anything.
+    - **Read narrowly.** Grep or read specific line ranges instead of
+      pulling whole large files into context when a targeted check answers
+      the question.
+    - **Say what something will cost before spending it**, and take the
+      user's stop signals literally and immediately — "hold on more
+      agents till we get more limit" means stop, not finish-this-first.
+    - **Rework is the most expensive failure mode.** Getting it wrong and
+      redoing it costs more than the extra minute of care up front. This
+      is the practical argument for Rules 10 and 12, not just a principle.
+14. **External-AI material (Gemini and anything like it) is reference
+    only. The user has the final word on every piece of it.** The user's
+    exact words (2026-08-01): *"i dont want gemnios rules ever unless i
+    say so"* and *"we use it for reference and i say the final word."*
+
+    Nothing from an external AI becomes a rule, a fact, or a design
+    decision because it sounded authoritative — **including its
+    "rules," directives, and confident technical claims.** Ask about
+    items individually and get a real yes/no; do not batch-adopt, and do
+    not substitute independent verification for actually asking (caught
+    this session: Claude verified two Gemini claims against real source
+    code instead of asking the user first, which was a different action
+    than the one requested). Track record justifying this: across two
+    verification passes this session, external-AI material produced 4
+    hallucinated repo-owner attributions, a fabricated tool capability, a
+    fabricated algorithm parameter, a wrong component recommendation
+    caught three separate times, and cross-project contamination — mixed
+    in with genuinely useful material, which is exactly what makes it
+    dangerous to trust wholesale.
+15. **Preserve source material word-for-word. Never condense, summarize,
+    paraphrase, or placeholder it.** The user's exact words: *"rule: word
+    for word non condensed we need the originals."* Applies to pasted
+    source material, external-AI output being recorded, and **completed
+    agent reports** — a report that gets summarized into a synthesis
+    instead of saved whole is a report the user cannot actually review or
+    learn from. Caught this session: three completed Hugging Face research
+    reports had been folded into a summary rather than saved, which the
+    user correctly called out as making the work effectively null. They
+    were then saved verbatim at zero additional cost.
+16. **Keep the raw record and the evaluation of it in physically separate
+    places.** Verbatim source goes in its own file; analysis, corrections,
+    and commentary go in a clearly separate one. Never edit a raw record
+    to reflect a later finding — even when the finding is correct. (In
+    practice: `reference/handoff_*_chat_pasted_originals.md` holds
+    untouched source including claims later proven false;
+    `reference/handoff_*_evaluation.md` is where those are corrected.)
+17. **Verify agent/subagent reports against the real source before
+    accepting or saving them.** Grep the actual source file for several
+    distinctive claims from the report — exact quoted strings, hashes,
+    unusual numbers, structural claims. Only save and commit once it
+    passes, and record what was checked. Proven this session: a mining
+    report passed 9/9 spot-checks (including a persisted-query SHA-256
+    hash, an exact quoted bug, and a structural claim about duplicate
+    headings), which is what made it trustworthy enough to commit — and
+    the one discrepancy found (a line count off by one) was recorded
+    rather than hidden.
