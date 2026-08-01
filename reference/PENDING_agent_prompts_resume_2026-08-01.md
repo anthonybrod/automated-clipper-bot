@@ -228,47 +228,77 @@ verification — do NOT treat either as fact until checked, and do NOT
 dismiss them either. The user was clear these are recollections
 ("im sure there is notes"), not certainties.**
 
-### Lead 1: the sibling project may have actually produced working video
+### Lead 1: ✅ **CONFIRMED — the sibling project DID produce real video.
+The docs saying otherwise are WRONG.**
 
 The user's words: *"the project that built youtbe video from generated
 text worked. It wasn't free but that code produced a short and longer
 video with voiceover and the worst stick animation ever but it ran and
 worked im sure there is notes."*
 
-**This directly contradicts the current documentation.** The sibling
-project's own `C:\Users\AwBro\Desktop\youtube auto videos\CLAUDE.md`
-states: *"Current state: no full successful end-to-end Colab run has
-happened yet."* And `claude_failure_report.md` §14 says: *"The pipeline
-has never once run to completion."*
+**VERIFIED 2026-08-01 with a real directory listing — the output files
+exist on disk:**
 
-**One of these is wrong.** Most likely explanation: a successful run
-happened *after* those docs were last updated, and nobody went back to
-correct them — exactly the "research produced, never applied to the code"
-failure mode this project already documented elsewhere (see mining report
-item B11).
+```
+-rw-r--r-- 480,883 bytes  Jul 27 12:21  short_1785179923.mp4
+-rw-r--r-- 423,461 bytes  Jul 27 12:21  video_1785179923.mp4
+```
+Both at `C:\Users\AwBro\Desktop\youtube auto videos\`.
 
-**Why it matters enormously if true:** a real, working
-text→script→voiceover→animation→assembled-video pipeline means real,
-proven ffmpeg muxing code, real TTS integration, and a real
-assembly/encode path — all of which the clipper bot needs for Stage 4
-(assembly/rendering) and would otherwise be built from scratch.
-`SALVAGE_INVENTORY.md` currently only lists these as "portable with
-adaptation," on the assumption they were never proven end to end.
+The `1785179923` suffix is the pipeline's own run-ID Unix timestamp
+(`f"live_{int(time.time())}"` / `f"run_{int(time.time())}"` in its
+`__main__`), which decodes to **2026-07-27 12:18:43** — and both files
+were written at **12:21**, ~2.5 minutes after that run started. That is a
+real, complete, timed end-to-end run producing two real MP4s (a short and
+a long form), not a stub or a placeholder.
 
-**How to verify (cheap, do this before any Stage 4 work):**
-1. `git -C "C:\Users\AwBro\Desktop\youtube auto videos" log --oneline -40`
-   — look for commits after the last doc update suggesting a successful run.
-2. Search that repo for real output artifacts or run logs — the pipeline
-   prints a "Cost Summary" (tokens + estimated cost) at the end of every
-   real run per `__main__`; a real completed run leaves that trace.
-3. Check `enterprise_workspace/` (or whatever the workspace dir is) for
-   actual produced `.mp4`/audio files, and the review/deliverables dirs.
-4. Ask the user where the produced video(s) ended up — they saw them, so
-   they know. That's the fastest confirmation of all.
-5. If confirmed: update the sibling project's `CLAUDE.md`/`PROJECT.md`
-   (they're wrong and misleading anyone who reads them), and re-grade the
-   relevant `SALVAGE_INVENTORY.md` entries from "unproven" to "proven by
-   a real run" — that changes how much they can be trusted.
+`enterprise_workspace/` also exists with a full populated tree:
+`deliverables`, `shorts`, `thumbnails`, `metadata`, `review`,
+`audit_logs`, `references`, `criteria`, `dead_letter`,
+`analytics_feedback`, `algorithm_evolution`.
+
+**Both of these documentation claims are therefore FALSE and should be
+corrected:**
+- `youtube auto videos\CLAUDE.md`: *"no full successful end-to-end Colab
+  run has happened yet"*
+- `claude_failure_report.md` §14: *"The pipeline has never once run to
+  completion"* / *"a system that has never worked end to end"*
+
+Most likely explanation: the successful run (2026-07-27) happened and
+nobody went back to update the docs — the same "work done, documentation
+never corrected" failure mode this project documented elsewhere (mining
+report item B11). Note the failure report was written 2026-07-30, three
+days *after* this successful run, which makes its "never once" claim a
+real factual error worth flagging to the user, not just staleness.
+
+**Why this matters enormously:** the clipper bot's Stage 4
+(assembly/rendering) needs exactly what this proves works — real ffmpeg
+muxing, real TTS/voiceover integration, a real assembly/encode path
+producing both a short and a long-form cut. `SALVAGE_INVENTORY.md`
+currently grades those entries as "portable with adaptation" on the
+assumption they were never proven end to end. **They were proven. Re-grade
+them and port rather than rebuild.**
+
+**What the responsible agent should do (the user explicitly asked for
+this to be checked and watched for):**
+1. **Watch the two MP4s** and critique them honestly — the user said they
+   want a critic's read, and described the animation as "the worst stick
+   animation ever." Assess: does the voiceover sync, is the pacing right,
+   are captions readable, is the vertical (short) framing correct, what
+   would actually need to improve for publishable output.
+2. **Trace which code paths actually produced them** — `assembly_agent`,
+   the ffmpeg command builder, the TTS chain, the image/animation
+   generator. Those specific functions are the proven ones.
+3. **Find the run's artifacts** in `enterprise_workspace/` (deliverables,
+   shorts, thumbnails, metadata, audit_logs) — the audit log and the
+   printed "Cost Summary" from that run reveal real per-stage behavior
+   and real cost, far better evidence than reading the code cold.
+4. **Correct the stale docs** in the sibling project and re-grade the
+   affected `SALVAGE_INVENTORY.md` entries from unproven → proven.
+5. **Note the cost caveat**: the user said *"It wasn't free"* — this run
+   used paid API calls. Relevant to the clipper bot's explicit
+   cost-philosophy constraint; find the actual figure in that run's Cost
+   Summary rather than guessing.
 
 ### Lead 2: `validate_environment.py` may be one small auth fix from passing
 
