@@ -561,6 +561,27 @@ legal/rights implications:
   pass not yet defined (candidates: datasets, more Spaces, TTS/voice-clone
   models for the deferred multi-language scaling idea, or actually
   prototyping the concrete candidates already found).
+- **THIS WAS THE MAIN TASK of this session's second half — re-run it
+  first, before anything else, next session.** 3 background agents were
+  launched 2026-08-01 to re-mine material not yet personally re-read (the
+  3 `deep_dive_*.md`/`verified_tools_catalog.md`/`gemini_suggestions.md`
+  docs; the 5 trustworthy Gemini dossiers + `RESEARCH_YOUTUBE_SOURCES.md` +
+  `tool_verification.md`; the two `fresh_pass_videos` 17-video re-reads)
+  for complete/portable code, fixable code, unutilized free tools,
+  efficiency paths, and corrections — same 5-lens criteria already applied
+  successfully to the Hugging Face pass. **They produced zero output.**
+  Confirmed via direct `SendMessage` attempts that all 3 were stopped —
+  not a session-limit failure like the separate Hugging Face batch — and a
+  full search of the session temp directory found no partial transcript
+  for any of them anywhere. Real, unrecovered lost work; not spun otherwise.
+  **The exact original prompts (verbatim, ready to paste, no edits) are
+  saved in
+  [`reference/PENDING_agent_prompts_resume_2026-08-01.md`](reference/PENDING_agent_prompts_resume_2026-08-01.md)
+  — resume from that file, not from memory of what these were about.**
+  Categories A-E of the Master Source Index in the prior session's plan
+  file are NOT agent-dependent (built from material already read directly)
+  and remain valid regardless of when this pass gets redone — but the
+  user's own priority is this specific re-mine, not a substitute for it.
 - **Opal, Vercel, and Claude Cowork** — user asked about these as
   "tools like this" for loading modules/extending Claude. Findings so far:
   **Opal** is real — Google's free no-code AI app builder (Gemini-powered,
