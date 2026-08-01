@@ -60,12 +60,13 @@ preferences and reasoning belong in `PROJECT.md`'s Architecture Outline
 which library wins.
 
 - **Genuinely adopted, active rules**: 3, 5, 7, 10, 11, 12, 13, 14, 15,
-  16, 17. (13–17 added at the end of the session: cost discipline, plus
-  the accuracy cluster — external-AI material is reference-only, preserve
-  source verbatim, keep raw record separate from evaluation, and verify
-  agent reports against real source before saving them. 14–16 restate
+  16, 17, 18, 19. (13–19 added at the end of the session: cost
+  discipline, the accuracy cluster — external-AI material is
+  reference-only, preserve source verbatim, keep raw record separate from
+  evaluation — plus save-to-GitHub-and-Drive-per-agent, and verify agent
+  reports against real source before saving them. 14–16 and 18 restate
   standing user rules that were being followed but had never been written
-  into this numbered list; 17 documents the check step that was actually
+  into this numbered list; 19 documents the check step that was actually
   executed and proven this session.)
 - **REMOVED 2026-08-01 at the user's direction**: 2, 4, 6. Each entry
   below records what was actually agreed vs. what got written, and where
@@ -249,7 +250,28 @@ with the user first, not silently decided.
     practice: `reference/handoff_*_chat_pasted_originals.md` holds
     untouched source including claims later proven false;
     `reference/handoff_*_evaluation.md` is where those are corrected.)
-17. **Verify agent/subagent reports against the real source before
+18. **Save to GitHub AND Google Drive after each agent completes — never
+    batch, never wait for a whole wave.** The user's exact words
+    (2026-08-01): *"When we save after an agent... we SAVE in github and
+    google drive in our project folder so we avoid timeouts, usage limits,
+    wasted tokens, time and u just making things up."*
+
+    **Claude can only do half of this, and must say so rather than imply
+    otherwise.** There is no Google Drive Desktop app on this machine
+    (verified 2026-08-01: no process, no install directory, no synced
+    drive letter) and no Drive API access. Claude commits and pushes to
+    GitHub; **Drive updates only when the user runs the Colab pull cell**,
+    which does a `git pull` into
+    `/content/drive/MyDrive/CLAUDE AI CLIP BOT V1 attempt`. That cell is
+    saved in the plan file and confirmed working (2026-08-01, real run,
+    17 files pulled).
+
+    So: after each push, **state plainly that GitHub is done and Drive is
+    pending the user's pull** — do not report "saved to GitHub and Drive"
+    as if both happened. The rule's purpose is durability against
+    timeouts and limit hits; GitHub alone achieves that, and Drive is the
+    user's convenience copy.
+19. **Verify agent/subagent reports against the real source before
     accepting or saving them.** Grep the actual source file for several
     distinctive claims from the report — exact quoted strings, hashes,
     unusual numbers, structural claims. Only save and commit once it
