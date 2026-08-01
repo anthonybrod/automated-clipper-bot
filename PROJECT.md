@@ -12,6 +12,78 @@ YouTube Shorts + long-form compilations, cross-posts to multiple platforms.
 Separate project from `youtube-auto-videos` (Parents Teach Kids), kept in
 its own folder/repo, but actively salvaging verified-working code from it.
 
+## Current status (updated 2026-08-01 — read this first if resuming)
+
+**A second, much larger research/verification pass happened, driven by a
+new round of Gemini planning material the user handed off (multiple
+versioned "Step 8 Gateway" handoffs, a 920-line full planning-session
+transcript, a 78-source tool directory) plus a "numerous attempts"
+archaeology exercise across scattered Drive exports.** Full detail lives in
+`reference/handoff_2026-08-01_*.md` (verbatim source material,
+`handoff_2026-08-01_chat_pasted_originals.md`; evaluation/synthesis,
+`handoff_2026-08-01_evaluation.md`; the raw 920-line planning transcript and
+the raw 78-source directory, saved as their own files). Headline results:
+
+- **`validate_environment.py`'s 8 previously-logged defects (below) are now
+  fixed** — a newer local version (retry/backoff, token tracking, single-
+  token-exchange reuse, incremental print-as-you-go, `get_secret()`
+  throughout) was found to already exist locally, diff-confirmed superior
+  to what GitHub had, and swapped in for real this session. Still not yet
+  run end-to-end against real Twitch credentials (below).
+- **4 more hallucinated tool-owner attributions caught** in the new
+  78-source directory (`cut-the-crap`, Camoufox, `ffsubsync`, plus a
+  fabricated capability claim on `CanadianZombies/download-twitch`) — same
+  shape as the earlier `samyaksgupta/Clips`/"Biro" catches. Real
+  alternatives identified for each; see the evaluation file.
+- **MediaPipe "Face Mesh" confirmed wrong a third time**, independently,
+  across three different sources this session (a Gemini technical
+  supplement, the 78-source directory, and a dedicated Hugging Face
+  verification pass) — the correct component remains lightweight Face
+  Detection/BlazeFace, as this file's own Stage 4 notes already had it.
+- **A real crash was found and diagnosed**: an actually-executed Colab
+  notebook (`Copy of CLIPPING BOT.ipynb`, outside this repo) produced a
+  real `KeyError: 'data'` inside `chat_downloader`'s Twitch GraphQL path —
+  first-hand confirmation of the "Rigid Third-Party API Parsing" failure
+  mode, not a hypothetical. Needs defensive `.get()`-chaining before Stage 1
+  relies on `chat_downloader`/`chat-analyzer`.
+- **A real, if empty, `pipeline_tasks`/`payout_logs` SQLite schema was
+  found** (in a code-less `Lacy_Clip_Bot` Drive export) and adopted as the
+  basis for Stage 6's idempotent VOD tracking rather than designing one
+  from scratch — see the evaluation file for the schema.
+- **11 hard operating rules adopted** this session (chat-spike detection
+  defaults, fail-closed scoping, no cross-project audio-mix contamination,
+  Tenacity backoff on `chat-downloader`, faster-whisper-stays-primary,
+  extended VOD-list caching, ffmpeg/subtitle technical defaults, and —
+  the two meta-rules — user has final say before any phase transition or
+  completion claim, and default to parallel background agents for
+  multi-source research) — see [CLAUDE.md](CLAUDE.md).
+- **Hugging Face explored as a new source** (3 parallel agents, real
+  model-card verification): concrete upgrade candidates found for
+  transcription (`distil-whisper/distil-large-v3`), scream/shout detection
+  (`MIT/ast-finetuned-audioset-10-10-0.4593`), emotion detection
+  (`dima806/facial_emotions_image_detection`), and local content-safety
+  judging (`meta-llama/Llama-Guard-3-1B`, first-party Ollama-pullable) —
+  none yet adopted as defaults, flagged as real candidates to evaluate. See
+  Backlog for what's still queued on this front.
+- **Tier 2** (a second "burner" channel for gambling-affiliate promotion,
+  per the new planning material's Section 11) **is explicitly out of scope
+  — deferred as a future expansion, not built.** Its own design builds
+  anti-shadowban/hash-randomization infrastructure specifically because it
+  expects to get flagged/banned — Claude flagged this as evasion tooling
+  for anticipated platform enforcement and declined to build it without
+  further explicit direction; only Tier 1 (the compliant clipper) is active
+  scope.
+- **Real progress on the credentials blocker**: the user is setting up a
+  fresh Colab notebook (`Claude's AI clip bot v1.ipynb`, targeting a Drive
+  location the bootstrap cell below clones into) and entering
+  `GOOGLE_API_KEY`/`TWITCH_CLIENT_ID`/`TWITCH_CLIENT_SECRET` as real Colab
+  secrets — not yet confirmed run end-to-end, but actively in progress
+  rather than fully blocked.
+- **Explicitly not done this session** (deliberately, to keep to a
+  budget-conscious stopping point): no pipeline code was fixed or built —
+  the `pipeline_transcription_engine.py` gaps documented in the prior
+  session's plan are still open; see Backlog.
+
 ## Current status (updated 2026-07-30, end of research push — read this first if resuming)
 
 **Research and verification phase is fully complete.** Everything below is
@@ -480,7 +552,75 @@ legal/rights implications:
 
 ## Backlog
 
-### `validate_environment.py` — 8 real defects found by audit 2026-07-30
+### Queued for a future session (explicitly deferred 2026-08-01, budget-conscious stopping point)
+
+- **Continue the Hugging Face deep dive.** 3 agents already covered audio/
+  transcription, vision/face-detection, and local-LLM/judging (see Current
+  Status above and `reference/handoff_2026-08-01_evaluation.md` §5 for
+  full findings) — user asked to continue this further; scope for the next
+  pass not yet defined (candidates: datasets, more Spaces, TTS/voice-clone
+  models for the deferred multi-language scaling idea, or actually
+  prototyping the concrete candidates already found).
+- **Opal, Vercel, and Claude Cowork** — user asked about these as
+  "tools like this" for loading modules/extending Claude. Findings so far:
+  **Opal** is real — Google's free no-code AI app builder (Gemini-powered,
+  US beta), not a strong fit for this pipeline's actual automation (built
+  for simple prototyping), but a real option for a throwaway UI without
+  code. **Vercel** is a real, well-known app-hosting platform, relevant
+  only if a web-based review dashboard ever gets built. **Claude Cowork**
+  is real but is a *different Claude product surface* than this one
+  (Claude Code CLI) — plugins/skills can't be installed or loaded into
+  this session from here. User pasted real documentation on how Cowork's
+  plugin system works, preserved verbatim since it's useful if this
+  project (or its patterns) ever gets packaged as a Cowork skill/plugin
+  later:
+
+  > 1. Manual Plugin Upload
+  > For individual users or teams, you can install custom plugins directly:
+  > * Navigate to the Cowork tab in Claude Desktop.
+  > * Open the Customize menu and select the Plugins tab.
+  > * Click "Upload plugin" and select a valid `.plugin` file (a `.zip` archive containing skill and command markdown files).
+  > * Once uploaded, the skills appear in your session, and you can trigger them using commands like `/skill-name`.
+  >
+  > 2. GitHub Syncing (Organization/Team)
+  > For teams using Team or Enterprise plans, you can automate plugin management:
+  > * Go to Organization settings > Plugins and click "Add plugin".
+  > * Select "GitHub" as the source and connect a private repository.
+  > * Cowork will automatically sync plugins from the repository. You can enable automatic updates via webhooks for real-time propagation.
+  > * Admins can set installation preferences: Installed by default, Available for install, or Required.
+  >
+  > 3. Using the Skills Toolkit (Open Source)
+  > For automating the loading of skills from GitHub repositories mid-session:
+  > * The community-developed Claude Cowork Skills Toolkit provides commands like `/skills-load` to clone, discover, and install skills from any GitHub repo without restarting the session.
+  > * Install the toolkit by downloading the `.zip` and uploading it as a personal plugin via Customize > Personal Plugin.
+  >
+  > 4. Skill Configuration
+  > Skills are defined in Markdown files with YAML frontmatter:
+  > * The frontmatter includes a `description` field using natural language triggers that help Cowork decide when to load the skill.
+  > * To ensure consistent loading, add instructions to your `CLAUDE.md` file to explicitly load specific skills at the start of tasks, as relying solely on auto-trigger descriptions can be unreliable.
+  >
+  > Note: In Cowork, connectors reach external services through Anthropic's cloud, not your local network. Ensure any custom connectors point to publicly reachable servers.
+
+  (Independently confirmed real via web search: Anthropic did launch
+  Cowork plugin support, includes GitHub-sync and an official/community
+  marketplace — see `support.claude.com` and `github.com/anthropics/
+  claude-plugins-community`/`knowledge-work-plugins`.)
+- **Phase 2/3 code work** (fixing `pipeline_transcription_engine.py`'s 4
+  documented gaps, building the transcription engine for real, testing
+  against a local sample file) — explicitly held out of this session's
+  scope; see the prior session's plan file for the exact gap list.
+- **Re-evaluate `chat_downloader`/`chat-analyzer`** for Stage 1 given the
+  real crash found this session — either wrap defensively or pick a
+  different primary chat-mining tool before relying on it.
+
+### `validate_environment.py` — 8 real defects found by audit 2026-07-30, FIXED 2026-08-01
+
+**Status: fixed.** A newer local version already had all 8 addressed
+(retry/backoff, treats "returned without raising" as success, token cap +
+tracking, incremental print-as-you-go with early short-circuit, uses
+`get_secret()` throughout, single shared token exchange, guards against a
+`None` token) — diff-confirmed against this description, swapped in for
+real this session. Kept below for the historical record of what was wrong.
 
 Found by reviewing the file against `pipeline.py`'s `validate_api_keys`
 (pipeline.py:3888). None are syntax errors — the file compiles and lints
