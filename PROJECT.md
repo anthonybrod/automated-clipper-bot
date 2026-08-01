@@ -50,13 +50,23 @@ the raw 78-source directory, saved as their own files). Headline results:
   found** (in a code-less `Lacy_Clip_Bot` Drive export) and adopted as the
   basis for Stage 6's idempotent VOD tracking rather than designing one
   from scratch — see the evaluation file for the schema.
-- **11 hard operating rules adopted** this session (chat-spike detection
-  defaults, fail-closed scoping, no cross-project audio-mix contamination,
-  Tenacity backoff on `chat-downloader`, faster-whisper-stays-primary,
-  extended VOD-list caching, ffmpeg/subtitle technical defaults, and —
-  the two meta-rules — user has final say before any phase transition or
-  completion claim, and default to parallel background agents for
-  multi-source research) — see [CLAUDE.md](CLAUDE.md).
+- **Operating rules adopted, then audited and pruned to 6 active** — see
+  [CLAUDE.md](CLAUDE.md) for the full list with provenance. Active: AI
+  judge calls fail closed (scoped); Tenacity backoff on flaky third-party
+  API wrappers; VOD-list caching (content-hash + URL/title/notes); user
+  has final say on phase transitions and completion claims; default to
+  parallel background agents for multi-source research; nothing is
+  factual unless confirmed in-session or user-OK'd.
+  **Three were removed on user direction** (chat-spike Z-threshold,
+  narration audio-mixing prohibition, faster-whisper-as-primary) because
+  they pre-committed tool/threshold decisions that the research hasn't
+  made yet — *"we dont know the best service and model cuz we are in the
+  research stage."* Two more (ffmpeg `+faststart`, `.ass`/`\an5`
+  captions) are flagged **provisional**: Gemini-sourced and adopted
+  without authorization. The findings behind all five still live in the
+  Architecture Outline and reference docs — they're just not binding
+  rules. Governing principle: rules describe **how we work**, not which
+  library or threshold wins.
 - **Hugging Face explored as a new source** (3 parallel agents, real
   model-card verification): concrete upgrade candidates found for
   transcription (`distil-whisper/distil-large-v3`), scream/shout detection

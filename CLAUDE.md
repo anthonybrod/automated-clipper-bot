@@ -43,8 +43,28 @@ repeated user correction (2026-07-30), not a nice-to-have.
 **Provenance audit (run 2026-08-01 after the user pointed out that not all
 of these came from this session — Rule 12 applied to the rules
 themselves):**
-- **User-confirmed in-session, explicit OK given for each**: 2, 3, 4, 5,
-  6, 7, 10, 11, 12. These are fully adopted.
+
+**The pattern this audit found**: Claude repeatedly converted *agreements
+about a specific claim* into *binding forward-looking rules*. Confirming
+"yes, that's an accurate restatement" or "yes, that's contamination" is
+**not** the same as "adopt this as a standing rule." Only rules where the
+user was explicitly asked "adopt this as a rule?" and said yes — or which
+the user stated themselves, in their own words — count as adopted.
+
+**A second principle the user stated while pruning these**: *"we dont know
+the best service and model cuz we are in the research stage."* Tool/model/
+threshold choices are **research outputs, not rules**. Don't pre-commit
+the answer to a question the research hasn't answered yet. Documented
+preferences and reasoning belong in `PROJECT.md`'s Architecture Outline
+(where they can be revised freely); this file is for how we *work*, not
+which library wins.
+
+- **Genuinely adopted, active rules**: 3, 5, 7, 10, 11, 12.
+- **REMOVED 2026-08-01 at the user's direction**: 2, 4, 6. Each entry
+  below records what was actually agreed vs. what got written, and where
+  the underlying finding still lives.
+- **⚠️ PROVISIONAL, never authorized**: 8, 9 (see below).
+- **Inherited from a prior session, not re-confirmed today**: 1.
 - **⚠️ Rules 8 and 9 — NOT user-confirmed.** Both came from Gemini's
   "Last Mile Technicalities" list and were adopted by Claude's own
   judgment without asking, in direct conflict with this repo's standing
@@ -69,22 +89,45 @@ with the user first, not silently decided.
 1. *(inherited from a prior session — not re-confirmed 2026-08-01)*
    **Reuse verified logic over re-deriving** (restates the hard rule
    above, not new).
-2. **Chat-spike detection defaults to Z≥2.5 chat-velocity statistics**
-   combined with keyword/emote-density weighting — not raw keyword-
-   occurrence counting alone as the primary trigger.
+2. ~~**Chat-spike detection defaults to Z≥2.5 chat-velocity statistics.**~~
+   **REMOVED 2026-08-01 at the user's direction**: *"we dont need this
+   rule we will find out whats best when that time comes."* The user had
+   confirmed that Claude's *restatement* of the technique was accurate,
+   which Claude then wrongly treated as authorization to lock the
+   threshold in as a binding default. The underlying technique (z-score
+   over chat velocity, from `twitch-clip-miner`'s real implementation) is
+   still documented in `PROJECT.md`'s Architecture Outline and in the
+   mining report — **the specific threshold is to be determined
+   empirically when that stage is actually built**, not pre-committed here.
 3. **AI judge/verification calls fail closed, scoped.** Hook-quality
    scoring, TOS/content checks, Ollama context-check: any exception or
    unparseable response = reject, never silently pass. Does **not** extend
    to pre-flight hard/soft checks or human-review-gate timeouts — those
    keep their own existing, separate logic.
-4. **No synthesized-narration audio mixing.** This pipeline has no
-   narration track (raw streamer audio is the source) — don't port the
-   sibling project's Narration/Music/SFX mixing pattern here.
+4. ~~**No synthesized-narration audio mixing.**~~ **REMOVED 2026-08-01 at
+   the user's direction — was never actually agreed as a rule.** What the
+   user approved was *dropping Gemini's contaminated audio-mix claim*
+   ("Narration 100% / Music 15% / SFX 10% to maintain mentorship tone",
+   which was bled in from the sibling Parents Teach Kids project). Their
+   words: "Yes, drop it — contamination." Claude then converted that into
+   a standing prohibition on narration mixing generally, which is a
+   different and broader thing than what was agreed. The original
+   contamination finding still stands and is recorded in
+   `reference/handoff_2026-08-01_evaluation.md`; it just isn't a rule.
 5. **Flaky third-party API wrapper calls (`chat-downloader` and similar) get
    Tenacity exponential backoff + jitter by default.**
-6. **faster-whisper is the default/primary transcription engine.** WhisperX
-   and Parakeet remain optional upgrade paths, never silently promoted to
-   default.
+6. ~~**faster-whisper is the default/primary transcription engine.**~~
+   **REMOVED 2026-08-01 at the user's direction**: *"delete 6 we will find
+   the best free service after research"* / *"we dont know the best
+   service and model cuz we are in the research stage."* Locking in a
+   transcription engine now would pre-commit the outcome of research that
+   hasn't happened yet — and this session's own Hugging Face pass already
+   surfaced real candidates worth evaluating against it (notably
+   `distil-whisper/distil-large-v3`, documented as ~6.3x faster than
+   large-v3 at ~0.2% WER difference). faster-whisper remains the
+   *currently-favored* option in `PROJECT.md`'s Architecture Outline, with
+   the reasoning intact — it is simply not a binding rule, and the
+   comparison is explicitly still open.
 7. **VOD-list caching**: content-hash keyed (skip re-querying Twitch if the
    source manifest is unchanged) plus persisted URL, title, and content
    notes per VOD — extend the real `pipeline_tasks`/`payout_logs` schema
