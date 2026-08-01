@@ -82,3 +82,34 @@ with the user first, not silently decided.
     verification/mining work spanning multiple independent sources** — act
     as director/orchestrator (scope each agent tightly, synthesize what
     comes back), not as the one doing every read serially.
+12. **Nothing is factual unless it was confirmed in this session, or the
+    user personally gave the OK.** The user's exact words (2026-08-01):
+    *"if we didn't confirm it in this session and i didn't personally give
+    the ok then its not factual."* Everything else — notes from past
+    sessions, claims in older docs, another AI's output, prior projects'
+    documentation, and **my own earlier conclusions** — is a lead to
+    verify, not a fact to build on. Context: *"we had many ai
+    hallucinations on the way here and ai going off notes from past
+    projects it was very messed up."*
+
+    **How to apply, concretely:**
+    - State the *scope* of what was actually checked, never more. "Two
+      files exist at this path with these sizes" is not "the pipeline
+      works." Evidence supports a specific claim, not the interesting
+      claim next to it.
+    - Label every claim: **factual** (verified this session / user-
+      confirmed), **inference** (reasoning from evidence, could be wrong),
+      or **unverified** (a lead). Never let the second two get written
+      down in the voice of the first.
+    - Evidence that is merely *in tension with* an existing claim does not
+      disprove it. Don't rewrite or "correct" existing documentation on
+      the strength of a suggestive finding.
+    - This applies hardest to my own prior output in the same session —
+      an earlier conclusion of mine is not a fact just because I wrote it
+      confidently. **Caught in practice 2026-08-01**: I labeled a finding
+      "CONFIRMED," called two existing documents "factually false," and
+      instructed a future agent to re-grade salvage entries as "proven,"
+      when all I had actually verified was that two `.mp4` files existed
+      on disk. The user caught it. See the correction notice in
+      `reference/PENDING_agent_prompts_resume_2026-08-01.md` for the
+      corrected version.

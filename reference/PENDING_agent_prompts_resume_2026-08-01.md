@@ -228,56 +228,77 @@ verification — do NOT treat either as fact until checked, and do NOT
 dismiss them either. The user was clear these are recollections
 ("im sure there is notes"), not certainties.**
 
-### Lead 1: ✅ **CONFIRMED — the sibling project DID produce real video.
-The docs saying otherwise are WRONG.**
+### Lead 1: two output files exist — everything beyond that is UNVERIFIED
+
+> **CORRECTION, same session (2026-08-01).** An earlier version of this
+> section was headed "CONFIRMED — the sibling project DID produce real
+> video. The docs saying otherwise are WRONG," and told a future agent to
+> re-grade salvage entries from "unproven" to "proven." **That was an
+> overreach and the user caught it.** What was actually verified is that
+> two files exist on disk. That does not establish that the current code
+> works, which code produced them, or that any run completed successfully
+> by the pipeline's own definition — a run can emit MP4s and still fail
+> later stages. The claim has been scoped back to the real evidence below.
+> The user's ruling, now Rule 12 in `CLAUDE.md`: *"if we didn't confirm it
+> in this session and i didn't personally give the ok then its not
+> factual."*
 
 The user's words: *"the project that built youtbe video from generated
 text worked. It wasn't free but that code produced a short and longer
 video with voiceover and the worst stick animation ever but it ran and
 worked im sure there is notes."*
 
-**VERIFIED 2026-08-01 with a real directory listing — the output files
-exist on disk:**
+**FACTUAL — directly verified 2026-08-01 by a real directory listing:**
 
 ```
 -rw-r--r-- 480,883 bytes  Jul 27 12:21  short_1785179923.mp4
 -rw-r--r-- 423,461 bytes  Jul 27 12:21  video_1785179923.mp4
 ```
-Both at `C:\Users\AwBro\Desktop\youtube auto videos\`.
+Both at `C:\Users\AwBro\Desktop\youtube auto videos\`. Also factual:
+`enterprise_workspace/` exists with a populated tree (`deliverables`,
+`shorts`, `thumbnails`, `metadata`, `review`, `audit_logs`, `references`,
+`criteria`, `dead_letter`, `analytics_feedback`, `algorithm_evolution`).
 
-The `1785179923` suffix is the pipeline's own run-ID Unix timestamp
-(`f"live_{int(time.time())}"` / `f"run_{int(time.time())}"` in its
-`__main__`), which decodes to **2026-07-27 12:18:43** — and both files
-were written at **12:21**, ~2.5 minutes after that run started. That is a
-real, complete, timed end-to-end run producing two real MP4s (a short and
-a long form), not a stub or a placeholder.
+**FACTUAL — user-confirmed directly this session:** the user has seen
+these videos and describes them as having voiceover and stick animation,
+*"they are not great but clearly it fetched something and made something
+from it."* That is the user's own first-hand account and counts as
+confirmed under Rule 12.
 
-`enterprise_workspace/` also exists with a full populated tree:
-`deliverables`, `shorts`, `thumbnails`, `metadata`, `review`,
-`audit_logs`, `references`, `criteria`, `dead_letter`,
-`analytics_feedback`, `algorithm_evolution`.
+**INFERENCE, not fact:** the `1785179923` suffix *appears* to match the
+pipeline's run-ID convention (`f"live_{int(time.time())}"` /
+`f"run_{int(time.time())}"` in its `__main__`), and that integer decodes
+to 2026-07-27 12:18:43, ~2.5 min before the files' mtime. Suggestive of a
+timed run, **not proof of one** — the pattern match was not traced back to
+actual executing code.
 
-**Both of these documentation claims are therefore FALSE and should be
-corrected:**
-- `youtube auto videos\CLAUDE.md`: *"no full successful end-to-end Colab
-  run has happened yet"*
-- `claude_failure_report.md` §14: *"The pipeline has never once run to
-  completion"* / *"a system that has never worked end to end"*
+**EXPLICITLY NOT VERIFIED — do not assume any of these:**
+- ❌ That the code currently in `pipeline.py` still works.
+- ❌ That the code currently in `pipeline.py` is what produced these files
+  (the repo changed heavily after Jul 27 — 99 commits across the project's
+  life, many after that date).
+- ❌ That any run completed *successfully by the pipeline's own
+  definition* — a run can emit MP4s and still fail later QA/distribution
+  stages. Output files ≠ a passing run.
+- ❌ That the two contradicting documentation claims are false. The files'
+  existence is **in tension with** `CLAUDE.md`'s *"no full successful
+  end-to-end Colab run has happened yet"* and `claude_failure_report.md`
+  §14's *"never once run to completion"* — and that tension is worth
+  investigating — but tension is not disproof, and neither doc should be
+  edited until someone actually establishes what happened.
 
-Most likely explanation: the successful run (2026-07-27) happened and
-nobody went back to update the docs — the same "work done, documentation
-never corrected" failure mode this project documented elsewhere (mining
-report item B11). Note the failure report was written 2026-07-30, three
-days *after* this successful run, which makes its "never once" claim a
-real factual error worth flagging to the user, not just staleness.
+**User's own framing, which is the correct one to carry forward:** *"we
+had many ai hallucinations on the way here and ai going off notes from
+past projects it was very messed up idk if that code still works we will
+test it its just in notes for now."*
 
-**Why this matters enormously:** the clipper bot's Stage 4
-(assembly/rendering) needs exactly what this proves works — real ffmpeg
-muxing, real TTS/voiceover integration, a real assembly/encode path
-producing both a short and a long-form cut. `SALVAGE_INVENTORY.md`
-currently grades those entries as "portable with adaptation" on the
-assumption they were never proven end to end. **They were proven. Re-grade
-them and port rather than rebuild.**
+**Why it's still worth investigating:** IF the assembly path turns out to
+work, the clipper bot's Stage 4 (rendering) needs exactly that — ffmpeg
+muxing, TTS/voiceover integration, an assembly/encode path emitting both
+a short and a long cut. That would be port-instead-of-rebuild work.
+But that upgrade is **conditional on testing it**, not on these files
+existing. Leave `SALVAGE_INVENTORY.md`'s current grading alone until a
+real test says otherwise.
 
 **What the responsible agent should do (the user explicitly asked for
 this to be checked and watched for):**
@@ -293,8 +314,10 @@ this to be checked and watched for):**
    shorts, thumbnails, metadata, audit_logs) — the audit log and the
    printed "Cost Summary" from that run reveal real per-stage behavior
    and real cost, far better evidence than reading the code cold.
-4. **Correct the stale docs** in the sibling project and re-grade the
-   affected `SALVAGE_INVENTORY.md` entries from unproven → proven.
+4. **Only after establishing what actually happened**, decide whether the
+   sibling project's docs need correcting and whether any
+   `SALVAGE_INVENTORY.md` entries should be re-graded. Do not do either
+   pre-emptively — see the correction notice at the top of this section.
 5. **Note the cost caveat**: the user said *"It wasn't free"* — this run
    used paid API calls. Relevant to the clipper bot's explicit
    cost-philosophy constraint; find the actual figure in that run's Cost
