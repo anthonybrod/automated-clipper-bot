@@ -64,7 +64,7 @@ What happened 2026-08-02:
   assumed): no purpose-built **hook-quality/engagement scorer** exists on
   HF, and no general **"which game is being played"** model exists —
   Twitch's own category API metadata is the correct free source.
-- **Rules audited and corrected.** 14 active (3, 5, 7, 10–20); 3 removed
+- **Rules audited and corrected.** 15 active (3, 5, 7, 10–21); 3 removed
   at the user's direction (2, 4, 6) because they pre-committed
   tool/threshold decisions the research hasn't made — *"we dont know the
   best service and model cuz we are in the research stage"*; 2 provisional

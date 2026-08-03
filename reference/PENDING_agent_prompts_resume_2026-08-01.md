@@ -29,11 +29,13 @@ don't re-derive it, just build it.**
 2. **Make the update ritual a RULE — this is the actual ask.** The user's
    word was *"automated."* A file that depends on remembering to update it
    is not automated; it decays exactly like the dated file it replaces.
-   Proposed **Rule 21**: *updating `START_HERE.md` is the last action of
+   Proposed **Rule 22**: *updating `START_HERE.md` is the last action of
    every session, immediately before the final commit and push — not
    optional, not skippable, and it happens even when the session is being
    cut short by a usage limit.* Ask the user to confirm before adopting
-   (Rule 14 process — no rule gets adopted unasked).
+   (Rule 14 process — no rule gets adopted unasked). **(Numbered 22, not
+   21 — Rule 21 was taken later on 2026-08-02 by "run every check before
+   reporting.")**
 
 **Why it matters, in the user's own framing:** *"to ensure we are on the
 same page every session."* The current setup works for session two —
@@ -131,8 +133,8 @@ The full design, so it isn't re-derived:
 >   `START_HERE.md` links to it.
 
 - **Rules 8 & 9** still ⚠️ PROVISIONAL — Gemini-sourced, never authorized.
-  Need a yes/no from the user. (Rule state as of 2026-08-02: **14 active**
-  — 3, 5, 7, 10–20. Removed at user direction: 2, 4, 6. Provisional: 8, 9.
+  Need a yes/no from the user. (Rule state as of 2026-08-02: **15 active**
+  — 3, 5, 7, 10–21. Removed at user direction: 2, 4, 6. Provisional: 8, 9.
   Inherited from a prior session: 1.)
 - **Two unverified leads** (do these before related build work): does the
   sibling project's video code still run, and is `validate_environment.py`

@@ -86,7 +86,7 @@ preferences and reasoning belong in `PROJECT.md`'s Architecture Outline
 which library wins.
 
 - **Genuinely adopted, active rules**: 3, 5, 7, 10, 11, 12, 13, 14, 15,
-  16, 17, 18, 19, 20. (13–19 added at the end of the 2026-08-01 session:
+  16, 17, 18, 19, 20, 21. (13–19 added at the end of the 2026-08-01 session:
   cost discipline, the accuracy cluster — external-AI material is
   reference-only, preserve source verbatim, keep raw record separate from
   evaluation — plus save-to-GitHub-and-Drive-per-agent, and verify agent
@@ -96,7 +96,10 @@ which library wins.
   executed and proven this session. **20 added 2026-08-02** after the user
   reviewed the saved research and found free, working tools had been
   dismissed too readily — it defines five roles every tool gets evaluated
-  against, not just "is it the primary pick.")
+  against, not just "is it the primary pick." **21 added 2026-08-02** after
+  three separate instances in one session of reporting work complete and
+  then finding real gaps only once the user asked again — it makes the
+  checks part of the update rather than a follow-up.)
 - **REMOVED 2026-08-01 at the user's direction**: 2, 4, 6. Each entry
   below records what was actually agreed vs. what got written, and where
   the underlying finding still lives.
@@ -360,3 +363,44 @@ with the user first, not silently decided.
     `claude_failure_report.md` §12's "Free tools dismissed against a
     stated budget constraint," and the cross-session memory
     `feedback_dont_dismiss_free_resources`.
+21. **When asked to update/save/checkpoint, run EVERY check BEFORE
+    reporting back. Never report "done" and then discover gaps after the
+    user asks again.** The user's direction (2026-08-02): *"when i ask u to
+    update, u also do all your checks before reporting back. i don't want
+    you saying this is done... then 'wait after u asked i found this' then
+    on a final check u say i looked back and i have no way to remember
+    this and reference even after u asked."*
+
+    **The checks are part of the update, not a follow-up.** Run all of
+    these *before* the completion report:
+    1. **Audit against the conversation.** Re-read what was actually
+       discussed this session and confirm each item is saved somewhere
+       durable. Things discussed and agreed but never written down are the
+       most common loss — writing notes as you go does **not** catch this.
+    2. **Cross-file consistency.** If file A claims to be authoritative
+       (e.g. `PROJECT.md`) or describes file B (e.g. the `CLAUDE.md`
+       banner), confirm A actually reflects current reality. A pointer that
+       describes stale contents is worse than no pointer.
+    3. **Stale values.** Dates, counts, progress numbers, "N of M"
+       tallies, filenames that imply a date. Check each against reality
+       rather than carrying forward what was written earlier.
+    4. **The save actually landed.** `git status` clean, `git log`
+       confirms the commit, branch matches `origin/master`. Never assume a
+       push worked.
+    5. **Then, and only then, report** — and state what was checked, not
+       just what was written.
+
+    **Why this exists — three failures in one session (2026-08-02), each
+    caught by the user rather than by me:** (a) reported everything saved,
+    then on being asked found the entire `START_HERE.md` design — discussed
+    at length and approved — had never been written down; (b) reported the
+    notes complete, then found an agent count wrong (said 10, actual 12
+    launched / 8 useful); (c) reported a hard checkpoint done, then found
+    `PROJECT.md` — the file this repo calls its single source of truth —
+    was a full day stale and missing Rule 20, the master tools catalog,
+    and two other new documents entirely.
+
+    This is the same defect as the failure report's §2/§19 ("verification
+    reported without being performed"), in a smaller form: claiming a
+    completion state before establishing it. Rule 19 covers verifying
+    *agent* output; **this rule covers verifying my own.**
