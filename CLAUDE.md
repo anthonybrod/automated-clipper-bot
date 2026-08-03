@@ -3,18 +3,28 @@
 > ## 🚩 RESUMING? READ THIS FIRST
 >
 > **[`reference/PENDING_agent_prompts_resume_2026-08-01.md`](reference/PENDING_agent_prompts_resume_2026-08-01.md)**
-> is the live pick-up point. It is written to be read cold, with no memory
-> of any prior conversation. It contains:
-> - the 12-item mining progress table (1 done, 11 pending, 1 to skip),
-> - the exact prompt wording that produced the one successful report,
-> - the mine → check → save → commit → push procedure,
-> - two open leads to verify (does the sibling project's video code still
->   work; is `validate_environment.py` one auth fix from passing),
-> - and the user's standing instruction: **ask before launching agents,
->   and confirm usage headroom first.**
+> is the live pick-up point, written to be read cold with no memory of any
+> prior conversation. It opens with a **LIVE AGENDA & PROGRESS board**
+> covering four open workstreams:
+> - **A** — retroactive Rule 20 review of already-"completed" work (1 of 6)
+> - **B** — the 12-item source-mining pass (1 of 12), with the exact prompt
+>   wording that produced the one successful report
+> - **C** — 6 YouTube videos with no transcript yet
+> - **D** — platform / free-inference / hosting research (not started)
 >
-> Do not reconstruct the plan from memory or from chat history — read that
-> file. Then read this file's rules, then `PROJECT.md`.
+> It also carries: honest per-finding status against the project's
+> failure report (including what is **not** fixed), two unverified leads
+> to check before related build work, the mine → check → save → push
+> procedure, and the user's standing instruction — **ask before launching
+> agents, and confirm usage headroom first.**
+>
+> **Also read [`reference/MASTER_TOOLS_CATALOG_2026-08-02.md`](reference/MASTER_TOOLS_CATALOG_2026-08-02.md)
+> before picking any tool** — ~110 tools by pipeline stage, all with real
+> URLs, verification status, and Rule 20 roles. It supersedes scattered
+> tool mentions elsewhere (without replacing them).
+>
+> Do not reconstruct the plan from memory or from chat history — read
+> those files. Then this file's rules, then `PROJECT.md`.
 
 **Read [PROJECT.md](PROJECT.md) in full before making any claim about this
 project's status, architecture, or backlog.** It is the single authoritative
