@@ -12,6 +12,69 @@ YouTube Shorts + long-form compilations, cross-posts to multiple platforms.
 Separate project from `youtube-auto-videos` (Parents Teach Kids), kept in
 its own folder/repo, but actively salvaging verified-working code from it.
 
+## Current status (updated 2026-08-02 — read this first if resuming)
+
+**⚠️ For the live agenda and next actions, read
+[`reference/PENDING_agent_prompts_resume_2026-08-01.md`](reference/PENDING_agent_prompts_resume_2026-08-01.md)
+first** — it carries the running status board. This file holds durable
+project state; that file holds what's in flight. (Its filename is dated
+2026-08-01 but its contents are current — a standing `START_HERE.md` is
+task #1 next session specifically to fix that confusion.)
+
+**Headline, stated plainly: still zero pipeline code.** Everything to date
+is restoration, research, verification, and operating rules. That is the
+failure report's §14 finding and it remains true. Worth saying before the
+list of genuine progress below, not after it.
+
+What happened 2026-08-02:
+
+- **Rule 20 adopted — don't dismiss free tools.** The user reviewed saved
+  research and found working free tools had been discarded for losing the
+  "primary pick" slot. Every tool is now evaluated against **five roles**:
+  primary, backup/fail-safe, cross-check, assist (free pre-filter), and
+  feature/quality-add. Plus: free changes the math; never judge on star
+  count, README tone, or age; a set-aside must record *why* and *what
+  would bring it back*. See [CLAUDE.md](CLAUDE.md).
+- **Retroactive Rule 20 review started** —
+  [`reference/retroactive_rule20_review_2026-08-02.md`](reference/retroactive_rule20_review_2026-08-02.md),
+  1 of 6 completed reports re-checked. Biggest find so far: **Kyutai STT**
+  was dismissed as "not a clear fit" because it was measured against batch
+  VOD transcription — but this project's stated Phase 1 is *live stream
+  monitoring*, which is exactly what it's built for and exactly what
+  faster-whisper (a batch transcriber) doesn't serve. Four others re-opened
+  with roles assigned. Nothing adopted — re-opened candidates only.
+- **Master tools catalog created** —
+  [`reference/MASTER_TOOLS_CATALOG_2026-08-02.md`](reference/MASTER_TOOLS_CATALOG_2026-08-02.md).
+  **~110 tools with real URLs**, organized by pipeline stage, each with
+  verification status, how it helps, and its Rule 20 role. Consolidates
+  findings previously scattered across 5+ documents and adds the URLs they
+  lacked. **Start here when picking a tool for a stage.** Additive — the
+  earlier `verified_tools_catalog.md` and all `*_VERBATIM.md` reports are
+  untouched.
+- **Platform/hosting research scoped** —
+  [`reference/research_targets_platforms_2026-08-02.md`](reference/research_targets_platforms_2026-08-02.md).
+  The user supplied a target list as a *method* instruction: widen from
+  "models within Hugging Face" to model hubs beyond it (ModelScope,
+  Civitai), hosted inference with free tiers (Replicate, Modal, Together
+  AI), app galleries as prior art (Streamlit), and hosting routes.
+  Highest-leverage lead: **Ollama on a free Oracle ARM VM** — moves
+  local-LLM judging to always-on free cloud, which a bot meant to watch
+  live streams needs. All ❓ unverified.
+- **Two real gaps recorded honestly** (searched and confirmed, not
+  assumed): no purpose-built **hook-quality/engagement scorer** exists on
+  HF, and no general **"which game is being played"** model exists —
+  Twitch's own category API metadata is the correct free source.
+- **Rules audited and corrected.** 14 active (3, 5, 7, 10–20); 3 removed
+  at the user's direction (2, 4, 6) because they pre-committed
+  tool/threshold decisions the research hasn't made — *"we dont know the
+  best service and model cuz we are in the research stage"*; 2 provisional
+  and still unauthorized (8, 9); 1 inherited (1). Governing principle now
+  recorded: **rules describe how we work, not which library wins.**
+- **Cold-start resume proven in production.** The 2026-08-01 session was
+  cut off at 95% usage; 2026-08-02 resumed from the notes alone, cleanly,
+  with nothing lost and no re-derivation. The save-per-item discipline
+  (Rules 13/18) is validated under real failure, not just in principle.
+
 ## Current status (updated 2026-08-01 — read this first if resuming)
 
 **A second, much larger research/verification pass happened, driven by a
