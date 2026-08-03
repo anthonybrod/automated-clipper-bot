@@ -139,6 +139,19 @@ The full design, so it isn't re-derived:
 - **Two unverified leads** (do these before related build work): does the
   sibling project's video code still run, and is `validate_environment.py`
   one auth fix from passing. Both detailed below.
+- **💬 A real discussion is queued, not decided** —
+  [`reference/DISCUSS_next_phase_autonomy_prompt_2026-08-02.md`](DISCUSS_next_phase_autonomy_prompt_2026-08-02.md).
+  The user drafted an "autonomy prompt" for the build phase (*"Lead
+  Principal Engineer… take 100% ownership… don't stop until your code
+  passes its own integration tests"*) and asked for an opinion. **Nothing
+  adopted.** The file holds the draft verbatim, three problems to resolve
+  (it collides with Rule 10; the integration-test clause has nothing to
+  bite on until code exists; "intern → titan" needs measurable rungs), and
+  **the key finding: every mechanism it reaches for already exists in
+  proven form in the sibling `pipeline.py`** — retry/dead-letter with
+  degraded-mode tracking, post-render corruption QA, output smoke tests,
+  and the quality-ratchet pattern we invented this session. Five open
+  questions at the end need the user's answers before this goes anywhere.
 - **⚠️ Filename vs. content date:** this file is named `_2026-08-01` (when
   it was created) but its agenda reflects **2026-08-02** work. The
   agenda's "Last updated" line is authoritative, not the filename. This
