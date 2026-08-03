@@ -183,6 +183,18 @@ successful item 1 report:
 > free that ISN'T already the chosen primary pick for its pipeline stage
 > (secondary/backup/alternative options, or things noted as "not currently
 > used" or "worth reconsidering"). Include the real URL if the doc has one.
+> **Do NOT dismiss a tool for losing the "primary pick" slot.** For each
+> one, say which of these five roles it could fill: (1) primary,
+> (2) backup/fail-safe when the primary breaks or is rate-limited/too
+> expensive, (3) cross-check to verify the primary's output, (4) assist —
+> a free local pre-filter that narrows work before an expensive stage,
+> (5) feature/quality add the pipeline otherwise wouldn't have. A free,
+> local, offline tool costs nothing to keep in reserve, and "Gemini can
+> also do that" is not a reason to discard one — Gemini costs real tokens
+> per call. Never judge on star count, README tone, or last-commit date
+> alone; unmaintained is not the same as non-functional. If you do set
+> something aside, record *why* and *what would bring it back*, never a
+> bare "not needed."
 > **D. Efficiency paths** — anything that saves real cost/time/API
 > budget/compute (a pre-filter that avoids paid calls, a caching technique,
 > a faster library, a batching approach).

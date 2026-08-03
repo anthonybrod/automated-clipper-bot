@@ -76,14 +76,17 @@ preferences and reasoning belong in `PROJECT.md`'s Architecture Outline
 which library wins.
 
 - **Genuinely adopted, active rules**: 3, 5, 7, 10, 11, 12, 13, 14, 15,
-  16, 17, 18, 19. (13–19 added at the end of the session: cost
-  discipline, the accuracy cluster — external-AI material is
+  16, 17, 18, 19, 20. (13–19 added at the end of the 2026-08-01 session:
+  cost discipline, the accuracy cluster — external-AI material is
   reference-only, preserve source verbatim, keep raw record separate from
   evaluation — plus save-to-GitHub-and-Drive-per-agent, and verify agent
   reports against real source before saving them. 14–16 and 18 restate
   standing user rules that were being followed but had never been written
   into this numbered list; 19 documents the check step that was actually
-  executed and proven this session.)
+  executed and proven this session. **20 added 2026-08-02** after the user
+  reviewed the saved research and found free, working tools had been
+  dismissed too readily — it defines five roles every tool gets evaluated
+  against, not just "is it the primary pick.")
 - **REMOVED 2026-08-01 at the user's direction**: 2, 4, 6. Each entry
   below records what was actually agreed vs. what got written, and where
   the underlying finding still lives.
@@ -297,3 +300,53 @@ with the user first, not silently decided.
     headings), which is what made it trustworthy enough to commit — and
     the one discrepancy found (a line count off by one) was recorded
     rather than hidden.
+20. **Don't dismiss working free tools. Evaluate every one against five
+    roles, not just "is it the primary pick."** The user's direction
+    (2026-08-02): *"not to dismiss so easily and explore tools as back ups
+    and fail safes, or to check our work or assist, and add features and
+    quality to raise our intern level project to the top level."*
+
+    **The five roles — a tool that loses one can still win another:**
+    1. **Primary** — the main implementation for a pipeline stage.
+    2. **Backup / fail-safe** — takes over when the primary breaks, is
+       rate-limited, is out of quota, or is too expensive for a given run.
+       This project already has a real crash (`chat_downloader`'s
+       `KeyError`) proving primaries do fail in production.
+    3. **Cross-check / verification** — a second, independent signal to
+       confirm the primary's output. Especially valuable where a silent
+       wrong answer is the failure mode.
+    4. **Assist** — narrows the work before an expensive stage runs (a
+       free local pre-filter ahead of a paid LLM call is the archetype).
+    5. **Feature / quality add** — enables something the pipeline
+       otherwise wouldn't do at all.
+
+    **Rules of evaluation:**
+    - **Free changes the math.** A free, local, offline tool costs nothing
+      to keep in reserve. "Gemini can also do that" is not a reason to
+      discard a free tool — Gemini costs real tokens per call and this
+      project's cost philosophy is explicit that budget is a first-class
+      constraint.
+    - **Never judge on star count, README tone, or age alone.** Read what
+      it actually does. Two repos (`Kuonirad/AutoCutAI`, `htekdev/vidpipe`)
+      were nearly written off on exactly those signals and turned out to
+      contain real working implementations. Unmaintained ≠ non-functional.
+    - **When a tool is set aside, record WHY and under what condition it
+      would come back** — never a bare "not needed." Write it into the
+      relevant reference doc so it's recoverable rather than lost.
+    - **State the role you're assigning**, not just a verdict. "Not
+      primary — keep as free fail-safe for Stage 2" is a real answer;
+      "not needed" is not.
+
+    **Why this rule exists — the actual track record it corrects:**
+    `fer`/MTCNN (dismissed for Gemini, reversed after user pushback, now a
+    valuable free pre-filter), NVIDIA Parakeet (written off as
+    "unnecessary," is free/open-weight and faster on GPU), the bundled
+    Arc-Raiders YOLO model (called "not directly reusable," is MIT, ~5MB,
+    zero setup), `AutoCutAI` and `vidpipe` (nearly discarded on star count
+    and README tone, both real), Camoufox (under-weighted as a directory
+    entry, actually 10,674★ and actively maintained),
+    `jappeace/cut-the-crap` and `py-feat/resmasknet` (both real, free, and
+    treated as footnotes). This is a repeated, documented pattern — see
+    `claude_failure_report.md` §12's "Free tools dismissed against a
+    stated budget constraint," and the cross-session memory
+    `feedback_dont_dismiss_free_resources`.
