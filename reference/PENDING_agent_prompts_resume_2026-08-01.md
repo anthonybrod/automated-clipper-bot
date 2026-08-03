@@ -140,6 +140,68 @@ letting a long list of green checkmarks imply otherwise.
 
 ---
 
+## 2026-08-02 SESSION ADDENDUM — operational facts that only existed in that conversation
+
+### ✅ The cold-start mechanism is PROVEN, not theoretical
+
+The 2026-08-01 session ended by writing these notes *hoping* a cold
+session could resume from them. **2026-08-02 tested that for real and it
+worked.** The user pointed at this file, it was read cold, and work
+resumed correctly with no re-derivation and no reconstruction from chat
+history. **Trust this file — it has been validated once in production.**
+
+### ✅ The checkpoint survived a real hard-limit hit
+
+The 2026-08-01 session ended at 95% usage and was cut off. On resume,
+`git status` was clean and local matched `origin/master` at `9e732d8` —
+**nothing was lost.** The save-per-item discipline (Rules 13/18) is
+proven under actual failure conditions, not just in principle. This is
+the strongest argument for never batching commits.
+
+### ⚠️ Unresolved contradiction about the 3 dead mining agents
+
+On 2026-08-02 a system task-notification claimed: *"their transcripts are
+saved on disk, so their progress is not lost. Resume any of them by
+sending a message to its id with SendMessage, or check its worktree/output
+for partial work."*
+
+**This contradicts what was actually observed on 2026-08-01**, where (a) a
+full search of the session temp directory found **three 0-byte output
+files and no transcript anywhere**, and (b) `SendMessage` to all three IDs
+returned *"was stopped by the user and won't be resumed."*
+
+**Not retried on 2026-08-02** (budget). Treat as genuinely unresolved. If
+it ever matters, one `SendMessage` attempt to `a25c900efa6ccb6aa` /
+`ac2ed4b6c496e4820` / `a7acbccd99510c8c8` settles it cheaply — but the
+12-item re-mine (workstream B) makes those agents redundant anyway, so
+this is curiosity, not a blocker.
+
+### 📉 Real burn-rate data point
+
+2026-08-02 went from a fresh session to **99% used in a single sitting**,
+doing: 1 mining agent, ~8 file writes/edits, ~10 commits, and several
+large file reads. **No agent-heavy research at all** — that budget went
+almost entirely to reading, writing, and committing documentation. Plan
+accordingly: documentation work is *not* cheap, and a session doing both
+research agents *and* thorough note-keeping will not fit in one window.
+
+### 🔍 A practice worth repeating: self-audit against the conversation before wrapping
+
+At the end of 2026-08-02 the user asked: *"go back and re read the convo"*
+and check the notes actually captured everything. **That audit found three
+real problems**, one of which was genuine content loss:
+1. The entire `START_HERE.md` design — discussed in detail, user-approved,
+   and **never saved** beyond a one-line mention. It would have been lost.
+2. An inaccurate agent count (said 10, actual 12 launched / 8 useful).
+3. A cold-read trap — this file's *name* says 2026-08-01 while its agenda
+   says 2026-08-02.
+
+**Do this every session before the final push.** Writing notes as you go
+is not sufficient; the gaps only become visible when the notes are read
+back against what was actually discussed. Cheap, and it caught real loss.
+
+---
+
 ## SESSION CONTEXT THAT ONLY EXISTS HERE — read before doing anything
 
 Written deliberately at the end of the 2026-08-01 session because it lives
