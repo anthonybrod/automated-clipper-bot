@@ -2,8 +2,48 @@
 
 ## 📋 LIVE AGENDA & PROGRESS — update this every session, read it first
 
-**Last updated: 2026-08-02.** This is the running status board. Four
-workstreams are open. Nothing here is finished; nothing here is lost.
+**Last updated: 2026-08-02.** This is the running status board. Nothing
+here is finished; nothing here is lost.
+
+---
+
+## ⭐ FIRST THING NEXT SESSION — build `START_HERE.md`
+
+**User's explicit direction (2026-08-02):** *"then i said this to make it
+automated but we ran out of tokens we will make note and add it to the 1st
+thing on the agenda."* Original ask: *"lets plan the auto reference file to
+ensure we are on the same page every session."*
+
+This is **task #1**, before workstream A/B/C/D. It was designed and
+approved on 2026-08-01, deferred purely for budget. Estimated ~10 minutes
+on a fresh limit. **The full design is recorded in "Also queued" below —
+don't re-derive it, just build it.**
+
+**Two parts, and part 2 is the one that makes it "automated":**
+
+1. **Build the file** — `START_HERE.md` at the repo root, undated, a
+   router not a duplicate, five fixed sections (state now / single next
+   action / blockers & open leads / how we work / where things are),
+   overwritten each session rather than appended.
+
+2. **Make the update ritual a RULE — this is the actual ask.** The user's
+   word was *"automated."* A file that depends on remembering to update it
+   is not automated; it decays exactly like the dated file it replaces.
+   Proposed **Rule 21**: *updating `START_HERE.md` is the last action of
+   every session, immediately before the final commit and push — not
+   optional, not skippable, and it happens even when the session is being
+   cut short by a usage limit.* Ask the user to confirm before adopting
+   (Rule 14 process — no rule gets adopted unasked).
+
+**Why it matters, in the user's own framing:** *"to ensure we are on the
+same page every session."* The current setup works for session two —
+proven this session — but breaks by session three or four, when there are
+competing dated resume files and no obvious winner. That is precisely the
+mess this project already spent a full session untangling.
+
+---
+
+Four research workstreams are open below.
 
 ### A. Retroactive Rule 20 review — re-check completed work for dismissed tools
 *Why: Rule 20 (added 2026-08-02) was created after the user found working
