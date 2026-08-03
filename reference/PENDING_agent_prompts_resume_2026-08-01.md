@@ -61,14 +61,46 @@ Full detail + suggested 5-agent split:
 (always-on judging without the user's PC running).
 
 ### Also queued
-- **`START_HERE.md`** — a standing, undated session-entry file to replace
-  this dated one. Designed and user-approved 2026-08-01, deferred to build
-  when there's headroom. This agenda block is the interim version of it.
+
+**`START_HERE.md` — designed, approved, not yet built.** User chose
+"Monday, on a fresh limit" (2026-08-01) over building it immediately.
+The full design, so it isn't re-derived:
+
+> **Problem it solves:** this file is named for an event and dated. Next
+> session it's ambiguous — still pending? Make a `_2026-08-04` version?
+> Within a few sessions there are competing resume files and no obvious
+> winner. That's the exact mess this project already spent a session
+> untangling.
+>
+> **Design:**
+> - **Undated name**, at the **repo root** (not `reference/`) — visible
+>   immediately on GitHub and in any listing, never ambiguous which is
+>   current.
+> - **A router, not a duplicate.** Points to `PROJECT.md`, `CLAUDE.md`,
+>   the agenda tables, the reference docs. Restates nothing — one source
+>   per fact, so nothing can drift out of sync.
+> - **Overwritten each session, not appended.** It describes *now*.
+>   History already lives in git and the dated reference files.
+> - **Five fixed sections:** (1) state right now, (2) the single specific
+>   next action — not a menu, (3) blockers & open leads, (4) how we work
+>   (pointer to rules + the non-negotiables), (5) where things are.
+> - **The ritual that keeps it true:** updating it becomes the *last*
+>   action of every session, right before the final push. Worth making a
+>   rule so it can't be skipped.
+> - This dated file stays unedited afterward as a historical record;
+>   `START_HERE.md` links to it.
+
 - **Rules 8 & 9** still ⚠️ PROVISIONAL — Gemini-sourced, never authorized.
-  Need a yes/no from the user.
+  Need a yes/no from the user. (Rule state as of 2026-08-02: **14 active**
+  — 3, 5, 7, 10–20. Removed at user direction: 2, 4, 6. Provisional: 8, 9.
+  Inherited from a prior session: 1.)
 - **Two unverified leads** (do these before related build work): does the
   sibling project's video code still run, and is `validate_environment.py`
   one auth fix from passing. Both detailed below.
+- **⚠️ Filename vs. content date:** this file is named `_2026-08-01` (when
+  it was created) but its agenda reflects **2026-08-02** work. The
+  agenda's "Last updated" line is authoritative, not the filename. This
+  discrepancy is exactly why `START_HERE.md` above should get built.
 
 ### E. The failure report — what's fixed, what isn't
 *`C:\Users\AwBro\Desktop\AI\claude_failure_report.md` (1,400 lines, filed
@@ -78,7 +110,7 @@ its findings, honestly — including where nothing has changed.*
 | Finding | Status |
 |---|---|
 | §3 `validate_environment.py`'s 8 defects | ✅ **Fixed** — a newer local copy had all 8 addressed; diff-confirmed and pushed 2026-08-01 |
-| §17 "parallel agents used only after I raised it, then abandoned" | ✅ **Fixed and made a rule** — Rule 11; 10 agents run across the session |
+| §17 "parallel agents used only after I raised it, then abandoned" | ✅ **Fixed and made a rule** — Rule 11. **12 agents launched** across 2026-08-01/02: 1 tool-claim check, 4 tool-directory audit, 3 source-mining (died, zero output), 3 Hugging Face (hit a session limit, resumed via `SendMessage`, all 3 completed), 1 mining item-1 (succeeded). **8 of 12 produced usable output.** |
 | §17 "work not committed incrementally" | ✅ **Fixed** — Rule 18 + save-per-item; proven when the limit hit mid-session and nothing was lost |
 | §12/§17 "free tools dismissed against a stated budget constraint" | ✅ **Rule written** (Rule 20), ⬜ **retroactive fix in progress** — workstream A, 1 of 6 done |
 | §2/§19 "verification reported without being performed" | ✅ **Fixed and made a rule** — Rule 19 (grep the real source); proven at 9/9 spot-checks on mining item 1 |
