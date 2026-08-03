@@ -214,3 +214,13 @@ audio, and none should be treated as a decision.
 | 3 | `research_2026-08-01_huggingface_local_llm_judging_VERBATIM.md` | ⬜ pending |
 | 4 | `mining_2026-08-01_deep_dive_moment_detection_VERBATIM.md` | ⬜ pending |
 | 5 | The 78-source tool-directory audit (in `handoff_2026-08-01_evaluation.md` §1) | ⬜ pending |
+| 6 | **The 17 already-mined YouTube videos** — `research/fresh_pass_videos_1-9.md` + `research/fresh_pass_videos_10-17.md` | ⬜ pending |
+
+**On item 6 (added 2026-08-02 at user direction):** those two files were
+themselves already a *second* pass, commissioned because a first pass had
+compressed real content away. They are the largest single body of
+"completed" research in the project and the most likely place for
+dismissed free tools to be buried — video creators name tools in passing
+constantly, and a first-pass reader optimizing for "which tool wins"
+would drop most of them. Expect this to be the highest-yield item in
+workstream A.

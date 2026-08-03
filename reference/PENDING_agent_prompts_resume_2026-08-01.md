@@ -1,4 +1,112 @@
-# PENDING — resume here (plan revised, 1 of 12 done)
+# PENDING — resume here
+
+## 📋 LIVE AGENDA & PROGRESS — update this every session, read it first
+
+**Last updated: 2026-08-02.** This is the running status board. Four
+workstreams are open. Nothing here is finished; nothing here is lost.
+
+### A. Retroactive Rule 20 review — re-check completed work for dismissed tools
+*Why: Rule 20 (added 2026-08-02) was created after the user found working
+free tools had been dismissed too readily in already-"completed" research.
+Everything marked done before that rule existed needs re-reading through
+the five-role lens. Output goes in
+`reference/retroactive_rule20_review_2026-08-02.md` — a NEW file; per Rule
+16 the raw `*_VERBATIM.md` reports are never edited.*
+
+| # | Target | Status |
+|---|---|---|
+| A1 | HF audio/transcription report | ✅ **done** — 5 tools re-opened, incl. Kyutai STT (judged against batch when the project's Phase 1 is live) |
+| A2 | HF vision/detection report | ⬜ pending |
+| A3 | HF local-LLM/judging report | ⬜ pending |
+| A4 | Mining report (`deep_dive_moment_detection`) | ⬜ pending |
+| A5 | The 78-source tool-directory audit (`handoff_2026-08-01_evaluation.md` §1) | ⬜ pending |
+| A6 | **The 17 already-mined YouTube videos** (`research/fresh_pass_videos_1-9.md` + `_10-17.md`) — added 2026-08-02 at user direction: *"add the recheck for useful dismissed data in those youtube videos that were marked complete"* | ⬜ pending |
+
+### B. The 12-item source-mining pass
+*Why: the original 3 broad agents died producing nothing. Split to 12
+small ones, one source file each, verified and saved per item.*
+
+**1 of 12 done** — see the full table further down this file. Item 1
+(`deep_dive_moment_detection.md`) is complete and pushed (`7e009fb`).
+**Note:** items 2–12 now also carry the Rule 20 five-role instruction in
+their prompt template, so they evaluate tools correctly on the first pass
+rather than needing an A-workstream re-review afterward.
+
+### C. YouTube videos not yet transcribed
+*Why: 6 videos referenced across the planning docs have no transcript.
+`research/fetch_transcripts.py` already exists and succeeded 17/17 before
+— reuse it (Rule 1), don't browser-scrape.*
+
+| Video | ID | Status |
+|---|---|---|
+| Higgsfield / Claude connectors | `mFOoNPFylLI` | ⬜ no transcript |
+| Claude + Whop Clipping Workflow | `PafYu69s5NA` | ⬜ no transcript |
+| Gemini Gems Tutorial | `QqwNue_KL-4` | ⬜ no transcript |
+| Lacy's Best Streamer University Moments | `cVkFMpDLQrM` | ⬜ no transcript |
+| How Lacy Got Used On Stream | `mVqnCvE337E` | ⬜ no transcript |
+| Lacy's Content Strategy Breakdown | `lYafPAHVOno` | ⬜ no transcript |
+
+Confirmed missing from `research/transcripts/` (which holds 18 files for
+the original 17 videos + a summary). The 3 Lacy-specific ones are the only
+source anywhere for **what a clip-worthy Lacy moment actually looks like** —
+that directly informs detection thresholds and hook patterns.
+
+### D. Platform / free-inference / hosting research
+*Why: the user supplied a target list as a method instruction — widen from
+"models within HF" to hubs, hosted inference, galleries, and hosting.
+Full detail + suggested 5-agent split:
+`reference/research_targets_platforms_2026-08-02.md`.*
+
+⬜ Not started. Highest-leverage lead: **Ollama on a free Oracle ARM VM**
+(always-on judging without the user's PC running).
+
+### Also queued
+- **`START_HERE.md`** — a standing, undated session-entry file to replace
+  this dated one. Designed and user-approved 2026-08-01, deferred to build
+  when there's headroom. This agenda block is the interim version of it.
+- **Rules 8 & 9** still ⚠️ PROVISIONAL — Gemini-sourced, never authorized.
+  Need a yes/no from the user.
+- **Two unverified leads** (do these before related build work): does the
+  sibling project's video code still run, and is `validate_environment.py`
+  one auth fix from passing. Both detailed below.
+
+### E. The failure report — what's fixed, what isn't
+*`C:\Users\AwBro\Desktop\AI\claude_failure_report.md` (1,400 lines, filed
+2026-07-30) is this project's quality bar. Tracking real progress against
+its findings, honestly — including where nothing has changed.*
+
+| Finding | Status |
+|---|---|
+| §3 `validate_environment.py`'s 8 defects | ✅ **Fixed** — a newer local copy had all 8 addressed; diff-confirmed and pushed 2026-08-01 |
+| §17 "parallel agents used only after I raised it, then abandoned" | ✅ **Fixed and made a rule** — Rule 11; 10 agents run across the session |
+| §17 "work not committed incrementally" | ✅ **Fixed** — Rule 18 + save-per-item; proven when the limit hit mid-session and nothing was lost |
+| §12/§17 "free tools dismissed against a stated budget constraint" | ✅ **Rule written** (Rule 20), ⬜ **retroactive fix in progress** — workstream A, 1 of 6 done |
+| §2/§19 "verification reported without being performed" | ✅ **Fixed and made a rule** — Rule 19 (grep the real source); proven at 9/9 spot-checks on mining item 1 |
+| §1 "condensing source labeled as verbatim" | ✅ **Fixed and made a rule** — Rule 15; the 3 HF reports were re-saved word-for-word after being caught summarized |
+| §10 "research reported complete while incomplete" | ⚠️ **Partially** — the 12-item re-mine (workstream B) exists precisely to fix this. 1 of 12 done. |
+| §14 "no pipeline code at all in project 2" | ❌ **Still true.** Zero pipeline code written. Everything to date is restoration, research, and rules. This is the honest headline. |
+| §13.0 "model discovery never wired into the pipeline" | ❌ **Unaddressed here** — that's a defect in the *sibling* project, untouched |
+| §14 "the pipeline has never once run to completion" | ⚠️ **Contested, unresolved** — two `.mp4` files dated 2026-07-27 exist on disk, which is 3 days *before* the report. Whether that constitutes a completed run is **untested**. See the leads section below. |
+| §21b "4,059-line single-file monolith" | ❌ **Unaddressed** — sibling-project structural issue |
+| §18 "paying repeatedly for the same work" | ⚠️ **Improved, not solved** — Rule 13 + small-scope agents + save-per-item directly target it, and the 48-min/$15 zero-output failure did *not* recur. But one broad-agent failure still happened this session before the fix. |
+
+**Net:** the *process* failures the report documented are now mostly
+addressed with real rules and proven practice. The *deliverable* failure —
+no working pipeline code — is unchanged. Worth stating plainly rather than
+letting a long list of green checkmarks imply otherwise.
+
+### Reference docs produced so far (all pushed)
+| File | What it holds |
+|---|---|
+| `MASTER_TOOLS_CATALOG_2026-08-02.md` | **~110 tools, all with URLs**, by pipeline stage, with Rule 20 roles. Start here when picking a tool. |
+| `retroactive_rule20_review_2026-08-02.md` | Workstream A output |
+| `research_targets_platforms_2026-08-02.md` | Workstream D scope |
+| `mining_2026-08-01_deep_dive_moment_detection_VERBATIM.md` | Workstream B item 1 |
+| `research_2026-08-01_huggingface_*_VERBATIM.md` (×3) | The HF passes, raw |
+| `handoff_2026-08-01_chat_pasted_originals.md` | All pasted source, verbatim |
+| `handoff_2026-08-01_evaluation.md` | Evaluation of the above (kept separate per Rule 16) |
+
+---
 
 ## SESSION CONTEXT THAT ONLY EXISTS HERE — read before doing anything
 
