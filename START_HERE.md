@@ -216,7 +216,7 @@ fallback when a curated note is missing or disputed.
 | B — 12-item source mining | 1 of 12 |
 | C — 6 untranscribed YouTube videos | **6 of 6 ✅ 2026-08-04** — fetched, verified real |
 | D — Platform / hosting research | not started |
-| **F — sweep `AI\` folder for never-imported material** | **queued — user: "this is next to do"** |
+| **F — `AI\` folder material** | **PUT OFF 2026-08-04 — waits on the USER, not Claude.** Folder too big; the user triages it and hands over what matters. Do not sweep it unprompted. |
 | **G — mine the 6 new transcripts** (detection thresholds, hook patterns) | **G1–G3 (the 3 Lacy files) running 2026-08-04. G4/G5/G6 DEFERRED — still to do, see PENDING §G** |
 | **H — CORE clipper research on X** (@yoxics, @scubaryan_, @coresculture +) | **queued with G** |
 
