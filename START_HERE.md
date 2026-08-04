@@ -2,7 +2,7 @@
 
 **The single entry point for this project. Read this first, every session.**
 
-Last updated: **2026-08-04** · Written at commit `3501789` (this file's own
+Last updated: **2026-08-04** · Written at commit `9662660` (this file's own
 commit lands *after*, so HEAD will read one ahead — see §0) · Working tree
 clean. **local = GitHub = Drive** — the user pulled `95be096` into
 "CLAUDE AI CLIP BOT V1 attempt" on 2026-08-04, confirmed by real output.
@@ -203,6 +203,42 @@ points at is functionally lost**, because no future session opens it.
 `INDEX.md` catalogues all 30 with status and when to read each, and is now
 covered by `check_links.sh` (51 → 94 links verified).
 
+**✅ 2026-08-04 — workstream G delivered the first real Stage 3 numbers.**
+Three transcripts mined, one agent per file. The headline is **G2**
+([`mining_2026-08-04_cVkFMpDLQrM_VERBATIM.md`](reference/mining_2026-08-04_cVkFMpDLQrM_VERBATIM.md)),
+because its source is a **curated best-of** — a human editor already decided
+which moments were worth keeping, so all 50 segments are positive examples
+rather than opinions:
+
+| Finding | Value |
+|---|---|
+| Clip length | median **39.5s**, 78% in 20–70s → **target 40s, accept 20–70s, floor 11s** |
+| Moment types | physical escalation 28% · verbal roast 20% · authority 12% · reveal 12% · romance 12% · heist 10% · one-liner 6% |
+| Hook openings | 36% direct question · 22% shouted name/imperative · **0% narration** |
+| **Text-only detector** | **verbal repetition in 22 of 50 moments** — ≥3 repeats of a short phrase in 10s. Needs only the transcript: no audio, no model, no API call. Drops straight into the free pre-filter. |
+
+**⚠️ Three corrections that contradict the current architecture** — resolve
+before building Stage 3:
+1. **~20% of curated moments contain no shouting at all.** An audio-RMS
+   volume-only trigger fails on one moment in five. Volume must be one
+   signal among several, not *the* signal. The Architecture Outline
+   currently treats RMS spikes as a primary pre-filter.
+2. **Long silences are positive** — they are physical gags. A low
+   speech-density filter would delete the best set-pieces.
+3. **Clip length cannot be derived from caption-cue gaps** (1–2s ASR
+   cadence, not clip boundaries).
+
+**Competitive context, not a threshold:** ~60M monthly views on the #Lacy
+hashtag across **1,598 clippers**, growing ~100% month over month (G3).
+That is the field this bot enters — relevant because the payout model pays
+**$0** below a per-post view minimum.
+
+**⚠️ A session-limit event killed 3 agents mid-write.** Two had already
+written their files and survived intact; **H1 (the three named CORE
+accounts) produced nothing and must be re-run** — its prompt is saved in
+PENDING §H. Committing each report on arrival instead of batching is what
+kept the cost at one report instead of three.
+
 **No blockers remain.** The next action is §2.
 
 **Outside git:** a 66MB transcript backup at
@@ -217,8 +253,8 @@ fallback when a curated note is missing or disputed.
 | C — 6 untranscribed YouTube videos | **6 of 6 ✅ 2026-08-04** — fetched, verified real |
 | D — Platform / hosting research | not started |
 | **F — `AI\` folder material** | **PUT OFF 2026-08-04 — waits on the USER, not Claude.** Folder too big; the user triages it and hands over what matters. Do not sweep it unprompted. |
-| **G — mine the 6 new transcripts** (detection thresholds, hook patterns) | **G1–G3 (the 3 Lacy files) running 2026-08-04. G4/G5/G6 DEFERRED — still to do, see PENDING §G** |
-| **H — CORE clipper research on X** (@yoxics, @scubaryan_, @coresculture +) | **queued with G** |
+| **G — mine the 6 new transcripts** | **G1, G2, G3 ✅ DONE 2026-08-04** — all three saved, indexed, pushed. **G4/G5/G6 still to do** (PENDING §G). |
+| **H — CORE clipper research on X** | **H2 (discovery) ✅ DONE.** **H1 (@yoxics, @scubaryan_, @coresculture) LOST** to the session limit — must be re-run, prompt is in PENDING §H. |
 
 **Rough cost per workstream** (from real measured sessions — budget is a
 live constraint, so plan before starting):
@@ -365,6 +401,13 @@ Marked ⚡ where an answer unblocks real work.
 3. ⚡ **Usage headroom** — how much budget is left this session? Required
    before launching any agents.
 4. **Workstream order** — A, B, C, or D first? The user picks.
+4b. ⚡⚠️ **Is `@LacyCrashOuts` the correct handle?** The H2 discovery agent
+   **could not find that account** (see §6 of
+   [`research_2026-08-04_core_clippers_discovery_VERBATIM.md`](reference/research_2026-08-04_core_clippers_discovery_VERBATIM.md)).
+   The entire project targets it. Either the handle is wrong, the account
+   was renamed or removed, or it simply is not discoverable logged-out.
+   **Only the user can settle this, and it is load-bearing** — every
+   downstream assumption about the target rests on it.
 
 **Scope and direction:**
 5. **Which streamer(s) beyond Lacy**, if any? The architecture supports a
