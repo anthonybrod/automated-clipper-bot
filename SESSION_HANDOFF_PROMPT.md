@@ -270,6 +270,91 @@ that's the honest headline; everything so far is restoration, research,
 rules, and now the first real detection numbers.
 ```
 
+---
+
+## §2 — THE TEMPLATE
+
+Six sections, in this order. **Constants stay word-for-word; variables get
+updated from real state, never from memory.**
+
+### Section 1 — "just to catch you up:"
+**CONSTANT:**
+- Read `START_HERE.md` first, full repo path
+- Name the detailed-agenda file behind it
+- *"Don't reconstruct anything from memory or chat history — read the files."*
+
+### Section 2 — "TASK #1, before anything else:"
+**VARIABLE.** The single specific next action, not a menu. If it has parts,
+number them. Say what is already done so it isn't redone. Pulled from
+`START_HERE.md` §2.
+
+### Section 2b — "OPEN CHECKLIST — carry this forward and tick things off:"
+**VARIABLE.** Every open item as a `[ ]` checkbox, including things blocked
+on the user. Prose describes; a checklist *tracks*. This is what survives
+across many sessions — items get ticked, not rewritten. Keep blocked items
+in the list rather than moving them elsewhere, so nothing quietly drops.
+
+### Section 3 — "THEN [n] research workstreams, my pick of order:"
+**VARIABLE progress, CONSTANT structure.** One lettered entry each, with
+current progress `(x of y done)` and any non-obvious note (a gotcha, a
+reusable script, why it matters). Pulled from the resume file's agenda board.
+
+### Section 4 — "ALSO READ:"
+**MOSTLY CONSTANT.** Rule count changes; the rest holds:
+- `CLAUDE.md` — N rules, M active
+- *"Don't just read them, apply them: they're strict defaults and deviating
+  from one requires asking me first."*
+- **The non-negotiables, spelled out** (not just "follow the rules") — final
+  say on completion; nothing factual unless confirmed; external-AI is
+  reference only; run checks BEFORE reporting; preserve source verbatim;
+  raw records separate from evaluation; don't dismiss free tools
+- `MASTER_TOOLS_CATALOG` before picking any tool
+- `PROJECT.md` currency date
+
+### Section 5 — "BEFORE STARTING ANYTHING:"
+**CONSTANT structure, VARIABLE values:**
+- Confirm the checkpoint: `git log`, `git status`, synced with origin —
+  **with the real last-known-good commit hash**
+- What to raise early (open decisions the user owes an answer on; usage
+  headroom before agents)
+- Unverified leads to check before related build work
+
+### Section 4b — "LAST SESSION — what got built:"
+**VARIABLE.** A short progress report: what actually shipped last session.
+Not a changelog of every commit — the things a fresh session needs to know
+exist so it doesn't rebuild them. This is the section that stops a stale
+prompt sending someone to redo finished work (which happened on
+2026-08-03 — the prompt still said "build START_HERE.md" after it existed).
+
+### Section 4c — "NEW THIS SESSION — things found, not yet acted on:"
+**VARIABLE.** New ideas, tools, discoveries, and bugs found but not yet
+resolved. Distinct from 4b: that is *done*, this is *known but open*.
+Include external tools/repos discovered and what was taken from them.
+Without this section, findings die with the session that made them.
+
+### Section 5 — "BEFORE STARTING ANYTHING:"
+**CONSTANT structure, VARIABLE values:**
+- Confirm the checkpoint: `git log`, `git status`, synced with origin —
+  **with the real last-known-good commit hash**, plus the note that HEAD
+  being one ahead is normal
+- What to raise early (open decisions the user owes an answer on; usage
+  headroom before agents)
+- Unverified leads to check before related build work
+- Anything installed last session that is being exercised for the first
+  time this session
+
+### Section 6 — "CONTEXT I'll forget:"
+**MOSTLY CONSTANT.** The operational reality that never survives a context
+reset:
+- Budget is live — metered, hard weekly reset Monday 1pm, hit repeatedly
+- Documentation work is not cheap (cite a real burn-rate data point)
+- Drive mechanism: Claude pushes to GitHub, user pulls in Colab, fresh
+  runtime needs `drive.mount()` first
+- Where the raw record lives (prompt log + transcript backup) and that it
+  is the fallback when a curated note is missing or disputed
+- **The honest headline** — currently "still zero pipeline code"
+
+---
 
 ## §3 — Maintenance rules
 
