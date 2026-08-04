@@ -29,7 +29,7 @@ are the record.
 
 1. WHERE WE ARE
 Repo:   C:\Users\AwBro\Desktop\automated clipper bot
-GitHub: github.com/anthonybrod/automated-clipper-bot @ HASHGOESHERE (master)
+GitHub: github.com/anthonybrod/automated-clipper-bot @ 17a2c48 (master)
 Drive:  user pulls manually in Colab — Claude cannot push there.
 Phase:  research and organization. ZERO PIPELINE CODE EXISTS. That is the
 honest headline; everything built so far is project restoration, source
