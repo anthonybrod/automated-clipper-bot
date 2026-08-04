@@ -2,7 +2,7 @@
 
 **The single entry point for this project. Read this first, every session.**
 
-Last updated: **2026-08-04** · Written at commit `10394e8` (this file's own
+Last updated: **2026-08-04** · Written at commit `d9be435` (this file's own
 commit lands *after*, so HEAD will read one ahead — see §0) · Working tree
 clean. **local = GitHub = Drive** — the user pulled `95be096` into
 "CLAUDE AI CLIP BOT V1 attempt" on 2026-08-04, confirmed by real output.
@@ -190,6 +190,18 @@ other, so a decision recorded in one and not the others reads as *unresolved*
 to anyone arriving cold — which is worse than not recording it at all.
 `SAVE_PROTOCOL.md` step 3 already says "all five sections"; this is what
 happens when that is treated as a checklist item rather than a check.
+
+**✅ 2026-08-04 — findability audit + [`INDEX.md`](INDEX.md).** The user
+noticed finished work kept reading as missing: *"it seems like these were
+done well just lost and unorganized even those i asked. i wonder if we lost
+more things."* Measured it: **12 of 30 source documents were referenced by
+nothing a session actually reads** — including all three Hugging Face
+VERBATIM reports (already nearly lost once, re-saved at the user's
+insistence), the 919-line master planning session, and the 78-source tool
+directory. Nothing was lost; all 12 were fine on disk. But **a file nothing
+points at is functionally lost**, because no future session opens it.
+`INDEX.md` catalogues all 30 with status and when to read each, and is now
+covered by `check_links.sh` (51 → 94 links verified).
 
 **No blockers remain.** The next action is §2.
 
@@ -442,6 +454,7 @@ when a note is missing or disputed.
 
 | What | Where |
 |---|---|
+| **INDEX of every document** — what each file is, its status, when to read it | [`INDEX.md`](INDEX.md) |
 | **SAVE EVERYTHING protocol** — the 9-step sequence run when the user says save | [`SAVE_PROTOCOL.md`](SAVE_PROTOCOL.md) |
 | **Session handoff prompt** — ready-to-paste catch-up block + its template | [`SESSION_HANDOFF_PROMPT.md`](SESSION_HANDOFF_PROMPT.md) |
 | **Live agenda, per-item detail** | [`reference/PENDING_agent_prompts_resume_2026-08-01.md`](reference/PENDING_agent_prompts_resume_2026-08-01.md) |

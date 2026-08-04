@@ -8,7 +8,8 @@ no paid SaaS subscriptions in the pipeline itself.
 > **Working on this project? Start with [`START_HERE.md`](START_HERE.md)** —
 > the single session entry point: current state, the next action, blockers,
 > open questions, and where everything lives. This README is the public
-> front door; `START_HERE.md` is the working one.
+> front door; `START_HERE.md` is the working one. For a catalogue of every
+> document in the repo and when to read it, see [`INDEX.md`](INDEX.md).
 
 **Status: pre-flight / research phase. No pipeline code has been written
 yet — by design.** The project's own discipline is to prove out every hard

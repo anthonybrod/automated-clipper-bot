@@ -5,7 +5,7 @@
 cd "$(dirname "$0")" || exit 1
 BROKEN=0
 CHECKED=0
-for doc in START_HERE.md CLAUDE.md PROJECT.md SESSION_HANDOFF_PROMPT.md \
+for doc in START_HERE.md CLAUDE.md PROJECT.md SESSION_HANDOFF_PROMPT.md INDEX.md \
            reference/PENDING_agent_prompts_resume_2026-08-01.md; do
   [ -f "$doc" ] || { echo "MISSING DOC: $doc"; BROKEN=$((BROKEN+1)); continue; }
   # pull (path) out of markdown links, skip URLs and anchors

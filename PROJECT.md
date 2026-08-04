@@ -5,6 +5,14 @@ See [CLAUDE.md](CLAUDE.md) for the working rules. Chat history is not
 authoritative; this file is — if a conversation conflicts with this file,
 this file wins unless the code has since changed.
 
+**Looking for a specific document?** [`INDEX.md`](INDEX.md) catalogues every
+file in this repo — what is in it, its verification status, and when to read
+it. It exists because a 2026-08-04 audit found **12 of 30 source documents
+referenced by nothing a session actually reads**, including three verbatim
+research reports that had already been nearly lost once. Finished work that
+nothing points at is functionally lost. Add a row there whenever you add a
+file.
+
 ## One-line description
 
 Pulls the best clips from Twitch VODs/streams, adds captions, produces
