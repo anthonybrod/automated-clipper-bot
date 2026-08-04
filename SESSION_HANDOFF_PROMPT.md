@@ -14,96 +14,103 @@ never re-invented, and holds the **current ready-to-paste version**.
 **Who maintains it:** Claude regenerates §1 as part of the end-of-session
 save, alongside `START_HERE.md`. The user just copies.
 
----
-## §1 — READY TO PASTE (regenerated 2026-08-03, all blockers resolved)
+---## §1 — READY TO PASTE (regenerated 2026-08-04)
 
 ```
 Continuing the @LacyCrashOuts automated clipper bot project.
 
 FIRST: read C:\Users\AwBro\Desktop\automated clipper bot\START_HERE.md in
-full, then run its §0 self-validation before trusting anything in it. Then
-read that repo's CLAUDE.md (21 numbered rules, 16 active) and PROJECT.md.
-Do not reconstruct the plan from this prompt alone — this is a pointer, the
-files are the record.
+full, then run its §0 self-validation before trusting it. Then CLAUDE.md
+(21 numbered rules, 16 active) and INDEX.md, which catalogues every document
+in the repo and when to read it. Do not reconstruct the plan from this
+prompt alone — it is a pointer, the files are the record.
 
-1. WHERE WE ARE
+1. DO THIS FIRST — the user's standing instruction
+Test that the save system worked, then present the checklist/progress report
+and to-do list, then suggest a starting point. Do NOT pick a workstream
+first. Commands are in §2 of START_HERE.md.
+FIVE cold-start passes have been run and EVERY ONE found real bugs. Assume
+this one will too. A pass that finds nothing is a weak test, not a pass.
+
+2. WHERE WE ARE
 Repo:   C:\Users\AwBro\Desktop\automated clipper bot
-GitHub: github.com/anthonybrod/automated-clipper-bot @ 3741cc7 (master)
-Drive:  "CLAUDE AI CLIP BOT V1 attempt" — user pulls manually in Colab.
-        Claude cannot push there. Mount Drive FIRST or the path won't exist.
-Phase:  research and organization. ZERO PIPELINE CODE EXISTS. That is the
-honest headline; everything built so far is project restoration, source
-verification, tool cataloguing, and the operating rules + save system.
+GitHub: github.com/anthonybrod/automated-clipper-bot @ 6d2ef01 (master)
+Drive:  "CLAUDE AI CLIP BOT V1 attempt" — user pulls in Colab. Mount Drive
+        FIRST or the path won't exist. Claude cannot push there.
+Phase:  research. ZERO PIPELINE CODE EXISTS — the honest headline. But as of
+        2026-08-04, Stage 3 finally has REAL NUMBERS instead of advice.
 
-2. DO THIS FIRST — the user's own instruction, verbatim (2026-08-03)
-"1st test the save project we made today worked then present the checklist
-progress report and to do list and suggest starting point"
+3. THE STAGE 3 FINDINGS (2026-08-04, from 50 human-curated moments)
+Source: reference/mining_2026-08-04_cVkFMpDLQrM_VERBATIM.md — a curated
+best-of, so every segment is a positive example, not an opinion.
+- Clip length: median 39.5s, 78% in 20-70s -> target 40s, accept 20-70s,
+  hard floor 11s
+- Hook openings: 36% direct question, 22% shouted name/imperative, 0%
+  narration
+- TEXT-ONLY DETECTOR: verbal repetition in 22 of 50 moments (>=3 repeats of
+  a short phrase within 10s). Needs only the transcript — no audio, no
+  model, no API call. Belongs in the free statistical pre-filter.
+- Moment types: physical escalation 28%, verbal roast 20%, authority 12%,
+  reveal 12%, romance 12%, heist 10%, one-liner 6%
 
-Do it in that order. DO NOT pick a workstream first — the user deliberately
-declined to choose one until after this report. Step-by-step commands are
-in §2 of START_HERE.md. Four cold-start test passes were run on 2026-08-03
-and EVERY ONE found real bugs — assume this one will too. A pass that finds
-nothing is a weak test, not a clean bill of health.
+⚠️ THREE CORRECTIONS THAT CONTRADICT THE CURRENT ARCHITECTURE — resolve
+before building Stage 3, do not silently apply:
+1. ~20% of curated moments have NO shouting. The Architecture Outline treats
+   audio-RMS spikes as a primary pre-filter — that misses 1 moment in 5.
+2. Long silences are POSITIVE (physical gags). A low speech-density filter
+   would delete the best set-pieces.
+3. Clip length cannot be derived from caption-cue gaps (1-2s ASR cadence).
 
-3. WHAT LANDED LAST SESSION (2026-08-03)
-- START_HERE.md — the single session entry point (a router, not a duplicate)
-- SAVE_PROTOCOL.md — 9 ordered steps for "save everything", plus the written
-  START_HERE.md format so it can't degrade each time it's overwritten
-- 4 global hooks in ~/.claude/hooks/ + a user-level ~/.claude/CLAUDE.md that
-  loads in EVERY session regardless of working directory
-- check_links.sh — 51 links across 5 docs, wired into the Stop hook
-- .claude/ added to .gitignore — raw prompt logs were one `git add -A` from
-  a public repo
-- Rule 22 ADOPTED by the user; Rules 8 & 9 DROPPED by the user
+Competitive context, not a threshold: ~60M monthly views on #Lacy across
+1,598 clippers, ~100% MoM growth. The payout model pays $0 below a per-post
+view minimum, so this field size matters.
 
 4. OPEN CHECKLIST
-[x] Rule 22 — updating START_HERE.md is the non-skippable last action of
-    every session. ADOPTED by the user 2026-08-03.
-[x] Rules 8 & 9 (ffmpeg faststart; .ass karaoke captions) — DROPPED by the
-    user 2026-08-03. Gemini-sourced, adopted without authorization; that is
-    why they went, not a technical judgment. Decide them at build time.
-[ ] Workstream A — Rule 20 retroactive review: 1 of 6 done (remaining:
-    A2 HF-vision, A3 HF-LLM, A4 mining report, A5 78-source audit,
-    A6 the 17 videos)
-[ ] Workstream B — source mining: 1 of 12 done
-[ ] Workstream C — 6 untranscribed YouTube videos: mFOoNPFylLI,
-    PafYu69s5NA, QqwNue_KL-4, cVkFMpDLQrM, mVqnCvE337E, lYafPAHVOno
-[ ] Workstream D — platform / free-inference / hosting research: not started
-[ ] Transcript backup is still manual (SAVE_PROTOCOL step 8) — the one
-    unclosed hole in the save system
+[ ] ⚡ ASK THE USER: is @LacyCrashOuts the correct handle? The H2 discovery
+    agent COULD NOT FIND that account. The whole project targets it. See
+    §3b of START_HERE.md. Load-bearing — do not guess.
+[ ] H1 — RE-RUN. Lost to a session limit mid-write. Researches @yoxics,
+    @scubaryan_, @coresculture. Full prompt preserved in PENDING §H.
+[ ] G4/G5/G6 — mine the 3 remaining transcripts (PafYu69s5NA is highest
+    value: it opens describing this project's exact problem, already solved)
+[ ] A — Rule 20 retroactive review: 1 of 6
+[ ] B — source mining: 1 of 12
+[ ] D — platform/hosting research: not started
+[ ] F — AI folder: PUT OFF, waits on the USER. Do not sweep it unprompted.
+[ ] Transcript backup still manual
 [ ] Zero pipeline code — the real work has not started
+[x] C — 6 transcripts fetched, verified, 2026-08-04
+[x] G1/G2/G3 — mined, saved, indexed, 2026-08-04
+[x] H2 — CORE discovery, 22 VERIFIED claims
+[x] Rule 22 adopted; Rules 8 & 9 dropped (2026-08-03)
 
 5. HOW WE WORK (each rule exists because a specific failure happened)
-- Rule 10: the USER decides what is "complete." Never self-stamp. When they
-  authorize it, mark it "COMPLETE — authorized by user YYYY-MM-DD".
+- Rule 10: the USER decides what is "complete." Never self-stamp.
 - Rule 12: verified means checked THIS session. File existence is not
   content verification.
-- Rule 14: no rule is adopted without the user's explicit confirmation.
-- Rule 15/16: source material saved word-for-word, never condensed, and kept
-  in separate files from any evaluation of it.
-- Rule 20: evaluate every tool for five roles — primary, backup/fail-safe,
-  cross-check, assist, feature. Never dismiss a working free tool.
-- Rule 21: run every check BEFORE reporting, not after being asked.
-- Rule 22: update START_HERE.md as the last action, before the final push,
-  even when a usage limit is cutting the session short.
-- NEVER delete, move, overwrite or revert anything without being asked.
-  Never use `git checkout <file>` to undo an edit — it reverts the whole
-  file. This destroyed real work on 2026-08-03.
-- Budget is a first-class constraint: payouts are ~$0.50-$3.00 per 1,000
-  views, so recurring API cost eats the margin directly. Ask before
-  launching agents and confirm usage headroom first.
+- Rule 14: no rule adopted without explicit confirmation.
+- Rule 15/16: sources word-for-word, never condensed; raw kept separate
+  from evaluation.
+- Rule 20: five roles per tool. Never dismiss a working free tool.
+- Rule 21: run every check BEFORE reporting.
+- Rule 22: update START_HERE.md last, before the final push, even when a
+  usage limit is cutting the session short.
+- One agent per source file. Broad-scope agents have died producing nothing;
+  single-file agents have succeeded every time.
+- COMMIT EACH AGENT'S REPORT ON ARRIVAL, never batch. On 2026-08-04 a
+  session limit killed 3 agents mid-write; this practice cost 1 report
+  instead of 3.
+- NEVER delete, move, overwrite or revert without being asked. Never use
+  `git checkout <file>` to undo an edit — it destroyed real work 2026-08-03.
+- Budget is first-class: payouts are ~$0.50-$3.00 per 1,000 views. Ask
+  before launching agents and confirm usage headroom first.
 
-6. WHAT I CANNOT DO
-- Push to Google Drive (no Desktop app, no API). The user pulls in Colab:
-  mount Drive FIRST, then git pull — or run the full bootstrap cell, which
-  clones if the folder doesn't exist and pulls if it does.
-- Guarantee the notes caught everything. The verbatim prompt log at
-  .claude/session-prompts.log and the raw transcripts are the fallback.
-
-7. WHAT ONLY THE USER CAN ANSWER
-See §3b of START_HERE.md — standing questions, kept with their answers.
-Search the repo before asking anything new; the whole record is in git and
-mirrored in Drive.
+6. WHAT ONLY THE USER CAN DO
+- Pull Drive (Claude has no access). Run validate_environment.py in Colab.
+- Create Twitch Developer credentials.
+- Triage the AI\ folder and hand over what matters.
+- Answer §3b of START_HERE.md. Search the repo before asking anything new —
+  INDEX.md says where everything is.
 ```
 
 
