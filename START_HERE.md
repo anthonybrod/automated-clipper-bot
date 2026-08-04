@@ -213,9 +213,26 @@ Five open questions at the end need the user's answers.
 
 ## 3b. Questions only the user can answer
 
-These aren't in any file because they can't be — they're decisions,
-preferences, or facts about the outside world. **Ask them when they become
-relevant, not all at once.** Marked ⚡ where an answer unblocks real work.
+**First: check the repo before asking anything.** The user's standing
+point (2026-08-03): *"in the github and drive are the whole of our work u
+can refer back to those for any questions too."* The entire history is
+here — every verbatim source document, every research report, every
+decision and its reasoning, plus full `git log`. **If a question is
+answerable from the files, answer it yourself.** Search before asking:
+
+```bash
+grep -ril "<term>" . --include=*.md      # search every doc
+git log --oneline --all | head -40       # what happened, in order
+git log -p --follow <file>               # how one file evolved and why
+```
+
+The commit messages are deliberately detailed — they record *why*, not
+just *what*. They are a primary source, not metadata.
+
+The questions below are the residue: things genuinely **not** in any file
+because they can't be — decisions, preferences, and facts about the
+outside world. **Ask them when they become relevant, not all at once.**
+Marked ⚡ where an answer unblocks real work.
 
 **Decisions currently owed (ask early):**
 1. ⚡ **Rule 22** — adopt "updating `START_HERE.md` is the last action of
