@@ -743,3 +743,140 @@ the user last ran. So a previously-seen error may already be fixed.
 - **Phase 4**: one agent doing deeper web research for ways to advance the
   project's tech/scope/quality, aligned to project goals and the same
   5-lens prompt.
+
+---
+
+## NEW WORKSTREAMS — added 2026-08-04 at the user's direction
+
+### F. Sweep `C:\Users\AwBro\Desktop\AI\` for material never imported
+*Status: **queued, next after G/H**. Explicitly requested: "note the AI sweep
+this is next to do — I want it on the checklist/to do list."*
+
+**Why.** The 2026-08-04 findability audit covered only files already **in
+this repo** and found 12 of 30 invisible. It did not touch `AI\`, which is
+where everything originally came from — multiple project attempts, Drive
+zip exports, raw notes, executed notebooks. Material that was never imported
+is invisible in the strongest possible sense: not indexed, not linked, not
+even present.
+
+**Scope.** Inventory `C:\Users\AwBro\Desktop\AI\` recursively. For every
+file, decide one of: already in the repo (verify by content, not filename) /
+worth importing / superseded / irrelevant. Known contents to expect, from
+prior sessions — treat as leads to re-verify, not facts (Rule 12):
+
+- `claude_failure_report.md` — 1,400 lines, evidence-cited. The quality bar.
+- `automated clipper bot\` — the user's manual copy, `sample `-prefixed
+  duplicates beside real files
+- `auto clipper bot #2\` — Drive zip exports, two real executed Colab
+  notebooks (one contains a **real reproducible `KeyError: 'data'` crash**
+  in `chat_downloader`)
+- `CLIP BOT STUFF\` — earlier Gemini planning round,
+  `pipeline_transcription_engine.py`
+- `tmp_openshorts\` — real openshorts source
+- `claude_transcripts_backup_2026-08-03\` — ~66MB raw transcripts
+
+**Deliverable.** A dated inventory in `reference/`, plus rows added to
+[`INDEX.md`](../INDEX.md) for anything imported. **Never move or delete
+anything in `AI\` — copy only.**
+
+**Rule 1 warning:** the point is to find work already done. Import it,
+don't redo it.
+
+---
+
+### G. Mine the 6 new transcripts — detection thresholds and hook patterns
+*Status: **next up**. User: "Mine the 6 Lacy transcripts next... detection
+thresholds, hook patterns and more — it has to be built against real
+examples rather than generic advice. That's one agent per file, the pattern
+that worked."*
+
+**Note on the count:** 6 transcripts were fetched 2026-08-04; **3 are
+Lacy-specific**, 3 are tooling/workflow. All 6 get mined; the Lacy 3 carry
+the most weight for detection because they are the only source anywhere for
+what a clip-worthy Lacy moment actually looks like.
+
+**One agent per file — 6 agents.** That is the pattern that worked (A1 and
+B1 were single-file and succeeded; the three broad-scope agents covering
+many files each died producing nothing).
+
+| # | File | Snippets | Why it matters |
+|---|---|---|---|
+| G1 | `research/transcripts/mVqnCvE337E.txt` | 2,337 | *How Lacy Got Used On Stream* — the largest. Drama/conflict arc. |
+| G2 | `research/transcripts/cVkFMpDLQrM.txt` | 1,068 | *Lacy's Best Streamer University Moments* — **an actual curated best-of. Someone already decided what a good Lacy moment is; this is a labelled dataset.** |
+| G3 | `research/transcripts/lYafPAHVOno.txt` | 397 | *Lacy's Content Strategy Breakdown* — why the content works. |
+| G4 | `research/transcripts/PafYu69s5NA.txt` | 351 | *Claude + Whop Clipping Workflow* — opens with a clip "found, analyzed, cut, and captioned automatically and completely for free with Claude." This project's exact problem statement, already built. |
+| G5 | `research/transcripts/mFOoNPFylLI.txt` | 521 | Higgsfield / Claude connectors + Claude Code setup section. |
+| G6 | `research/transcripts/QqwNue_KL-4.txt` | 145 | Gemini Gems tutorial — relevant to the user's existing Gemini Plus suite. |
+
+**Extraction lenses** — the standard 5 (A complete/portable code,
+B fixable code, C free/unutilized tools, D efficiency paths,
+E corrections/gotchas) **plus three specific to this workstream**:
+
+- **F — detection signals.** Anything indicating *why* a moment was
+  clip-worthy: reactions, volume/intensity shifts, chat behaviour, conflict
+  onset, punchline timing. Quote the transcript with its `[MM:SS]`.
+- **G — hook patterns.** How clips open. First 1–3 seconds. What the title
+  or framing promises. Concrete openings, not "make it engaging."
+- **H — thresholds and numbers.** Any real number stated: clip length,
+  posting cadence, view counts, retention, spike magnitudes. These become
+  the starting values for Stage 3 rather than invented defaults.
+
+**Hard requirements:** every finding cites `[MM:SS]` plus the video ID, so
+it can be checked at the exact second (all 23 transcripts carry their URL on
+line 2). Word-for-word, never condensed (Rule 15). Raw report separate from
+evaluation (Rule 16). Save each report as its own
+`reference/mining_2026-08-04_<video_id>_VERBATIM.md`, add an
+[`INDEX.md`](../INDEX.md) row, commit per agent (don't batch).
+
+---
+
+### H. CORE clipper reference research — real successful clips on X
+*Status: **queued with G**. User direction, verbatim: "reference the same
+amount of high value CORE related and individual member related clips like
+by yoxic @yoxics, ryan 🤿 @scubaryan_, Core Culture @coresculture and a few
+other giant very successful X (twitter) CORE clippers."*
+
+**Why this is the right instinct.** The Lacy transcripts show what the
+*source material* looks like. This shows what a **successful finished clip**
+looks like — from accounts already winning at exactly the thing this bot is
+being built to do. Detection thresholds and hook patterns derived from real
+high-performing clips beat any generic advice.
+
+**Named targets (user-supplied):**
+
+| Account | Handle | Focus |
+|---|---|---|
+| yoxic | `@yoxics` | CORE clips |
+| ryan 🤿 | `@scubaryan_` | CORE clips |
+| Core Culture | `@coresculture` | CORE community |
+| + "a few other giant very successful X CORE clippers" | — | **Identify these as part of the work** |
+
+**What to extract per clip** — and it must be *real observed clips*, not
+descriptions of clips:
+
+1. **Hook** — what happens in the first 1–3 seconds, concretely.
+2. **Length** — actual duration. Look for a clustering pattern.
+3. **Caption/title** — exact text. What it promises and how it's phrased.
+4. **Format** — aspect ratio, subtitle style, facecam layout, zoom/cut
+   rhythm, whether the chat is visible.
+5. **Engagement** — views/likes/reposts where visible, so "successful" is
+   measured rather than assumed.
+6. **What made it clippable** — the underlying moment type.
+7. **Individual-member vs CORE-wide** — the user called out both; note which
+   a clip is, since they may hook differently.
+
+**⚠️ Real constraint, flag it rather than discover it mid-run:** X/Twitter
+is heavily gated to logged-out automated access. Plain fetching may return
+nothing usable. Order of attack, cheapest first:
+1. Web search for the accounts and their clips (indexed pages, aggregators).
+2. Public mirrors/embeds that don't require auth.
+3. If both fail — **say so plainly and ask the user**, who is logged in and
+   can screenshot or paste directly. Do **not** silently substitute generic
+   "what makes a good clip" advice for real observed clips. That substitution
+   is the exact failure mode this workstream exists to avoid.
+
+**Deliverable:** `reference/research_2026-08-04_core_clippers_VERBATIM.md`,
+one section per account, every claim tied to a real URL. Cross-reference the
+findings against G's detection signals — where the Lacy source material and
+the successful finished clips **agree**, that is the strongest possible
+signal for a Stage 3 threshold.

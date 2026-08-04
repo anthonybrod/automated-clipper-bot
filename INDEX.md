@@ -94,6 +94,7 @@ is verified. Treat every claim as a lead, not a fact (Rule 12).
 |---|---|---|
 | `research/transcripts/*.txt` | **23 full transcripts.** Every file carries its YouTube URL on line 2 and every line is timestamped `[MM:SS]`, so any quote can be verified at the exact second. Batch 1 = 17 videos (`_summary.txt`); batch 2 = 6 videos fetched 2026-08-04 (`_summary_batch2.txt`). | Whenever a claim traces back to a video — go to the raw words. |
 | [`research/RESEARCH_YOUTUBE_SOURCES.md`](research/RESEARCH_YOUTUBE_SOURCES.md) | Recovery of 17-video research that existed only in chat and was dropped by a context-compaction event. | Overview of what the 17 videos collectively established. |
+| [`reference/PENDING_agent_prompts_resume_2026-08-01.md`](reference/PENDING_agent_prompts_resume_2026-08-01.md) §F/G/H | **Workstreams added 2026-08-04**: F = sweep the `AI\` folder for never-imported material; G = mine the 6 new transcripts for detection thresholds and hook patterns; H = CORE clipper research on X. Each carries its full agent prompt. | Before starting F, G or H. |
 | [`research/fresh_pass_videos_1-9.md`](research/fresh_pass_videos_1-9.md) · [`10-17`](research/fresh_pass_videos_10-17.md) | Careful from-scratch re-study of all 17, reading full real transcripts and descriptions. Redone because the first pass was lost to compaction. | Per-video detail. **Workstream A6 targets these two files.** |
 
 **The 3 Lacy videos (fetched 2026-08-04) are the highest-value item here** —
