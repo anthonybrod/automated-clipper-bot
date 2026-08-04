@@ -28,7 +28,7 @@ files are the record.
 
 1. WHERE WE ARE
 Repo:   C:\Users\AwBro\Desktop\automated clipper bot
-GitHub: github.com/anthonybrod/automated-clipper-bot @ HASHGOESHERE (master)
+GitHub: github.com/anthonybrod/automated-clipper-bot @ 3741cc7 (master)
 Drive:  "CLAUDE AI CLIP BOT V1 attempt" — user pulls manually in Colab.
         Claude cannot push there. Mount Drive FIRST or the path won't exist.
 Phase:  research and organization. ZERO PIPELINE CODE EXISTS. That is the
