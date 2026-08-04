@@ -146,3 +146,88 @@ survive app updates or cache clearing.
   The user pulls in Colab. Always say so rather than implying both landed.
 - **Guarantee the notes captured everything.** Step 1 plus the verbatim
   prompt log are mitigations, not proof. The transcripts are the fallback.
+
+---
+
+## The `START_HERE.md` format — exactly what to write in each section
+
+Step 3 says "update `START_HERE.md`." This is *what that means*, so the
+format survives even when the session that wrote it is gone. **Written at
+the user's instruction (2026-08-03): "you need to save the format so you
+know what to add."**
+
+`START_HERE.md` is **overwritten each session, not appended.** History
+lives in git. It is a **router, not a duplicate** — point at the real file,
+don't restate its contents, or the two drift apart.
+
+### Header
+```
+Last updated: **YYYY-MM-DD** · Written at commit `<short hash>` (this file's
+own commit lands *after*, so HEAD will read one ahead — see §0) · Working
+tree <clean|dirty>, local = GitHub. **Drive pull pending** (user runs it).
+```
+The hash is `git rev-parse --short HEAD` **at the moment of writing**. It
+will be one behind after committing — that is correct and §0 explains it.
+
+### What this project is
+Only changes if the project's scope or goal changes. Must always answer, in
+this order: what it is → why it exists (the payout model) → why budget is a
+constraint → the 6-stage pipeline table → the single most important
+technique → campaign rules. A cold session that skips this cannot judge
+whether any decision was right.
+
+### §0 Validate this file
+Static. Only touch it if a new staleness check is added.
+
+### §1 State right now
+- **The honest headline first** — currently "zero pipeline code exists."
+  Never let a list of finished infrastructure imply progress that didn't
+  happen.
+- **Done and durable** — what actually survives, not what was discussed.
+- **`✅ COMPLETE — authorized by user YYYY-MM-DD`** for each item the user
+  approved *this session*. Rule 10: never self-stamp.
+- **`⏳ BLOCKED — pending a yes/no`** for anything waiting on the user.
+- **Uncommitted work**, if any, and what it is.
+- **The workstream progress table** — real counts (`1 of 6`), not vibes.
+
+### §2 Next action
+**One specific action, not a menu.** A cold session must be able to start
+without deciding anything first. If the next action is a question for the
+user, say that explicitly and give the exact wording to ask.
+
+### §3 Blockers and open leads
+Everything waiting on someone else, with enough context to act the moment
+it unblocks. Include the cost/time estimates and the agent-or-solo call.
+
+### §3b Questions only the user can answer
+Numbered, standing, and **kept even after answering** — record the answer
+inline. This is where a fresh session finds out what it cannot derive from
+the repo. Rule: search the repo before adding a question here.
+
+### §4 How we work
+Only edit if `CLAUDE.md` changed. Must state the current rule count — §0
+greps `CLAUDE.md` and compares against this number, so a wrong count here
+fires a false alarm every session.
+
+### §5 Where things are
+Only edit if files were added, moved, or renamed. Every link must resolve —
+`check_links.sh` proves it.
+
+### Before saving, verify
+```bash
+bash check_links.sh                                    # links resolve
+grep -cE '^[0-9]+\. ' CLAUDE.md                        # matches §4's count
+grep -o 'Written at commit .[a-f0-9]*.' START_HERE.md  # matches HEAD
+grep -o '[a-f0-9]\{7\}' SESSION_HANDOFF_PROMPT.md      # NO stale hash
+```
+> **Real precedent (2026-08-03):** a final cold-start test caught
+> `SESSION_HANDOFF_PROMPT.md` still carrying commit `efcadda` while HEAD
+> was `c6f569a`, and `README.md` still claiming 11 operating rules when
+> there were 20. Both are exactly what this checklist now catches. The
+> stale hash is the worst kind of error here — it sends the next session to
+> a commit that predates the work it's supposed to resume from.
+
+### ⚠️ Never use `git checkout <file>` to undo an edit
+It reverts the **whole file**, not one line — including uncommitted work
+written minutes earlier. This destroyed real content on 2026-08-03. Remove
+a test line with `sed`, or commit good work before experimenting.

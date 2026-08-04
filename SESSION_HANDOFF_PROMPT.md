@@ -114,7 +114,7 @@ SAVE_PROTOCOL.md exactly. PROJECT.md is current as of 2026-08-02.
 
 BEFORE STARTING ANYTHING:
   - Confirm the checkpoint held: git log, git status, synced with origin.
-    Last known good is efcadda or later. HEAD one ahead of what
+    Last known good is c6f569a or later. HEAD one ahead of what
     START_HERE.md's header says is NORMAL; two or more means work landed
     after it was updated (START_HERE.md §0 explains why).
   - Raise these early: I owe you a yes/no on Rule 22, and on provisional
