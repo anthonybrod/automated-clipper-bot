@@ -1,10 +1,15 @@
 # Working on this repo
 
-> ## 🚩 RESUMING? READ THIS FIRST
+> ## 🚩 RESUMING? READ [`START_HERE.md`](START_HERE.md) FIRST
+>
+> **[`START_HERE.md`](START_HERE.md)** (repo root) is the single entry
+> point, updated every session: state right now, the single next action,
+> blockers & open leads, how we work, and where everything is. **Start
+> there, not here.**
 >
 > **[`reference/PENDING_agent_prompts_resume_2026-08-01.md`](reference/PENDING_agent_prompts_resume_2026-08-01.md)**
-> is the live pick-up point, written to be read cold with no memory of any
-> prior conversation. It opens with a **LIVE AGENDA & PROGRESS board**
+> holds the detailed agenda that `START_HERE.md` summarizes — read it for
+> per-item detail. It opens with a **LIVE AGENDA & PROGRESS board**
 > covering four open workstreams:
 > - **A** — retroactive Rule 20 review of already-"completed" work (1 of 6)
 > - **B** — the 12-item source-mining pass (1 of 12), with the exact prompt

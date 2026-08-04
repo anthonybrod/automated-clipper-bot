@@ -14,12 +14,12 @@ its own folder/repo, but actively salvaging verified-working code from it.
 
 ## Current status (updated 2026-08-02 — read this first if resuming)
 
-**⚠️ For the live agenda and next actions, read
+**⚠️ Read [`START_HERE.md`](START_HERE.md) first** — it is the single
+session entry point (state now, next action, blockers, where things are),
+updated every session. This file holds durable project state;
+`START_HERE.md` holds what's in flight, with
 [`reference/PENDING_agent_prompts_resume_2026-08-01.md`](reference/PENDING_agent_prompts_resume_2026-08-01.md)
-first** — it carries the running status board. This file holds durable
-project state; that file holds what's in flight. (Its filename is dated
-2026-08-01 but its contents are current — a standing `START_HERE.md` is
-task #1 next session specifically to fix that confusion.)
+carrying the detailed per-item agenda behind it.
 
 **Headline, stated plainly: still zero pipeline code.** Everything to date
 is restoration, research, verification, and operating rules. That is the
