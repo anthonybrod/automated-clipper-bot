@@ -25,6 +25,7 @@ cd "C:\Users\AwBro\Desktop\automated clipper bot"
 git log --oneline -3          # header hash should be HEAD or 1 behind
 git status --short            # uncommitted work? this file may not describe it
 grep -cE '^[0-9]+\. ' CLAUDE.md   # must match the rule count in §4
+bash check_links.sh           # every doc link still resolves? (catches link rot)
 ```
 
 **On the hash:** a file can never record the hash of the commit that
@@ -222,6 +223,7 @@ when a note is missing or disputed.
 | Raw source material, verbatim | `reference/handoff_2026-08-01_*.md` |
 | Research reports, verbatim | `reference/*_VERBATIM.md` |
 | Pre-flight checks | [`validate_environment.py`](validate_environment.py) |
+| Link-rot checker (run from §0) | [`check_links.sh`](check_links.sh) |
 | Transcript fetcher (hit 17/17 previously) | `research/fetch_transcripts.py` |
 
 **Outside this repo:**
