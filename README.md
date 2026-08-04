@@ -5,6 +5,11 @@ YouTube Shorts + long-form compilations, cross-posted to multiple
 platforms. Built entirely on a $0, local-first, open-source stack —
 no paid SaaS subscriptions in the pipeline itself.
 
+> **Working on this project? Start with [`START_HERE.md`](START_HERE.md)** —
+> the single session entry point: current state, the next action, blockers,
+> open questions, and where everything lives. This README is the public
+> front door; `START_HERE.md` is the working one.
+
 **Status: pre-flight / research phase. No pipeline code has been written
 yet — by design.** The project's own discipline is to prove out every hard
 dependency (APIs, models, credentials, tools) before writing a real

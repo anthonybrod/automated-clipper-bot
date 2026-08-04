@@ -2,7 +2,7 @@
 
 **The single entry point for this project. Read this first, every session.**
 
-Last updated: **2026-08-03** · Written at commit `66ed361` (this file's own
+Last updated: **2026-08-03** · Written at commit `bc20bb6` (this file's own
 commit lands *after*, so HEAD will read one ahead — see §0) · Working tree
 clean, local = GitHub. **Drive pull pending** (user runs it).
 
@@ -153,6 +153,36 @@ fallback when a curated note is missing or disputed.
 | B — 12-item source mining | 1 of 12 |
 | C — 6 untranscribed YouTube videos | 0 of 6 |
 | D — Platform / hosting research | not started |
+
+**Rough cost per workstream** (from real measured sessions — budget is a
+live constraint, so plan before starting):
+
+| Work | Realistic cost | Notes |
+|---|---|---|
+| One mining/review item (A2–A6, B2–B12) | ~7–10 min, one agent | A1 and B1 both landed in this range |
+| A6 — the 17 videos | Larger — 2 big files | Highest payoff, but split it; don't one-shot |
+| C — fetch 6 transcripts | Minutes, no agent | `fetch_transcripts.py`, pure API |
+| D — platform research | 5 agents as scoped | The most expensive item queued |
+| Doc/note work | **Not cheap** | One session went fresh→100% on *one* agent plus note-keeping |
+
+**Agent or solo?** Rule 11 (default to agents) and Rule 13 (scope small)
+both apply. The resolution: **one agent per source file** — that is what
+worked. A1 and B1 were single-file and succeeded; the original 3
+broad-scope agents covering many files each died producing nothing. Don't
+read many files in one agent, and don't spawn an agent for something a
+grep answers.
+
+**If a session dies mid-workstream:** partial work is not lost — it is
+either on disk (uncommitted, readable via `git diff`) or in the agent
+transcript. Finish the *current item*, save it, then stop. **Never leave an
+item half-analysed with no note** — a half-finished review that looks
+complete is worse than an obviously unstarted one. Mark it in the checklist
+as partial and say what remains.
+
+**⚠️ Never use `git checkout <file>` to undo a test edit.** It reverts the
+*whole* file, including unrelated uncommitted work. This destroyed real
+content on 2026-08-03 (this very section). Remove the specific line with
+`sed`, or commit good work before running any experiment.
 
 Full agenda with per-item detail:
 [`reference/PENDING_agent_prompts_resume_2026-08-01.md`](reference/PENDING_agent_prompts_resume_2026-08-01.md)

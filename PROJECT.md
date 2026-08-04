@@ -12,6 +12,55 @@ YouTube Shorts + long-form compilations, cross-posts to multiple platforms.
 Separate project from `youtube-auto-videos` (Parents Teach Kids), kept in
 its own folder/repo, but actively salvaging verified-working code from it.
 
+## Current status (updated 2026-08-03 — read this first if resuming)
+
+**⚠️ Read [`START_HERE.md`](START_HERE.md) first** — it is the session
+entry point (scope, state, next action, blockers, open questions). This
+file holds durable project state and architecture.
+
+**Still zero pipeline code.** Unchanged, and stated first so the list below
+doesn't imply otherwise.
+
+2026-08-03 was spent building the session-continuity system, after a
+cold-start test showed the resume path was one mechanism deep rather than
+the three it claimed:
+
+- **[`START_HERE.md`](START_HERE.md)** — single entry point. Opens with §0,
+  a self-validation checklist (commit hash / rule count / link rot / dirty
+  tree) because the file goes stale by design. Now also carries project
+  scope, the 6-stage pipeline, campaign rules, per-workstream cost
+  estimates, and §3b — questions only the user can answer.
+- **[`SAVE_PROTOCOL.md`](SAVE_PROTOCOL.md)** — the 9 ordered steps that run
+  when the user says "save everything." Previously improvised, which
+  degrades silently and can't be audited. The user's governing definition:
+  *"save everything means what u need to pick up where we left off."*
+- **[`SESSION_HANDOFF_PROMPT.md`](SESSION_HANDOFF_PROMPT.md)** — the
+  ready-to-paste catch-up block plus its template. Regenerated every save;
+  a stale one sent a session to rebuild finished work.
+- **[`check_links.sh`](check_links.sh)** — link-rot detection across the
+  key docs (46 links, all resolving).
+- **Four lifecycle hooks**, wired globally in `~/.claude/settings.json`:
+  `SessionStart` (injects context — makes auto-load structural rather than
+  conditional), `UserPromptSubmit` (logs the user's prompts verbatim),
+  `PreCompact` (snapshots before context is lost — the sudden-death case),
+  `Stop` (reminds if `START_HERE.md` wasn't updated). All exit 0
+  unconditionally; tested 10 ways before wiring.
+- **A user-level `~/.claude/CLAUDE.md`** — the only instruction path that
+  fires regardless of working directory. The root cause: this repo's
+  `CLAUDE.md` only auto-loads when a session is rooted here, and sessions
+  were repeatedly rooted in the sibling project instead.
+- **Rule 21** — run every check *before* reporting done, not after being
+  asked. **Rule 10** gained a marking convention: nothing is written as
+  complete until the user says so, then stamped
+  `✅ COMPLETE — authorized by user YYYY-MM-DD`.
+- **Privacy fix** — `.claude/` gitignored after testing revealed the prompt
+  log was one `git add -A` from a **public** repo.
+- **66MB of raw session transcripts** backed up outside the repo.
+
+**Still blocked on the user:** Rule 22 (make the `START_HERE.md` update
+non-skippable), and provisional Rules 8 & 9 (Gemini-sourced, never
+authorized).
+
 ## Current status (updated 2026-08-02 — read this first if resuming)
 
 **⚠️ Read [`START_HERE.md`](START_HERE.md) first** — it is the single
