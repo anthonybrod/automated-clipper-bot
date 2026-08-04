@@ -1,0 +1,354 @@
+# Claude + Whop Clipping Workflow
+# https://www.youtube.com/watch?v=PafYu69s5NA
+
+[00:00] This clip was found, analyzed, cut, and
+[00:02] captioned automatically and completely
+[00:04] for free with Claude, but it gets better
+[00:05] because now has a feature called
+[00:07] content [music] rewards, where creators
+[00:09] pay you real money to clip their
+[00:10] podcasts. And the more views your clip
+[00:12] gets, the more you get paid. Right now,
+[00:14] there are hundreds of clipping campaigns
+[00:15] live with budgets just sitting there
+[00:17] waiting for someone to come and grab
+[00:19] them. Here's the problem though,
+[00:20] clipping is brutal, especially if you're
+[00:22] doing it all manually, but the workflow
+[00:24] I'm about to show you fixes that and it
+[00:27] runs entirely on Claude plus one free
+[00:29] tool. So by the end of this video,
+[00:31] you'll know exactly how to turn Claude
+[00:32] into your own personal clipping
+[00:34] assistant, one that finds and cuts your
+[00:36] clips for you. And stick around because
+[00:38] later we'll put it head-to-head against
+[00:40] one of the top paid clipping tools. I've
+[00:41] left [music] a link to all the tools
+[00:43] needed in the description so you can
+[00:44] follow along as we go. So let's dive in.
+[00:48] Before we start building this together,
+[00:49] let's talk about why most people quit
+[00:51] clipping before they ever get paid.
+[00:53] Picture a 2-hour Joe Rogan episode. To
+[00:55] find one good 30-second clip, you have
+[00:57] to watch all 2 hours. Then, you trim it
+[00:59] down in an editor and add captions line
+[01:01] line. That's hours of work for one clip.
+[01:03] And unfortunately, that one clip won't
+[01:05] pay any of your bills. On the other
+[01:06] hand, campaigns pay you based purely
+[01:09] on the views your clip pulls in. But
+[01:10] here's the catch, we can't expect every
+[01:12] clip to go viral. Someone might have
+[01:14] clipped that exact same moment before
+[01:16] us, gone viral with it, and now that's
+[01:18] the clip the algorithm keeps pushing. So
+[01:19] the real hack is to milk it with volume.
+[01:21] The more clips we post, the more chances
+[01:23] we have to land the one that takes off.
+[01:25] But, cranking out hundreds of clips a
+[01:27] month by hand would burn anybody out,
+[01:29] which is why so many people assume
+[01:31] clipping is a scam. It isn't, they're
+[01:32] just doing it the dumb way. And
+[01:34] honestly, the only reason anyone still
+[01:36] does it by hand is to avoid another
+[01:37] monthly subscription. That's a fair
+[01:39] concern, so let's talk about those paid
+[01:41] tools next. You might be thinking there
+[01:42] are already AI tools that handle all of
+[01:44] this. And you'd be right. Tools like
+[01:46] Opus Clip and Veed can chop a podcast
+[01:48] into clips automatically, but there are
+[01:50] two things worth thinking about. They
+[01:51] charge you every single month and they
+[01:53] all lean on the same rigid formula to
+[01:55] decide what's clip-worthy. So your clips
+[01:57] live or die based on a formula when
+[01:59] Claude can literally watch the podcast
+[02:01] for you and make a smarter call for
+[02:02] free. But, how is it free if we're
+[02:04] paying for Claude? Here's what I mean.
+[02:05] Every other clipping tool is a brand new
+[02:07] bill on top of everything else you pay
+[02:09] for. This workflow runs on the Claude
+[02:10] subscription you probably already have.
+[02:12] And if you don't have one, it's just $20
+[02:15] for a tool you'll end up using for a
+[02:16] hundred other things anyway. So, instead
+[02:18] of stacking another monthly bill, we're
+[02:20] just putting one subscription you
+[02:22] already have to better use. To do that,
+[02:24] we'll connect Claude [music] to a free
+[02:25] tool using MCP. The simplest way to
+[02:27] think about MCP is this. On its own,
+[02:30] Claude can only talk to you, but MCP
+[02:31] [music] gives Claude a pair of hands so
+[02:33] it can use other apps for you. In our
+[02:35] case, those hands will reach inside a
+[02:37] podcast and pull out the smartest clips
+[02:39] while we sit back and let it do the
+[02:40] heavy lifting. So, let me show you
+[02:42] exactly how to set this up. This is the
+[02:44] part most people are tempted to skip,
+[02:46] but don't worry, once it's done, you
+[02:47] never touch it again. And I have one
+[02:49] thing that'll make this whole section
+[02:50] easier for you. Every command I run here
+[02:52] is in a free command pack linked in the
+[02:54] description. Keep it open beside this
+[02:56] video, and you can just copy each
+[02:58] command as we go. Now, before we install
+[03:00] anything, we need to make sure our
+[03:01] computer has four small building blocks.
+[03:03] The first three are Node, Python, and
+[03:05] FFmpeg. Node and Python are the engines
+[03:08] our tool runs on, and FFmpeg is the part
+[03:10] that cuts and captions the video. The
+[03:12] fourth is Git, which is just the tool
+[03:14] that lets us copy Podcley onto our
+[03:15] computer. To check the first three,
+[03:17] we'll open our terminal and run three
+[03:19] quick commands, one each for Node,
+[03:21] Python, and FFmpeg. If a version number
+[03:23] prints out for each one, that building
+[03:25] block is ready. Quick heads-up before we
+[03:26] go further. On Mac, Podcley has a setup
+[03:28] file that handles all of this in one
+[03:30] click. But, on Windows, we'll have to
+[03:32] run a few short commands that I'll walk
+[03:33] through here. First, we'll copy Podcley
+[03:35] onto our computer with Git. In our
+[03:37] terminal, we'll type CD space tilde and
+[03:39] hit enter. That just moves us into our
+[03:41] main user folder, a clean place to
+[03:43] install things. Then, we'll type git
+[03:45] clone followed by the Podcley link and
+[03:47] hit enter. That copies the whole tool
+[03:48] onto our computer. Now, we'll move
+[03:49] inside that folder we just downloaded.
+[03:51] We'll type CD space Pod Clear and hit
+[03:54] enter. Our terminal line changes to show
+[03:56] we're now inside Pod Clear, which means
+[03:58] we're in the right place. Next, we'll
+[03:59] run a handful of short commands that set
+[04:01] up Pod Clear's two engines and install
+[04:03] everything it needs. You might see
+[04:05] warnings about vulnerabilities flash by,
+[04:06] but that's normal and safe to ignore.
+[04:08] Once the build finishes, Pod Clear is
+[04:10] installed. The heavy lifting is nearly
+[04:12] done and in just a few minutes we'll
+[04:13] point this whole thing at a real
+[04:15] campaign that actually pays. But first,
+[04:17] Pod Clear and Claude need to be
+[04:18] introduced so they can talk to each
+[04:20] other. We'll open Claude desktop, head
+[04:22] into settings, click developer, then
+[04:24] edit config. That opens a small settings
+[04:26] file where we'll paste in a short block
+[04:28] of text telling Claude where Pod Clear
+[04:29] lives. There's one detail we can't skip.
+[04:31] That block has two file paths inside and
+[04:33] we have to swap in the real paths from
+[04:35] our own computer. But don't worry, our
+[04:37] terminal will print the exact paths for
+[04:38] us and we can just copy and paste them
+[04:40] straight in. Then we'll save the file
+[04:42] and fully restart Claude. When it
+[04:44] reopens, we'll head back to that
+[04:45] developer page. If Pod Clear is sitting
+[04:47] there with a blue running label, we're
+[04:49] good to go. We just cleared the hardest
+[04:50] part of the entire video. Now, let's
+[04:52] find a campaign [music] worth pointing
+[04:53] it at. So, where do these campaigns
+[04:55] live? They're all on one page called the
+[04:56] Wopp content rewards page. This is where
+[04:59] creators post content and pay real money
+[05:01] for our clips. But we're not grabbing
+[05:02] the first campaign we see. Instead,
+[05:04] we'll follow three rules that make the
+[05:06] difference between getting paid and
+[05:08] wasting our [music] time. Rule one,
+[05:09] we'll click the sort icon and choose
+[05:11] most paid out. This pushes the campaigns
+[05:13] that have actually paid creators before
+[05:15] to the top so we're not chasing one that
+[05:16] never pays. Rule two, we'll check the
+[05:18] budget. If a campaign's budget is nearly
+[05:20] used up, it can run dry before our clips
+[05:22] even take off. So, we'll make sure the
+[05:24] campaign isn't more than 80% spent so
+[05:26] there's still room for us to earn. Rule
+[05:28] [music] three, we'll look at the payout
+[05:29] and aim for a solid rate, somewhere
+[05:31] around one to three dollars [music] per
+[05:33] thousand views. Go much higher than that
+[05:35] and the requirements usually get
+[05:36] incredibly strict. Go much lower and the
+[05:38] pay is just not worth our time. For this
+[05:40] one, we'll go with the David Heacock
+[05:42] Clips campaign. It's a business podcast
+[05:44] with a healthy budget that's barely been
+[05:46] touched, which means we're getting in
+[05:47] early while the opportunity is wide
+[05:49] open. We'll join the Creators free
+[05:50] community to unlock it, then open the
+[05:52] campaign brief. Lays out exactly what
+[05:54] they want, the topics [music] that
+[05:56] perform, the style they're after, and
+[05:58] the rules we need to follow. Inside that
+[06:00] campaign, there's a resources section
+[06:01] with the exact podcast episodes they
+[06:03] want clipped. We'll grab one solid
+[06:05] episode from there, and now the fun part
+[06:07] begins. This is where our workflow
+[06:09] leaves every other clipping tool behind.
+[06:10] We've got our episode, but there's one
+[06:12] quick thing to handle first. The
+[06:13] campaign points us to it on YouTube,
+[06:15] [music] and PodClips works with a video
+[06:17] file, not a link. So, first, we'll
+[06:18] download that episode as a file. We'll
+[06:20] do this right from PowerShell using a
+[06:22] free tool called yt-dlp. If you don't
+[06:24] have yt-dlp yet, it's a quick one-line
+[06:27] install, and we'll run that first. Then
+[06:29] we'll move into our PodClips folder and
+[06:31] run one command that pulls the full
+[06:32] episode straight into our project. You
+[06:34] might see a line of yellow text pop up,
+[06:36] but that's just yt-dlp noting some
+[06:38] optional settings, and it's completely
+[06:40] safe to ignore. In a few seconds, the
+[06:42] episode is saved on our machine. We'll
+[06:44] just confirm it with this command, and
+[06:45] we're ready to go. Now, we hand it to
+[06:47] Claude. We'll hold off rendering for now
+[06:49] because it takes time, and we don't want
+[06:50] to spend it on clips we haven't approved
+[06:52] yet. So, we'll just make Claude go
+[06:54] through the whole episode and bring us
+[06:56] the top three moments. Most AI clippers
+[06:58] just scan a transcript for buzzwords and
+[07:00] loud high-energy spikes, but Claude
+[07:02] actually understands what's being said.
+[07:03] We'll ask Claude to find moments with a
+[07:05] strong hook, the kind of contrarian take
+[07:07] that makes someone stop scrolling. So,
+[07:09] we'll just paste this prompt and send.
+[07:11] And look at what it brought back. Its
+[07:12] first pick is a strategist who tells you
+[07:14] not to hire him. That's not a keyword
+[07:16] Claude scanned for. That's Claude
+[07:18] understanding the irony of the moment.
+[07:20] It reads the whole conversation the way
+[07:21] a person would and pulls moments that
+[07:23] genuinely match what we asked for. It
+[07:25] hands them back as plain text with
+[07:27] timestamps, but just because Claude
+[07:28] picked them, doesn't mean we accept them
+[07:30] blindly. This next step is fast, but
+[07:32] it's the one that protects our earnings.
+[07:34] We'll read the three moments Claude
+[07:35] pulled. Since they're just text with
+[07:37] timestamps, this takes seconds, not
+[07:39] hours. This is the check the other tools
+[07:41] never give us. Other clipping tools just
+[07:43] render whatever they pick and hope for
+[07:45] the best. Here, we get the final say
+[07:47] before a single clip is made. We read
+[07:48] each pick and ask one simple question.
+[07:50] Would this actually make someone stop
+[07:52] scrolling? If a moment looks strong, we
+[07:54] keep it. If one feels weak, we don't
+[07:56] settle for it. We just tell Claude to
+[07:57] scrap that pick and find a new one.
+[07:59] Maybe we want something funnier or a
+[08:01] stronger opening line. We say it in
+[08:03] plain English and Claude goes back into
+[08:04] the episode and pulls a fresh option. In
+[08:06] our case, all three picks are genuinely
+[08:08] strong. That don't hire me moment alone
+[08:11] is a scroll stopper. So, we'll approve
+[08:12] all three and now it's finally time to
+[08:14] render. Once we're happy with our three
+[08:16] picks, we tell Claude to render them.
+[08:18] Claude hands the approved moments over
+[08:19] to Pod Cle and Pod Cle does the heavy
+[08:21] lifting [music] for us. It cuts each
+[08:23] moment, formats it vertically for
+[08:24] shorts, and burns the caption straight
+[08:26] into the video. In a few minutes, we've
+[08:28] got three finished clips ready to post.
+[08:29] But, don't just take my word on this. I
+[08:31] took the exact same episode and ran it
+[08:33] through Opus Clip's free trial. The
+[08:35] interesting part is the very moment
+[08:36] Claude picked as our first clip, Opus
+[08:38] Clip independently chose that same
+[08:40] moment as one of its top picks and
+[08:42] scored it 98 out of 100. Here's the
+[08:44] result side by side.
+[08:45] >> First of all, don't hire me. Don't don't
+[08:47] hire me. Don't hire another content
+[08:49] strategist. Don't hire a guru. Don't pay
+[08:52] for consulting hours. First of all,
+[08:53] don't hire me.
+[08:55] Don't don't hire me. Don't hire another
+[08:57] content strategist. Don't hire a guru.
+[08:59] Don't pay for consulting hours.
+[09:01] >> So, our free workflow isn't some budget
+[09:03] alternative. It's spotting the exact
+[09:05] same high value moments the paid tools
+[09:06] are built to find. Still, both tools
+[09:08] have different strengths. Opus Clip was
+[09:10] faster and its picks came out polished,
+[09:12] shorter, and punchier. Meanwhile,
+[09:14] Claude's clips ran a little longer, but
+[09:16] it kept more of the surrounding context,
+[09:17] which means our clips carry the full
+[09:19] setup and payoff of a moment instead of
+[09:22] just the spike. So, it really comes down
+[09:24] to what you need. If you want speed and
+[09:25] polish with almost no setup, Opus Clip
+[09:27] is great at that. But, if you want a
+[09:29] free workflow that reads the whole
+[09:31] conversation and picks moments with real
+[09:33] depth, this is hard to beat. And there's
+[09:34] one last thing we can do to make these
+[09:36] clips feel completely native to the
+[09:38] platform. By default, our captions look
+[09:40] clean but a little generic. The clips
+[09:41] that really pop on TikTok and Reels
+[09:43] usually have captions that match each
+[09:45] platform's native style. So, we'll
+[09:47] simply ask Claude to change the caption
+[09:49] style for us. We can tell it to enlarge
+[09:51] the text, switch the font, change the
+[09:53] highlight color, or pick one of
+[09:54] PodClips' built-in templates. So, we'll
+[09:56] just paste this prompt and here's the
+[09:58] result we got.
+[09:59] >> First of all, don't hire me. Don't don't
+[10:01] hire me. Don't hire another content
+[10:03] strategist. Don't hire a guru. Don't pay
+[10:05] for consulting hours. If you do not know
+[10:07] why you are better than everyone else,
+[10:09] do not play the game. And if And if
+[10:11] >> So, you're So, you're actually the the
+[10:13] opposite of Gary Vee.
+[10:14] >> So, now you know how to use Claude to
+[10:16] turn one podcast into post-ready clips
+[10:18] almost completely on autopilot. No
+[10:20] expensive clipping app and no weekend
+[10:21] lost to manual editing. If you want to
+[10:23] try this yourself, I'll leave a link to
+[10:25] the tools in the description so you can
+[10:26] get started. But clipping podcasts is
+[10:28] only one way to make money with AI and
+[10:30] maybe it's not your cup of tea, which is
+[10:32] why I broke down six more tools you can
+[10:34] use. Just click the video on screen now.

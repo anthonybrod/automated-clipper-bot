@@ -2,7 +2,7 @@
 
 **The single entry point for this project. Read this first, every session.**
 
-Last updated: **2026-08-04** · Written at commit `95be096` (this file's own
+Last updated: **2026-08-04** · Written at commit `10394e8` (this file's own
 commit lands *after*, so HEAD will read one ahead — see §0) · Working tree
 clean. **local = GitHub = Drive** — the user pulled `95be096` into
 "CLAUDE AI CLIP BOT V1 attempt" on 2026-08-04, confirmed by real output.
@@ -202,7 +202,7 @@ fallback when a curated note is missing or disputed.
 |---|---|
 | A — Rule 20 retroactive review | 1 of 6 |
 | B — 12-item source mining | 1 of 12 |
-| C — 6 untranscribed YouTube videos | 0 of 6 |
+| C — 6 untranscribed YouTube videos | **6 of 6 ✅ 2026-08-04** — fetched, verified real |
 | D — Platform / hosting research | not started |
 
 **Rough cost per workstream** (from real measured sessions — budget is a
@@ -212,7 +212,7 @@ live constraint, so plan before starting):
 |---|---|---|
 | One mining/review item (A2–A6, B2–B12) | ~7–10 min, one agent | A1 and B1 both landed in this range |
 | A6 — the 17 videos | Larger — 2 big files | Highest payoff, but split it; don't one-shot |
-| C — fetch 6 transcripts | Minutes, no agent | `fetch_transcripts.py`, pure API |
+| ~~C — fetch 6 transcripts~~ | **DONE 2026-08-04** | Took one run, no agent, no cost |
 | D — platform research | 5 agents as scoped | The most expensive item queued |
 | Doc/note work | **Not cheap** | One session went fresh→100% on *one* agent plus note-keeping |
 

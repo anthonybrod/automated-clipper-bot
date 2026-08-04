@@ -1,0 +1,261 @@
+# Gemini Gems Tutorial
+# https://www.youtube.com/watch?v=QqwNue_KL-4
+
+[00:00] A Gemini Gem is like creating
+your own AI assistant for one
+[00:05] specific job. Instead of repeating
+the same instructions every time,
+[00:09] you create them once and Gemini
+already knows how you want it to
+[00:14] respond. In this video,
+[00:16] I'm going to show you exactly how
+to build a gem in Google Gemini.
+[00:21] To get started,
+[00:22] we want to come over here to the
+left and expand our Gemini menu.
+[00:27] And near the top, you're going
+to see something called Gems.
+[00:31] We want to select that, but hold on.
+[00:34] If you see this notice about
+building something from Google Labs,
+[00:38] building AI apps, we want to
+scroll down a little further.
+[00:43] This first part is still
+in an experimental stage.
+[00:47] We want to go down to the
+tried and trusted Gem Manager.
+[00:51] And down below, you will
+see a button called New Gem.
+[00:56] We want to select that and we are
+going to be brought to this menu. Now,
+[01:00] at any time, you can collapse that menu
+just so you have a little more space.
+[01:04] We'll get back to that later so you know
+where and how you can save and manage
+[01:09] all of your gems.
+[01:11] But this is where the
+real magic happens. Now,
+[01:15] even before you get started, you might
+be getting a warning message. Yes,
+[01:19] your gem needs a name.
+[01:22] I recommend that you name this something
+very descriptive so you know exactly
+[01:28] what it does. In my example,
+[01:30] I want to create a gem so that
+all I need to do is upload
+[01:35] the meeting notes from one of my
+discovery calls and then Gemini
+[01:40] will almost instantly
+produce a full proposal,
+[01:44] which will include three different
+options that I can give to that
+[01:49] client. So for a name,
+[01:51] I might call this something like
+proposal with three options.
+[01:55] That's going to be the name. I can always
+come back and change that or edit it
+[01:59] later. Down below, it is not required,
+[02:02] but I would recommend that you
+give it a description. Now,
+[02:06] Gemini is not going to use
+this as a reference point.
+[02:10] The description is separate
+from the instructions,
+[02:13] but it can be helpful in terms
+of what exactly does this gem do,
+[02:17] especially as you add more
+and more gems within your
+[02:22] Gemini account. So in my case,
+[02:24] I'm going to say this produces a three
+option proposal for a client based
+[02:29] on meeting notes.
+[02:29] Something really quick and easy for me
+to glance at and know exactly what I'm
+[02:34] going to be getting. Then we get
+to the instruction part of the gem.
+[02:39] And this is of course the most
+important, the most valuable space.
+[02:43] This is where we can be as detailed
+as possible in terms of what we
+[02:48] want this gem to produce. Now, before
+I continue with the instructions,
+[02:53] I do want to highlight what's going
+on here on the right-hand side.
+[02:57] Here we have a preview
+of this gem. So yes,
+[03:00] right now it's showing both
+the title and the description.
+[03:04] And once we start
+including the instructions,
+[03:06] we can actually start testing out this
+gem to see if it's behaving the way that
+[03:11] we want. Now, you'll also notice
+up in the top right-hand corner,
+[03:15] there is a save button, and it currently
+says that this gem is not saved.
+[03:20] I like to be saved, so I would recommend
+you go ahead and just hit save anyhow.
+[03:25] You're going to be presented with this
+dialogue here, and I can say start chat.
+[03:30] It's going to go ahead and open this
+up as a full chat, but remember,
+[03:34] we actually haven't given it
+any instructions. Don't worry,
+[03:37] we're just one click away from going back
+to that editing screen. If we come up
+[03:41] to the top right-hand corner, we
+select the three dots and select edit.
+[03:46] We are returned exactly where
+we were before. But remember,
+[03:49] now this gem is saved,
+[03:51] so any changes we make here or
+instructions will not be lost.
+[03:56] So coming back to the
+instructions dialogue,
+[03:59] this is by far the most important place,
+[04:02] and you want to be as specific
+as possible. So in my example,
+[04:05] I'm going to give it the
+following instructions.
+[04:07] Produce a complete client
+proposal with three options
+[04:12] for the client to consider.
+[04:14] The details should be based on
+the discovery call meeting notes,
+[04:19] which will be uploaded.
+[04:21] So I'm telling the gem in advance
+that I'm going to be giving it some
+[04:26] information, and I want this
+to be as easy as possible.
+[04:29] I'm just going to be
+uploading a single document,
+[04:33] and then I want it to produce everything
+else on its own. But I'm going to give
+[04:37] you an extra special tip at this point,
+[04:40] which I have found extremely valuable
+when it comes to creating gems.
+[04:44] Remember how I said being as detailed
+as possible is going to be most helpful?
+[04:49] Well,
+[04:50] to help you produce an even better
+gem based on a brief description,
+[04:55] you may want to consider coming
+down here to this rewrite button.
+[04:59] By selecting this,
+[05:01] it's going to use Gemini
+to rewrite my instructions.
+[05:05] Let me show you how it works. Here,
+[05:06] I've given it a fairly simple two
+sentence piece of instructions,
+[05:11] but if I select this,
+[05:13] it's going to take everything that
+I've given it and give it a much more
+[05:17] detailed and thorough set of
+instructions. Quickly, let's go through.
+[05:22] It's given some purposes and
+goals for this particular gem,
+[05:27] some behaviors and rules. Yes,
+[05:29] I want it to carefully analyze the
+uploaded meeting notes. Here is the
+[05:34] structure, option one,
+option two, option three.
+[05:38] It's even included a comparison table.
+Now remember, this is all editable.
+[05:42] If I don't want a comparison table,
+well, I can remove this completely.
+[05:46] If I want to add some further details,
+that's fine as well. For example,
+[05:51] is this the best overall tone
+that I want to give? If not,
+[05:55] I can change it. And don't worry,
+[05:57] I can always select undo and
+go back to my original format.
+[06:01] But trust me, the more
+details you can give it,
+[06:04] the better the output is going to be. Now,
+[06:08] the last two options that we have
+below the instructions are default tool
+[06:13] and knowledge. Now, by default,
+there is going to be no default tool.
+[06:18] And I would recommend when you're first
+starting out to probably leave it as is.
+[06:23] It's going to allow Gemini to select
+what tool is most appropriate.
+[06:28] Now, if you're creating a
+gem for an image, well, yeah,
+[06:31] you're going to want to
+select create an image.
+[06:33] Or if you're doing something
+specific to music or guided learning,
+[06:38] but at least when you're getting started,
+[06:40] I would recommend leaving this as
+the no default tool. And then lastly,
+[06:44] we have a knowledge base, meaning,
+[06:48] do I want it to reference another
+proposal that I created in the past?
+[06:53] Do I want it to reference something
+else so it can guide it or use it
+[06:58] as a part of this gem? No,
+[07:00] this is not where you're putting an
+individual set of meeting notes because I
+[07:05] want to repurpose this, right?
+[07:06] I want to be uploading new discovery
+call meeting notes every day or every
+[07:12] other day. So this is
+not where I would put it,
+[07:14] but this is where I could
+put reference material. Now,
+[07:17] we can start testing things out right
+away over here on the right hand side and
+[07:21] then come back to our instructions
+and tweak things back and forth,
+[07:25] but I'm going to go ahead and select
+update here in the top right hand corner.
+[07:29] Once the gem has been saved,
+[07:31] I can then select start chat and we are
+brought back to something that looks
+[07:35] exactly like any other Gemini chat,
+[07:38] but all I need to do is upload one
+file. I'm going to select ad files,
+[07:43] upload files, and then all I need
+to do is select the correct file.
+[07:48] In this case, these are my meeting notes.
+[07:51] I don't have to give it any other
+instructions. I'm going to select submit.
+[07:55] And in a matter of seconds,
+[07:57] it's going to produce a custom proposal
+with all of the instructions that I've
+[08:02] given it. Here, I've got an
+executive summary, option one,
+[08:06] option two, option three.
+Here is the comparison table.
+[08:10] Remember that it said that
+it was going to include.
+[08:13] So it's got everything that I've
+asked for. If I want to make changes,
+[08:17] all I need to do is go
+back and select edit,
+[08:20] and I can continue to tweak those
+instructions so I can repurpose this gem
+[08:25] again and again.
+Now,
+[08:27] where are you going to find this gem
+so you can use it in the future? Well,
+[08:31] if we expand that menu again,
+[08:33] you can see that your gems will
+appear here near the top. Now,
+[08:38] for those that you use most often,
+[08:40] I recommend that you select pin so that
+it stays visible and that it's easy for
+[08:45] you to see. Now I'd love
+to hear from you next,
+[08:49] do you have any questions about
+creating gems in Google Gemini
+[08:54] and what are you planning to build
+next with your own personal AI
+[08:59] assistant? Be sure to let me
+know in the comments down below.
+[09:03] Thank you so much for
+watching. And remember,
+[09:05] you deserve to work without
+feeling overwhelmed.

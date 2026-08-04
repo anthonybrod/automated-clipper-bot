@@ -81,12 +81,12 @@ rather than needing an A-workstream re-review afterward.
 
 | Video | ID | Status |
 |---|---|---|
-| Higgsfield / Claude connectors | `mFOoNPFylLI` | ⬜ no transcript |
-| Claude + Whop Clipping Workflow | `PafYu69s5NA` | ⬜ no transcript |
-| Gemini Gems Tutorial | `QqwNue_KL-4` | ⬜ no transcript |
-| Lacy's Best Streamer University Moments | `cVkFMpDLQrM` | ⬜ no transcript |
-| How Lacy Got Used On Stream | `mVqnCvE337E` | ⬜ no transcript |
-| Lacy's Content Strategy Breakdown | `lYafPAHVOno` | ⬜ no transcript |
+| Higgsfield / Claude connectors | `mFOoNPFylLI` | ✅ 521 snippets (2026-08-04) |
+| Claude + Whop Clipping Workflow | `PafYu69s5NA` | ✅ 351 snippets (2026-08-04) |
+| Gemini Gems Tutorial | `QqwNue_KL-4` | ✅ 145 snippets (2026-08-04) |
+| Lacy's Best Streamer University Moments | `cVkFMpDLQrM` | ✅ 1068 snippets (2026-08-04) |
+| How Lacy Got Used On Stream | `mVqnCvE337E` | ✅ 2337 snippets (2026-08-04) |
+| Lacy's Content Strategy Breakdown | `lYafPAHVOno` | ✅ 397 snippets (2026-08-04) |
 
 Confirmed missing from `research/transcripts/` (which holds 18 files for
 the original 17 videos + a summary). The 3 Lacy-specific ones are the only

@@ -1,0 +1,524 @@
+# Higgsfield / Claude connectors
+# https://www.youtube.com/watch?v=mFOoNPFylLI
+
+[00:00] So, I scaled my first faceless YouTube
+[00:01] channel to 14 grand a month back in
+[00:03] 2020, but that wasn't all profit because
+[00:05] 6 years ago making videos cost money.
+[00:07] So, a lot of the money went back into
+[00:09] scriptwriters, voice over artists, video
+[00:10] editors, and thumbnail designers. But
+[00:12] today I can produce a full faceless
+[00:14] YouTube video for a fraction of the cost
+[00:16] using Cloud Code. And in this video, I'm
+[00:18] going to show you how to set up Cloud
+[00:19] Code to make 10K a month whilst working
+[00:21] part-time hours making YouTube videos.
+[00:23] Let's get into it. Section one, find a
+[00:25] niche that's actually dominatable. So,
+[00:27] before we can open up Cloud Code, we
+[00:29] first need to find the right niche. The
+[00:31] right niche will either make or break
+[00:33] your channel. And it doesn't matter how
+[00:34] good your prompt is or how flashy your
+[00:36] editing is. If you're in a niche that
+[00:38] has no demand or is too saturated, then
+[00:40] you're going to be pretty much making
+[00:41] videos for no one. And that's a big
+[00:42] mistake that I see a lot of beginners
+[00:44] make. They go into niches that are
+[00:45] already too saturated. They emulate
+[00:47] channels that are dominated by big
+[00:48] players, and that's the worst move you
+[00:50] can make because the audience is already
+[00:52] loyal somewhere else. So, I'm looking
+[00:54] for three things specifically. Number
+[00:55] one, a channel that has recently
+[00:57] started. Number two, they need to have
+[00:59] millions of views on that channel.
+[01:00] Number three, they need to have more
+[01:02] views than subscribers. So, I know that
+[01:04] their views are not coming from
+[01:05] subscribers, but they're coming from
+[01:07] what the algorithm is pushing out and
+[01:08] what people are searching for on the
+[01:10] YouTube search bar. Let me show you a
+[01:11] perfect example of a channel that I
+[01:13] would go into if I was starting from
+[01:14] scratch today. Okay, so this is Backyard
+[01:16] Birdman. They've recently started. If we
+[01:17] look at their videos, they have one
+[01:19] video that hit 1.6 million views,
+[01:21] 500,000 views, 300,000 views. And if we
+[01:23] look at their oldest video, they only
+[01:24] started like a month ago according to
+[01:25] YouTube. And also, if we look at VidIQ,
+[01:27] which is a beast of a software, it's
+[01:29] telling us that in the past 30 days, it
+[01:31] has got 3.5 million views. To calculate
+[01:34] the RPM on this channel, you would take
+[01:35] the first four numbers here, and then
+[01:37] you just times it by five. If we're
+[01:38] doing a $5 RPM, it could be higher,
+[01:40] could be a $6 RPM. So, this, if it was a
+[01:42] $5 RPM, it would be $17,000 in the past
+[01:45] month. Now, that is insane. They just
+[01:46] started a month ago, and they've already
+[01:47] done $17,000, actually just under
+[01:49] $18,000 in the past month, which is
+[01:51] insane. So, this is an opportunity
+[01:53] because they've recently started. They
+[01:54] are getting millions of views. They've
+[01:56] made around 18K in a month, so this is
+[01:58] good to model after. We can come in,
+[02:01] make similar videos, cover topics that
+[02:02] they haven't yet covered before, and
+[02:04] dominate the niche with volume. So, if
+[02:06] they're doing three videos a week, you
+[02:07] can come and do one video a day. And I
+[02:08] haven't seen many bird channels in this
+[02:10] niche. Even though I watched some of
+[02:11] their videos, the algorithm hasn't
+[02:12] really fed me any other bird channels.
+[02:14] So, this looks like a young niche. They
+[02:16] just started, and you can either do
+[02:18] another animal or you can do birds. But,
+[02:19] it looks underserved to do birds. And if
+[02:21] you come out here with a different
+[02:22] angle, and you start doing maybe
+[02:23] parrots, maybe different types of birds,
+[02:25] then you can dominate the niche. But,
+[02:26] here's where most people get stuck. Even
+[02:28] when they find a right niche, they don't
+[02:30] know how to dominate because they don't
+[02:31] have the right mental ship, they don't
+[02:32] have the right strategy, or they don't
+[02:34] have enough money to pay for video
+[02:35] editors, graphic designers, script
+[02:37] writers to create the videos fast enough
+[02:39] because they can't afford it. So, let me
+[02:41] show you how you can replace your entire
+[02:43] faceless YouTube team with one tool.
+[02:45] Section two, the Claude Code setup. So,
+[02:47] back in 2020, when I started my first
+[02:49] faceless YouTube channel, my graphic
+[02:50] designer cost like $200 a month, my
+[02:53] script writer was like $300 a month,
+[02:55] editor $250 a month, my voice over
+[02:57] artist was like $350 a month. So, if you
+[02:59] do the math, you can kind of see how
+[03:01] much I was paying. It was around $1,000
+[03:03] a month just to keep the business afloat
+[03:05] before I even saw any revenue in the
+[03:06] business. And that's the reason why most
+[03:08] people in the faceless YouTube world,
+[03:09] they quit. Because first of all, they
+[03:10] come in with an employee's mindset. They
+[03:12] say, "Oh, I'm putting so much time and
+[03:13] money into this, and I'm not getting
+[03:14] anything back." Whereas in
+[03:16] entrepreneurship, you have to wait for
+[03:18] it to come into fruition. This isn't a
+[03:19] freaking job. This isn't a freaking
+[03:21] vending machine. This isn't a lottery
+[03:22] ticket. You have to put in the work
+[03:24] before you can see results. And it does
+[03:26] cost time, it costs money, it costs
+[03:27] sacrifice. So, a lot of people, they
+[03:29] quit. They give up. They go back to
+[03:30] their job, or they just focus on their
+[03:32] career more, or they go and do another
+[03:33] business model. But, now with AI, you
+[03:35] can do faceless videos for a fraction of
+[03:38] the price. So, this is what Claude Code
+[03:40] replaces. Claude Code can do the script
+[03:42] for your videos, it can do the voice
+[03:44] over, it can even do the thumbnails and
+[03:46] give you different variations. It can
+[03:48] also, and this blows me away, it does
+[03:49] the editing of the video. But, on top of
+[03:52] that, he actually does the sound design
+[03:54] of the video, as well. So, meaning that
+[03:56] in different parts of the video, it
+[03:57] changes the background music based on
+[03:59] the feel it wants to give. And it's
+[04:01] like, when I saw some of the videos I'm
+[04:02] going to show you today that Claude Code
+[04:04] produced, you'll be blown away. All you
+[04:05] need is Claude Code, few hours a day,
+[04:07] and you can create one video a day for
+[04:08] you to upload onto YouTube, and you can
+[04:10] dominate the niche I just showed you.
+[04:11] But, here's the catch. You can't just
+[04:12] install Claude Code and press a few
+[04:14] buttons, and then the money will roll
+[04:15] in. You have to set it up. I'm going to
+[04:17] show you how to set it up today, so that
+[04:18] you can set it up properly and start
+[04:20] prompting and making videos. So, you
+[04:21] need Claude Desktop in order to do this.
+[04:23] So, we're going to type in Claude
+[04:25] Desktop, and then we have to download
+[04:27] it. So, desktop application, click on
+[04:29] it, you download it. For Mac, I'm on a
+[04:30] Mac. If you're on a Windows, you click
+[04:32] that, and then it downloads. Cool. So,
+[04:34] I've already downloaded it, so it's just
+[04:35] downloading it again here. So, once that
+[04:36] sets up, your Claude Code will look a
+[04:38] bit like this. You have to sign in with
+[04:39] your Claude account, your Anthropic
+[04:41] account, and you can sign in with your
+[04:43] Gmail. That's not an issue. Okay, so
+[04:44] what you need to do now is we need to go
+[04:46] to Higgsfield.ai. First of all, you need
+[04:48] to log into your Higgsfield, and then
+[04:49] you come over here to MCP. So, under MCP
+[04:52] and CLI, you then click on MCP, and then
+[04:54] you copy this code. Now, we go to
+[04:56] Claude. Now, we click on your name at
+[04:58] the bottom here, settings, and then
+[05:00] connectors, and then customize. Okay, so
+[05:02] at the top here, you hit browse custom
+[05:03] connectors, then type in Higgsfield,
+[05:05] then we add this in. It'll go through
+[05:06] all the whole verification process. Yep,
+[05:08] you then allow, verify your identity,
+[05:10] your email address. So, it looks like
+[05:11] it's connected. You would also want to
+[05:13] give a permission to generate images,
+[05:14] generate video, and just like always
+[05:17] have all of this ticked as green, so
+[05:19] that it doesn't constantly ask for
+[05:20] permission when you're trying to
+[05:21] generate a video and stuff. So, that's
+[05:23] all connected on the Higgsfield side.
+[05:25] So, what that's going to do is that's
+[05:26] going to allow us to create images with
+[05:28] Higgsfield through Claude. So, we can
+[05:29] tell Claude, "Generate this image,
+[05:31] generate this video," and it's going to
+[05:32] do it. The good thing about Higgsfield
+[05:33] is that it's integrated with Kling, Nano
+[05:35] Banana, and other softwares, even with
+[05:36] VEO, Google software, and it's got other
+[05:38] softwares that's integrated into it, and
+[05:40] it uses a Viariety, which is super cool.
+[05:42] The next step is to connect your Eleven
+[05:43] Labs, so that you can make voiceovers
+[05:45] within Claude. So, we're going to
+[05:46] connect Eleven Labs here. So, over here
+[05:48] on my screen, we're going to hit add
+[05:49] connectors and then we have to go browse
+[05:51] connectors and then 11 Labs player.
+[05:53] That's it. 11 Labs player. So, we add
+[05:55] that in. We install [clears throat] it.
+[05:56] So, over here it says 11 Labs not
+[05:58] connected. So, what we need to do is we
+[05:59] need to grab the API key from 11 Labs.
+[06:01] So, what we're going to do is we're
+[06:02] going to head over to 11 Labs and we're
+[06:03] going to go at the bottom left corner,
+[06:05] developers, and then go on API keys.
+[06:07] We're going to go over here, create key,
+[06:08] and then we're going to call this Claude
+[06:09] code, and then just give access to all
+[06:12] of this stuff. Like monthly unlimited
+[06:14] limits. That's what I do. That's what
+[06:16] I'd suggest you doing. And just let's
+[06:17] just give access to everything here so
+[06:19] that if we ever tell it to do something,
+[06:20] we don't have to give it permission. And
+[06:22] then create key. So, once you created
+[06:23] the key, you then have to copy it to
+[06:25] clipboard and then paste it into your
+[06:26] Claude code. So, we're going to go to
+[06:28] your Claude code. We're going to go to
+[06:29] the 11 Labs player here that's been
+[06:30] downloaded and what we need to do here
+[06:32] is we need to paste the key and then hit
+[06:34] save. And then click enable this
+[06:35] connector and then enable everything
+[06:37] here, always allow. So, now we have 11
+[06:39] Labs which does voice overs integrated
+[06:41] into Claude code so that we can tell
+[06:42] Claude code create this voice over. I
+[06:44] want a British male. Create this one. I
+[06:45] want a American male. And it will do it
+[06:47] for you. And we also need to make sure
+[06:48] this is enabled. So, now it's all
+[06:49] enabled. And to verify that this is
+[06:51] working, you're going to go over to the
+[06:52] plus sign here, go on connectors, and
+[06:54] then you see everything here is enabled.
+[06:56] Higgs Field is enabled and so is 11 Labs
+[06:58] player. So, it's all connected.
+[06:59] Everything is now in Claude code. What
+[07:00] you need to do now is you need to
+[07:02] activate the editor within Claude code
+[07:03] and you're going to have to paste this
+[07:05] code that is on your screen right now.
+[07:07] For Mac and Windows, they're two
+[07:08] different codes. For Mac, paste brew
+[07:11] install FFmpeg. And for Windows, paste
+[07:14] winget install
+[07:15] FFmpeg. It's on the screen. I know I
+[07:17] probably said it wrong, but who cares?
+[07:18] What I'm going to do is I'm going to
+[07:19] paste this in. This is the code that you
+[07:21] put in so that it becomes a video
+[07:23] editor. So, we're installing this so
+[07:25] that Claude code becomes a video editor.
+[07:27] We have Higgs Field, we have 11 Labs,
+[07:28] but we need now it to become a video
+[07:30] editor. So, that's the entire setup to
+[07:32] set up Claude code onto your computer.
+[07:34] Now, I'm going to give you a master
+[07:35] prompt that I've used to create videos
+[07:36] that have come out pretty solid in this
+[07:38] next section completely for free. But,
+[07:40] if you want to skip the trial and error
+[07:41] of finding the right niche, building a
+[07:43] faceless YouTube channel that's
+[07:44] profitable, that's making 10 grand a
+[07:45] month, then check out the free guide
+[07:47] that I've put together in the
+[07:48] description below. It covers the exact
+[07:50] system that I have used to help busy
+[07:52] professionals quit their job and go
+[07:54] full-time on YouTube, supplement their
+[07:55] income with faceless YouTube without
+[07:57] having to show their face. Now, let's
+[07:59] cover the prompt that you'll need to
+[08:00] actually make these videos. Right now,
+[08:02] anyone can install Claude code and
+[08:03] connect 11 Labs, but if you don't have
+[08:04] the right prompt, then the AI will come
+[08:06] out with some garbage. So, you need to
+[08:07] prompt it correctly so that it comes out
+[08:09] with some good stuff. So, I've seen
+[08:10] beginners try to write scripts with
+[08:12] YouTube, including myself when AI first
+[08:13] came out, and the scripts came out
+[08:15] terrible. It came out robotic, it came
+[08:17] out bland, it came out very AI-ish, and
+[08:19] people couldn't kind of tell, very corny
+[08:21] and cheesy. So, you need to prompt your
+[08:23] AI correctly so it comes out with solid
+[08:25] scripts and solid results so that your
+[08:27] videos actually do go viral and they
+[08:28] don't just flop and and get stuck in the
+[08:30] 200 view jail. So, Claude code is like a
+[08:32] Formula 1 car. It's good, it works, but
+[08:34] if the driver is not good, he can't
+[08:36] drive, then it's not going to work out,
+[08:38] he's not going to win the race, probably
+[08:39] going to crash on the way. It's going to
+[08:41] be a bad situation. So, think of
+[08:42] yourself as the driver, think of Claude
+[08:44] code as the car. You need to make sure
+[08:46] that the driver, who is you, that you're
+[08:48] putting in the correct prompts. So, I'm
+[08:49] going to give you a master prompt
+[08:50] completely for free today that I have
+[08:52] used to create really good videos. So,
+[08:53] this is the master prompt which is
+[08:55] linked below, which you can steal. So,
+[08:56] over here, I tell it different steps.
+[08:58] So, step one, video brief, topic, what
+[09:00] happens to your birds at sunrise? You've
+[09:01] never seen this. Now, with Backyard Bird
+[09:03] Mind, their most viral video is what
+[09:05] happens to your birds at night, you've
+[09:06] never seen this, 1.6 million views in 2
+[09:08] weeks. So, what you would want to do is
+[09:09] you would want to change up one word in
+[09:10] the title in order to dominate the niche
+[09:12] and come up with a new solid idea. So,
+[09:14] what I've done here is or what you would
+[09:16] want to do is change up instead of what
+[09:17] happens to your birds at night, you
+[09:18] change night to sunrise or sunset. So,
+[09:21] you've never seen this. So, over here,
+[09:23] I'm going to copy this title, paste it
+[09:25] in here, and instead of at night, I'm
+[09:26] going to put the sunrise, you've never
+[09:28] seen this. Target 2 minutes length, I've
+[09:31] realized when you try to do 8 minutes,
+[09:32] it takes a long time, but if you do it
+[09:34] in parts, it's actually faster when you
+[09:35] do the videos in parts. And then you
+[09:37] give it a reference video, so Claude
+[09:38] code can read videos and scripts and
+[09:41] thumbnails. So, I've linked the video
+[09:42] here for it to read, the YouTube video
+[09:44] and say, "I want the same style as this
+[09:46] video. Aspect ratio 16:9 4K. Script,
+[09:49] maintain the writing style of this
+[09:50] script." So, I've linked the emulation
+[09:51] video, the video that went viral that
+[09:53] has a proof of concept. I link that into
+[09:54] Claude code to code it and to prompt it
+[09:56] and say, "This is the script writing
+[09:57] style I want you to use. This has
+[09:59] already worked. This has proven to work.
+[10:00] Let's do something similar so that we
+[10:01] can go viral as well." So, format, hook,
+[10:03] main content, and editing scene by
+[10:05] scene. So, Higgsfield does the planning
+[10:07] on the scenes. Each line segment
+[10:08] provide, yep, Higgsfield prompt scene
+[10:10] description, camera movement, lighting,
+[10:12] and mood. Make visuals. A voice
+[10:13] generation, you can prompt it here, but
+[10:15] you'd want to put the voice ID over
+[10:16] here. So, with 11 Labs, you can choose
+[10:18] any voice, American male or British male
+[10:19] is fine. For faces YouTube, then we
+[10:21] click on more actions, then we copy
+[10:22] voice ID so that we can put the voice ID
+[10:24] into the prompt so that it can actually
+[10:25] use that specific voice over. So, we put
+[10:27] voice, sound design, so AI will come up
+[10:30] with sound design, editing plan, cut
+[10:32] trimming, transitions, text overlays,
+[10:34] thumbnail creation. I always tell it,
+[10:36] "Give me three variations of the
+[10:37] thumbnails. Use Nano Banana." Nano
+[10:38] Banana's a beast when it comes to
+[10:40] creating images and making thumbnails.
+[10:41] So, we're going to tell it, "Use Nano
+[10:42] Banana. Create the thumbnails. Give me
+[10:43] three variations." And I say, "Use the
+[10:45] dimensions for YouTube thumbnail, 1280 x
+[10:47] 720 pixels with an aspect ratio of
+[10:49] 16:9." And then we give it the rules.
+[10:51] And then, okay, we're going to hit enter
+[10:52] here. Okay, it looks like it's creating
+[10:53] the video right now. So, it's spitting
+[10:55] out all this stuff, production package.
+[10:57] Okay, it looks like it's giving me some
+[10:58] scenes over here. So, it's literally the
+[11:00] AI's going scene by scene, minute by
+[11:02] minute, second by second, every 5
+[11:04] seconds changing the scene and giving
+[11:06] the asset, literally saying, "Use Kling
+[11:08] here. Use VO light here. Kling, VO
+[11:09] light." This is insane. Okay, and there
+[11:11] you have it. The thumbnails are done.
+[11:13] So, if we look at these thumbnails, the
+[11:14] stair that reveal the battle, it's
+[11:16] giving me three variations of the
+[11:17] thumbnails. If we click on one, damn,
+[11:18] that is pretty solid. You've never heard
+[11:20] this. What happens at 4:30 a.m.?
+[11:22] Interesting. [music] And nobody hears
+[11:24] it. It's a war. Okay, it gives me 4K
+[11:26] over there. Okay, this is 4K. Damn,
+[11:28] that's a solid thumbnail. That's pretty
+[11:29] impressive. You've never heard this. And
+[11:31] it gives you a close-up shot of the
+[11:33] Yeah, this one's the best thumbnail,
+[11:34] obviously, but damn, this is solid, man.
+[11:36] What the heck? Okay, it's also come with
+[11:38] the video. The video's done. Okay, so
+[11:40] it's create the video now. Let's have a
+[11:41] look at this.
+[11:42] >> Every morning, before you wake up, the
+[11:44] birds outside your window perform
+[11:46] something almost no human has ever
+[11:48] actually heard.
+[11:50] It's not random.
+[11:52] It's not just singing.
+[11:54] And once you understand it,
+[11:56] >> Damn.
+[11:56] >> you'll never think of it again.
+[11:58] >> This is crazy.
+[11:59] >> At first light,
+[12:01] sometimes before the sun even clears the
+[12:03] horizon,
+[12:04] >> Damn.
+[12:05] >> start.
+[12:06] Then thrushes.
+[12:07] Then warblers.
+[12:09] Each species enters
+[12:11] >> Damn, that the sound design's insane.
+[12:12] Like the the background music's like
+[12:14] proper giving that intense feel.
+[12:16] >> in a precise order, like an orchestra
+[12:18] tuning up.
+[12:20] >> [music]
+[12:20] >> But here's the part nobody tells you.
+[12:22] They're not singing for you.
+[12:24] >> [music]
+[12:25] >> They're not even singing for joy.
+[12:27] Every note
+[12:29] is a weapon.
+[12:31] Male birds use the dawn chorus to claim
+[12:33] territory.
+[12:35] The cold morning air carries sound up to
+[12:37] 20 times farther than at noon.
+[12:39] So, whichever male sings the loudest,
+[12:41] the longest, the most complex song,
+[12:45] wins.
+[12:46] He gets the best nest, the best mate,
+[12:50] the best chance of his genes surviving
+[12:52] the year.
+[12:53] And the females,
+[12:55] they're listening
+[12:57] carefully.
+[12:59] A 2018 study found that female birds can
+[13:02] detect tiny [music] mistakes in a male's
+[13:04] song.
+[13:05] Mistakes human ears can't hear.
+[13:08] One off note,
+[13:10] and he's rejected.
+[13:12] Some species even sing in the dark
+[13:14] before the sky turns blue,
+[13:17] because predators can't see them yet.
+[13:19] They're literally betting their lives
+[13:22] >> This is so cool. Damn. I would have
+[13:23] never thought when I I my first YouTube
+[13:26] channel that there'll be a software
+[13:27] coming out that you can make the entire
+[13:28] video. I would have been like, "No way.
+[13:30] There's too much work, too much time,
+[13:31] too much money that goes into these
+[13:32] videos. There's no way that you can just
+[13:34] press a few buttons, prompt an AI, and
+[13:36] then boom, the video comes out." This is
+[13:37] something else. I mean, I'm seeing it
+[13:39] from a perspective of this was never
+[13:41] here before in the faceless world. Now
+[13:43] it's here. I'm just like, "Wow, insane."
+[13:44] So, yeah, you can easily make a video a
+[13:46] day and dominate this niche with this
+[13:48] AI. Now, implementing this system can
+[13:50] make you 10k a month just like it did
+[13:51] for Backyard Birdmind. I mean, the
+[13:53] videos that we've created there will
+[13:54] perfectly fit into that niche of
+[13:56] Backyard Birdmind. Even though it's just
+[13:57] not the same editing style, it's still a
+[13:59] good way to dominate the niche when you
+[14:00] come out the niche from a different
+[14:01] angle. Now, you need to move fast
+[14:03] because fast forward 12 months is this
+[14:05] niche is going to get flooded. Now, if
+[14:06] you want the entire system that my
+[14:08] students are using to make $1,500 a day
+[14:10] with faceless YouTube channels, then I
+[14:11] put the entire guide in a free training
+[14:13] below. If you click on that link, you'll
+[14:14] have access. I've been able to help guys
+[14:16] like Alex go from zero YouTube
+[14:18] experience to hit $13,000 in his first 2
+[14:21] weeks of monetization. This system has
+[14:23] also helped Tom hit $1,000 days with his
+[14:26] YouTube channel when he had zero YouTube
+[14:27] experience when he first came to me. In
+[14:29] my free training, I break down how busy
+[14:30] professionals are making a full-time
+[14:32] income whilst working part-time with
+[14:34] faceless YouTube. So, click on the link
+[14:35] to get access, and thanks for watching.
