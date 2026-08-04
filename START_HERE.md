@@ -2,7 +2,7 @@
 
 **The single entry point for this project. Read this first, every session.**
 
-Last updated: **2026-08-03** · Written at commit `b1d2ec7` (this file's own
+Last updated: **2026-08-03** · Written at commit `53f5afd` (this file's own
 commit lands *after*, so HEAD will read one ahead — see §0) · Working tree
 clean, local = GitHub. **Drive pull pending** (user runs it).
 
