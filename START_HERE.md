@@ -2,12 +2,35 @@
 
 **The single entry point for this project. Read this first, every session.**
 
-Last updated: **2026-08-03** · Repo state at last update: `d966155`, clean,
-local = GitHub = Drive.
+Last updated: **2026-08-03** · Last pushed commit: `8dc0890`
+· ⚠️ **Working tree is NOT clean** — uncommitted work is awaiting user
+approval (see §1). Drive is behind by whatever is unpushed.
 
 This file is a **router, not a duplicate** — it points at the real sources
 rather than restating them, so nothing can drift out of sync. It is
 **overwritten each session**, not appended; history lives in git.
+
+---
+
+## 0. Validate this file before trusting it
+
+**This file goes stale by design** — it is written during a session and can
+miss whatever happened after. A cold-start test on 2026-08-03 found it
+carrying a commit hash one commit behind and a wrong rule count. **Run
+these three checks first; if any disagrees, believe the repo, not this
+file, and fix the file.**
+
+```bash
+cd "C:\Users\AwBro\Desktop\automated clipper bot"
+git log --oneline -1          # must match the hash in the header above
+git status --short            # uncommitted work? this file may not describe it
+grep -cE '^[0-9]+\. ' CLAUDE.md   # must match the rule count in §4
+```
+
+**If the working tree is dirty:** uncommitted work is *not* lost — read
+`git diff` to see what it is. It is likely a session that ended before
+saving. Do **not** commit it without asking; approval status cannot be
+determined from a diff (Rule 10).
 
 ---
 
@@ -28,6 +51,31 @@ sequencing choice, not a stall (reasoning: §4 of
 - 4 research reports saved verbatim (3 Hugging Face + 1 source-mining)
 - 15 active operating rules, each written because a specific failure
   happened
+
+**✅ COMPLETE — authorized by user 2026-08-03: the Rule 10 marking
+convention.** Nothing is written as complete until the user says so
+in-session; when they do, it is stamped `✅ COMPLETE — authorized by user
+YYYY-MM-DD`. Until then the only honest statuses are *in progress*,
+*awaiting user approval*, or *blocked*. See Rule 10 in `CLAUDE.md`.
+
+**✅ COMPLETE — authorized by user 2026-08-03: the four delivery-hole
+fixes.** A cold-start test found the resume system was one mechanism deep,
+not three. Fixed: (1) a pointer in the sibling project's `CLAUDE.md`,
+since this repo's banner only auto-loads when a session is rooted here and
+sessions have repeatedly been rooted in the sibling; (2) the cross-session
+memory entry rewritten to point at this file and to document that
+auto-load failure; (3) §0 of this file, self-validation against its own
+staleness; (4) a global `Stop` hook (`~/.claude/hooks/`) reminding to
+update this file before a final push — global, not project-level, so
+working directory doesn't matter.
+
+**⏳ BLOCKED — pending a yes/no from the user:** Rule 22 (make updating
+this file a non-skippable end-of-session action), and provisional Rules 8
+& 9 (Gemini-sourced, adopted without authorization).
+
+**Outside git:** a 66MB transcript backup at
+`AI\claude_transcripts_backup_2026-08-03\` — the raw record, and the
+fallback when a curated note is missing or disputed.
 
 **In flight (nothing is finished, nothing is lost):**
 | Workstream | Progress |
@@ -96,8 +144,10 @@ Five open questions at the end need the user's answers.
 
 ## 4. How we work
 
-**Read [`CLAUDE.md`](CLAUDE.md) and apply it** — 21 rules, 15 active.
-They are strict defaults; deviating from one requires asking first.
+**Read [`CLAUDE.md`](CLAUDE.md) and apply it** — 20 numbered rules, 15
+active (3, 5, 7, 10–21 minus the removed/provisional ones). Rule 22 is
+*proposed only* and is not in the file. They are strict defaults;
+deviating from one requires asking first.
 
 The ones that actually get broken, so check against these specifically:
 
@@ -129,12 +179,30 @@ pull works:
 !git -C "/content/drive/MyDrive/CLAUDE AI CLIP BOT V1 attempt" pull
 ```
 
+**Raw session transcripts** are backed up outside the repo (they are
+~66MB and `.gitignore`d, so they must never be committed). Latest:
+`C:\Users\AwBro\Desktop\AI\claude_transcripts_backup_2026-08-03\`
+(precedent: `claude_evidence_backup_2026-07-30`). Source of truth lives at
+`C:\Users\AwBro\.claude\projects\C--Users-AwBro-Desktop-youtube-auto-videos\*.jsonl`
+— local app data, **not guaranteed to survive app updates or cache
+clearing** (the failure report §24 documents source material already lost
+this way). Re-run the backup when a session produces significant work:
+```bash
+cp -n "/c/Users/AwBro/.claude/projects/C--Users-AwBro-Desktop-youtube-auto-videos"/*.jsonl \
+      "/c/Users/AwBro/Desktop/AI/claude_transcripts_backup_<DATE>/"
+```
+These are the raw record. The curated notes in this repo are a *selection*
+— and that selection has failed at least once (the `START_HERE.md` design
+was discussed, approved, and nearly lost). The transcripts are the fallback
+when a note is missing or disputed.
+
 ---
 
 ## 5. Where things are
 
 | What | Where |
 |---|---|
+| **Session handoff prompt** — ready-to-paste catch-up block + its template | [`SESSION_HANDOFF_PROMPT.md`](SESSION_HANDOFF_PROMPT.md) |
 | **Live agenda, per-item detail** | [`reference/PENDING_agent_prompts_resume_2026-08-01.md`](reference/PENDING_agent_prompts_resume_2026-08-01.md) |
 | **Rules** | [`CLAUDE.md`](CLAUDE.md) |
 | **Project status, architecture, backlog** | [`PROJECT.md`](PROJECT.md) — current as of 2026-08-02 |

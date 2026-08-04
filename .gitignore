@@ -9,3 +9,6 @@ downloads/
 *.wav
 *.srt
 .ipynb_checkpoints/
+
+# Session transcripts - backed up outside the repo, never committed (66MB+)
+*.jsonl

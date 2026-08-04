@@ -187,6 +187,26 @@ with the user first, not silently decided.
     anything is marked complete or finished.** Report what was done and
     how it was tested — the "complete/finished" designation itself belongs
     to the user, never something declared unilaterally.
+
+    **Marking convention — ✅ COMPLETE — authorized by user 2026-08-03.**
+    (User's own words: *"nothing is marked as complete until i say so if in
+    the session i tell u its now complete mark it as done we will up date
+    our file and change it to complete and authorized by user"*, then
+    *"commit this mark as complete and done and save"*.)
+    - **Nothing is written as complete until the user says so in-session.**
+      Not "done," not ✅, not "finished" — in any project file.
+    - Until then, the only honest statuses are **`in progress`**,
+      **`awaiting user approval`**, or **`blocked`**.
+    - **When the user says it's complete**, update the file and mark it:
+      **`✅ COMPLETE — authorized by user YYYY-MM-DD`**. The authorization
+      is part of the label, not a separate note, so the record shows *who*
+      declared it done and *when*.
+    - This makes every completion claim auditable. A status without an
+      authorization stamp is, by definition, not complete.
+    - **Pre-existing markers**: any ✅/"done" written before 2026-08-03
+      predates this convention and was **not** user-authorized under it.
+      Do not retroactively stamp them — leave them, and apply the
+      convention going forward.
 11. **Default to multiple parallel background agents for research/
     verification/mining work spanning multiple independent sources** — act
     as director/orchestrator (scope each agent tightly, synthesize what
