@@ -2,9 +2,10 @@
 
 **The single entry point for this project. Read this first, every session.**
 
-Last updated: **2026-08-03** · Written at commit `53f5afd` (this file's own
+Last updated: **2026-08-04** · Written at commit `95be096` (this file's own
 commit lands *after*, so HEAD will read one ahead — see §0) · Working tree
-clean, local = GitHub. **Drive pull pending** (user runs it).
+clean. **local = GitHub = Drive** — the user pulled `95be096` into
+"CLAUDE AI CLIP BOT V1 attempt" on 2026-08-04, confirmed by real output.
 
 This file is a **router, not a duplicate** — it points at the real sources
 rather than restating them, so nothing can drift out of sync. It is
@@ -171,6 +172,25 @@ without authorization; that is why they are gone, not a technical
 judgment. Both are struck through in `CLAUDE.md` with the reasoning kept,
 so the record survives. Decide them at build time, against real output.
 
+**⚠️ The 2026-08-04 cold-start test found four real bugs — in this file.**
+§1 was updated with the user's decisions; §3, §3b and §4 were not, and still
+described the state *before* them. A cold session reading §3 would have gone
+and asked the user two questions they had already answered. Fixed:
+
+| Where | Said | Reality |
+|---|---|---|
+| §3 | Rules 8/9 and Rule 22 "waiting on the user" | both resolved 2026-08-03 |
+| §4 | "Rule 22 is *proposed only* and is not in the file" | it is adopted and in `CLAUDE.md` |
+| §4 | active-rule list "minus the removed/provisional ones" | no provisional rules remain |
+| §3b | Q1 and Q2 still marked ⚡ owed | answered; §3b's own convention says record the answer inline |
+
+**The lesson, written down because it will recur:** updating one section of
+this file is not updating the file. The five sections cross-reference each
+other, so a decision recorded in one and not the others reads as *unresolved*
+to anyone arriving cold — which is worse than not recording it at all.
+`SAVE_PROTOCOL.md` step 3 already says "all five sections"; this is what
+happens when that is treated as a checklist item rather than a check.
+
 **No blockers remain.** The next action is §2.
 
 **Outside git:** a 66MB transcript backup at
@@ -267,10 +287,11 @@ but the choice is the user's under Rule 10.
 
 ## 3. Blockers & open leads
 
+**Resolved 2026-08-03 — no longer blocking** (kept here so nothing looks
+still-open on a re-read): **Rule 22 adopted**; **Rules 8 and 9 dropped**.
+Details and reasoning in §1.
+
 **Waiting on the user:**
-- **Rules 8 and 9** — ⚠️ provisional, Gemini-sourced, adopted without
-  authorization. Need a yes/no or they get dropped.
-- **Rule 22** — see §2.
 - **Usage headroom** — confirm before launching any agents. Budget is a
   live constraint: metered, hard weekly reset **Monday 1pm**, hit
   repeatedly. Last session went fresh to 100% on *one* agent plus
@@ -320,11 +341,12 @@ outside world. **Ask them when they become relevant, not all at once.**
 Marked ⚡ where an answer unblocks real work.
 
 **Decisions currently owed (ask early):**
-1. ⚡ **Rule 22** — adopt "updating `START_HERE.md` is the last action of
-   every session, non-skippable"? Yes/no.
-2. ⚡ **Rules 8 & 9** — keep or drop? Both Gemini-sourced, adopted without
-   authorization: ffmpeg `-movflags +faststart`, and `.ass`/`\an5` karaoke
-   captions.
+1. ~~⚡ **Rule 22** — adopt it?~~ **ANSWERED 2026-08-03: yes, adopted.**
+   Now Rule 22 in `CLAUDE.md`.
+2. ~~⚡ **Rules 8 & 9** — keep or drop?~~ **ANSWERED 2026-08-03:
+   *"Neither — drop both."*** Struck through in `CLAUDE.md` with the
+   reasoning kept. They were Gemini-sourced and adopted without
+   authorization; that is why they went, not a technical judgment.
 3. ⚡ **Usage headroom** — how much budget is left this session? Required
    before launching any agents.
 4. **Workstream order** — A, B, C, or D first? The user picks.
@@ -362,8 +384,9 @@ directs, but that isn't a licence to stall).
 ## 4. How we work
 
 **Read [`CLAUDE.md`](CLAUDE.md) and apply it** — 21 numbered rules, 16
-active (3, 5, 7, 10–21 minus the removed/provisional ones). Rule 22 is
-*proposed only* and is not in the file. They are strict defaults;
+active — 22 numbered minus the five removed at the user's direction
+(2, 4, 6 on 2026-08-01; 8, 9 on 2026-08-03). **Rule 22 is adopted and is
+in the file** (authorized 2026-08-03). They are strict defaults;
 deviating from one requires asking first.
 
 The ones that actually get broken, so check against these specifically:
