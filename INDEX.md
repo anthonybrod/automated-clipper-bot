@@ -72,6 +72,12 @@ and were re-saved word-for-word at the user's explicit insistence.
 | [`reference/research_2026-08-01_huggingface_local_llm_judging_VERBATIM.md`](reference/research_2026-08-01_huggingface_local_llm_judging_VERBATIM.md) | Structured-JSON / function-calling models vs Llama 3.2, local TOS-safety classifiers, hook-quality scoring, real benchmarks. | Stage 3's LLM scoring, or picking the local judging model. |
 | [`reference/mining_2026-08-01_deep_dive_moment_detection_VERBATIM.md`](reference/mining_2026-08-01_deep_dive_moment_detection_VERBATIM.md) | Workstream B item 1 of 12 — full 5-lens extraction (portable code / fixable code / free tools / efficiency / corrections). 675 lines. | The model for what a B item should produce. |
 
+### Workstream G — transcript mining (2026-08-04, in progress)
+
+| File | What it is | Read it when |
+|---|---|---|
+| [`reference/mining_2026-08-04_lYafPAHVOno_VERBATIM.md`](reference/mining_2026-08-04_lYafPAHVOno_VERBATIM.md) | **G3 — Lacy Content Strategy Breakdown.** 101 timestamp citations, 10 honest NOTHING-FOUND entries. Key: the source is **third-party commentary, not Lacy**, and it states **zero hook principles and zero thresholds**. Explicitly says: do not seed Stage 3 defaults from this file. | Stage 3 strategy context — but read its SOURCE NATURE header first. |
+
 ## 6. Verbatim raw source — external material, reference only
 
 **Rule 16: raw record and evaluation never blend.** Nothing in this section
