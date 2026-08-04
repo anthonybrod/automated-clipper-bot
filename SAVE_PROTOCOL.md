@@ -79,7 +79,50 @@ All five sections, from **real state** — not memory:
 The ready-to-paste block. **Never carry a stale commit hash** — it is the
 most load-bearing line in it.
 
-### 5. Run the checks (Rule 21 — before reporting, not after being asked)
+### 5. Run `save_check.sh` — MANDATORY, and it decides whether you may report
+
+```bash
+bash save_check.sh
+```
+
+**If it exits non-zero the save is NOT done.** Fix exactly what it names,
+re-run it, and do not report anything to the user until it passes.
+
+**Why this replaced a list of checks to remember (2026-08-04):** the nine
+steps in this file already existed and were already correct, and three were
+silently skipped anyway — step 1 (audit the conversation), this step, and
+step 8 (transcript backup). The user found them by asking twice, which is
+the exact work this protocol was written to make unnecessary. Their words:
+*"i was supposed to just say 'save everything' and u would reference the
+save protocol and complete it but u failed."* It happened in a paid session.
+
+Remembering harder is not a fix. The script checks **outcomes, not
+intentions** — 12 checks: START_HERE dated today, header-hash offset,
+PROJECT.md staleness, the handoff's hash, its eight format sections, its
+structural integrity, link rot, rule-count agreement, whether every source
+document is reachable from a doc a session actually reads, the transcript
+backup, a clean tree, and origin sync.
+
+It earned its place on the first run by catching two real failures that were
+invisible without it: the `START_HERE.md` header sitting 4 commits behind
+HEAD, and the handoff carrying no resolvable commit hash.
+
+### 5b. The judgement checks no script can do
+
+`save_check.sh` verifies structure. It cannot verify **meaning**. Still do
+these by hand:
+
+- **Audit the conversation** (step 1) — was anything discussed, decided, or
+  corrected this session that never got written down? This is the failure
+  mode that nearly lost the entire `START_HERE.md` design, and no script can
+  detect it.
+- **Are the contents still true?** A findable file can still be wrong. The
+  script proves `PROJECT.md` mentions today; it cannot prove what it says is
+  accurate.
+- **Did anything get deferred?** Write it into the backlog now, with the
+  reason. Deferred work that lives only in chat is how the six transcripts
+  and twelve documents went missing.
+
 ```bash
 cd "C:\Users\AwBro\Desktop\automated clipper bot"
 bash check_links.sh                # every doc link resolves

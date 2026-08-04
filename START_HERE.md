@@ -87,6 +87,7 @@ git log --oneline -3          # header hash should be HEAD or 1 behind
 git status --short            # uncommitted work? this file may not describe it
 grep -cE '^[0-9]+\. ' CLAUDE.md   # must match the rule count in §4
 bash check_links.sh           # every doc link still resolves? (catches link rot)
+bash save_check.sh            # 12 checks: is the last save actually complete?
 ```
 
 **On the hash:** a file can never record the hash of the commit that
