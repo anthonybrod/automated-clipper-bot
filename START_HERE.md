@@ -217,7 +217,7 @@ fallback when a curated note is missing or disputed.
 | C — 6 untranscribed YouTube videos | **6 of 6 ✅ 2026-08-04** — fetched, verified real |
 | D — Platform / hosting research | not started |
 | **F — sweep `AI\` folder for never-imported material** | **queued — user: "this is next to do"** |
-| **G — mine the 6 new transcripts** (detection thresholds, hook patterns) | **next up — 6 agents, one per file** |
+| **G — mine the 6 new transcripts** (detection thresholds, hook patterns) | **G1–G3 (the 3 Lacy files) running 2026-08-04. G4/G5/G6 DEFERRED — still to do, see PENDING §G** |
 | **H — CORE clipper research on X** (@yoxics, @scubaryan_, @coresculture +) | **queued with G** |
 
 **Rough cost per workstream** (from real measured sessions — budget is a

@@ -808,6 +808,23 @@ many files each died producing nothing).
 | G5 | `research/transcripts/mFOoNPFylLI.txt` | 521 | Higgsfield / Claude connectors + Claude Code setup section. |
 | G6 | `research/transcripts/QqwNue_KL-4.txt` | 145 | Gemini Gems tutorial — relevant to the user's existing Gemini Plus suite. |
 
+### ⚠️ DEFERRED 2026-08-04 — G4, G5, G6 (the 3 tooling transcripts)
+
+**User decision, 2026-08-04:** run only the **3 Lacy files (G1, G2, G3)**
+now, concurrently with workstream H. *"do 2 and 3 make a note of what we
+put off as to do."*
+
+**Still to do — not cancelled, not done:**
+
+| # | File | Snippets | Why it still matters |
+|---|---|---|---|
+| G4 | `research/transcripts/PafYu69s5NA.txt` | 351 | *Claude + Whop Clipping Workflow* — opens describing a clip found, analyzed, cut and captioned automatically and free with Claude. **This project’s exact problem statement, already built by someone else.** Highest-value of the three deferred. |
+| G5 | `research/transcripts/mFOoNPFylLI.txt` | 521 | Higgsfield / Claude connectors, plus a Claude Code setup section. |
+| G6 | `research/transcripts/QqwNue_KL-4.txt` | 145 | Gemini Gems tutorial — relevant to the user’s existing Gemini Plus suite. |
+
+The transcripts are already fetched and verified; only the mining is
+outstanding. Same prompt as G1–G3 below, same lenses, same output format.
+
 **Extraction lenses** — the standard 5 (A complete/portable code,
 B fixable code, C free/unutilized tools, D efficiency paths,
 E corrections/gotchas) **plus three specific to this workstream**:
