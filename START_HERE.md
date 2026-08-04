@@ -2,13 +2,73 @@
 
 **The single entry point for this project. Read this first, every session.**
 
-Last updated: **2026-08-03** · Written at commit `315a6b8` (this file's own
+Last updated: **2026-08-03** · Written at commit `66ed361` (this file's own
 commit lands *after*, so HEAD will read one ahead — see §0) · Working tree
 clean, local = GitHub. **Drive pull pending** (user runs it).
 
 This file is a **router, not a duplicate** — it points at the real sources
 rather than restating them, so nothing can drift out of sync. It is
 **overwritten each session**, not appended; history lives in git.
+
+---
+
+## What this project is (read before anything else makes sense)
+
+An **automated Twitch clipping bot**, built on a **$0 open-source stack** —
+no paid SaaS anywhere in the pipeline. It watches a streamer's content,
+detects the best moments statistically rather than by watching everything,
+transcribes and captions locally, cuts to the right format per platform,
+and publishes — **with a human approval gate**, not fully unsupervised.
+
+**Why it exists:** to earn **Clipping.net bounty payouts**. The target is
+the streamer **Lacy** (@LacyCrashOuts — high-intensity rage, gambling, and
+argument clips). Clips are paid **per 1,000 views**, and campaigns enforce
+a **minimum view threshold per post** — a clip that lands under it pays
+**$0**. That is why hook quality and engagement aren't cosmetic concerns:
+they're the difference between getting paid and not.
+
+**Why budget discipline is a first-class constraint, not a preference:**
+payouts are roughly $0.50–$3.00 per 1,000 views, so any recurring API cost
+eats the margin directly. This is the reasoning behind the free-tool rules,
+the statistical pre-filter (keep most of a VOD away from any paid call),
+and Rule 20's five-role tool evaluation.
+
+**Scope note:** a second "Tier 2" monetization channel appears in older
+planning docs. It is **explicitly out of scope** — its design is
+anti-shadowban/hash-randomization tooling built because it expects to get
+banned. Only Tier 1, the compliant clipper, is active.
+
+**The 6-stage pipeline**, each with a verified tool choice (full reasoning
+and sourcing in [`PROJECT.md`](PROJECT.md)'s Architecture Outline):
+
+| Stage | What it does | Chosen approach |
+|---|---|---|
+| 1 Ingestion | Pull the VOD/stream + chat | `yt-dlp`; chat via Twitch GQL (keyless) or `chat-downloader` |
+| 2 Transcription | Word-level timestamps, local + free | `faster-whisper` (candidates open — see catalog) |
+| 3 Moment detection | Find the clip-worthy moments | **Three-stage funnel** — free statistical pre-filter → cheap LLM score → expensive LLM detail on top-N only |
+| 4 Assembly | Cut, crop, caption, blur chat | `ffmpeg` — 9:16 split-screen (facecam over gameplay), karaoke captions, chat boxblur for TOS safety |
+| 5 Distribution | Publish per platform | YouTube Data API, X API, Meta Graph, TikTok — with a human approval gate |
+| 6 Orchestration | State, retries, budget | LangGraph + `AsyncSqliteSaver`; port the proven retry/dead-letter/budget machinery from the sibling project |
+
+**The single most important technique found in all research:**
+`snap_clip_to_words()` — LLMs are unreliable at millisecond arithmetic, so
+proposed cut points get snapped onto **real word-boundary timestamps** from
+the transcript (with ~0.35s lead / 0.45s tail padding into silence) before
+anything is cut. Every other source assumed raw LLM timestamps were safe.
+They aren't.
+
+**Campaign rules that constrain the build** (from the plan/checklist —
+these are requirements, not preferences): mandatory `#lacy` hashtag and
+Lacy's name in the caption; **zero watermarks or logos**; Tier-1
+English-speaking audience targeting; stream chat must be blurred to avoid
+TOS flags from viewer messages; no botting or fake engagement.
+
+**Full source material:** the master plan and checklists are preserved
+verbatim in `reference/handoff_2026-08-01_*.md` — including a 920-line
+planning transcript and a 78-source tool directory. The decision-ready
+tool list is
+[`reference/MASTER_TOOLS_CATALOG_2026-08-02.md`](reference/MASTER_TOOLS_CATALOG_2026-08-02.md)
+(~110 tools, real URLs, Rule 20 roles).
 
 ---
 
@@ -148,6 +208,52 @@ plus Tenacity backoff before Stage 1 depends on it.
 eventual build phase —
 [`reference/DISCUSS_next_phase_autonomy_prompt_2026-08-02.md`](reference/DISCUSS_next_phase_autonomy_prompt_2026-08-02.md).
 Five open questions at the end need the user's answers.
+
+---
+
+## 3b. Questions only the user can answer
+
+These aren't in any file because they can't be — they're decisions,
+preferences, or facts about the outside world. **Ask them when they become
+relevant, not all at once.** Marked ⚡ where an answer unblocks real work.
+
+**Decisions currently owed (ask early):**
+1. ⚡ **Rule 22** — adopt "updating `START_HERE.md` is the last action of
+   every session, non-skippable"? Yes/no.
+2. ⚡ **Rules 8 & 9** — keep or drop? Both Gemini-sourced, adopted without
+   authorization: ffmpeg `-movflags +faststart`, and `.ass`/`\an5` karaoke
+   captions.
+3. ⚡ **Usage headroom** — how much budget is left this session? Required
+   before launching any agents.
+4. **Workstream order** — A, B, C, or D first? The user picks.
+
+**Scope and direction:**
+5. **Which streamer(s) beyond Lacy**, if any? The architecture supports a
+   multi-creator `config.json`, but only Lacy is scoped.
+6. **Is the Clipping.net campaign still live**, and are the dollar figures
+   in the planning docs current? Research could not confirm the specific
+   "$5,000 X pool / $20,000 multi-platform" figures as presently active —
+   they may describe a 2024 campaign.
+7. **VOD-only, or live monitoring too?** This is load-bearing: it decides
+   whether a streaming ASR (Kyutai) matters at all, and whether the bot
+   needs always-on hosting. Planning docs say live; the Get Clips path is
+   VOD-based.
+8. **The 5 open questions** in
+   [`reference/DISCUSS_next_phase_autonomy_prompt_2026-08-02.md`](reference/DISCUSS_next_phase_autonomy_prompt_2026-08-02.md)
+   about the eventual build-phase autonomy prompt.
+
+**Things only the user can run or check:**
+9. ⚡ **Run `validate_environment.py` in Colab** — one cell, settles the
+   credentials blocker. Claude cannot run Colab.
+10. **Did the sibling project's video actually get produced by the current
+    code, and does it still run?** The user watched those `.mp4` files;
+    that first-hand account is faster than any archaeology.
+11. **Pull Drive** after every push — Claude has no Drive access.
+12. **Twitch Developer credentials** — only the user can create the app.
+
+**When something is genuinely ambiguous:** ask rather than guess, but do
+everything that *doesn't* depend on the answer first (Rule 10 — the user
+directs, but that isn't a licence to stall).
 
 ---
 
