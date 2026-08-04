@@ -749,8 +749,30 @@ the user last ran. So a previously-seen error may already be fixed.
 ## NEW WORKSTREAMS — added 2026-08-04 at the user's direction
 
 ### F. Sweep `C:\Users\AwBro\Desktop\AI\` for material never imported
-*Status: **queued, next after G/H**. Explicitly requested: "note the AI sweep
-this is next to do — I want it on the checklist/to do list."*
+*Status: **⏸️ PUT OFF 2026-08-04 — waiting on the user, not on Claude.***
+
+**User decision, same session it was added (2026-08-04), verbatim:** *"that
+AI folder is to big i will sort through it and find u stuff to save for
+research later just make note we put it off for now."*
+
+**So the shape of this workstream changed.** It is no longer "Claude sweeps
+the folder." It is: **the user triages `AI\` themselves and hands over the
+material worth keeping**, and Claude then saves it verbatim into
+`reference/` and adds `INDEX.md` rows. Do **not** start a sweep of that
+folder unprompted — it was considered and deliberately put off. Wait for the
+user to supply files.
+
+**Why the user's call is the right one:** the folder holds multiple whole
+project attempts, Drive zip exports, and a ~66MB transcript backup. Only the
+user knows which attempts still matter. A blind sweep would burn budget
+re-reading superseded material — and budget is a first-class constraint here.
+
+**When the user does supply files:** save verbatim, never condensed
+(Rule 15); keep raw source separate from any evaluation (Rule 16); add an
+[`INDEX.md`](../INDEX.md) row for each so it cannot go invisible; commit per
+item rather than batching.
+
+*Original scope, kept for when this resumes:*
 
 **Why.** The 2026-08-04 findability audit covered only files already **in
 this repo** and found 12 of 30 invisible. It did not touch `AI\`, which is
