@@ -2,7 +2,7 @@
 
 **The single entry point for this project. Read this first, every session.**
 
-Last updated: **2026-08-03** · Written at commit `bc20bb6` (this file's own
+Last updated: **2026-08-03** · Written at commit `b1d2ec7` (this file's own
 commit lands *after*, so HEAD will read one ahead — see §0) · Working tree
 clean, local = GitHub. **Drive pull pending** (user runs it).
 
@@ -137,6 +137,28 @@ auto-load failure; (3) §0 of this file, self-validation against its own
 staleness; (4) a global `Stop` hook (`~/.claude/hooks/`) reminding to
 update this file before a final push — global, not project-level, so
 working directory doesn't matter.
+
+**✅ COMPLETE — authorized by user 2026-08-03: the save system itself.**
+`SAVE_PROTOCOL.md` defines what *"save everything"* means (the user's own
+words govern it), and it now carries **the written `START_HERE.md` format** —
+what belongs in every section, in what order, with the rule governing each.
+This file is overwritten every session, so without a written format it
+degrades a little each time.
+
+Four cold-start test passes were run against the whole system. **Every pass
+found real bugs**; all are fixed:
+
+| Pass | What it found |
+|---|---|
+| 1 orientation | `PROJECT.md` stale again; `README.md` never pointed here |
+| 2 execution | Rule 11 vs Rule 13 undefined for one-file tasks; no cost estimates; no partial-work handling |
+| 3 failure modes | `check_links.sh` ran only when someone remembered — now fires from the Stop hook |
+| 4 final | `SESSION_HANDOFF_PROMPT.md` carrying a **stale commit hash**; `README.md` claiming 11 rules when there are 20 |
+
+Pass 4's were the dangerous kind — a stale hash sends the next session to a
+commit that predates the work it is meant to resume from. The greps that
+caught them are now a written pre-save checklist in `SAVE_PROTOCOL.md`,
+not something someone has to remember to run.
 
 **⏳ BLOCKED — pending a yes/no from the user:** Rule 22 (make updating
 this file a non-skippable end-of-session action), and provisional Rules 8
