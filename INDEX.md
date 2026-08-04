@@ -76,6 +76,7 @@ and were re-saved word-for-word at the user's explicit insistence.
 
 | File | What it is | Read it when |
 |---|---|---|
+| [`reference/mining_2026-08-04_cVkFMpDLQrM_VERBATIM.md`](reference/mining_2026-08-04_cVkFMpDLQrM_VERBATIM.md) | **G2 — the curated best-of. The most directly usable document in the repo for Stage 3.** 50 moments segmented from a labelled dataset, with real clip-length statistics (median 39.5s), 7 moment types, a text-only detection signal, hook-opening distribution, and 3 corrections that would each have broken the planned detector. 811 timestamp citations. | **Before designing Stage 3 detection or Stage 4 cut lengths.** |
 | [`reference/mining_2026-08-04_lYafPAHVOno_VERBATIM.md`](reference/mining_2026-08-04_lYafPAHVOno_VERBATIM.md) | **G3 — Lacy Content Strategy Breakdown.** 101 timestamp citations, 10 honest NOTHING-FOUND entries. Key: the source is **third-party commentary, not Lacy**, and it states **zero hook principles and zero thresholds**. Explicitly says: do not seed Stage 3 defaults from this file. | Stage 3 strategy context — but read its SOURCE NATURE header first. |
 
 ## 6. Verbatim raw source — external material, reference only
