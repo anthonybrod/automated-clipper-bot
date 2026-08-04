@@ -211,6 +211,7 @@ when a note is missing or disputed.
 
 | What | Where |
 |---|---|
+| **SAVE EVERYTHING protocol** — the 9-step sequence run when the user says save | [`SAVE_PROTOCOL.md`](SAVE_PROTOCOL.md) |
 | **Session handoff prompt** — ready-to-paste catch-up block + its template | [`SESSION_HANDOFF_PROMPT.md`](SESSION_HANDOFF_PROMPT.md) |
 | **Live agenda, per-item detail** | [`reference/PENDING_agent_prompts_resume_2026-08-01.md`](reference/PENDING_agent_prompts_resume_2026-08-01.md) |
 | **Rules** | [`CLAUDE.md`](CLAUDE.md) |
