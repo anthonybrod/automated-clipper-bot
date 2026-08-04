@@ -2,9 +2,8 @@
 
 **The single entry point for this project. Read this first, every session.**
 
-Last updated: **2026-08-03** · Last pushed commit: `8dc0890`
-· ⚠️ **Working tree is NOT clean** — uncommitted work is awaiting user
-approval (see §1). Drive is behind by whatever is unpushed.
+Last updated: **2026-08-03** · Last pushed commit: `315a6b8` · Working
+tree clean, local = GitHub. **Drive pull pending** (user runs it).
 
 This file is a **router, not a duplicate** — it points at the real sources
 rather than restating them, so nothing can drift out of sync. It is
