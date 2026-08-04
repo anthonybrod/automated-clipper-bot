@@ -2,8 +2,9 @@
 
 **The single entry point for this project. Read this first, every session.**
 
-Last updated: **2026-08-03** · Last pushed commit: `315a6b8` · Working
-tree clean, local = GitHub. **Drive pull pending** (user runs it).
+Last updated: **2026-08-03** · Written at commit `315a6b8` (this file's own
+commit lands *after*, so HEAD will read one ahead — see §0) · Working tree
+clean, local = GitHub. **Drive pull pending** (user runs it).
 
 This file is a **router, not a duplicate** — it points at the real sources
 rather than restating them, so nothing can drift out of sync. It is
@@ -21,10 +22,18 @@ file, and fix the file.**
 
 ```bash
 cd "C:\Users\AwBro\Desktop\automated clipper bot"
-git log --oneline -1          # must match the hash in the header above
+git log --oneline -3          # header hash should be HEAD or 1 behind
 git status --short            # uncommitted work? this file may not describe it
 grep -cE '^[0-9]+\. ' CLAUDE.md   # must match the rule count in §4
 ```
+
+**On the hash:** a file can never record the hash of the commit that
+contains it — writing this file changes it, then committing produces a new
+hash. So **HEAD one ahead of the header is normal and correct.** Two or
+more ahead means real work landed after this file was updated: read those
+commits, then fix this file. This offset was found by actually running the
+check on 2026-08-03; the original wording ("must match") would have
+false-alarmed on every single session.
 
 **If the working tree is dirty:** uncommitted work is *not* lost — read
 `git diff` to see what it is. It is likely a session that ended before
