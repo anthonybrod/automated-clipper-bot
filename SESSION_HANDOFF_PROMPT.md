@@ -144,7 +144,7 @@ format for every section of START_HERE.md.
 
 BEFORE STARTING ANYTHING:
   - Confirm the checkpoint held: git log, git status, synced with origin.
-    Last known good is a7b997d or later. HEAD one ahead of what
+    Last known good is 29e80a6 or later. HEAD one ahead of what
     START_HERE.md's header says is NORMAL; two or more means work landed
     after it was updated (START_HERE.md §0 explains why).
   - Raise the @LacyCrashOuts handle question early — load-bearing, and only
