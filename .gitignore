@@ -12,3 +12,7 @@ downloads/
 
 # Session transcripts - backed up outside the repo, never committed (66MB+)
 *.jsonl
+
+# Local session logs - user prompts and state snapshots. NEVER commit:
+# this is a PUBLIC repo and these contain raw conversation content.
+.claude/
