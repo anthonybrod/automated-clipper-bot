@@ -11,13 +11,16 @@ no paid SaaS subscriptions in the pipeline itself.
 > front door; `START_HERE.md` is the working one. For a catalogue of every
 > document in the repo and when to read it, see [`INDEX.md`](INDEX.md).
 
-**Status: pre-flight / research phase. No pipeline code has been written
-yet — by design.** The project's own discipline is to prove out every hard
-dependency (APIs, models, credentials, tools) before writing a real
-pipeline stage, the same way this repo's `validate_environment.py` checks
-things before anything real runs. See [PROJECT.md](PROJECT.md) for the
-full, authoritative status, architecture, and backlog — this file is a
-short front door, not a duplicate of it.
+**Status: research phase. No pipeline code has been written yet — by
+design.** As of 2026-08-04 the project has its **first measured detection
+numbers** rather than generic advice: from 50 human-curated clip moments,
+median clip length **39.5s** (78% fall in 20–70s), hook openings split
+**36% direct question / 22% shouted name / 0% narration**, and a
+**transcript-only detector** — verbal repetition in 22 of 50 moments — that
+costs nothing per VOD and slots into the free pre-filter. Three findings
+contradict the current architecture and are flagged rather than applied; see
+[PROJECT.md](PROJECT.md) for all of it, and [INDEX.md](INDEX.md) for where
+every document lives.
 
 ## What this is
 
