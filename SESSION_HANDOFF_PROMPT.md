@@ -16,7 +16,7 @@ save, alongside `START_HERE.md`. The user just copies.
 
 ---
 
-## §1 — READY TO PASTE (current as of 2026-08-03)
+## §1 — READY TO PASTE (regenerated 2026-08-03, post-hooks)
 
 > ⚠️ Regenerate this block before the final push of every session.
 > "Last known good" below must match the actual final commit.
@@ -24,17 +24,22 @@ save, alongside `START_HERE.md`. The user just copies.
 ```
 just to catch you up: Read START_HERE.md in the automated clipper bot repo
 first (C:\Users\AwBro\Desktop\automated clipper bot). It's the single
-session entry point — state now, next action, blockers, where things are.
+session entry point, and it opens with §0 — a self-validation checklist.
+Run those checks before trusting anything in it.
 reference/PENDING_agent_prompts_resume_2026-08-01.md holds the detailed
 per-item agenda behind it. Don't reconstruct anything from memory or chat
 history — read the files.
 
 TASK #1, before anything else:
-  Propose Rule 22 and get my explicit yes or no — updating START_HERE.md is
-  the last action of every session, before the final push, non-skippable,
-  even when a usage limit is cutting things off. This is the part that makes
-  the reference system automated rather than dependent on you remembering.
-  START_HERE.md itself is already built (commit 8dc0890).
+  Give me a yes/no on Rule 22 — "updating START_HERE.md is the last action
+  of every session, before the final push, non-skippable, even when a usage
+  limit is cutting things off." Don't adopt it without my explicit yes
+  (Rule 14). Everything it depended on is already built: START_HERE.md
+  exists, SAVE_PROTOCOL.md defines the 9-step sequence I trigger by saying
+  "save everything," and four lifecycle hooks are live — SessionStart
+  injects context, UserPromptSubmit logs my prompts verbatim, PreCompact
+  snapshots before context dies, Stop reminds if START_HERE.md wasn't
+  updated.
 
 THEN four research workstreams, my pick of order:
   A. Rule 20 retroactive review (1 of 6 done) — re-check already-"completed"
@@ -50,34 +55,87 @@ THEN four research workstreams, my pick of order:
      reference/research_targets_platforms_2026-08-02.md. Highest-leverage
      lead: Ollama on a free Oracle ARM VM.
 
-ALSO READ: CLAUDE.md — 21 rules, 15 active. Don't just read them, apply
-them: they're strict defaults and deviating from one requires asking me
-first. The non-negotiables — I have final say on phase transitions and
-"complete"; nothing is factual unless confirmed this session or I OK'd it;
-external-AI material (Gemini etc.) is reference only; run every check BEFORE
-reporting done, not after I ask; preserve source material word-for-word;
-keep raw records separate from evaluation; don't dismiss free tools —
-evaluate against all five roles. Also read
+LAST SESSION (2026-08-03) — what got built:
+  - START_HERE.md — the single session entry point, with a §0 that
+    validates its own staleness (hash / rule count / link rot / dirty tree)
+  - SAVE_PROTOCOL.md — 9 ordered steps that run when I say "save
+    everything," so it's auditable instead of improvised
+  - SESSION_HANDOFF_PROMPT.md — this prompt's format + template, preserved
+  - check_links.sh — catches silent link rot (43 links, all resolving)
+  - 4 lifecycle hooks wired globally in ~/.claude/settings.json
+  - A user-level ~/.claude/CLAUDE.md — the only instruction path that fires
+    regardless of working directory
+  - Rule 10 gained a marking convention; Rule 21 added earlier
+  - 66MB of raw transcripts backed up outside the repo
+
+OPEN CHECKLIST — carry this forward and tick things off:
+  [ ] Rule 22 — yes/no from me
+  [ ] Rules 8 & 9 — yes/no from me (Gemini-sourced, unauthorized)
+  [ ] Verify the hooks actually fired this session (first live run)
+  [ ] Run validate_environment.py in Colab — settles the credentials blocker
+  [ ] Verify whether the sibling project's video code still runs
+  [ ] A: Rule 20 retroactive review — 1 of 6 (A2 HF-vision, A3 HF-LLM,
+      A4 mining report, A5 78-source audit, A6 the 17 videos)
+  [ ] B: 12-item source mining — 1 of 12
+  [ ] C: 6 untranscribed YouTube videos — 0 of 6
+  [ ] D: Platform / free-inference / hosting research — not started
+  [ ] Answer the 5 open questions in
+      reference/DISCUSS_next_phase_autonomy_prompt_2026-08-02.md
+  [ ] Fix chat_downloader's KeyError: 'data' before Stage 1 depends on it
+  [ ] Write the first line of actual pipeline code
+
+NEW THIS SESSION — things found, not yet acted on:
+  - A cold-start test found the resume system was ONE mechanism deep, not
+    three: this repo's CLAUDE.md only auto-loads when a session is rooted
+    here, and sessions keep getting rooted in the sibling project instead.
+    Fixed via the user-level CLAUDE.md + SessionStart hook.
+  - Privacy bug caught during hook testing: .claude/ was untracked, meaning
+    my raw prompts were one `git add -A` from a PUBLIC repo. Now gitignored.
+  - The header hash in START_HERE.md can never equal HEAD (committing the
+    file changes it). §0 documents the +1 offset so the check doesn't
+    false-alarm every session.
+  - Sonovore/claude-code-handoff (GitHub) — a real, shipped implementation
+    of this whole problem. We took its mechanisms, not its code. Its design
+    principle is worth applying further: a handoff should prioritise
+    forward-looking direction over a record of finished work.
+
+ALSO READ: CLAUDE.md — 20 numbered rules, 15 active. Don't just read them,
+apply them: they're strict defaults and deviating from one requires asking
+me first. The non-negotiables — I have final say on phase transitions and
+"complete" (and when I say complete, stamp it "COMPLETE — authorized by
+user YYYY-MM-DD"); nothing is factual unless confirmed this session or I
+OK'd it; external-AI material (Gemini etc.) is reference only; run every
+check BEFORE reporting done, not after I ask; preserve source material
+word-for-word; keep raw records separate from evaluation; don't dismiss
+free tools — evaluate against all five roles. Also read
 reference/MASTER_TOOLS_CATALOG_2026-08-02.md (~110 tools with URLs) before
-picking any tool for a stage. PROJECT.md is current as of 2026-08-02.
+picking any tool for a stage. When I say "save everything," follow
+SAVE_PROTOCOL.md exactly. PROJECT.md is current as of 2026-08-02.
 
 BEFORE STARTING ANYTHING:
   - Confirm the checkpoint held: git log, git status, synced with origin.
-    Last known good is 8dc0890, clean tree, local = GitHub = Drive.
-  - Raise these early: I owe you a yes/no on provisional Rules 8 and 9, and
-    on the uncommitted .gitignore + START_HERE backup-documentation change.
+    Last known good is efcadda or later. HEAD one ahead of what
+    START_HERE.md's header says is NORMAL; two or more means work landed
+    after it was updated (START_HERE.md §0 explains why).
+  - Raise these early: I owe you a yes/no on Rule 22, and on provisional
+    Rules 8 and 9 (ffmpeg -movflags +faststart, and .ass/\an5 karaoke
+    captions — both Gemini-sourced and adopted without my authorization).
     You need to confirm I have usage headroom before launching agents.
-  - Two unverified leads are in the resume file — does the sibling project's
+  - Two unverified leads in START_HERE.md §3 — does the sibling project's
     video code still run, and is validate_environment.py one auth fix from
-    passing. Check those before related build work, not after.
+    passing (one Colab cell settles it). Check those before related build
+    work, not after.
+  - The hooks were installed last session but load at startup, so THIS is
+    their first live run. If SessionStart didn't inject anything, say so.
 
 CONTEXT I'll forget: budget is a live constraint (metered, hard weekly reset
 Monday 1pm, hit repeatedly). Documentation work is not cheap — one recent
 session went fresh to 100% on a single agent plus note-keeping. Drive has no
 direct access from your side; you push to GitHub, I pull in Colab, and a
-fresh Colab runtime needs drive.mount() before the pull will work. Raw
-session transcripts are backed up outside the repo at
-AI\claude_transcripts_backup_<date>\ — they're the fallback when a curated
+fresh Colab runtime needs drive.mount() before the pull will work. My
+prompts are now logged verbatim to .claude/session-prompts.log (gitignored —
+public repo), and raw transcripts are backed up at
+AI\claude_transcripts_backup_<date>\; both are the fallback when a curated
 note is missing or disputed. Still zero pipeline code written — that's the
 honest headline, everything so far is restoration, research, and rules.
 ```
@@ -99,6 +157,12 @@ updated from real state, never from memory.**
 **VARIABLE.** The single specific next action, not a menu. If it has parts,
 number them. Say what is already done so it isn't redone. Pulled from
 `START_HERE.md` §2.
+
+### Section 2b — "OPEN CHECKLIST — carry this forward and tick things off:"
+**VARIABLE.** Every open item as a `[ ]` checkbox, including things blocked
+on the user. Prose describes; a checklist *tracks*. This is what survives
+across many sessions — items get ticked, not rewritten. Keep blocked items
+in the list rather than moving them elsewhere, so nothing quietly drops.
 
 ### Section 3 — "THEN [n] research workstreams, my pick of order:"
 **VARIABLE progress, CONSTANT structure.** One lettered entry each, with
@@ -125,6 +189,30 @@ reusable script, why it matters). Pulled from the resume file's agenda board.
   headroom before agents)
 - Unverified leads to check before related build work
 
+### Section 4b — "LAST SESSION — what got built:"
+**VARIABLE.** A short progress report: what actually shipped last session.
+Not a changelog of every commit — the things a fresh session needs to know
+exist so it doesn't rebuild them. This is the section that stops a stale
+prompt sending someone to redo finished work (which happened on
+2026-08-03 — the prompt still said "build START_HERE.md" after it existed).
+
+### Section 4c — "NEW THIS SESSION — things found, not yet acted on:"
+**VARIABLE.** New ideas, tools, discoveries, and bugs found but not yet
+resolved. Distinct from 4b: that is *done*, this is *known but open*.
+Include external tools/repos discovered and what was taken from them.
+Without this section, findings die with the session that made them.
+
+### Section 5 — "BEFORE STARTING ANYTHING:"
+**CONSTANT structure, VARIABLE values:**
+- Confirm the checkpoint: `git log`, `git status`, synced with origin —
+  **with the real last-known-good commit hash**, plus the note that HEAD
+  being one ahead is normal
+- What to raise early (open decisions the user owes an answer on; usage
+  headroom before agents)
+- Unverified leads to check before related build work
+- Anything installed last session that is being exercised for the first
+  time this session
+
 ### Section 6 — "CONTEXT I'll forget:"
 **MOSTLY CONSTANT.** The operational reality that never survives a context
 reset:
@@ -132,7 +220,8 @@ reset:
 - Documentation work is not cheap (cite a real burn-rate data point)
 - Drive mechanism: Claude pushes to GitHub, user pulls in Colab, fresh
   runtime needs `drive.mount()` first
-- Transcript backup location and why it exists
+- Where the raw record lives (prompt log + transcript backup) and that it
+  is the fallback when a curated note is missing or disputed
 - **The honest headline** — currently "still zero pipeline code"
 
 ---

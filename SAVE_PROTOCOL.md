@@ -3,9 +3,40 @@
 **Trigger:** the user says *"save everything"* (or save / wrap up / hard
 save / checkpoint / we're done).
 
-**What it means:** run every step below **in order**, then report. Not a
-vibe, not a judgment call — the same sequence every time, so the user can
-check whether it actually ran.
+**The user's own definition (2026-08-03), which governs:**
+
+> *"SAVE EVERYTHING = that prompt format we saved + anything else u need to
+> will save our work and update for future you to pick up with all info
+> needed and exactly where we left off."*
+
+Restated by the user the same session, and this is the whole test:
+
+> *"save everything means what u need to pick up where we left off."*
+
+**The bar is not "did I write files." It is: could a fresh session with
+zero memory resume from this alone?** If a future session would have to
+ask "what were we doing?" or "why did we decide that?" — the save was
+incomplete, regardless of how many commits landed.
+
+**The deliverable is a regenerated, ready-to-paste handoff prompt** —
+`SESSION_HANDOFF_PROMPT.md` §1, current and correct, that the user copies
+into the next session. It must contain, at minimum:
+- a **progress report** — what actually got built last session
+- an **open checklist** — every unfinished item as a `[ ]`, including
+  things blocked on the user
+- **new ideas, tools, and findings** from the session, not yet acted on
+- the **context that never survives a reset** — budget, mechanisms,
+  environment facts, the honest headline
+
+Everything else in this protocol exists to make that prompt *true*: the
+repo saved, `START_HERE.md` accurate, nothing discussed-but-unwritten, no
+stale hash.
+
+**End every save by showing the user that block**, not just a commit hash.
+
+**What it means operationally:** run every step below **in order**, then
+report. Not a vibe, not a judgment call — the same sequence every time, so
+the user can check whether it actually ran.
 
 **Why it's written down:** before this existed, "save everything" produced
 a slightly different sequence each time. That degrades silently. A
@@ -82,7 +113,10 @@ These are the raw record and the fallback when a curated note is missing
 or disputed. They live in local app data and are **not** guaranteed to
 survive app updates or cache clearing.
 
-### 9. Report — honestly
+### 9. Report — honestly, and hand over the prompt
+- **Show the regenerated handoff block from step 4**, in a copyable code
+  fence. This is the deliverable the user asked for; a commit hash alone
+  does not satisfy "save everything."
 - The commit hash, and that the tree is clean and synced
 - **What is still pending, blocked, or awaiting approval** — never let a
   list of completed items imply more than was done
