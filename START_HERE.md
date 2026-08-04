@@ -118,7 +118,7 @@ sequencing choice, not a stall (reasoning: §4 of
   (all 8 previously-logged defects addressed)
 - ~110 tools catalogued with real URLs, roles, and verification status
 - 4 research reports saved verbatim (3 Hugging Face + 1 source-mining)
-- 15 active operating rules, each written because a specific failure
+- 16 active operating rules, each written because a specific failure
   happened
 
 **✅ COMPLETE — authorized by user 2026-08-03: the Rule 10 marking
@@ -160,9 +160,18 @@ commit that predates the work it is meant to resume from. The greps that
 caught them are now a written pre-save checklist in `SAVE_PROTOCOL.md`,
 not something someone has to remember to run.
 
-**⏳ BLOCKED — pending a yes/no from the user:** Rule 22 (make updating
-this file a non-skippable end-of-session action), and provisional Rules 8
-& 9 (Gemini-sourced, adopted without authorization).
+**✅ COMPLETE — authorized by user 2026-08-03: Rule 22 adopted.**
+Updating this file is now the non-skippable last action of every session,
+before the final push, *even when a usage limit is cutting things short* —
+which is exactly when it gets skipped and exactly when it matters most.
+
+**✅ RESOLVED by user 2026-08-03: Rules 8 & 9 dropped.** Asked directly,
+answered *"Neither — drop both."* They were Gemini-sourced and adopted
+without authorization; that is why they are gone, not a technical
+judgment. Both are struck through in `CLAUDE.md` with the reasoning kept,
+so the record survives. Decide them at build time, against real output.
+
+**No blockers remain.** The next action is §2.
 
 **Outside git:** a 66MB transcript backup at
 `AI\claude_transcripts_backup_2026-08-03\` — the raw record, and the
@@ -215,20 +224,44 @@ as the entry point).
 
 ## 2. Next action
 
-**Propose Rule 22 and get an explicit yes or no from the user.**
+**The user's own instruction (2026-08-03), verbatim:**
 
-`START_HERE.md` now exists (this file). The remaining half of that task is
-the part that makes it *automated* rather than aspirational:
+> *"1st test the save project we made today worked then present the
+> checklist progress report and to do list and suggest starting point"*
 
-> **Proposed Rule 22:** Updating `START_HERE.md` is the last action of
-> every session, immediately before the final commit and push. Not
-> optional, not skippable — and it happens even when a usage limit is
-> cutting the session short.
+Do these in order. **Do not pick a workstream first** — the user
+deliberately declined to choose one until after this report.
 
-Not adopted. Per Rule 14, no rule is adopted without the user's explicit
-confirmation. **Ask, don't assume.**
+**Step 1 — test that the save system actually worked.** Run §0's checks
+above, and confirm each mechanism does what it claims:
 
-After that resolves, the user picks the order of workstreams A–D.
+```bash
+cd "C:\Users\AwBro\Desktop\automated clipper bot"
+git log --oneline -3                            # matches this file's header?
+git status --short                              # clean?
+grep -cE '^[0-9]+\. ' CLAUDE.md                 # matches §4's count?
+bash check_links.sh                             # all links resolve?
+grep -o '[a-f0-9]\{7\}' SESSION_HANDOFF_PROMPT.md   # NO stale hash
+```
+
+Then confirm the parts a cold session depends on: the `SessionStart` hook
+injected the repo state at the top of this session (it prints HEAD and the
+uncommitted count — check it against the real values), `~/.claude/CLAUDE.md`
+loaded even though the working directory may not be this repo, and
+`.claude/session-prompts.log` has the prior session's prompts.
+
+**Report honestly.** Four cold-start passes were run on 2026-08-03 and
+*every one found real bugs*. Assume this one will too — a pass that finds
+nothing should be treated as a weak test, not a clean bill of health.
+
+**Step 2 — present the progress report, checklist, and to-do list.** From
+§1 and §3 of this file plus `SESSION_HANDOFF_PROMPT.md` §1's open checklist.
+Lead with the honest headline (**zero pipeline code exists**) so a list of
+finished infrastructure cannot imply progress that did not happen.
+
+**Step 3 — suggest a starting point, then stop and let the user decide.**
+Workstreams A–D are in §3 with cost estimates. Recommend one and say why,
+but the choice is the user's under Rule 10.
 
 ---
 
@@ -328,7 +361,7 @@ directs, but that isn't a licence to stall).
 
 ## 4. How we work
 
-**Read [`CLAUDE.md`](CLAUDE.md) and apply it** — 20 numbered rules, 15
+**Read [`CLAUDE.md`](CLAUDE.md) and apply it** — 21 numbered rules, 16
 active (3, 5, 7, 10–21 minus the removed/provisional ones). Rule 22 is
 *proposed only* and is not in the file. They are strict defaults;
 deviating from one requires asking first.

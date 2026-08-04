@@ -105,18 +105,17 @@ which library wins.
   three separate instances in one session of reporting work complete and
   then finding real gaps only once the user asked again — it makes the
   checks part of the update rather than a follow-up.)
-- **REMOVED 2026-08-01 at the user's direction**: 2, 4, 6. Each entry
+- **REMOVED at the user's direction**: 2, 4, 6 (2026-08-01); 8, 9 (2026-08-03). Each entry
   below records what was actually agreed vs. what got written, and where
   the underlying finding still lives.
-- **⚠️ PROVISIONAL, never authorized**: 8, 9 (see below).
+- **✅ ADOPTED 2026-08-03, authorized by the user**: 22.
 - **Inherited from a prior session, not re-confirmed today**: 1.
-- **⚠️ Rules 8 and 9 — NOT user-confirmed.** Both came from Gemini's
+- **Rules 8 and 9 — resolved 2026-08-03: dropped.** Both came from Gemini's
   "Last Mile Technicalities" list and were adopted by Claude's own
   judgment without asking, in direct conflict with this repo's standing
   rule that external-AI material is reference-only until the user says
-  otherwise. They are marked below as **PROVISIONAL** and should be either
-  confirmed by the user or dropped. They may well be technically correct —
-  that is not the point; they weren't authorized.
+  otherwise. The user was asked directly and chose to drop both. They may well be
+  technically correct — that is not the point; they weren't authorized.
 - **Rule 1 — carried over, not re-confirmed this session.** It is a real,
   pre-existing standing rule already documented in this repo before today
   (see the "Hard rule" paragraph above), so it isn't invented — but the
@@ -178,11 +177,22 @@ with the user first, not silently decided.
    notes per VOD — extend the real `pipeline_tasks`/`payout_logs` schema
    found in a `Lacy_Clip_Bot` Drive export (see the evaluation file), don't
    design a new one from scratch.
-8. ⚠️ **PROVISIONAL — Gemini-sourced, never authorized by the user.**
-   MP4 exports always get `-movflags +faststart`.
-9. ⚠️ **PROVISIONAL — Gemini-sourced, never authorized by the user.**
-   Karaoke/animated captions always use `.ass` format with `\an5`
-   centering — never plain `.srt` for that use case.
+8. ~~**MP4 exports always get `-movflags +faststart`.**~~
+   **REMOVED 2026-08-03 at the user's direction** — asked directly
+   whether to keep it as a standing default; answered *"Neither — drop
+   both."* It was Gemini-sourced and adopted without authorization, and
+   that is the actual reason it is gone. It may well be technically
+   correct — that was never the point. Decide it at implementation
+   time, against real output. The underlying note survives in the
+   reference material; only its status as a standing rule is withdrawn.
+9. ~~**Karaoke/animated captions always use `.ass` with `n5`
+   centering — never plain `.srt`.**~~
+   **REMOVED 2026-08-03 at the user's direction** — same ask, same
+   answer, same reasoning as 8: unauthorized adoption, not a technical
+   judgment. Note for whoever builds Stage 4: `.srt` genuinely cannot do
+   per-word highlighting or positioning, so this will probably return as
+   a real constraint — but it gets decided then, with the user, rather
+   than inherited.
 10. **The user has final say before any phase transition, and before
     anything is marked complete or finished.** Report what was done and
     how it was tested — the "complete/finished" designation itself belongs
@@ -429,3 +439,26 @@ with the user first, not silently decided.
     reported without being performed"), in a smaller form: claiming a
     completion state before establishing it. Rule 19 covers verifying
     *agent* output; **this rule covers verifying my own.**
+
+22. **Updating `START_HERE.md` is the last action of every session, immediately
+    before the final commit and push. Not optional, not skippable — and it
+    happens even when a usage limit is cutting the session short.**
+    **✅ ADOPTED — authorized by user 2026-08-03.**
+
+    Every other mechanism in this repo depends on `START_HERE.md` being
+    current. §0's self-validation catches staleness *after* the fact, on the
+    next session, once the damage is already done — this rule is what stops
+    it happening. On 2026-08-03 alone the file went stale twice inside a
+    single session, and a matching stale commit hash was found sitting in
+    `SESSION_HANDOFF_PROMPT.md`, which would have pointed the next session at
+    a commit predating the work it was meant to resume from.
+
+    **"Even when a usage limit is cutting the session short" is the
+    load-bearing clause.** That is exactly when it gets skipped, and exactly
+    when it matters most — a session ending abruptly is the one most likely
+    to be resumed cold by someone with no memory of it. If the budget is
+    nearly gone, update this file *first* and drop other work, rather than
+    finishing other work and running out before the update.
+
+    What to write is not left to judgment — `SAVE_PROTOCOL.md` carries the
+    written format for every section.

@@ -15,44 +15,53 @@ never re-invented, and holds the **current ready-to-paste version**.
 save, alongside `START_HERE.md`. The user just copies.
 
 ---
-
-## §1 — READY TO PASTE (regenerated 2026-08-03, post-save-system)
+## §1 — READY TO PASTE (regenerated 2026-08-03, all blockers resolved)
 
 ```
 Continuing the @LacyCrashOuts automated clipper bot project.
 
 FIRST: read C:\Users\AwBro\Desktop\automated clipper bot\START_HERE.md in
 full, then run its §0 self-validation before trusting anything in it. Then
-read that repo's CLAUDE.md (the 20 operating rules) and PROJECT.md. Do not
-reconstruct the plan from this prompt alone — this is a pointer, the files
-are the record.
+read that repo's CLAUDE.md (21 numbered rules, 16 active) and PROJECT.md.
+Do not reconstruct the plan from this prompt alone — this is a pointer, the
+files are the record.
 
 1. WHERE WE ARE
 Repo:   C:\Users\AwBro\Desktop\automated clipper bot
-GitHub: github.com/anthonybrod/automated-clipper-bot @ 17a2c48 (master)
-Drive:  user pulls manually in Colab — Claude cannot push there.
+GitHub: github.com/anthonybrod/automated-clipper-bot @ HASHGOESHERE (master)
+Drive:  "CLAUDE AI CLIP BOT V1 attempt" — user pulls manually in Colab.
+        Claude cannot push there. Mount Drive FIRST or the path won't exist.
 Phase:  research and organization. ZERO PIPELINE CODE EXISTS. That is the
 honest headline; everything built so far is project restoration, source
 verification, tool cataloguing, and the operating rules + save system.
 
-2. WHAT LANDED LAST SESSION (2026-08-03)
+2. DO THIS FIRST — the user's own instruction, verbatim (2026-08-03)
+"1st test the save project we made today worked then present the checklist
+progress report and to do list and suggest starting point"
+
+Do it in that order. DO NOT pick a workstream first — the user deliberately
+declined to choose one until after this report. Step-by-step commands are
+in §2 of START_HERE.md. Four cold-start test passes were run on 2026-08-03
+and EVERY ONE found real bugs — assume this one will too. A pass that finds
+nothing is a weak test, not a clean bill of health.
+
+3. WHAT LANDED LAST SESSION (2026-08-03)
 - START_HERE.md — the single session entry point (a router, not a duplicate)
 - SAVE_PROTOCOL.md — 9 ordered steps for "save everything", plus the written
   START_HERE.md format so it can't degrade each time it's overwritten
-- 4 global hooks in ~/.claude/hooks/ (SessionStart, UserPromptSubmit,
-  PreCompact, Stop) + a user-level ~/.claude/CLAUDE.md that loads in EVERY
-  session regardless of working directory
+- 4 global hooks in ~/.claude/hooks/ + a user-level ~/.claude/CLAUDE.md that
+  loads in EVERY session regardless of working directory
 - check_links.sh — 51 links across 5 docs, wired into the Stop hook
-- Four cold-start test passes; every one found real bugs, all fixed
 - .claude/ added to .gitignore — raw prompt logs were one `git add -A` from
   a public repo
+- Rule 22 ADOPTED by the user; Rules 8 & 9 DROPPED by the user
 
-3. OPEN CHECKLIST
-[ ] Rule 22 — make updating START_HERE.md a non-skippable end-of-session
-    action. BLOCKED on an explicit yes/no from the user.
-[ ] Rules 8 & 9 (ffmpeg -movflags +faststart; .ass/\an5 karaoke captions) —
-    Gemini-sourced, adopted without authorization, marked PROVISIONAL.
-    BLOCKED on a yes/no.
+4. OPEN CHECKLIST
+[x] Rule 22 — updating START_HERE.md is the non-skippable last action of
+    every session. ADOPTED by the user 2026-08-03.
+[x] Rules 8 & 9 (ffmpeg faststart; .ass karaoke captions) — DROPPED by the
+    user 2026-08-03. Gemini-sourced, adopted without authorization; that is
+    why they went, not a technical judgment. Decide them at build time.
 [ ] Workstream A — Rule 20 retroactive review: 1 of 6 done (remaining:
     A2 HF-vision, A3 HF-LLM, A4 mining report, A5 78-source audit,
     A6 the 17 videos)
@@ -64,7 +73,7 @@ verification, tool cataloguing, and the operating rules + save system.
     unclosed hole in the save system
 [ ] Zero pipeline code — the real work has not started
 
-4. HOW WE WORK (each rule exists because a specific failure happened)
+5. HOW WE WORK (each rule exists because a specific failure happened)
 - Rule 10: the USER decides what is "complete." Never self-stamp. When they
   authorize it, mark it "COMPLETE — authorized by user YYYY-MM-DD".
 - Rule 12: verified means checked THIS session. File existence is not
@@ -74,23 +83,27 @@ verification, tool cataloguing, and the operating rules + save system.
   in separate files from any evaluation of it.
 - Rule 20: evaluate every tool for five roles — primary, backup/fail-safe,
   cross-check, assist, feature. Never dismiss a working free tool.
-- Rule 21: run all checks BEFORE reporting, not after being asked.
+- Rule 21: run every check BEFORE reporting, not after being asked.
+- Rule 22: update START_HERE.md as the last action, before the final push,
+  even when a usage limit is cutting the session short.
+- NEVER delete, move, overwrite or revert anything without being asked.
+  Never use `git checkout <file>` to undo an edit — it reverts the whole
+  file. This destroyed real work on 2026-08-03.
 - Budget is a first-class constraint: payouts are ~$0.50-$3.00 per 1,000
-  views, so recurring API cost eats the margin directly.
-- Ask before launching agents, and confirm usage headroom first.
+  views, so recurring API cost eats the margin directly. Ask before
+  launching agents and confirm usage headroom first.
 
-5. WHAT I CANNOT DO
+6. WHAT I CANNOT DO
 - Push to Google Drive (no Desktop app, no API). The user pulls in Colab:
-  mount Drive FIRST, then git pull — or just run the full bootstrap cell,
-  which clones if the folder doesn't exist yet and pulls if it does.
+  mount Drive FIRST, then git pull — or run the full bootstrap cell, which
+  clones if the folder doesn't exist and pulls if it does.
 - Guarantee the notes caught everything. The verbatim prompt log at
   .claude/session-prompts.log and the raw transcripts are the fallback.
 
-6. FIRST THING TO DO
-Ask the user the blocked yes/no questions (Rule 22, Rules 8 & 9), and which
-workstream to start. Then read §3b of START_HERE.md — the standing questions
-only the user can answer. Search the repo before asking anything; the whole
-record is in git and mirrored in Drive.
+7. WHAT ONLY THE USER CAN ANSWER
+See §3b of START_HERE.md — standing questions, kept with their answers.
+Search the repo before asking anything new; the whole record is in git and
+mirrored in Drive.
 ```
 
 
