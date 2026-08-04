@@ -13,6 +13,94 @@ research reports that had already been nearly lost once. Finished work that
 nothing points at is functionally lost. Add a row there whenever you add a
 file.
 
+## Current status (updated 2026-08-04)
+
+**Zero pipeline code still exists.** That remains the honest headline. What
+changed on 2026-08-04 is that **Stage 3 now has real measured numbers
+instead of generic advice** — the first findings in this project that a
+build decision can actually rest on.
+
+### The Stage 3 findings
+
+Source: [`reference/mining_2026-08-04_cVkFMpDLQrM_VERBATIM.md`](reference/mining_2026-08-04_cVkFMpDLQrM_VERBATIM.md).
+It carries disproportionate weight because the source video is a **curated
+best-of** — a human editor already decided which moments were worth keeping,
+so all 50 segments are positive examples rather than opinions about what
+might work.
+
+| Finding | Measured value |
+|---|---|
+| Clip length | median **39.5s**, mean 42.7s, p25 29s, p75 52s; 78% fall in 20–70s |
+| **Recommended defaults** | **target 40s, accept 20–70s, hard floor 11s** |
+| Hook openings | 36% direct question · 22% shouted name/imperative · **0% narration** |
+| Moment types | physical escalation 28% · verbal roast 20% · authority 12% · reveal 12% · romance 12% · heist 10% · one-liner 6% |
+
+**The most useful single finding — a text-only detector.** Verbal repetition
+appears in **22 of 50 curated moments**: `FOCUS` ×10, `Come on` ×12,
+`WAIT` ×8, `bully` ×7. Proposed rule: **≥3 repeats of a short phrase within
+10 seconds.** It matters out of proportion to its simplicity because it
+needs *only the transcript* — no audio analysis, no model, no API call. It
+drops directly into Stage 3's free statistical pre-filter, the stage whose
+entire purpose is keeping most of a VOD away from any paid call.
+
+### ⚠️ Three corrections that contradict the Architecture Outline
+
+**Flagged, deliberately not applied.** Changing a design off one source is
+what this repo's rules forbid; these need corroboration first (G4–G6 and
+workstream A remain unmined).
+
+1. **~20% of curated moments contain no shouting at all.** The Architecture
+   Outline lists audio-RMS spikes as a *primary* pre-filter signal. As
+   written it would miss one moment in five. Volume needs to be one signal
+   among several, not the trigger.
+2. **Long silences are positive, not negative** — they are physical gags. A
+   low speech-density filter would delete the best set-pieces.
+3. **Clip length cannot be derived from caption-cue gaps** — those are 1–2s
+   ASR cadence, not clip boundaries.
+
+### Competitive context (not a threshold)
+
+~**60M monthly views** on the `#Lacy` hashtag across **1,598 clippers**,
+growing ~100% month over month (source: G3). This is the field the bot would
+enter — directly relevant because the payout model pays **$0** below a
+per-post view minimum, and 1,598 competitors chasing the same moments is
+exactly the condition that produces sub-threshold posts.
+
+### ⚠️ Open, load-bearing: the target handle
+
+The CORE discovery agent **could not find `@LacyCrashOuts`**
+([`research_2026-08-04_core_clippers_discovery_VERBATIM.md`](reference/research_2026-08-04_core_clippers_discovery_VERBATIM.md) §6).
+The entire project targets that account. Either the handle is wrong, it was
+renamed or removed, or it is not discoverable logged-out. **Only the user can
+settle this** — recorded as a question rather than resolved by guessing.
+
+### What else landed 2026-08-04
+
+- **Workstream C closed** — all 6 missing transcripts fetched, 6/6, verified
+  to contain real timestamped text. 23 transcripts now on disk, each with
+  its source URL on line 2 and per-line timestamps, so any quote is
+  checkable at the exact second.
+- **G1/G2/G3 mined** — one agent per file, ~192KB of verbatim reports with
+  2,650+ timestamp citations between them. Both G1 and G3 carry explicit
+  source-reliability warnings: G1 is a hostile secondary source whose
+  narrator admits prior errors, and G3 is third-party commentary that
+  contradicts its own thesis at `[14:35]`.
+- **H2 delivered** — CORE clipper discovery, 22 VERIFIED / 2 UNVERIFIED,
+  full source list, no invented handles.
+- **H1 lost** to a session limit mid-write — must be re-run; prompt is
+  preserved in PENDING §H.
+- **[`INDEX.md`](INDEX.md) created** after an audit found 12 of 30 source
+  documents referenced by nothing a session actually reads.
+
+### Still not started
+
+Zero pipeline code. Workstream A 1/6, B 1/12, D not started, G4–G6 pending,
+H1 to re-run. Workstream F (the `AI\` folder) is **put off at the user's
+direction** — they triage it and hand over what matters; do not sweep it
+unprompted.
+
+---
+
 ## One-line description
 
 Pulls the best clips from Twitch VODs/streams, adds captions, produces
