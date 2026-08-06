@@ -68,6 +68,19 @@ rather than restating them, so nothing can drift out of sync. It is
 > answered. Do not assume Twitch — that assumption traces back to the wrong
 > target.
 >
+> ### Stage 5 stays deliberately open (user, 2026-08-06)
+>
+> *"we stay on course just post at the end in different spots for now"*
+>
+> Post the finished clip to **multiple destinations**, platform-agnostic.
+> **Do not hard-code outlets** and do not design Stage 5 in depth — which
+> platforms is still an open research question (workstream D), and the user
+> was explicit that this is the research stage.
+>
+> Practical consequence when it does get built: **a list of publish targets
+> behind one interface**, so adding or dropping an outlet is config rather
+> than code. That also absorbs the Facebook ban without a rewrite.
+>
 > Raw records and verbatim agent reports still contain the old framing.
 > **They are not edited** (Rule 16 — never rewrite a raw record to reflect a
 > later finding). Read them knowing this correction supersedes them.
