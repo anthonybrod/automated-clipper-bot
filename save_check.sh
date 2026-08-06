@@ -16,18 +16,30 @@
 
 cd "$(dirname "$0")" || exit 1
 TODAY=$(date +%Y-%m-%d)
+# SAVEDATE = the date the last save claims to be. Checks are internally
+# consistent against THAT, not against today - otherwise every check fails at
+# the start of a fresh session where no work has happened yet. (Bug found
+# 2026-08-06 on the first cold run: 3 false alarms on a verifiably good save.)
+SAVEDATE=$(grep -oE 'Last updated: \*\*[0-9]{4}-[0-9]{2}-[0-9]{2}\*\*' START_HERE.md \
+           | grep -oE '[0-9]{4}-[0-9]{2}-[0-9]{2}' | head -1)
+[ -z "$SAVEDATE" ] && SAVEDATE="$TODAY"
+COMMITS_TODAY=$(git log --since=midnight --oneline 2>/dev/null | wc -l)
 FAIL=0
 pass() { printf "  PASS  %s\n" "$1"; }
 fail() { printf "  FAIL  %s\n" "$1"; FAIL=$((FAIL+1)); }
 warn() { printf "  WARN  %s\n" "$1"; }
 
-echo "=== SAVE CHECK — $TODAY ==="
+echo "=== SAVE CHECK — run $TODAY, validating the save dated $SAVEDATE ==="
+[ "$COMMITS_TODAY" -gt 0 ] && echo "    ($COMMITS_TODAY commit(s) today - the save must be dated $TODAY)" \
+                          || echo "    (no commits today - validating the previous save is intact)"
 
 # --- 1. START_HERE.md actually updated this session ---------------------
-if grep -q "Last updated: \*\*$TODAY\*\*" START_HERE.md; then
+if [ "$COMMITS_TODAY" -gt 0 ] && [ "$SAVEDATE" != "$TODAY" ]; then
+  fail "work landed today but START_HERE.md is still dated $SAVEDATE — Rule 22"
+elif [ "$COMMITS_TODAY" -gt 0 ]; then
   pass "START_HERE.md dated today (Rule 22)"
 else
-  fail "START_HERE.md NOT dated today — Rule 22 says it is the last action of every session"
+  pass "no work today; last save dated $SAVEDATE"
 fi
 
 # --- 2. header hash within 1 commit of HEAD -----------------------------
@@ -44,10 +56,10 @@ else
 fi
 
 # --- 3. PROJECT.md not stale (it has gone stale 3x in 3 days) -----------
-if grep -q "$TODAY" PROJECT.md; then
-  pass "PROJECT.md mentions today"
+if grep -q "$SAVEDATE" PROJECT.md; then
+  pass "PROJECT.md current for $SAVEDATE"
 else
-  fail "PROJECT.md has no mention of $TODAY — it is the stated single source of truth and it is stale"
+  fail "PROJECT.md has no mention of $SAVEDATE — it is the stated single source of truth and it is stale"
 fi
 
 # --- 4. handoff prompt regenerated, no stale hash -----------------------
@@ -108,11 +120,11 @@ done
                    || fail "$INVIS document(s) invisible to a cold read — add INDEX.md rows"
 
 # --- 10. transcript backup ran (step 8, skipped on 2026-08-04) ----------
-BK="/c/Users/AwBro/Desktop/AI/claude_transcripts_backup_$TODAY"
+BK="/c/Users/AwBro/Desktop/AI/claude_transcripts_backup_$SAVEDATE"
 if [ -d "$BK" ] && [ "$(ls -1 "$BK" 2>/dev/null | wc -l)" -gt 0 ]; then
-  pass "transcripts backed up ($(ls -1 "$BK" | wc -l) files)"
+  pass "transcripts backed up for $SAVEDATE ($(ls -1 "$BK" | wc -l) files)"
 else
-  fail "no transcript backup for $TODAY — SAVE_PROTOCOL step 8"
+  fail "no transcript backup for $SAVEDATE — SAVE_PROTOCOL step 8"
 fi
 
 # --- 11. nothing uncommitted, nothing unpushed --------------------------
