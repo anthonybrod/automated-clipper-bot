@@ -20,6 +20,13 @@ verifies them.
 
 ---
 
+> **⚠️ Reading anything dated before 2026-08-06?** It will describe
+> `@LacyCrashOuts` as the target streamer. That framing is **superseded** —
+> the target is the whole **CORE group**, and `@CoreCrashOuts` is the user's
+> own channel where clips get posted. See the SCOPE CORRECTION at the top of
+> [`START_HERE.md`](START_HERE.md). Raw records are deliberately left
+> uncorrected (Rule 16).
+
 ## 1. Start here / how we work
 
 | File | What it is | Read it when |

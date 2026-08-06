@@ -919,3 +919,37 @@ one section per account, every claim tied to a real URL. Cross-reference the
 findings against G's detection signals — where the Lacy source material and
 the successful finished clips **agree**, that is the strongest possible
 signal for a Stage 3 threshold.
+
+---
+
+### ⚡ I. Identify the CORE members and their stream sources — NEW BLOCKER 2026-08-06
+
+*Status: **not started. This is now the blocking unknown for Stage 1**, and it
+outranks the remaining research items.*
+
+**Why it appeared.** The 2026-08-06 scope correction confirmed that
+`@CoreCrashOuts` / `@CORECrashOUTS` is the **user's own destination channel**,
+not the account being clipped. So the pipeline's *source* is the CORE
+members' streams — and **not one of them is identified anywhere in this
+repo.** Every ingestion assumption to date pointed at a single streamer that
+turns out to be the wrong target.
+
+**What is needed, concretely:**
+1. **Who is in CORE?** Names/handles of every member whose content gets
+   clipped. The channel description calls them *"Core boys"*.
+2. **Where do they stream?** Twitch primarily? Kick? YouTube? This decides
+   whether `yt-dlp` + Twitch GQL chat (the current Stage 1 design) even
+   applies, or whether a different ingestion path is required.
+3. **Which are live vs VOD-only?** Load-bearing: it decides whether streaming
+   ASR matters at all and whether the bot needs always-on hosting.
+4. **Is there a Clipping.net campaign for CORE**, and what are its real
+   per-post view minimums? The existing bounty figures were sourced for Lacy
+   and may not apply.
+
+**Cheapest path first (Rule 13):** the user can answer 1 and 2 in one message
+— faster and more reliable than any amount of searching. **Ask before
+spending an agent on this.** Only research what the user cannot supply.
+
+**Do not assume Twitch.** The whole Stage 1 design (`yt-dlp`, Twitch GQL
+keyless chat, `chat-downloader`) rests on the platform, and that assumption
+now traces back to a target that was wrong.

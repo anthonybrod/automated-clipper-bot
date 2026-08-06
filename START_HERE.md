@@ -15,6 +15,45 @@ rather than restating them, so nothing can drift out of sync. It is
 
 ## What this project is (read before anything else makes sense)
 
+> ## ⚠️ SCOPE CORRECTION — 2026-08-06, confirmed by the user
+>
+> **The target is the whole CORE group, and `@CoreCrashOuts` is the user's
+> OWN channel — the destination clips get posted TO, not the account being
+> clipped.** Everything written before this date has the relationship
+> backwards; it describes `@LacyCrashOuts` as a target streamer whose VODs
+> get mined. Lacy is a personality within CORE, not the account.
+>
+> | | Before (wrong) | Now (confirmed) |
+> |---|---|---|
+> | Source | `@LacyCrashOuts` VODs | **CORE members' streams — not yet identified** |
+> | Destination | unspecified | **`@CoreCrashOuts` (X) + `@CORECrashOUTS` (YouTube), both the user's** |
+>
+> **Verified 2026-08-06 via `yt-dlp`:** channel `UCtHsW7-LqxK5mUiQcxAxqRg`,
+> public, **2 followers, zero videos**, description *"WILD out of pocket
+> Core boys moments and CrashOuts"*. A brand-new clipper channel.
+>
+> **What this changes:**
+> 1. **Stage 5 gets simpler** — the user owns the destination, so YouTube
+>    Data API auth is straightforward. No permissions problem.
+> 2. **Stage 1 has a real hole** — it needs the CORE members' individual
+>    stream sources, and **those are identified nowhere in this repo.**
+>    This, not the handle, is now the blocking unknown.
+> 3. **Platform choice is a RESEARCH question, not a decision.** The user
+>    (2026-08-06): *"we will sort that out later we are in research stage.
+>    we are researching the best platforms easily available for posting and
+>    success we start with these 2."* Do not hard-code Stage 5 targets.
+> 4. **Meta is a live risk, not a plan** — the user was **banned on
+>    Facebook** for failing a bot check, Instagram pending. Two of the four
+>    originally planned outlets are gone or at risk.
+> 5. **The CORE clippers (@yoxics, @scubaryan_, @coresculture) are peers
+>    and competitors**, not distant style references — same ecosystem. This
+>    raises H1's value.
+>
+> Raw records and verbatim agent reports still contain the old framing.
+> **They are not edited** (Rule 16 — never rewrite a raw record to reflect a
+> later finding). Read them knowing this correction supersedes them.
+
+
 An **automated Twitch clipping bot**, built on a **$0 open-source stack** —
 no paid SaaS anywhere in the pipeline. It watches a streamer's content,
 detects the best moments statistically rather than by watching everything,
@@ -253,6 +292,7 @@ fallback when a curated note is missing or disputed.
 | B — 12-item source mining | 1 of 12 |
 | C — 6 untranscribed YouTube videos | **6 of 6 ✅ 2026-08-04** — fetched, verified real |
 | D — Platform / hosting research | not started |
+| **⚡ I — identify CORE members + their stream sources** | **NEW BLOCKER 2026-08-06 — outranks the rest.** Stage 1 has no source. Ask the user first; do not spend an agent on what they can answer in a message. |
 | **F — `AI\` folder material** | **PUT OFF 2026-08-04 — waits on the USER, not Claude.** Folder too big; the user triages it and hands over what matters. Do not sweep it unprompted. |
 | **G — mine the 6 new transcripts** | **G1, G2, G3 ✅ DONE 2026-08-04** — all three saved, indexed, pushed. **G4/G5/G6 still to do** (PENDING §G). |
 | **H — CORE clipper research on X** | **H2 (discovery) ✅ DONE.** **H1 (@yoxics, @scubaryan_, @coresculture) LOST** to the session limit — must be re-run, prompt is in PENDING §H. |
