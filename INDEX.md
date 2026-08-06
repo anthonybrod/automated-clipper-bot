@@ -79,6 +79,8 @@ and were re-saved word-for-word at the user's explicit insistence.
 | [`reference/research_2026-08-01_huggingface_local_llm_judging_VERBATIM.md`](reference/research_2026-08-01_huggingface_local_llm_judging_VERBATIM.md) | Structured-JSON / function-calling models vs Llama 3.2, local TOS-safety classifiers, hook-quality scoring, real benchmarks. | Stage 3's LLM scoring, or picking the local judging model. |
 | [`reference/mining_2026-08-01_deep_dive_moment_detection_VERBATIM.md`](reference/mining_2026-08-01_deep_dive_moment_detection_VERBATIM.md) | Workstream B item 1 of 12 — full 5-lens extraction (portable code / fixable code / free tools / efficiency / corrections). 675 lines. | The model for what a B item should produce. |
 
+| [research_2026-08-06_core_clippers_named_VERBATIM.md](reference/research_2026-08-06_core_clippers_named_VERBATIM.md) | **H1 — the first REAL repost data.** 25 X posts via api.fxtwitter.com (public JSON, unauthenticated), 18 durations, 5 frames viewed. **Reposts median 51.4s, 44% at 55–61s, 0 of 18 on Twitch presets → hand-trimmed.** Contradicts the Architecture Outline: no 9:16, no subtitles, chat burned in. Zero hashtags in 25 captions. Sample is search-sourced so it favours winners. | **Before designing Stage 4 (cut/format) or Stage 5.** |
+
 ### Workstream G — transcript mining (2026-08-04, in progress)
 
 | File | What it is | Read it when |
