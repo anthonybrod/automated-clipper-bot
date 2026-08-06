@@ -49,6 +49,25 @@ file.
 >    and competitors**, not distant style references — same ecosystem. This
 >    raises H1's value.
 >
+> ### Phased scope (user, 2026-08-06)
+>
+> *"we will start with lacys clips only then scale up once the project works
+> and is poc"*
+>
+> **V1 = Lacy only.** One source, proving the pipeline end to end.
+> **V2 = the whole CORE group**, once V1 is a working proof of concept.
+>
+> This narrows V1 without changing the correction above: the destination is
+> still the user's own channels, and CORE is still where this goes. It also
+> means the three mined Lacy transcripts (G1/G2/G3) are **directly on-target
+> for V1**, not background research — and the detection numbers derived from
+> them apply to the first version being built.
+>
+> **Still blocking Stage 1:** where does Lacy actually stream, and under what
+> handle? Narrowed from "identify every CORE member" to one person, but not
+> answered. Do not assume Twitch — that assumption traces back to the wrong
+> target.
+>
 > Raw records and verbatim agent reports still contain the old framing.
 > **They are not edited** (Rule 16 — never rewrite a raw record to reflect a
 > later finding). Read them knowing this correction supersedes them.

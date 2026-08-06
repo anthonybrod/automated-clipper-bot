@@ -934,6 +934,12 @@ members' streams — and **not one of them is identified anywhere in this
 repo.** Every ingestion assumption to date pointed at a single streamer that
 turns out to be the wrong target.
 
+**NARROWED 2026-08-06 by the user:** *"we will start with lacys clips only
+then scale up once the project works and is poc"*. So for **V1 this reduces
+to one question — where does Lacy stream and under what handle?** The full
+CORE member roster is still needed, but only for V2. Do not research the
+whole group yet; that is scope the user has explicitly deferred.
+
 **What is needed, concretely:**
 1. **Who is in CORE?** Names/handles of every member whose content gets
    clipped. The channel description calls them *"Core boys"*.
