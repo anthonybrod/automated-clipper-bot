@@ -178,7 +178,7 @@ save is not done and you don't report it as done.
 
 BEFORE STARTING ANYTHING:
   - Confirm the checkpoint held: git log, git status, synced with origin.
-    Last known good is HASHGOESHERE or later. HEAD one ahead of what
+    Last known good is 638c8b3 or later. HEAD one ahead of what
     START_HERE.md's header says is NORMAL; two or more means work landed
     after it was updated (§0 explains why).
   - Confirm I have usage headroom before launching agents. I hit 100% on
