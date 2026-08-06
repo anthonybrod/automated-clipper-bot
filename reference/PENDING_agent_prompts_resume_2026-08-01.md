@@ -414,7 +414,7 @@ successful item 1 report:
 
 > You're doing a focused mining pass on ONE already-verified research
 > document for a Twitch clip-bot project (`automated clipper bot`,
-> targeting streamer @LacyCrashOuts). This doc was produced by a careful
+> posting to @CoreCrashOuts (V1 source: twitch.tv/lacy)). This doc was produced by a careful
 > earlier research phase and is considered trustworthy. Your job is to
 > re-read it closely through a specific lens, because a first pass tends
 > to compress/miss real value — this exact failure mode is documented in
@@ -491,7 +491,7 @@ verifiable. Use the per-file template above for actual execution — these
 ## Agent 1 — mine the 3 verified reference docs
 
 ```
-You're doing a second-pass mining exercise on already-verified research documents for a Twitch clip-bot project (`automated clipper bot`, targeting streamer @LacyCrashOuts). This is NOT a first read — these docs were already produced by a careful research phase and are considered trustworthy (unlike raw Gemini output elsewhere in this project, which needs independent verification). Your job is to re-read them closely through a specific lens the user just asked for, because a first pass tends to compress/miss real value — this exact failure mode is documented in this project's own history (`C:\Users\AwBro\Desktop\AI\claude_failure_report.md` §10: "a genuine full re-read of the source file... later found 30 additional reusable patterns... missing from the document entirely" — don't repeat that by skimming).
+You're doing a second-pass mining exercise on already-verified research documents for a Twitch clip-bot project (`automated clipper bot`, posting to @CoreCrashOuts (V1 source: twitch.tv/lacy)). This is NOT a first read — these docs were already produced by a careful research phase and are considered trustworthy (unlike raw Gemini output elsewhere in this project, which needs independent verification). Your job is to re-read them closely through a specific lens the user just asked for, because a first pass tends to compress/miss real value — this exact failure mode is documented in this project's own history (`C:\Users\AwBro\Desktop\AI\claude_failure_report.md` §10: "a genuine full re-read of the source file... later found 30 additional reusable patterns... missing from the document entirely" — don't repeat that by skimming).
 
 Read these 4 files in full, end to end, not skimmed:
 1. `C:\Users\AwBro\Desktop\AI\automated clipper bot\sample reference\deep_dive_moment_detection.md`
@@ -513,7 +513,7 @@ For every item, cite the exact source file and enough location detail (section h
 ## Agent 2 — mine the 5 trustworthy Gemini dossiers + research index
 
 ```
-You're doing a second-pass mining exercise on Gemini-sourced research dossiers for a Twitch clip-bot project (`automated clipper bot`, targeting streamer @LacyCrashOuts). These are raw external-AI output already independently fact-checked once (see `tool_verification.md` in the same folder) — treat named tools/repos as needing verification if you're unsure, but the main task here isn't re-verifying, it's mining for value a first read may have compressed away. This exact failure mode is documented in this project's own history (`C:\Users\AwBro\Desktop\AI\claude_failure_report.md` §10: "a genuine full re-read... later found 30 additional reusable patterns... missing from the document entirely" — don't repeat that by skimming).
+You're doing a second-pass mining exercise on Gemini-sourced research dossiers for a Twitch clip-bot project (`automated clipper bot`, posting to @CoreCrashOuts (V1 source: twitch.tv/lacy)). These are raw external-AI output already independently fact-checked once (see `tool_verification.md` in the same folder) — treat named tools/repos as needing verification if you're unsure, but the main task here isn't re-verifying, it's mining for value a first read may have compressed away. This exact failure mode is documented in this project's own history (`C:\Users\AwBro\Desktop\AI\claude_failure_report.md` §10: "a genuine full re-read... later found 30 additional reusable patterns... missing from the document entirely" — don't repeat that by skimming).
 
 Read these files in full, end to end:
 1. `C:\Users\AwBro\Desktop\AI\automated clipper bot\sample reference\gemini_dossier_1_raw.md`

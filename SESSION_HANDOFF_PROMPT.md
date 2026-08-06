@@ -41,13 +41,13 @@ TASK #1, before anything else:
   clean bill of health. Report what you find before telling me it's fine.
 
 TASK #2, ask me early:
-  Is @LacyCrashOuts actually the right handle? The CORE discovery agent
+  Is @CoreCrashOuts actually the right handle? The CORE discovery agent
   could not find that account anywhere. The entire project targets it, so
   this is load-bearing — don't guess, don't work around it, ask me. See
   §3b of START_HERE.md.
 
 OPEN CHECKLIST — carry this forward and tick things off:
-  [ ] ⚡ Confirm the @LacyCrashOuts handle with me (TASK #2)
+  [ ] ⚡ Confirm the @CoreCrashOuts handle with me (TASK #2)
   [ ] H1 — RE-RUN, lost to a session limit mid-write. Researches @yoxics,
       @scubaryan_, @coresculture on X. Full prompt preserved in PENDING §H
   [ ] G4/G5/G6 — mine the 3 remaining transcripts. PafYu69s5NA is the
@@ -147,7 +147,7 @@ BEFORE STARTING ANYTHING:
     Last known good is 29e80a6 or later. HEAD one ahead of what
     START_HERE.md's header says is NORMAL; two or more means work landed
     after it was updated (START_HERE.md §0 explains why).
-  - Raise the @LacyCrashOuts handle question early — load-bearing, and only
+  - Raise the @CoreCrashOuts handle question early — load-bearing, and only
     I can settle it.
   - Confirm I have usage headroom before launching agents. I hit 100% on
     2026-08-04 partway through five of them, and I'm on paid usage now.

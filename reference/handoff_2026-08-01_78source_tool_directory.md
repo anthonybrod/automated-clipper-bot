@@ -1,3 +1,20 @@
+<!-- CORRECTION BANNER added 2026-08-06. The body below is UNCHANGED. -->
+> ## ⚠️ RENAMED — `@LacyCrashOuts` is now `@CoreCrashOuts`
+>
+> This file predates 2026-08-06 and uses the old name. **It was always the
+> OUTPUT channel** — where finished clips get posted — and it has simply
+> been renamed. Some passages below describe it as a "target streamer";
+> that was never accurate.
+>
+> | | Now |
+> |---|---|
+> | Output | **`x.com/CoreCrashOuts`** + **`youtube.com/@CORECrashOUTS`** |
+> | Source (V1) | **`twitch.tv/lacy`** — VODs and `/clips?range=7d` |
+> | Scope | V1 = Lacy only → V2 = the whole CORE group |
+>
+> **The body is deliberately left uncorrected** (Rule 16 — a raw record is
+> never rewritten to reflect a later finding).
+
 📂 THE DEFINITIVE MASTER TOOL & RESOURCE DIRECTORY: @LacyCrashOuts
 Status: Unified Compilation of All 78 Sources [cite: 1–78].
 This master list follows the "Director, Not Laborer" philosophy, providing the official URLs and exact operational roles for every tool identified during the research and pre-flight phases [cite: 44, 659].

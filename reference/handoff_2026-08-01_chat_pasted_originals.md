@@ -1,3 +1,20 @@
+<!-- CORRECTION BANNER added 2026-08-06. The body below is UNCHANGED. -->
+> ## ⚠️ RENAMED — `@LacyCrashOuts` is now `@CoreCrashOuts`
+>
+> This file predates 2026-08-06 and uses the old name. **It was always the
+> OUTPUT channel** — where finished clips get posted — and it has simply
+> been renamed. Some passages below describe it as a "target streamer";
+> that was never accurate.
+>
+> | | Now |
+> |---|---|
+> | Output | **`x.com/CoreCrashOuts`** + **`youtube.com/@CORECrashOUTS`** |
+> | Source (V1) | **`twitch.tv/lacy`** — VODs and `/clips?range=7d` |
+> | Scope | V1 = Lacy only → V2 = the whole CORE group |
+>
+> **The body is deliberately left uncorrected** (Rule 16 — a raw record is
+> never rewritten to reflect a later finding).
+
 Verbatim record of everything pasted directly into chat this session (not captured elsewhere as a file) — reproduced exactly as given, per this project's own standing rule against condensing source material. Evaluation/commentary is kept separate; see `handoff_2026-08-01_evaluation.md`.
 
 ---

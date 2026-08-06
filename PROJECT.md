@@ -15,76 +15,56 @@ file.
 
 ## Current status (updated 2026-08-06)
 
-> ## ⚠️ SCOPE CORRECTION — 2026-08-06, confirmed by the user
+> ## 📍 SOURCES AND DESTINATIONS — confirmed by the user 2026-08-06
 >
-> **The target is the whole CORE group, and `@CoreCrashOuts` is the user's
-> OWN channel — the destination clips get posted TO, not the account being
-> clipped.** Everything written before this date has the relationship
-> backwards; it describes `@LacyCrashOuts` as a target streamer whose VODs
-> get mined. Lacy is a personality within CORE, not the account.
+> **`@LacyCrashOuts` was always the OUTPUT channel. It is now
+> `@CoreCrashOuts`. That is the whole change** — the user's words:
+> *"lacyscrashouts was always the output channel now its core thats it"*.
+> Older docs that call it "the target streamer" were never accurate; the
+> setup itself did not change, only the channel's name.
 >
-> | | Before (wrong) | Now (confirmed) |
+> ### IN — where clips are sourced from
+>
+> | Platform | URL | Status |
 > |---|---|---|
-> | Source | `@LacyCrashOuts` VODs | **CORE members' streams — not yet identified** |
-> | Destination | unspecified | **`@CoreCrashOuts` (X) + `@CORECrashOUTS` (YouTube), both the user's** |
+> | **Twitch — channel** | `https://www.twitch.tv/lacy/` | **PRIMARY for V1** |
+> | Twitch — VODs | `https://www.twitch.tv/lacy/videos` | ✅ `yt-dlp` reaches it, no auth |
+> | Twitch — clips, 24h | `https://www.twitch.tv/lacy/clips?range=24hr` | ✅ works |
+> | Twitch — clips, 7d | `https://www.twitch.tv/lacy/clips?range=7d` | ✅ **964 clips pulled 2026-08-06** |
+> | Kick — channel | `https://kick.com/lacy` | secondary, nearly empty |
+> | Kick — VODs | `https://kick.com/lacy/videos` | secondary |
+> | Kick — clips, recent | `https://kick.com/lacy/clips?sort=date&range=week` | secondary |
+> | Kick — clips, best | `https://kick.com/lacy/clips?sort=view&range=week` | secondary — note it exposes `sort=view`, which Twitch does not surface as cleanly |
 >
-> **Verified 2026-08-06 via `yt-dlp`:** channel `UCtHsW7-LqxK5mUiQcxAxqRg`,
-> public, **2 followers, zero videos**, description *"WILD out of pocket
-> Core boys moments and CrashOuts"*. A brand-new clipper channel.
+> **Kick was deliberately NOT pulled** — the user: *"there is barely any
+> content on there right now"*, then *"dont pull anything"*. Re-check before
+> V2; a second platform means a second ingestion adapter.
 >
-> **What this changes:**
-> 1. **Stage 5 gets simpler** — the user owns the destination, so YouTube
->    Data API auth is straightforward. No permissions problem.
-> 2. **Stage 1 has a real hole** — it needs the CORE members' individual
->    stream sources, and **those are identified nowhere in this repo.**
->    This, not the handle, is now the blocking unknown.
-> 3. **Platform choice is a RESEARCH question, not a decision.** The user
->    (2026-08-06): *"we will sort that out later we are in research stage.
->    we are researching the best platforms easily available for posting and
->    success we start with these 2."* Do not hard-code Stage 5 targets.
-> 4. **Meta is a live risk, not a plan** — the user was **banned on
->    Facebook** for failing a bot check, Instagram pending. Two of the four
->    originally planned outlets are gone or at risk.
-> 5. **The CORE clippers (@yoxics, @scubaryan_, @coresculture) are peers
->    and competitors**, not distant style references — same ecosystem. This
->    raises H1's value.
+> ### OUT — where finished clips get posted
 >
-> ### Phased scope (user, 2026-08-06)
+> | Platform | URL | Notes |
+> |---|---|---|
+> | **X** | `https://x.com/CoreCrashOuts` | the user's own account |
+> | **YouTube** | `https://www.youtube.com/@CORECrashOUTS` | the user's own channel. Verified via `yt-dlp`: `UCtHsW7-LqxK5mUiQcxAxqRg`, public, 2 followers, **zero videos**, described *"WILD out of pocket Core boys moments and CrashOuts"* — a brand-new clipper channel |
 >
-> *"we will start with lacys clips only then scale up once the project works
-> and is poc"*
+> Because the user **owns both destinations**, Stage 5 auth is
+> straightforward — no permissions problem. But which platforms to actually
+> target stays an **open research question** (workstream D); the user:
+> *"we will sort that out later we are in research stage."*
 >
-> **V1 = Lacy only.** One source, proving the pipeline end to end.
-> **V2 = the whole CORE group**, once V1 is a working proof of concept.
+> ⚠️ **Meta is a live risk, not a plan.** The user was **banned on Facebook**
+> for failing a bot check, with **Instagram pending**. Do not design Stage 5
+> around Meta.
 >
-> This narrows V1 without changing the correction above: the destination is
-> still the user's own channels, and CORE is still where this goes. It also
-> means the three mined Lacy transcripts (G1/G2/G3) are **directly on-target
-> for V1**, not background research — and the detection numbers derived from
-> them apply to the first version being built.
+> ### Scope
 >
-> **Still blocking Stage 1:** where does Lacy actually stream, and under what
-> handle? Narrowed from "identify every CORE member" to one person, but not
-> answered. Do not assume Twitch — that assumption traces back to the wrong
-> target.
+> **V1 = Lacy only** — *"we will start with lacys clips only then scale up
+> once the project works and is poc"*. **V2 = the whole CORE group.** This
+> makes the three mined Lacy transcripts (G1/G2/G3) directly on-target for
+> V1 rather than background research.
 >
-> ### Stage 5 stays deliberately open (user, 2026-08-06)
->
-> *"we stay on course just post at the end in different spots for now"*
->
-> Post the finished clip to **multiple destinations**, platform-agnostic.
-> **Do not hard-code outlets** and do not design Stage 5 in depth — which
-> platforms is still an open research question (workstream D), and the user
-> was explicit that this is the research stage.
->
-> Practical consequence when it does get built: **a list of publish targets
-> behind one interface**, so adding or dropping an outlet is config rather
-> than code. That also absorbs the Facebook ban without a rewrite.
->
-> Raw records and verbatim agent reports still contain the old framing.
-> **They are not edited** (Rule 16 — never rewrite a raw record to reflect a
-> later finding). Read them knowing this correction supersedes them.
-
+> Raw records and verbatim agent reports keep the old name and are **not
+> edited** (Rule 16); each now carries a correction banner instead.
 
 **Zero pipeline code still exists.** That remains the honest headline. What
 changed on 2026-08-04 is that **Stage 3 now has real measured numbers
@@ -139,7 +119,7 @@ exactly the condition that produces sub-threshold posts.
 
 ### ⚠️ Open, load-bearing: the target handle
 
-The CORE discovery agent **could not find `@LacyCrashOuts`**
+The CORE discovery agent **could not find `@CoreCrashOuts`**
 ([`research_2026-08-04_core_clippers_discovery_VERBATIM.md`](reference/research_2026-08-04_core_clippers_discovery_VERBATIM.md) §6).
 The entire project targets that account. Either the handle is wrong, it was
 renamed or removed, or it is not discoverable logged-out. **Only the user can

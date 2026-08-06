@@ -22,6 +22,27 @@ contradict the current architecture and are flagged rather than applied; see
 [PROJECT.md](PROJECT.md) for all of it, and [INDEX.md](INDEX.md) for where
 every document lives.
 
+## Sources and destinations
+
+**IN — clips are sourced from:**
+
+| Platform | URL |
+|---|---|
+| **Twitch (primary, V1)** | https://www.twitch.tv/lacy/ — [VODs](https://www.twitch.tv/lacy/videos) · [clips 24h](https://www.twitch.tv/lacy/clips?range=24hr) · [clips 7d](https://www.twitch.tv/lacy/clips?range=7d) |
+| Kick (secondary, sparse) | https://kick.com/lacy — [VODs](https://kick.com/lacy/videos) · [recent clips](https://kick.com/lacy/clips?sort=date&range=week) · [best clips](https://kick.com/lacy/clips?sort=view&range=week) |
+
+**OUT — finished clips are posted to:**
+
+| Platform | URL |
+|---|---|
+| X | https://x.com/CoreCrashOuts |
+| YouTube | https://www.youtube.com/@CORECrashOUTS |
+
+**Scope:** V1 sources from Lacy only, to prove the pipeline end to end.
+V2 expands to the whole CORE group. Which platforms to publish to is still
+an open research question — Stage 5 is deliberately built as a list of
+targets behind one interface rather than hard-coded outlets.
+
 ## What this is
 
 A separate project from this author's other automation work, built

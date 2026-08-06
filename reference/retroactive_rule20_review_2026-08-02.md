@@ -84,7 +84,7 @@ diarization pipeline."*
 it, then treats it as a diarization sub-feature. But **two people talking
 over each other is itself a highlight signal** — arguments, hype moments,
 someone getting cut off mid-sentence. For a channel literally named
-@LacyCrashOuts, targeting *"stream arguments, rage moments"* per the
+@CoreCrashOuts, targeting *"stream arguments, rage moments"* per the
 campaign brief, overlap is close to a direct proxy for the target content.
 
 **Role assignment:** **Role 5 (feature)** — an argument/overlap detector

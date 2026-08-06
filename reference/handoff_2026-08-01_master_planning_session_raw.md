@@ -1,3 +1,20 @@
+<!-- CORRECTION BANNER added 2026-08-06. The body below is UNCHANGED. -->
+> ## ⚠️ RENAMED — `@LacyCrashOuts` is now `@CoreCrashOuts`
+>
+> This file predates 2026-08-06 and uses the old name. **It was always the
+> OUTPUT channel** — where finished clips get posted — and it has simply
+> been renamed. Some passages below describe it as a "target streamer";
+> that was never accurate.
+>
+> | | Now |
+> |---|---|
+> | Output | **`x.com/CoreCrashOuts`** + **`youtube.com/@CORECrashOUTS`** |
+> | Source (V1) | **`twitch.tv/lacy`** — VODs and `/clips?range=7d` |
+> | Scope | V1 = Lacy only → V2 = the whole CORE group |
+>
+> **The body is deliberately left uncorrected** (Rule 16 — a raw record is
+> never rewritten to reflect a later finding).
+
 
 ==================== C:\Users\AwBro\AppData\Local\Temp\claude\C--Users-AwBro-Desktop-youtube-auto-videos\31cd27c6-2912-400b-a23f-aa5c3e47ea0d\scratchpad\acb4-clippingplan\AI clipping plan NEW\NEW AI Clip Bot Project - Master Blueprint & Checklist v1.0.docx ====================
 
