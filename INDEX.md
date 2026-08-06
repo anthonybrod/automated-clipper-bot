@@ -129,6 +129,13 @@ which opens by describing a clip *"found, analyzed, cut, and captioned
 automatically and completely for free with Claude."* That is this project's
 exact problem statement, from someone who already built it.
 
+## 7b. First-party data — the only ground truth in the repo
+
+| File | What it is | Read it when |
+|---|---|---|
+| [`research/twitch_clips/FINDINGS_2026-08-06_lacy_clips.md`](research/twitch_clips/FINDINGS_2026-08-06_lacy_clips.md) | **964 real Lacy clips, 7 days, with durations and view counts.** Median 30s but 71% are Twitch UI presets; G2's 20-70s band corroborated at 89%. Views are power-law: median 5, only 0.6% reach 1,000. | **Before setting any Stage 3 threshold**, and before assuming the payout maths work. |
+| [`research/twitch_clips/lacy_clips_7d_2026-08-06.txt`](research/twitch_clips/lacy_clips_7d_2026-08-06.txt) | The raw 964 rows: `duration|view_count|title`. | Re-running the analysis, or building the J1 eval harness. |
+
 ## 8. Code
 
 | File | What it is | Read it when |

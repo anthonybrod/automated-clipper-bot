@@ -324,7 +324,8 @@ fallback when a curated note is missing or disputed.
 | B — 12-item source mining | 1 of 12 |
 | C — 6 untranscribed YouTube videos | **6 of 6 ✅ 2026-08-04** — fetched, verified real |
 | D — Platform / hosting research | not started |
-| **⚡ I — identify CORE members + their stream sources** | **NEW BLOCKER 2026-08-06 — outranks the rest.** Stage 1 has no source. Ask the user first; do not spend an agent on what they can answer in a message. |
+| **✅ I — Stage 1 source** | **RESOLVED + WORKING 2026-08-06.** twitch.tv/lacy; yt-dlp reaches VODs and clips with no auth. Kick recorded, not pulled. |
+| **J — from the 964-clip pull** | **NEW, not started.** J1 detector eval harness (the project has NO way to measure detector quality) · J2 title/taxonomy cross-ref · J3 24hr vs 7d · J4 fix the length default · J5 Kick before V2 · J6 payout maths. See PENDING §J. |
 | **F — `AI\` folder material** | **PUT OFF 2026-08-04 — waits on the USER, not Claude.** Folder too big; the user triages it and hands over what matters. Do not sweep it unprompted. |
 | **G — mine the 6 new transcripts** | **G1, G2, G3 ✅ DONE 2026-08-04** — all three saved, indexed, pushed. **G4/G5/G6 still to do** (PENDING §G). |
 | **H — CORE clipper research on X** | **H2 (discovery) ✅ DONE.** **H1 (@yoxics, @scubaryan_, @coresculture) LOST** to the session limit — must be re-run, prompt is in PENDING §H. |

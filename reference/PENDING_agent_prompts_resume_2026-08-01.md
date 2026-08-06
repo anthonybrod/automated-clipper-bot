@@ -959,3 +959,39 @@ spending an agent on this.** Only research what the user cannot supply.
 **Do not assume Twitch.** The whole Stage 1 design (`yt-dlp`, Twitch GQL
 keyless chat, `chat-downloader`) rests on the platform, and that assumption
 now traces back to a target that was wrong.
+
+---
+
+### ✅ I. Stage 1 source — RESOLVED 2026-08-06, and it works
+
+**User supplied, Twitch confirmed as the source after all:**
+`twitch.tv/lacy` · `/videos` · `/clips?range=24hr` · `/clips?range=7d`
+
+`yt-dlp` reaches both VODs and clips with **no auth and no API key** —
+Stage 1 ingestion is proven, not theoretical. The Twitch assumption in the
+Architecture Outline was right; it had just been traced through the wrong
+target handle.
+
+**Secondary, recorded but NOT pulled** (user: *"there is barely any content
+on there right now"*, then *"dont pull anything"*):
+`kick.com/lacy` · `/videos` · `/clips?sort=date&range=week` ·
+`/clips?sort=view&range=week`
+
+---
+
+### J. NEW TO-DO from the 2026-08-06 clip pull
+
+Full analysis:
+[`research/twitch_clips/FINDINGS_2026-08-06_lacy_clips.md`](../research/twitch_clips/FINDINGS_2026-08-06_lacy_clips.md).
+**Nothing below is started.** Queued behind the existing backlog per the
+user: *"we are adding things for these to the to do list we have tons to
+finish before starting new thing."*
+
+| # | Item | Why it matters |
+|---|---|---|
+| J1 | **Build the detector evaluation harness.** Every clip carries a view count and points back into a VOD, so a detector can be scored on whether it picks the moments that actually earned views. | **The project currently has NO way to measure detector quality at all.** Free ground truth, refreshing daily. Highest-value item here. |
+| J2 | **Cross-reference clip titles against G2's moment taxonomy.** Clipper titles label the moment type bluntly — `lacy sad`, `prank call`, `Ron hates lacy`, `lacy on dem percs`. | Independent check on whether G2's 7 categories (physical escalation 28%, verbal roast 20%, …) hold against 964 real clips. Cheap — the data is already on disk. |
+| J3 | **Pull the 24hr window and compare to 7d.** | Tests whether the view distribution is stable or an artifact of one week. |
+| J4 | **Correct the Stage 3 length default.** The 20–70s *band* is corroborated (89% of real clips). A single "target length" from Twitch data is **not** valid — 71% of durations are UI presets, not editorial choices. | Prevents building on a number that measures Twitch's slider rather than the moment. |
+| J5 | **Re-check Kick before V2.** Empty now; a second platform means a second ingestion adapter. Its clips URL exposes `sort=view`, which Twitch does not surface as cleanly. | Cheap to re-check later, expensive to discover mid-build. |
+| J6 | **Re-examine the payout maths.** 99.4% of community clips never reach 1,000 views on Twitch. Different audience from reposted Shorts/X, so not a direct prediction — but it sharpens the minimum-view-threshold risk. | Decides whether the economics work at all. |
