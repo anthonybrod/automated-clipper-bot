@@ -1,5 +1,24 @@
 # SAVE EVERYTHING — the protocol
 
+> ## ⚡ The save is now CONTINUOUS, not just end-of-session
+>
+> **Added 2026-08-06, ported from [Sonovore/claude-code-handoff](https://github.com/Sonovore/claude-code-handoff).**
+> The `UserPromptSubmit` hook injects a `<live-handoff>` directive on **every
+> message**: if anything durable happened — a decision, correction, finding,
+> completed or deferred work — append one line to `.claude/session-state.md`
+> **immediately**. `SessionStart` reads it back into the next session.
+>
+> **Why:** three days went into an end-of-session save that kept failing —
+> steps silently skipped, `START_HERE.md` stale four times, `PROJECT.md`
+> three. The user had already pointed at this working implementation. Rule 1
+> says port, don't re-derive; that rule was broken and the three days were
+> the cost. **A save that happens as work happens has no end-of-session step
+> left to skip.**
+>
+> The steps below still run when the user says "save everything" — they are
+> what makes the record *durable and public*. The live state is the buffer
+> that makes sure nothing is forgotten by the time they do.
+
 **Trigger:** the user says *"save everything"* (or save / wrap up / hard
 save / checkpoint / we're done).
 
