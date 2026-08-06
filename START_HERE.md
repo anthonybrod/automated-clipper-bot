@@ -291,6 +291,21 @@ accounts) produced nothing and must be re-run** — its prompt is saved in
 PENDING §H. Committing each report on arrival instead of batching is what
 kept the cost at one report instead of three.
 
+**✅ 2026-08-06 — Stage 1 proven, and the first REPOST data.**
+- `yt-dlp` reaches twitch.tv/lacy VODs **and** clips, no auth, no API key.
+- **964 real clips pulled** (`research/twitch_clips/`): median **5 views**,
+  only 0.6% reach 1,000. Selection is where all the value is.
+- **H1 landed.** `api.fxtwitter.com` serves public JSON unauthenticated —
+  25 posts, 18 durations, 5 poster frames viewed. **Reposts median 51.4s,
+  44% at 55–61s, 0 of 18 on Twitch's presets** → they hand-trim.
+  **Target ~55–60s, not 30s.**
+- ⚠️ **H1 contradicts the Architecture Outline on three points**: no 9:16
+  vertical (16:9 dominates), **no subtitles at all**, chat left **burned in
+  rather than blurred**. Plus **zero hashtags in 25 captions** against a
+  recorded "mandatory #lacy" campaign rule. **Flagged, NOT applied** —
+  resolve before Stage 4/5. The agent also flagged its own sampling bias:
+  the sample came from search, which favours winners.
+
 **No blockers remain.** The next action is §2.
 
 **Outside git:** a 66MB transcript backup at

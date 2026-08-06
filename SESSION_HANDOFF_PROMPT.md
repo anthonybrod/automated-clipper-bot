@@ -16,161 +16,203 @@ save, alongside `START_HERE.md`. The user just copies.
 
 ---
 
-## §1 — READY TO PASTE (regenerated 2026-08-04, in the §2 template format)
+## §1 — READY TO PASTE (regenerated 2026-08-06)
 
 ```
 just to catch you up: Read START_HERE.md in the automated clipper bot repo
 first (C:\Users\AwBro\Desktop\automated clipper bot). It's the single
-session entry point, and it opens with §0 — a self-validation checklist.
-Run those checks before trusting anything in it. INDEX.md catalogues every
+session entry point and it opens with §0 — a self-validation checklist. Run
+those checks before trusting anything in it. INDEX.md catalogues every
 document in the repo, what's in it, and when to read it — use it instead of
 guessing from filenames. reference/PENDING_agent_prompts_resume_2026-08-01.md
-holds the detailed per-item agenda, including full re-run prompts for
+holds the detailed per-item agenda including full re-run prompts for
 anything that died mid-flight. Don't reconstruct anything from memory or
 chat history — read the files.
 
 TASK #1, before anything else:
-  Test that the save system actually worked, then present the checklist,
+  Run save_check.sh. It is the GATE — 12 mechanical checks, and if it exits
+  non-zero the last save was NOT complete. Then present the checklist,
   progress report and to-do list, then suggest a starting point — in that
-  order. Don't pick a workstream first; I deliberately held that choice
-  until after the report. Commands are in §2 of START_HERE.md. FIVE
-  cold-start passes have been run so far and EVERY ONE found real bugs —
-  including one that found four contradictions inside START_HERE.md itself,
-  and one that found PROJECT.md stale for the third time in three days.
-  Assume this one will too. A pass that finds nothing is a weak test, not a
-  clean bill of health. Report what you find before telling me it's fine.
+  order. Don't pick a workstream first; I hold that choice until after the
+  report. SEVEN cold-start passes have been run so far and EVERY ONE found
+  real bugs. Assume this one will too. A pass that finds nothing is a weak
+  test, not a clean bill of health. Report what you find BEFORE telling me
+  it's fine.
 
-TASK #2, ask me early:
-  Is @CoreCrashOuts actually the right handle? The CORE discovery agent
-  could not find that account anywhere. The entire project targets it, so
-  this is load-bearing — don't guess, don't work around it, ask me. See
-  §3b of START_HERE.md.
+TASK #2, check these two first — they were in flight when the session ended:
+  a) An H1 agent researching @yoxics / @scubaryan_ / @coresculture on X,
+     writing to reference/research_2026-08-06_core_clippers_named_VERBATIM.md
+  b) An adversarial workflow attacking the save system (5 attack agents +
+     per-finding skeptics + synthesis).
+  Check whether either produced output. If a file exists, COMMIT IT
+  IMMEDIATELY — do not batch. If they produced nothing, say so plainly;
+  don't invent their findings. H1's prompt is preserved in PENDING §H.
+
+THE PROJECT, IN ONE PARAGRAPH: an automated Twitch clipping bot on a $0
+open-source stack. It watches a stream, detects the best moments
+statistically rather than by watching everything, transcribes and captions
+locally with faster-whisper and ffmpeg, cuts to vertical, and posts — with a
+human approval gate. Money comes from Clipping.net-style bounties: paid per
+1,000 views with a MINIMUM VIEW THRESHOLD per post, so a clip under the
+minimum pays $0. That is why hook quality is load-bearing and why every
+recurring API cost eats the margin directly.
+
+SOURCES AND DESTINATIONS (confirmed 2026-08-06 — this was corrected, older
+docs use the old name):
+  IN  — Twitch, PRIMARY for V1:
+        https://www.twitch.tv/lacy/
+        https://www.twitch.tv/lacy/videos
+        https://www.twitch.tv/lacy/clips?range=24hr
+        https://www.twitch.tv/lacy/clips?range=7d
+  IN  — Kick, secondary and nearly empty, DO NOT PULL without asking:
+        https://kick.com/lacy · /videos
+        https://kick.com/lacy/clips?sort=date&range=week
+        https://kick.com/lacy/clips?sort=view&range=week
+  OUT — my own channels:
+        https://x.com/CoreCrashOuts
+        https://www.youtube.com/@CORECrashOUTS
+  @LacyCrashOuts was ALWAYS the output channel; it is now @CoreCrashOuts.
+  That is the whole change. Scope: V1 = Lacy only to prove the pipeline,
+  V2 = the whole CORE group.
 
 OPEN CHECKLIST — carry this forward and tick things off:
-  [ ] ⚡ Confirm the @CoreCrashOuts handle with me (TASK #2)
-  [ ] H1 — RE-RUN, lost to a session limit mid-write. Researches @yoxics,
-      @scubaryan_, @coresculture on X. Full prompt preserved in PENDING §H
-  [ ] G4/G5/G6 — mine the 3 remaining transcripts. PafYu69s5NA is the
-      highest value: it opens describing a clip "found, analyzed, cut, and
-      captioned automatically and completely for free with Claude" — this
-      project's exact problem statement, already solved by someone else
-  [ ] A: Rule 20 retroactive review — 1 of 6 (A2 HF-vision, A3 HF-LLM,
-      A4 mining report, A5 78-source audit, A6 the 17 videos)
+  [ ] H1 — check if it landed; commit immediately if so
+  [ ] The save-system workflow — check if it landed; act on confirmed bugs
+  [ ] J1 — build the detector EVAL HARNESS. Twitch clips carry view counts
+      and point back into VODs, so a detector can be scored on whether it
+      picks the moments that actually earned views. NOTHING in this project
+      can currently measure detector quality at all. Highest-value item.
+  [ ] J2 — cross-reference clip titles against G2's moment taxonomy
+  [ ] J3 — pull the 24hr clip window, compare against the 7d distribution
+  [ ] J4 — fix the Stage 3 length default (see NEW THIS SESSION)
+  [ ] J5 — re-check Kick before V2
+  [ ] J6 — re-examine the payout maths against the real view distribution
+  [ ] G4/G5/G6 — mine the 3 remaining transcripts. PafYu69s5NA is highest
+      value: it opens describing a clip "found, analyzed, cut, and captioned
+      automatically and completely for free with Claude"
+  [ ] A: Rule 20 retroactive review — 1 of 6
   [ ] B: 12-item source mining — 1 of 12
   [ ] D: Platform / free-inference / hosting research — not started
   [ ] F: the AI\ folder — PUT OFF, waits on ME. Too big; I'll triage it and
       hand you what matters. Do NOT sweep it unprompted
-  [ ] Corroborate the three architecture contradictions before changing
-      Stage 3 — they rest on one source so far
   [ ] Run validate_environment.py in Colab — settles the credentials blocker
-  [ ] Verify whether the sibling project's video code still runs
+  [ ] Fix chat_downloader's KeyError: 'data' before Stage 1 depends on it
   [ ] Answer the 5 open questions in
       reference/DISCUSS_next_phase_autonomy_prompt_2026-08-02.md
-  [ ] Fix chat_downloader's KeyError: 'data' before Stage 1 depends on it
-  [ ] Transcript backup is still manual — it was skipped once already
   [ ] Write the first line of actual pipeline code
-  [x] C: 6 untranscribed videos — 6 of 6, fetched and verified 2026-08-04
-  [x] G1/G2/G3 — the 3 Lacy transcripts mined, saved, indexed
-  [x] H2 — CORE discovery, 22 VERIFIED claims with a full source list
-  [x] Rule 22 adopted; Rules 8 & 9 dropped (both by me, 2026-08-03)
+  [x] Stage 1 source CONFIRMED AND PROVEN WORKING (2026-08-06)
+  [x] C: 6 transcripts fetched and verified · G1/G2/G3 mined · H2 done
+  [x] All docs corrected to the real links; raw records preserved
+  [x] Rule 22 adopted; Rules 8 & 9 dropped; save_check.sh gates the save
 
-LAST SESSION (2026-08-04) — what got built:
-  - Workstream C closed: all 6 missing transcripts fetched, 6/6, verified
-    real. 23 transcripts now on disk, every one carrying its source URL on
-    line 2 and timestamped per line, so any quote checks at the exact second
-  - G1/G2/G3: the 3 Lacy transcripts mined, one agent per file. ~192KB of
-    verbatim reports, 2,650+ timestamp citations between them
-  - H2: CORE clipper discovery — 22 VERIFIED / 2 UNVERIFIED, no handle
-    invented, every one resolving to a real URL
-  - INDEX.md — catalogues all 30+ documents, built after an audit found 12
-    of 30 referenced by NOTHING a session actually reads
-  - check_links.sh now covers INDEX.md: 51 → 108 links verified
-  - PROJECT.md finally records the Stage 3 numbers inline (it had gone
-    stale a third time — it knew nothing about that day's work)
+LAST SESSION (2026-08-06) — what got built:
+  - STAGE 1 IS PROVEN, not theoretical. yt-dlp reaches twitch.tv/lacy's VODs
+    AND clips with NO auth and NO API key. Real output: VOD titles and
+    durations (one 10,003s stream), plus 964 clips.
+  - Pulled 964 real Lacy clips from the last 7 days with durations, view
+    counts and titles. Saved raw to research/twitch_clips/ plus a written
+    analysis. This is the ONLY ground truth in the repo — every other source
+    is somebody talking about clipping; this is 964 moments real humans chose
+    to clip and what each one earned. It is free and refreshes daily.
+  - Corrected @LacyCrashOuts → the real links across all 9 live docs (17
+    mentions). Raw records and verbatim agent reports were NOT edited
+    (Rule 16) — 54 mentions preserved, each file given a correction banner.
+  - Ported the live-handoff mechanism from Sonovore/claude-code-handoff
+    instead of continuing to re-derive one. UserPromptSubmit now injects a
+    directive on every message to append durable facts to
+    .claude/session-state.md immediately; SessionStart reads it back.
+  - Backed up all 4 hooks + the user-level CLAUDE.md into hooks_backup/ —
+    they live in ~/.claude/ and were entirely outside version control.
+  - Fixed save_check.sh: it hardcoded "today" and threw 3 false alarms on a
+    good save at the start of a fresh session.
 
-NEW THIS SESSION — things found, not yet acted on:
-  - STAGE 3 FINALLY HAS REAL NUMBERS, from 50 human-curated moments in
-    reference/mining_2026-08-04_cVkFMpDLQrM_VERBATIM.md. That source is a
-    best-of, so every segment is a positive example rather than an opinion:
-      * clip length median 39.5s, 78% in 20-70s → target 40s, accept
-        20-70s, hard floor 11s
-      * hook openings: 36% direct question, 22% shouted name/imperative,
-        and 0% narration
-      * moment types: physical escalation 28%, verbal roast 20%,
-        authority 12%, reveal 12%, romance 12%, heist 10%, one-liner 6%
-      * A TEXT-ONLY DETECTOR: verbal repetition in 22 of 50 moments (≥3
-        repeats of a short phrase within 10s). Needs only the transcript —
-        no audio, no model, no API call — so it belongs in the free
-        statistical pre-filter, the stage whose whole job is keeping most
-        of a VOD away from any paid call. Most useful thing found so far.
-  - THREE CORRECTIONS THAT CONTRADICT THE ARCHITECTURE OUTLINE. Flagged,
+NEW THIS SESSION — findings, not yet acted on:
+  - THE VIEW DISTRIBUTION IS BRUTAL AND IT QUESTIONS THE BUSINESS CASE.
+    Across 964 community-clipped Lacy moments: median 5 views, mean 35, only
+    6 clips (0.6%) reached 1,000 views, exactly 1 reached 5,000, and all 964
+    together total 33,624 views. Top clip ÷ median = ~1,400x.
+    CAVEAT, state it every time: Twitch clip views are a DIFFERENT audience
+    from reposted Shorts/X, so this is not a payout prediction. What it does
+    establish is that SELECTION is where all the value is — an average
+    moment earns nothing — and that most posts would land under a per-post
+    view minimum. J6 exists to work this through properly.
+  - CLIP LENGTH: Twitch data CANNOT give a target length. Median is 30s but
+    71% of clips sit at exactly 30/59/29s — those are Twitch's clip-tool UI
+    presets, so the number measures a slider, not a moment. What DOES hold:
+    G2's acceptance band of 20-70s, corroborated at 89% (862/964) by a
+    completely different method. Build on the band, not on a target.
+  - G2 remains the best detection source: 50 human-curated moments giving
+    hook openings (36% direct question, 22% shouted name, 0% narration),
+    seven moment types, and a TEXT-ONLY detector — verbal repetition in 22 of
+    50 moments, ≥3 repeats of a short phrase within 10s. It needs only the
+    transcript: no audio, no model, no API call. It belongs in the free
+    statistical pre-filter.
+  - THREE CORRECTIONS THAT CONTRADICT THE ARCHITECTURE OUTLINE, flagged and
     deliberately NOT applied — don't change a design off one source:
-      1. ~20% of curated moments contain NO shouting at all. The outline
-         treats audio-RMS spikes as a primary pre-filter — as written it
-         misses one moment in five.
+      1. ~20% of curated moments contain NO shouting. The outline treats
+         audio-RMS spikes as a primary pre-filter; as written it misses one
+         moment in five.
       2. Long silences are POSITIVE (physical gags). A low speech-density
          filter would delete the best set-pieces.
-      3. Clip length cannot be derived from caption-cue gaps — those are
-         1-2s ASR cadence, not clip boundaries.
-  - COMPETITIVE CONTEXT, not a threshold: ~60M monthly views on the #Lacy
-    hashtag across 1,598 clippers, growing ~100% month over month. That's
-    the field this bot enters, and it matters because the payout model pays
-    $0 below a per-post view minimum.
-  - G1 is a HOSTILE SECONDARY SOURCE — adversarial narrator who admits
-    prior errors. Its claims about people and events are leads, not facts.
-    It also states what it cannot answer: no VOD timecodes, no view counts,
-    no Clipping.net mechanics anywhere in 2,337 snippets.
-  - G3's source is NOT Lacy — third-party commentary that contradicts its
-    own thesis: the "meticulous blueprint" claim is undercut at [14:35] by
-    Lacy saying there are "no set dedicated things that I'm planning."
-  - A session limit killed 3 agents mid-write. Two had already written
-    their files and survived intact; only H1 was lost. Committing each
-    report on arrival instead of batching is why that cost one report
-    instead of three — keep doing that.
+      3. Clip length cannot be derived from caption-cue gaps (1-2s ASR
+         cadence, not clip boundaries).
+  - I was BANNED ON FACEBOOK for failing a bot check, Instagram pending. Two
+    of four originally planned Stage 5 outlets are gone or at risk. Stage 5
+    stays platform-agnostic — a list of publish targets behind one interface,
+    config not code. Which platforms is still workstream D research.
 
 ALSO READ: CLAUDE.md — 21 numbered rules, 16 active. Don't just read them,
-apply them: they're strict defaults and deviating from one requires asking
-me first. The non-negotiables — I have final say on phase transitions and
-"complete" (and when I say complete, stamp it "COMPLETE — authorized by
-user YYYY-MM-DD"); nothing is factual unless confirmed this session or I
-OK'd it; external-AI material (Gemini etc.) is reference only; run every
-check BEFORE reporting done, not after I ask; preserve source material
-word-for-word; keep raw records separate from evaluation; don't dismiss
-free tools — evaluate against all five roles. Read INDEX.md before hunting
-for anything, and reference/MASTER_TOOLS_CATALOG_2026-08-02.md (~110 tools
-with URLs) before picking any tool for a stage. When I say "save
-everything," follow SAVE_PROTOCOL.md exactly — it also carries the written
-format for every section of START_HERE.md.
+apply them: they're strict defaults and deviating from one requires asking me
+first. The non-negotiables — I have final say on phase transitions and
+"complete" (when I say complete, stamp it "COMPLETE — authorized by user
+YYYY-MM-DD"); nothing is factual unless confirmed this session or I OK'd it;
+external-AI material is reference only; run every check BEFORE reporting
+done, not after I ask; preserve source material word-for-word; keep raw
+records separate from evaluation and NEVER rewrite a raw record to reflect a
+later finding (Rule 16); don't dismiss free tools — evaluate against all five
+roles. Read INDEX.md before hunting for anything, and
+reference/MASTER_TOOLS_CATALOG_2026-08-02.md (~110 tools with URLs) before
+picking any tool for a stage. When I say "save everything," follow
+SAVE_PROTOCOL.md exactly AND run save_check.sh — if it exits non-zero the
+save is not done and you don't report it as done.
 
 BEFORE STARTING ANYTHING:
   - Confirm the checkpoint held: git log, git status, synced with origin.
-    Last known good is e629818 or later. HEAD one ahead of what
+    Last known good is HASHGOESHERE or later. HEAD one ahead of what
     START_HERE.md's header says is NORMAL; two or more means work landed
-    after it was updated (START_HERE.md §0 explains why).
-  - Raise the @CoreCrashOuts handle question early — load-bearing, and only
-    I can settle it.
+    after it was updated (§0 explains why).
   - Confirm I have usage headroom before launching agents. I hit 100% on
-    2026-08-04 partway through five of them, and I'm on paid usage now.
-  - ONE AGENT PER SOURCE FILE. Single-file agents have succeeded every
-    time; broad-scope agents covering many files have died producing
-    nothing, twice. Commit each report the moment it lands — never batch.
+    08-04 and 82% on 08-06, and I'm on paid usage now. TELL ME THE COST
+    BEFORE launching a workflow — the 08-06 adversarial workflow took the
+    session from 49% to 82% in one go and that was for testing
+    infrastructure, not project progress.
+  - ONE AGENT PER SOURCE FILE. Single-file agents have succeeded every time;
+    broad-scope agents covering many files have died producing nothing,
+    twice. COMMIT EACH REPORT THE MOMENT IT LANDS — never batch. On 08-04 a
+    session limit killed 3 agents mid-write and that practice cost one report
+    instead of three.
   - Two unverified leads in START_HERE.md §3 — does the sibling project's
     video code still run, and is validate_environment.py one auth fix from
-    passing (one Colab cell settles it). Check those before related build
-    work, not after.
+    passing (one Colab cell settles it). Check before related build work.
+  - PORT, DON'T RE-DERIVE (Rule 1). Check SALVAGE_INVENTORY.md and the
+    sibling project's pipeline.py before writing any new function. Three days
+    were lost building a save system from scratch when a working
+    implementation had already been pointed out.
 
-CONTEXT I'll forget: budget is a live constraint (metered, hard weekly reset
-Monday 1pm, hit repeatedly — I hit 100% again on 2026-08-04 and moved onto
-paid usage). Documentation work is not cheap. Drive has no direct access
-from your side; you push to GitHub, I pull in Colab, and a fresh Colab
-runtime needs drive.mount() before the pull will work. My prompts are logged
-verbatim to .claude/session-prompts.log (gitignored — public repo), and raw
-transcripts are backed up at AI\claude_transcripts_backup_<date>\ (68MB as
-of 08-04); both are the fallback when a curated note is missing or disputed.
-Never use `git checkout <file>` to undo an edit — it reverts the whole file
-and destroyed real work on 2026-08-03. Still zero pipeline code written —
-that's the honest headline; everything so far is restoration, research,
-rules, and now the first real detection numbers.
+CONTEXT I'll forget: budget is a live constraint — metered, hard weekly reset
+Monday 1pm, hit repeatedly, and I'm on paid usage now. Documentation work is
+not cheap. Drive has no direct access from your side; you push to GitHub, I
+pull in Colab, and a fresh Colab runtime needs drive.mount() before the pull
+will work. My prompts are logged verbatim to .claude/session-prompts.log and
+durable facts go to .claude/session-state.md — both gitignored, because this
+is a PUBLIC repo and they contain raw prompts. Raw transcripts are backed up
+at AI\claude_transcripts_backup_<date>\ (68MB). Never use
+`git checkout <file>` to undo an edit — it reverts the whole file and
+destroyed real work on 08-03. The real Python is at
+C:\Users\AwBro\AppData\Local\Programs\Python\Python312\python.exe — "python"
+and "py" do NOT resolve. Still zero pipeline code written — that's the honest
+headline; everything so far is restoration, research, rules, and now the
+first real detection data.
 ```
 
 ---
