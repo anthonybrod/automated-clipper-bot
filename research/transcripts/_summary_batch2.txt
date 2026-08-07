@@ -1,6 +1,6 @@
-mFOoNPFylLI	SUCCESS	521 snippets	Higgsfield / Claude connectors
-PafYu69s5NA	SUCCESS	351 snippets	Claude + Whop Clipping Workflow
-QqwNue_KL-4	SUCCESS	145 snippets	Gemini Gems Tutorial
-cVkFMpDLQrM	SUCCESS	1068 snippets	Lacy's Best Streamer University Moments
-mVqnCvE337E	SUCCESS	2337 snippets	How Lacy Got Used On Stream
-lYafPAHVOno	SUCCESS	397 snippets	Lacy's Content Strategy Breakdown
+mFOoNPFylLI	SKIP-EXISTS	0 snippets	Higgsfield / Claude connectors
+PafYu69s5NA	SKIP-EXISTS	0 snippets	Claude + Whop Clipping Workflow
+QqwNue_KL-4	SKIP-EXISTS	0 snippets	Gemini Gems Tutorial
+cVkFMpDLQrM	SKIP-EXISTS	0 snippets	Lacy's Best Streamer University Moments
+mVqnCvE337E	SKIP-EXISTS	0 snippets	How Lacy Got Used On Stream
+lYafPAHVOno	SKIP-EXISTS	0 snippets	Lacy's Content Strategy Breakdown

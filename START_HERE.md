@@ -632,6 +632,7 @@ when a note is missing or disputed.
 
 | What | Where |
 |---|---|
+| **FILE MAP** — where every folder/file physically lives, sizes, what must never be edited | [`FILE_MAP.md`](FILE_MAP.md) |
 | **INDEX of every document** — what each file is, its status, when to read it | [`INDEX.md`](INDEX.md) |
 | **SAVE EVERYTHING protocol** — the 9-step sequence run when the user says save | [`SAVE_PROTOCOL.md`](SAVE_PROTOCOL.md) |
 | **Session handoff prompt** — ready-to-paste catch-up block + its template | [`SESSION_HANDOFF_PROMPT.md`](SESSION_HANDOFF_PROMPT.md) |

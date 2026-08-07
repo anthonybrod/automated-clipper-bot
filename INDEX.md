@@ -27,6 +27,12 @@ verifies them.
 > [`START_HERE.md`](START_HERE.md). Raw records are deliberately left
 > uncorrected (Rule 16).
 
+> **Looking for WHERE a file physically lives?** [`FILE_MAP.md`](FILE_MAP.md)
+> maps every folder and file with real sizes, what each naming convention
+> means, which files must never be edited, what lives outside the repo, and a
+> "where do I find...?" lookup table. Three indexes, three questions:
+> FILE_MAP = where · INDEX = when to read · HANDOFF_REPORT = what it means.
+
 ## 1. Start here / how we work
 
 | File | What it is | Read it when |
