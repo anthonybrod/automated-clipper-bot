@@ -48,7 +48,7 @@ verifies them.
 
 | File | What it is | Read it when |
 |---|---|---|
-| [`reference/PENDING_agent_prompts_resume_2026-08-01.md`](reference/PENDING_agent_prompts_resume_2026-08-01.md) | **The running status board** — workstreams A/B/C/D with per-item detail and the exact agent prompts to reuse. 745 lines. Filename is dated; contents are current. | Before starting any workstream item. Don't re-derive a prompt that's already written here. |
+| [`reference/PENDING_agent_prompts_resume_2026-08-01.md`](reference/PENDING_agent_prompts_resume_2026-08-01.md) | **The running status board** — workstreams A–K with per-item detail and the exact agent prompts to reuse. 1,037 lines. Filename is dated; contents are current. | Before starting any workstream item. Don't re-derive a prompt that's already written here. |
 
 ## 3. Decision-ready synthesis — read these to actually choose something
 

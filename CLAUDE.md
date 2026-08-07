@@ -10,7 +10,7 @@
 > **[`reference/PENDING_agent_prompts_resume_2026-08-01.md`](reference/PENDING_agent_prompts_resume_2026-08-01.md)**
 > holds the detailed agenda that `START_HERE.md` summarizes — read it for
 > per-item detail. It opens with a **LIVE AGENDA & PROGRESS board**
-> covering four open workstreams:
+> covering the open workstreams (A–K):
 > - **A** — retroactive Rule 20 review of already-"completed" work (1 of 6)
 > - **B** — the 12-item source-mining pass (1 of 12), with the exact prompt
 >   wording that produced the one successful report

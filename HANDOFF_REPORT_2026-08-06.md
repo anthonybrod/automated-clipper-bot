@@ -186,8 +186,15 @@ accounts **hand-trim** rather than press Twitch's clip button.
 **Scale:** `@coresculture` has 6,540 followers and a median 7,017 views on
 sampled posts — against a median of 5 views for raw Twitch clips.
 
-⚠️ **Sampling bias, flagged by the agent itself:** the sample came from search,
-which favours winners. View medians are overestimates.
+⚠⚠ **TWO SAMPLING PROBLEMS — both matter for J4** (second one found 2026-08-07):
+1. The sample came from search, which favours winners — view medians are
+   overestimates. The agent flagged this itself.
+2. **THE CLIPS ARE MOSTLY NOT LACY.** Counting names in the report: Jynxzi 12,
+   Kai Cenat 9, IShowSpeed 5, Adin Ross 3, Peterbot 3, ClarenceNYC 1 — against
+   Lacy 28. So ~55–60s is the convention for **general streamer-drama reposts**,
+   not a measured Lacy number. Also: 3 of 11 @coresculture posts are photo posts,
+   and its 7,017 median rests on **five** posts containing one 344K outlier.
+   **J4 must not bake this in as a Lacy target without Lacy-only corroboration.**
 
 ## 4.3 — 50 human-curated moments (2026-08-04)
 
@@ -277,28 +284,27 @@ or 4. The unmined transcripts (G4–G6) and workstream A are the natural check.
 
 # PART 7 — REPOSITORY MAP
 
-`github.com/anthonybrod/automated-clipper-bot` · HEAD `3de7f4b` · 93 commits ·
-88 tracked files · working tree clean, synced with origin.
+`github.com/anthonybrod/automated-clipper-bot` · HEAD `3de7f4b` · 102 commits · 91 tracked files · working tree clean, synced with origin.
 
 ### Entry points
 
 | File | Size | Purpose |
 |---|---|---|
-| `START_HERE.md` | 33 KB | Session entry point. §0 self-validates against its own staleness |
+| `START_HERE.md` | 37 KB | Session entry point. §0 self-validates against its own staleness |
 | `INDEX.md` | 20 KB | Catalogue of every document — what it is, when to read it |
-| `PROJECT.md` | 60 KB | Status, architecture, backlog. Stated single source of truth |
+| `PROJECT.md` | 64 KB | Status, architecture, backlog. Stated single source of truth |
 | `CLAUDE.md` | 29 KB | 21 numbered operating rules, 16 active |
 | `SAVE_PROTOCOL.md` | 14 KB | The 9-step save sequence + the written `START_HERE.md` format |
-| `SESSION_HANDOFF_PROMPT.md` | 18 KB | §1 ready-to-paste catch-up block, §2 template, §3 maintenance |
+| `SESSION_HANDOFF_PROMPT.md` | 34 KB | §1 ready-to-paste catch-up block, §2 template, §3 maintenance |
 | `README.md` | 5 KB | Public front door |
 
 ### Live agenda
 
 `reference/PENDING_agent_prompts_resume_2026-08-01.md` — the running status
-board. Workstreams A–J with per-item detail **and the exact agent prompts to
+board. Workstreams A–K with per-item detail **and the exact agent prompts to
 reuse**, so nothing needs re-deriving.
 
-### Research corpus — 64 files in `reference/` + `research/`
+### Research corpus — 65 files in `reference/` + `research/`
 
 **Deep dives** (read from real source via `gh api`, not READMEs):
 - `deep_dive_openshorts.md` — `mutonby/openshorts`, 2,784★. Source of
@@ -321,7 +327,7 @@ reuse**, so nothing needs re-deriving.
   assist / feature)
 - `verified_tools_catalog.md`, `tool_verification.md` — the audit trail
 
-**Data:** 25 transcripts in `research/transcripts/` (each carries its source URL
+**Data:** 23 transcripts in `research/transcripts/` (25 files = 23 + 2 summaries) (each carries its source URL
 on line 2 and per-line `[MM:SS]` timestamps, so any quote is checkable at the
 exact second), plus the 964-clip dataset.
 
@@ -340,7 +346,7 @@ stated location. **Read before writing any new function.**
 | Sibling project (salvage source) | `C:\Users\AwBro\Desktop\youtube auto videos\pipeline.py` (~4,059 lines) |
 | Quality bar / failure history | `C:\Users\AwBro\Desktop\AI\claude_failure_report.md` (1,400 lines, evidence-cited) |
 | Raw research inputs, un-imported | `C:\Users\AwBro\Desktop\AI\` |
-| Transcript backups | `C:\Users\AwBro\Desktop\AI\claude_transcripts_backup_<date>\` (~68 MB) |
+| Transcript backups | `C:\Users\AwBro\Desktop\AI\claude_transcripts_backup_<date>\` (~66 MB) |
 | Owner's Drive copy | `/content/drive/MyDrive/CLAUDE AI CLIP BOT V1 attempt` |
 | Real Python (`python`/`py` do **not** resolve) | `C:\Users\AwBro\AppData\Local\Programs\Python\Python312\python.exe` |
 
@@ -352,13 +358,14 @@ stated location. **Read before writing any new function.**
 |---|---|---|
 | A | Rule 20 retroactive review — re-check completed work for dismissed free tools | **1 of 6** |
 | B | 12-item source mining | **1 of 12** |
-| C | Fetch missing transcripts | **✅ 6 of 6** (2026-08-06) |
+| C | Fetch missing transcripts | **✅ 6 of 6** (2026-08-04) |
 | D | Platform / free-inference / hosting research | **not started** |
 | F | Sweep the `AI\` folder | **⏸ deferred — waits on the owner.** Too large; they triage and hand over. **Do not sweep unprompted** |
 | G | Mine the 6 new transcripts | **G1/G2/G3 ✅ done. G4/G5/G6 pending** |
 | H | CORE clipper research on X | **✅ both done** (H2 discovery 08-04, H1 named accounts 08-06) |
 | I | Identify Stage 1 source | **✅ resolved and proven working** |
 | J | From the 964-clip pull | **J1–J6 all new, none started** |
+| **K** | **Save-system findings — 8 items, NONE VERIFIED** | **NEW 2026-08-07. K1 is a PRIVACY issue affecting the SIBLING repo and is the highest-priority open item.** See PENDING §K and `reference/research_2026-08-06_save_system_attack_VERBATIM.md` |
 
 ### Workstream J in detail
 
@@ -428,7 +435,7 @@ sessions.
 | `START_HERE.md` §0 | Self-validation: header hash offset, rule count, link rot, dirty tree |
 | `SAVE_PROTOCOL.md` | 9 ordered steps triggered by *"save everything"* |
 | `save_check.sh` | **12 mechanical checks that gate the save.** Non-zero exit = the save is not done |
-| `check_links.sh` | Link-rot checker, 115 links across 6 docs |
+| `check_links.sh` | Link-rot checker, 121 links |
 | `INDEX.md` | Ensures no document is invisible to a cold read |
 | 4 hooks in `~/.claude/hooks/` | SessionStart (injects state), UserPromptSubmit (logs prompts + injects a live-handoff directive), PreCompact, Stop |
 | `~/.claude/CLAUDE.md` | User-level, loads in **every** session regardless of working directory |

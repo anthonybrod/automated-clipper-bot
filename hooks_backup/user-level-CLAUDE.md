@@ -9,7 +9,7 @@ If this session touches the **Twitch clipping bot** (@LacyCrashOuts clips,
 **Read `C:\Users\AwBro\Desktop\automated clipper bot\START_HERE.md` first.**
 It is that project's single session entry point — state right now, the
 single next action, blockers and open leads, how we work, and where
-everything is. Then that repo's own `CLAUDE.md` (20 numbered rules, 15
+everything is. Then that repo's own `CLAUDE.md` (21 numbered rules, 16
 active) and `PROJECT.md`.
 
 **Do not reconstruct that project's plan from memory, from chat history, or

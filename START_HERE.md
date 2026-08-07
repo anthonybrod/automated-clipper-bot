@@ -386,7 +386,7 @@ fallback when a curated note is missing or disputed.
 | **⚠️ K — save-system findings** | **NEW 2026-08-06, NONE VERIFIED.** 8 findings from an adversarial workflow whose skeptics all died on a session limit. K1 is a PRIVACY issue affecting the SIBLING repo — do that one first. Leads, not facts (Rule 12). See PENDING §K. |
 | **F — `AI\` folder material** | **PUT OFF 2026-08-04 — waits on the USER, not Claude.** Folder too big; the user triages it and hands over what matters. Do not sweep it unprompted. |
 | **G — mine the 6 new transcripts** | **G1, G2, G3 ✅ DONE 2026-08-04** — all three saved, indexed, pushed. **G4/G5/G6 still to do** (PENDING §G). |
-| **H — CORE clipper research on X** | **H2 (discovery) ✅ DONE.** **H1 (@yoxics, @scubaryan_, @coresculture) LOST** to the session limit — must be re-run, prompt is in PENDING §H. |
+| **H — CORE clipper research on X** | **H2 (discovery) ✅ DONE.** **H1 ✅ DONE 2026-08-06** — landed at commit `101cdd7`, saved to `reference/research_2026-08-06_core_clippers_named_VERBATIM.md`. (An earlier 08-04 attempt died; the re-run succeeded.) |
 
 **Rough cost per workstream** (from real measured sessions — budget is a
 live constraint, so plan before starting):
@@ -574,8 +574,8 @@ directs, but that isn't a licence to stall).
 ## 4. How we work
 
 **Read [`CLAUDE.md`](CLAUDE.md) and apply it** — 21 numbered rules, 16
-active — 22 numbered minus the five removed at the user's direction
-(2, 4, 6 on 2026-08-01; 8, 9 on 2026-08-03). **Rule 22 is adopted and is
+active — 21 numbered minus the five removed at the user's direction
+(2, 4, 6 on 2026-08-01; 8, 9 on 2026-08-03) — and note there is **no Rule 17**, the list runs 1–16 then 18–22. **Rule 22 is adopted and is
 in the file** (authorized 2026-08-03). They are strict defaults;
 deviating from one requires asking first.
 
@@ -638,7 +638,7 @@ when a note is missing or disputed.
 | **Session handoff prompt** — ready-to-paste catch-up block + its template | [`SESSION_HANDOFF_PROMPT.md`](SESSION_HANDOFF_PROMPT.md) |
 | **Live agenda, per-item detail** | [`reference/PENDING_agent_prompts_resume_2026-08-01.md`](reference/PENDING_agent_prompts_resume_2026-08-01.md) |
 | **Rules** | [`CLAUDE.md`](CLAUDE.md) |
-| **Project status, architecture, backlog** | [`PROJECT.md`](PROJECT.md) — current as of 2026-08-02 |
+| **Project status, architecture, backlog** | [`PROJECT.md`](PROJECT.md) — current as of 2026-08-07 |
 | **~110 tools with URLs + roles** — read before picking any tool | [`reference/MASTER_TOOLS_CATALOG_2026-08-02.md`](reference/MASTER_TOOLS_CATALOG_2026-08-02.md) |
 | Reusable code from the sibling project | [`SALVAGE_INVENTORY.md`](SALVAGE_INVENTORY.md) |
 | Rule 20 retroactive review (workstream A) | [`reference/retroactive_rule20_review_2026-08-02.md`](reference/retroactive_rule20_review_2026-08-02.md) |

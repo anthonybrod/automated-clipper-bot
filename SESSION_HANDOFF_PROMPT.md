@@ -80,7 +80,7 @@ THE 6 STAGES (full reasoning in PROJECT.md's Architecture Outline):
   2 Transcription  local, word-level timestamps. ⚠⚠ THE ENGINE IS NOT
                    DECIDED. faster-whisper is the leading CANDIDATE, not a
                    decision — Rule 6 REMOVED it as default at my direction:
-                   "we dont know the best free service after research".
+                   "delete 6 we will find the best free service after research".
                    distil-large-v3 (6.3x faster, ~0.2% WER cost) and
                    faster-whisper-large-v3-turbo-ct2 are real alternatives
                    already researched. PICKING ONE IS RESEARCH WORK, not a

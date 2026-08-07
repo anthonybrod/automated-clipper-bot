@@ -82,7 +82,7 @@ might work.
 | Finding | Measured value |
 |---|---|
 | Clip length | median **39.5s**, mean 42.7s, p25 29s, p75 52s; 78% fall in 20–70s |
-| **Recommended defaults** | **target 40s, accept 20–70s, hard floor 11s** |
+| ~~**Recommended defaults**~~ | ⚠️ **SUPERSEDED 2026-08-06 — do NOT use "target 40s".** The 20–70s BAND holds (89% of 964 real clips). But a single target length cannot come from Twitch data: 71% of clip durations are Twitch UI presets. Real X reposts measured **median 51.4s, 44% at 55–61s, 0 of 18 on Twitch presets** → successful accounts hand-trim. **Working target ~55–60s**, with the caveat that the repost sample is mostly NON-Lacy (Jynxzi 12, Kai Cenat 9, IShowSpeed 5, vs Lacy 28) and search-biased toward winners. See workstream J4. |
 | Hook openings | 36% direct question · 22% shouted name/imperative · **0% narration** |
 | Moment types | physical escalation 28% · verbal roast 20% · authority 12% · reveal 12% · romance 12% · heist 10% · one-liner 6% |
 
@@ -138,8 +138,7 @@ settle this** — recorded as a question rather than resolved by guessing.
   contradicts its own thesis at `[14:35]`.
 - **H2 delivered** — CORE clipper discovery, 22 VERIFIED / 2 UNVERIFIED,
   full source list, no invented handles.
-- **H1 lost** to a session limit mid-write — must be re-run; prompt is
-  preserved in PENDING §H.
+- **H1 ✅ DONE** — the 08-04 attempt died on a session limit; the re-run landed 2026-08-06 (`101cdd7`).
 - **[`INDEX.md`](INDEX.md) created** after an audit found 12 of 30 source
   documents referenced by nothing a session actually reads.
 
