@@ -34,7 +34,11 @@ reading anything else:
    honest statuses are *in progress*, *awaiting user approval*, or
    *blocked*.
 2. **Ask before launching agents, and confirm usage headroom first.**
-   Budget is a live constraint — metered, hard weekly reset Monday 1pm,
+   Budget is a live constraint — metered. ⚠️ THE RESET MECHANIC IS
+   UNCONFIRMED: this line long claimed "hard weekly reset Monday 1pm" but the
+   user never said that. What they actually report is a ~5-HOUR ROLLING
+   SESSION WINDOW plus a MONTHLY credit reset. Pace against the 5-hour window;
+   ask them to confirm.
    hit repeatedly. One session went fresh to 100% on a single agent plus
    note-keeping.
 3. **Nothing is factual** unless confirmed in-session or the user OK'd it

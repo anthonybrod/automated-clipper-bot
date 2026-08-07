@@ -370,7 +370,7 @@ rather than opinions:
 
 | Finding | Value |
 |---|---|
-| Clip length | median **39.5s**, 78% in 20–70s → **target 40s, accept 20–70s, floor 11s** |
+| Clip length | median **39.5s** (curated best-of), 78% in 20–70s. ⚠️ **The "target 40s" this once recommended is SUPERSEDED** — 71% of Twitch clip durations are UI presets, so no target can come from them. Real X reposts: median **51.4s**, 44% at 55–61s, 0 of 18 on presets → they hand-trim. **Working target ~55–60s**, but that sample is mostly NON-Lacy. The 20–70s **band** is the part corroborated (89%). See J4. |
 | Moment types | physical escalation 28% · verbal roast 20% · authority 12% · reveal 12% · romance 12% · heist 10% · one-liner 6% |
 | Hook openings | 36% direct question · 22% shouted name/imperative · **0% narration** |
 | **Text-only detector** | **verbal repetition in 22 of 50 moments** — ≥3 repeats of a short phrase in 10s. Needs only the transcript: no audio, no model, no API call. Drops straight into the free pre-filter. |
@@ -429,6 +429,7 @@ fallback when a curated note is missing or disputed.
 | **J — from the 964-clip pull** | **NEW, not started.** J1 detector eval harness (the project has NO way to measure detector quality) · J2 title/taxonomy cross-ref · J3 24hr vs 7d · J4 fix the length default · J5 Kick before V2 · J6 payout maths. See PENDING §J. |
 | **⚠️ L — Stage 7: the analytics feedback loop** | **NEW 2026-08-07. DOES NOT EXIST — not designed, not in the Architecture Outline.** The owner's goal requires the bot to read its own analytics and self-correct per platform. Nothing does. Largest gap between design and goal. Must be DESIGNED before Stage 3 hardens. See PENDING §L. |
 | **⚠️ K — save-system findings** | **NEW 2026-08-06, NONE VERIFIED.** 8 findings from an adversarial workflow whose skeptics all died on a session limit. K1 is a PRIVACY issue affecting the SIBLING repo — do that one first. Leads, not facts (Rule 12). See PENDING §K. |
+| **E — the failure report: what is fixed, what is not** | **Barely started.** Defined in PENDING §E, and it was missing from this table until 2026-08-07. Cross-checks the 1,400-line `AI\claude_failure_report.md` against what has actually been fixed. |
 | **F — `AI\` folder material** | **PUT OFF 2026-08-04 — waits on the USER, not Claude.** Folder too big; the user triages it and hands over what matters. Do not sweep it unprompted. |
 | **G — mine the 6 new transcripts** | **G1, G2, G3 ✅ DONE 2026-08-04** — all three saved, indexed, pushed. **G4/G5/G6 still to do** (PENDING §G). |
 | **H — CORE clipper research on X** | **H2 (discovery) ✅ DONE.** **H1 ✅ DONE 2026-08-06** — landed at commit `101cdd7`, saved to `reference/research_2026-08-06_core_clippers_named_VERBATIM.md`. (An earlier 08-04 attempt died; the re-run succeeded.) |

@@ -413,7 +413,7 @@ failure happened, and the failure is recorded with it. The load-bearing ones:
 technical merit, is why they went).
 
 **Standing constraints:**
-- **Budget is first-class.** Metered, hard weekly reset Monday 1pm. Hit
+- **Budget is first-class.** Metered. ⚠️ **The reset mechanic is UNCONFIRMED** — docs long claimed "hard weekly reset Monday 1pm"; the owner never said that. They report a **~5-hour rolling session window** plus a monthly credit reset. Hit
   repeatedly. Ask before launching agents and confirm headroom first.
 - **One agent per source file.** Single-file agents have succeeded every time;
   broad-scope agents covering many files have died producing nothing, twice.
