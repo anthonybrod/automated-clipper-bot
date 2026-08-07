@@ -361,7 +361,7 @@ happened. Strict defaults; deviating requires asking me first.
 
 ═══ BEFORE STARTING ANYTHING ═══
   - Confirm the checkpoint: git log, git status, synced with origin. Last
-    known good is HASHGOESHERE or later. HEAD one ahead of START_HERE.md's
+    known good is 81ff7e1 or later. HEAD one ahead of START_HERE.md's
     header is NORMAL and documented; two or more means work landed after it
     was written (§0 explains why).
   - CONFIRM MY USAGE HEADROOM BEFORE LAUNCHING AGENTS. I hit 100% on 08-04
