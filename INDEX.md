@@ -138,6 +138,13 @@ exact problem statement, from someone who already built it.
 | [`research/twitch_clips/FINDINGS_2026-08-06_lacy_clips.md`](research/twitch_clips/FINDINGS_2026-08-06_lacy_clips.md) | **964 real Lacy clips, 7 days, with durations and view counts.** Median 30s but 71% are Twitch UI presets; G2's 20-70s band corroborated at 89%. Views are power-law: median 5, only 0.6% reach 1,000. | **Before setting any Stage 3 threshold**, and before assuming the payout maths work. |
 | [`research/twitch_clips/lacy_clips_7d_2026-08-06.txt`](research/twitch_clips/lacy_clips_7d_2026-08-06.txt) | The raw 964 rows: `duration|view_count|title`. | Re-running the analysis, or building the J1 eval harness. |
 
+## 7c. Handoff and audit
+
+| File | What it is | Read it when |
+|---|---|---|
+| [`HANDOFF_REPORT_2026-08-06.md`](HANDOFF_REPORT_2026-08-06.md) | **Full professional handoff.** 13 parts: architecture, all measured data, open questions, where evidence contradicts the plan, repository map, workstream status, the save system, the unverified attack findings, and an honest accounting of cost and waste. Written to be read cold by anyone. | **First, if you are new to this project** — or handing it to someone else. |
+| [`reference/research_2026-08-06_save_system_attack_VERBATIM.md`](reference/research_2026-08-06_save_system_attack_VERBATIM.md) | **8 findings against the save system, verbatim.** ⚠️ **NONE VERIFIED** — every skeptic assigned to refute them died on a session limit. Two critical, one a privacy issue affecting the **sibling** repo. Leads, not facts. | Before trusting the save system, and before working workstream K. |
+
 ## 8. Code
 
 | File | What it is | Read it when |

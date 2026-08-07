@@ -321,6 +321,7 @@ fallback when a curated note is missing or disputed.
 | D — Platform / hosting research | not started |
 | **✅ I — Stage 1 source** | **RESOLVED + WORKING 2026-08-06.** twitch.tv/lacy; yt-dlp reaches VODs and clips with no auth. Kick recorded, not pulled. |
 | **J — from the 964-clip pull** | **NEW, not started.** J1 detector eval harness (the project has NO way to measure detector quality) · J2 title/taxonomy cross-ref · J3 24hr vs 7d · J4 fix the length default · J5 Kick before V2 · J6 payout maths. See PENDING §J. |
+| **⚠️ K — save-system findings** | **NEW 2026-08-06, NONE VERIFIED.** 8 findings from an adversarial workflow whose skeptics all died on a session limit. K1 is a PRIVACY issue affecting the SIBLING repo — do that one first. Leads, not facts (Rule 12). See PENDING §K. |
 | **F — `AI\` folder material** | **PUT OFF 2026-08-04 — waits on the USER, not Claude.** Folder too big; the user triages it and hands over what matters. Do not sweep it unprompted. |
 | **G — mine the 6 new transcripts** | **G1, G2, G3 ✅ DONE 2026-08-04** — all three saved, indexed, pushed. **G4/G5/G6 still to do** (PENDING §G). |
 | **H — CORE clipper research on X** | **H2 (discovery) ✅ DONE.** **H1 (@yoxics, @scubaryan_, @coresculture) LOST** to the session limit — must be re-run, prompt is in PENDING §H. |

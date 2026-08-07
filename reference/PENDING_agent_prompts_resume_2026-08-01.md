@@ -995,3 +995,41 @@ finish before starting new thing."*
 | J4 | **Correct the Stage 3 length default.** The 20–70s *band* is corroborated (89% of real clips). A single "target length" from Twitch data is **not** valid — 71% of durations are UI presets, not editorial choices. | Prevents building on a number that measures Twitch's slider rather than the moment. |
 | J5 | **Re-check Kick before V2.** Empty now; a second platform means a second ingestion adapter. Its clips URL exposes `sort=view`, which Twitch does not surface as cleanly. | Cheap to re-check later, expensive to discover mid-build. |
 | J6 | **Re-examine the payout maths.** 99.4% of community clips never reach 1,000 views on Twitch. Different audience from reposted Shorts/X, so not a direct prediction — but it sharpens the minimum-view-threshold risk. | Decides whether the economics work at all. |
+
+
+---
+
+### ⚠️ K. Verify and fix the save-system findings — NEW 2026-08-06
+
+*Status: **not started. NONE of these are verified.** Two are marked critical
+and one concerns a DIFFERENT repository.*
+
+**Provenance.** An adversarial workflow ran 2026-08-06 with 5 attack agents and
+per-finding skeptics. **14 of 15 agents died on a session limit.** One survived
+(the `live-handoff` lens) and produced 8 findings. **Every skeptic assigned to
+refute them died**, so nothing was verified. Full verbatim report:
+[`research_2026-08-06_save_system_attack_VERBATIM.md`](research_2026-08-06_save_system_attack_VERBATIM.md).
+Narrative summary: Part 11 of
+[`HANDOFF_REPORT_2026-08-06.md`](../HANDOFF_REPORT_2026-08-06.md).
+
+**Rule 12 applies with full force: these are leads, not facts.** Reproduce each
+before acting. Do not "fix" something that turns out not to be broken.
+
+| # | Severity | Finding | Verify by |
+|---|---|---|---|
+| **K1** | 🔴 CRITICAL | **Privacy — affects the SIBLING repo.** The hook is registered at user level so it fires in every project, and the directive names a bare relative path. `youtube auto videos` does NOT gitignore `.claude/` (only `.claude/settings.local.json`) and has a public remote. | `cd "C:\Users\AwBro\Desktop\youtube auto videos" && git check-ignore -v .claude/session-state.md; echo "exit=$?"` — exit 1 means NOT ignored |
+| **K2** | 🔴 CRITICAL | **The live-handoff stopped tracking inside its own build session.** `session-state.md` mtime 13:42:12; five commits landed after, including one whose subject says it contradicts the architecture. The file still says H1 is "still running." | `stat -c '%y' .claude/session-state.md` then `git log --since='<that time>'` |
+| **K3** | 🟠 HIGH | `tail -40` drops 74% of the state file (152 lines, 40 loaded) and opens mid-entry, because entries average ~6 lines not the "one line" the directive requests. | `wc -l < .claude/session-state.md` |
+| **K4** | 🟠 HIGH | `tail -40` is a LINE bound, not a BYTE bound. A 40-line file of long lines produced **801 KB** of context injection in a sandbox test (~200K tokens). | sandbox: write 40 × 20KB lines, run the SessionStart hook, measure stdout |
+| **K5** | 🟠 HIGH | **Nothing on the save path reads `session-state.md`.** Zero references in `save_check.sh`, `START_HERE.md`, `PROJECT.md`, `CLAUDE.md`, `SESSION_HANDOFF_PROMPT.md`. A save can pass 12/12 while the live buffer is never folded into anything durable. | `grep -c -i 'session-state' save_check.sh START_HERE.md PROJECT.md` |
+| **K6** | 🟡 MEDIUM | `hooks_backup/` does not contain `settings.json` — the only thing that REGISTERS the hooks. Restoring it would yield four inert scripts that fail silently. `session-state.md` is backed up nowhere. | `ls hooks_backup/` |
+| **K7** | 🟡 MEDIUM | `save_check.sh` check 7 greps only for `BROKEN`, but `check_links.sh` reports a missing file as `MISSING DOC:`. Deleting the PENDING resume file still produced PASS in a sandbox. Also: `check_links.sh` documents "exit 1 if broken" but always exits 0 (counter increments in a `\| while read` subshell), and its "5 docs" label is hardcoded while the loop iterates 6. | delete a doc in a COPY, run `check_links.sh`, grep the output |
+| **K8** | 🟡 MEDIUM | Both context-injecting hooks are unscoped — every project on the machine pays ~379 bytes/message and ~3,388 bytes/session-start for clipper-bot content. | `echo '{"prompt":"x"}' \| bash ~/.claude/hooks/clipper-bot-log-prompt.sh \| wc -c` |
+
+**Order of work:** K1 first — it is the only one with consequences outside this
+project, and the containment fix (adding `.claude/` to the sibling repo's
+`.gitignore`) is one line and safe regardless of whether the rest reproduces.
+
+**Cost note, recorded so it is not repeated:** this workflow took the session
+from 49% to 82% usage and spent ~518K subagent tokens to return 1 of 15 agents'
+output. **State the cost before launching anything like it again.**
