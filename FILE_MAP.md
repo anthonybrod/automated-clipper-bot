@@ -35,9 +35,9 @@ real sizes. Use it to answer *"where is X?"*
 | File | Size | What it does | Status |
 |---|---|---|---|
 | [`save_check.sh`](save_check.sh) | 6.9 KB | **11 checks that GATE the save.** Non-zero exit = save not done | ✅ working |
-| [`check_links.sh`](check_links.sh) | 1.2 KB | Link rot across 119 links | ⚠️ K7 — always exits 0 despite documenting exit 1 |
+| [`check_links.sh`](check_links.sh) | 1.2 KB | Link rot across 121 links | ⚠️ K7 — always exits 0 despite documenting exit 1 |
 | [`validate_environment.py`](validate_environment.py) | 12 KB | Pre-flight: ffmpeg, API keys, Twitch credentials. All 8 logged defects fixed | ⚠️ **never run green** — needs one Colab cell |
-| `requirements.txt` | 42 B | ⚠️ **Almost certainly incomplete** — 42 bytes cannot cover yt-dlp + faster-whisper + LangGraph + youtube_transcript_api |
+| [`requirements.txt`](requirements.txt) | 3.5 KB | ✅ **REBUILT 2026-08-07.** Was 4 lines covering NONE of the architecture's tools — a fresh clone could not run either research script. Now pins real verified versions, marks faster-whisper as an undecided candidate (Rule 6), flags ffmpeg + chat-downloader as not installed, and documents every credential |
 
 ---
 
@@ -108,7 +108,7 @@ real sizes. Use it to answer *"where is X?"*
 
 ---
 
-# 3. `research/` — 8 files + 25 transcripts, 929 KB. Video research and data
+# 3. `research/` — 6 files + 23 transcripts, 929 KB. Video research and data
 
 | File | Size | Contains |
 |---|---|---|
@@ -188,7 +188,7 @@ proof a bootstrap step ran successfully once. **Do not delete.**
 
 | File | Contains |
 |---|---|
-| `session-prompts.log` | **Every owner prompt, verbatim**, timestamped. ~750 lines |
+| `session-prompts.log` | **Every owner prompt, verbatim**, timestamped. 1085 lines |
 | `session-state.md` | Durable facts appended live during sessions |
 
 **This is a PUBLIC repo.** These hold raw conversation. They are the fallback

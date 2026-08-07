@@ -327,7 +327,7 @@ wrongly.
    e) save_check.sh - 11 mechanical checks GATING the save. Non-zero exit
       means the save is not done. It has caught real staleness every session
       since it existed, including its own false-alarm bug.
-   f) check_links.sh - link rot across 119 links.
+   f) check_links.sh - link rot across 121 links.
    g) COLD-START TESTING. Seven passes so far, every one found real bugs.
       A pass that finds nothing is a weak test, not a clean bill of health.
    h) ONE AGENT PER SOURCE FILE + commit on arrival. Bounds the blast radius
