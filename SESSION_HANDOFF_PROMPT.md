@@ -211,7 +211,12 @@ workstream A are the natural check.
   [ ] J5 — re-check Kick before V2
   [ ] J6 — re-examine the payout maths against the real view distribution
   [ ] Resolve the 7 contradictions above
-  [ ] A: Rule 20 retroactive review — 1 of 6
+  [ ] A: Rule 20 retroactive review — 1 of 6. The remaining five, named:
+      A2 HF-vision report · A3 HF-LLM/judging report · A4 the mining report ·
+      A5 the 78-source tool audit · A6 the 17-video fresh-pass (2 big files —
+      SPLIT IT, do not one-shot). This workstream exists because I caught
+      working free tools being dismissed too readily in already-"complete"
+      work.
   [ ] B: 12-item source mining — 1 of 12
   [ ] D: Platform / free-inference / hosting research — not started
   [ ] F: the AI\ folder — PUT OFF, waits on ME. Too big; I triage it and hand
@@ -314,6 +319,45 @@ wrongly.
    protocol that depends on remembering fails the same way a file nothing
    points at does.
 
+=== ALSO READ — things a fresh model will otherwise miss ===
+  §3b OF START_HERE.md — "Questions only the user can answer." Standing
+  questions, KEPT WITH THEIR ANSWERS once answered, marked ⚡ where an answer
+  unblocks real work. Search the repo before adding anything to it — the
+  whole record is in git and mirrored to Drive.
+
+  reference/DISCUSS_next_phase_autonomy_prompt_2026-08-02.md — NOT ADOPTED,
+  discussion notes only. It ends with 5 open questions I owe you an answer
+  on, about how much autonomy you get in the eventual build phase. Raise them
+  BEFORE the research→build transition, not after.
+
+  THE 4 LIFECYCLE HOOKS in ~/.claude/hooks/, registered user-level in
+  ~/.claude/settings.json so they fire regardless of working directory:
+    SessionStart      injects repo state + the live session-state buffer
+    UserPromptSubmit  logs my prompts verbatim AND injects the live-handoff
+                      directive telling you to record durable facts AS THEY
+                      HAPPEN rather than at save time
+    PreCompact        snapshots HEAD / uncommitted / mtime before context dies
+    Stop              reminds you to update START_HERE.md before a final push
+  Copied into hooks_backup/ — but NOT settings.json, which is the only thing
+  that REGISTERS them. Restoring the backup alone yields four inert scripts
+  that fail silently. That is finding K6.
+
+  RULE 10's MARKING CONVENTION: when I authorize something as done, stamp it
+  exactly "✅ COMPLETE — authorized by user YYYY-MM-DD". Until I say so, the
+  only honest statuses are "in progress", "awaiting user approval", or
+  "blocked". Never self-stamp.
+
+=== WHERE THIS HANDOFF MECHANISM CAME FROM ===
+  Sonovore/claude-code-handoff on GitHub — a real, shipped implementation of
+  exactly this problem. We took its MECHANISMS, not its code. Its design
+  principle is the one to keep applying:
+    A HANDOFF SHOULD PRIORITISE FORWARD-LOOKING DIRECTION OVER A RECORD OF
+    FINISHED WORK.
+  If you rewrite this prompt, CUT HISTORY BEFORE YOU CUT INSTRUCTIONS.
+  Three days were lost re-deriving a save system from scratch before that
+  repo was actually read. The fix took minutes once it was. That is Rule 1 -
+  port, don't re-derive - and it is the most expensive lesson in this project.
+
 === THE RULES — apply them, don't just read them ===
 CLAUDE.md holds 21 numbered rules, 16 active. Each exists because a specific
 failure happened. Strict defaults; deviating from one requires asking me
@@ -346,6 +390,12 @@ merit, is why they went).
     Last known good is f074a33 or later. HEAD one ahead of START_HERE.md's
     header is NORMAL and documented; two or more means work landed after it
     was updated (§0 explains why).
+  - TWO UNVERIFIED LEADS in START_HERE.md §3 — check these BEFORE related
+    build work, not after. (a) Does the sibling project's video code still
+    run? Two .mp4 files dated 2026-07-27 exist on disk; their EXISTENCE is
+    verified, whether the current code produced them is NOT. (b) Is
+    validate_environment.py one auth fix from passing? One Colab cell settles
+    it and resolves the stated credentials blocker.
   - CONFIRM MY USAGE HEADROOM BEFORE LAUNCHING AGENTS. I hit 100% on 08-04
     and again on 08-06. I am on paid usage. TELL ME THE COST BEFORE launching
     a workflow — the 08-06 one took the session from 49% to 82% in one run,
@@ -366,7 +416,9 @@ merit, is why they went).
 
 === CONTEXT I'LL FORGET ===
   - Budget is a live constraint: metered, hard weekly reset Monday 1pm, hit
-    repeatedly, and I am on paid usage now. Documentation work is not cheap.
+    repeatedly, and I am on paid usage now. DOCUMENTATION WORK IS NOT CHEAP — one session went from fresh to 100% on a
+    SINGLE agent plus note-keeping. Writing notes is not a free background
+    activity here.
   - Drive: you cannot write to it. You push to GitHub, I pull in Colab. A
     fresh Colab runtime needs drive.mount() before any git pull will work.
     Folder: /content/drive/MyDrive/CLAUDE AI CLIP BOT V1 attempt
