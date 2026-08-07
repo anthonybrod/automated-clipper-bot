@@ -245,6 +245,75 @@ attack_VERBATIM.md. Summary: HANDOFF_REPORT Part 11. Agenda: PENDING §K.
                missing file as "MISSING DOC:" — deleting a doc still PASSES
   K8 MEDIUM    both context-injecting hooks are unscoped across all projects
 
+=== THE METHOD — HOW THIS PROJECT IS BUILT, AND WHY ===
+This is the owner's governing approach. It is not a phase we are stuck in; it
+is deliberate, and a fresh model that ignores it will rebuild the project
+wrongly.
+
+1. RESEARCH NEW TECH FIRST, THEN APPLY IT, THEN CODE.
+   Owner's words: "we stay in research till i say to move on im the overall
+   director here" and "we dont know the best service and model cuz we are in
+   the research stage."
+   The order is: find what exists -> verify it is real -> evaluate it against
+   the five roles (Rule 20) -> only then write code that uses it. Writing
+   code before knowing the best available tool means writing it twice, and
+   the second write is against a codebase that already assumed the wrong
+   tool.
+   Concretely, this is why there is a ~110-tool catalogue with verification
+   status, why every tool claim is independently checked against GitHub/PyPI,
+   and why 964 real clips were measured before a single detection threshold
+   was written down. The Stage 3 numbers exist BECAUSE research came first.
+   DO NOT propose "let's just start coding and fix it later." That has been
+   considered and rejected by the owner.
+
+2. THE PHASE TRANSITION IS THE OWNER'S CALL, NOT YOURS (Rule 10).
+   Research -> build is a transition. You may recommend it. You may not
+   declare it. Same for calling anything "complete."
+
+3. UPSCALING PATH — build small, prove it, then widen.
+   V1  ONE source (twitch.tv/lacy), ONE destination pair, prove the pipeline
+       end to end. Owner: "we will start with lacys clips only then scale up
+       once the project works and is poc."
+   V2  The whole CORE group. Multiple streamers, same pipeline. The
+       architecture already supports a multi-creator config; only Lacy is
+       scoped today.
+   V3+ More platforms in and out. Kick is the known second INPUT (empty
+       today, re-check before V2). Stage 5 outputs stay a LIST behind ONE
+       interface so adding an outlet is config, not code - that shape exists
+       specifically because Facebook was lost mid-project and a hard-coded
+       Stage 5 would have needed a rewrite.
+   The scaling constraint is NOT technical, it is economic: 1,598 clippers
+   already compete for the same moments, and posts under the view minimum pay
+   $0. Widening scope multiplies cost immediately and revenue only if
+   selection quality holds.
+
+4. CHECKS AND BALANCES — the layered system, and what each layer catches.
+   Nothing here is decoration; every layer exists because a specific failure
+   happened.
+   a) HUMAN APPROVAL GATE in the pipeline. The bot never posts unsupervised.
+   b) FAIL-CLOSED on AI judgement calls. Any exception or unparseable
+      response from a hook-quality score, TOS/content check, or Ollama
+      context-check = REJECT, never a silent pass. Explicitly NOT extended to
+      pre-flight checks or human-gate timeouts, which keep their own logic.
+   c) VERIFY BEFORE TRUSTING (Rule 12). Nothing is factual unless confirmed
+      this session or the owner OK'd it. Four hallucinated GitHub repo
+      attributions were caught this way; so was a fabricated dossier.
+   d) RAW AND EVALUATION SEPARATED (Rules 15/16). Source material is saved
+      word-for-word in its own file and NEVER edited to reflect a later
+      finding. Three files were once "saved" as condensed paraphrases and had
+      to be replaced with the originals.
+   e) save_check.sh - 12 mechanical checks GATING the save. Non-zero exit
+      means the save is not done. It has caught real staleness every session
+      since it existed, including its own false-alarm bug.
+   f) check_links.sh - link rot across 119 links.
+   g) COLD-START TESTING. Seven passes so far, every one found real bugs.
+      A pass that finds nothing is a weak test, not a clean bill of health.
+   h) ONE AGENT PER SOURCE FILE + commit on arrival. Bounds the blast radius
+      when a session limit hits mid-run.
+   The through-line: prefer a MECHANICAL check over a remembered one. A
+   protocol that depends on remembering fails the same way a file nothing
+   points at does.
+
 === THE RULES — apply them, don't just read them ===
 CLAUDE.md holds 21 numbered rules, 16 active. Each exists because a specific
 failure happened. Strict defaults; deviating from one requires asking me

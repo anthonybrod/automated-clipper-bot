@@ -152,6 +152,68 @@ unprompted.
 
 ---
 
+## The method — how this project is built, and why
+
+**This is the owner's governing approach, not a phase we are stuck in.** A
+contributor who ignores it will rebuild the project wrongly.
+
+### 1. Research new tech first, then apply it, then code
+
+The owner's words: *"we stay in research till i say to move on im the overall
+director here"* and *"we dont know the best service and model cuz we are in the
+research stage."*
+
+The order is **find what exists → verify it is real → evaluate against the five
+roles (Rule 20) → only then write code that uses it.** Writing code before
+knowing the best available tool means writing it twice, and the second write is
+against a codebase that already assumed the wrong tool.
+
+This is why there is a ~110-tool catalogue with verification status, why every
+tool claim is independently checked against GitHub/PyPI, and why 964 real clips
+were measured before a single detection threshold was written down. **The
+Stage 3 numbers exist because research came first.**
+
+**Do not propose "let's just start coding and fix it later."** It has been
+considered and rejected by the owner.
+
+### 2. The phase transition is the owner's call (Rule 10)
+
+Research → build is a transition. You may *recommend* it. You may not *declare*
+it. The same applies to calling anything "complete."
+
+### 3. Upscaling path — build small, prove it, then widen
+
+| Version | Scope |
+|---|---|
+| **V1** | **One** source (`twitch.tv/lacy`), one destination pair. Prove the pipeline end to end. Owner: *"we will start with lacys clips only then scale up once the project works and is poc."* |
+| **V2** | The whole **CORE group** — multiple streamers, same pipeline. The architecture already supports a multi-creator config; only Lacy is scoped today. |
+| **V3+** | More platforms in and out. Kick is the known second **input** (empty today; re-check before V2). Stage 5 outputs stay a **list behind one interface** so adding an outlet is config, not code — a shape adopted specifically because Facebook was lost mid-project. |
+
+**The scaling constraint is economic, not technical.** 1,598 clippers already
+compete for the same moments and posts under the view minimum pay $0. Widening
+scope multiplies cost immediately, and revenue only if selection quality holds.
+
+### 4. Checks and balances — the layered system
+
+Every layer exists because a specific failure happened.
+
+| Layer | Catches |
+|---|---|
+| **Human approval gate** | The bot never posts unsupervised |
+| **Fail-closed AI judgement** | Any exception or unparseable response from a hook-quality score, TOS check, or context-check = **reject**, never a silent pass. Explicitly *not* extended to pre-flight checks or human-gate timeouts |
+| **Verify before trusting** (Rule 12) | Four hallucinated GitHub repo attributions; one fabricated dossier |
+| **Raw ≠ evaluation** (Rules 15/16) | Three files once "saved" as condensed paraphrases, replaced with originals |
+| **`save_check.sh`** | 12 mechanical checks gating the save. Has caught real staleness every session since it existed — including its own false-alarm bug |
+| **`check_links.sh`** | Link rot across 119 links |
+| **Cold-start testing** | Seven passes, every one found real bugs. A clean pass is a weak test, not a pass |
+| **One agent per file + commit on arrival** | Bounds the blast radius when a session limit hits mid-run |
+
+**The through-line: prefer a mechanical check over a remembered one.** A
+protocol that depends on remembering fails the same way a file nothing points
+at does.
+
+---
+
 ## One-line description
 
 Pulls the best clips from Twitch VODs/streams, adds captions, produces
