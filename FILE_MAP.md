@@ -34,6 +34,7 @@ real sizes. Use it to answer *"where is X?"*
 
 | File | Size | What it does | Status |
 |---|---|---|---|
+| [`final_save.sh`](final_save.sh) | 5.9 KB | **Complete save**: transcripts + .claude/ buffers + settings.json + integrity checks + save_check | ✅ |
 | [`save_check.sh`](save_check.sh) | 6.9 KB | **11 checks that GATE the save.** Non-zero exit = save not done | ✅ working |
 | [`check_links.sh`](check_links.sh) | 1.2 KB | Link rot across 121 links | ⚠️ K7 — always exits 0 despite documenting exit 1 |
 | [`validate_environment.py`](validate_environment.py) | 12 KB | Pre-flight: ffmpeg, API keys, Twitch credentials. All 8 logged defects fixed | ⚠️ **never run green** — needs one Colab cell |

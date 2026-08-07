@@ -1,0 +1,46 @@
+{
+  "enableWorkflows": true,
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"C:/Users/AwBro/.claude/hooks/clipper-bot-session-start.sh\""
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"C:/Users/AwBro/.claude/hooks/clipper-bot-log-prompt.sh\""
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"C:/Users/AwBro/.claude/hooks/clipper-bot-precompact.sh\""
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"C:/Users/AwBro/.claude/hooks/clipper-bot-session-close.sh\""
+          }
+        ]
+      }
+    ]
+  },
+  "skipWorkflowUsageWarning": true
+}

@@ -159,6 +159,7 @@ exact problem statement, from someone who already built it.
 | [`research/fetch_transcripts.py`](research/fetch_transcripts.py) | Batch 1 fetcher. Succeeded 17/17. | As the proven pattern to copy. |
 | [`research/fetch_transcripts_batch2.py`](research/fetch_transcripts_batch2.py) | Batch 2 fetcher, 6/6. Refuses to overwrite an existing transcript. | To add more videos — edit the `VIDEOS` list. |
 | [`hooks_backup/`](hooks_backup/) | **Copies of the 4 lifecycle hooks + the user-level CLAUDE.md**, which live in `~/.claude/` and are therefore OUTSIDE version control. If that folder is lost the whole resume system goes with it. Includes the ported live-handoff mechanism. | Restoring the hooks, or reading how the continuous save works. |
+| [`final_save.sh`](final_save.sh) | **THE COMPLETE SAVE.** Backs up the raw chat transcripts, the gitignored .claude/ buffers (their ONLY backup), and settings.json (closes K6), then verifies data integrity and runs save_check. Copy-only, never deletes. | Any time you want a full checkpoint. |
 | [`save_check.sh`](save_check.sh) | **The gate for "save everything."** 11 checks on outcomes, not intentions. Exit non-zero means the save is NOT done. Written 2026-08-04 after three protocol steps were silently skipped in a paid session. | Step 5 of SAVE_PROTOCOL, and from START_HERE §0. |
 | [`check_links.sh`](check_links.sh) | Verifies every relative markdown link across the key docs. Wired into the `Stop` hook. | Automatically, and from `START_HERE.md` §0. |
 
