@@ -434,7 +434,7 @@ sessions.
 |---|---|
 | `START_HERE.md` §0 | Self-validation: header hash offset, rule count, link rot, dirty tree |
 | `SAVE_PROTOCOL.md` | 9 ordered steps triggered by *"save everything"* |
-| `save_check.sh` | **12 mechanical checks that gate the save.** Non-zero exit = the save is not done |
+| `save_check.sh` | **11 mechanical checks that gate the save.** Non-zero exit = the save is not done |
 | `check_links.sh` | Link-rot checker, 121 links |
 | `INDEX.md` | Ensures no document is invisible to a cold read |
 | 4 hooks in `~/.claude/hooks/` | SessionStart (injects state), UserPromptSubmit (logs prompts + injects a live-handoff directive), PreCompact, Stop |
@@ -448,7 +448,7 @@ handoff hash · handoff's 8 format sections · handoff structural integrity ·
 link rot · rule-count agreement · every document reachable from a cold read ·
 transcript backup · clean tree · origin sync.
 
-**Current status: 12/12 PASS.** Hooks are byte-identical to `hooks_backup/` — no
+**Current status: 11/11 PASS.** Hooks are byte-identical to `hooks_backup/` — no
 drift.
 
 ### Track record
@@ -543,7 +543,7 @@ a truncation marker.
 
 `save_check.sh`, `START_HERE.md`, `PROJECT.md`, `CLAUDE.md` and
 `SESSION_HANDOFF_PROMPT.md` contain **zero** references to it. A save can pass
-all 12 checks while the entire live buffer is never folded into any durable
+all 11 checks while the entire live buffer is never folded into any durable
 document. `START_HERE.md` never mentions the mechanism at all, so if the hooks
 were ever unregistered it would become invisible with no error.
 

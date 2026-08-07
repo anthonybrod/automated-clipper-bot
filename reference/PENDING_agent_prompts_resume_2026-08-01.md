@@ -104,6 +104,11 @@ Full detail + suggested 5-agent split:
 ⬜ Not started. Highest-leverage lead: **Ollama on a free Oracle ARM VM**
 (always-on judging without the user's PC running).
 
+> ⚠️ **STALE — SUPERSEDED 2026-08-07.** The block below describes the
+> 2026-08-02 state. It says `START_HERE.md` is "not yet built" (it was built
+> 08-03), that Rules 8 & 9 need a yes/no (they were DROPPED 08-03), and gives
+> an old rule count. Kept as a record — do **NOT** act on it.
+
 ### Also queued
 
 **`START_HERE.md` — designed, approved, not yet built.** User chose
@@ -274,7 +279,7 @@ reality, not theory.
 | User's Drive copy | `/content/drive/MyDrive/CLAUDE AI CLIP BOT V1 attempt` |
 | User's Colab notebook | `Claude's AI clip bot v1.ipynb` |
 | Sibling project (salvage source) | `C:\Users\AwBro\Desktop\youtube auto videos` — has `pipeline.py` (~4,059 lines) |
-| Raw research inputs | `C:\Users\AwBro\Desktop\AI\automated clipper bot\sample reference\` and `sample research\` |
+| Raw research inputs | `C:\Users\AwBro\Desktop\AI\automated clipper bot old\sample reference\` and `sample research\` |
 | The quality bar / history | `C:\Users\AwBro\Desktop\AI\claude_failure_report.md` |
 
 **Real Python on this machine** (`python`/`py` do NOT resolve — Windows
@@ -323,7 +328,7 @@ clone-or-pull, idempotent) is saved further down this file.
 
 The project folder **did not exist on disk** at session start — it was
 restored via `git clone` from GitHub. Before that, work was scattered
-across `AI\automated clipper bot\` (with confusing `sample `-prefixed
+across `AI\automated clipper bot old\` (with confusing `sample `-prefixed
 duplicates), several Drive-export zips, and two Colab notebooks.
 
 Real findings, each already written up in the reference docs:
@@ -404,7 +409,7 @@ corrections. Compare to 48 minutes and nothing.
 **Skip `gemini_dossier_3_raw.md` entirely** — confirmed fabricated by a
 prior AI session, excluded from this project's trusted material.
 
-Files 1-4 live in `AI\automated clipper bot\sample reference\`; files 5-9
+Files 1-4 live in `AI\automated clipper bot old\sample reference\`; files 5-9
 also in `sample reference\`; files 10-12 in `sample research\`.
 
 ### The per-file prompt template (use this for items 2-12)
@@ -496,10 +501,10 @@ verifiable. Use the per-file template above for actual execution — these
 You're doing a second-pass mining exercise on already-verified research documents for a Twitch clip-bot project (`automated clipper bot`, posting to @CoreCrashOuts (V1 source: twitch.tv/lacy)). This is NOT a first read — these docs were already produced by a careful research phase and are considered trustworthy (unlike raw Gemini output elsewhere in this project, which needs independent verification). Your job is to re-read them closely through a specific lens the user just asked for, because a first pass tends to compress/miss real value — this exact failure mode is documented in this project's own history (`C:\Users\AwBro\Desktop\AI\claude_failure_report.md` §10: "a genuine full re-read of the source file... later found 30 additional reusable patterns... missing from the document entirely" — don't repeat that by skimming).
 
 Read these 4 files in full, end to end, not skimmed:
-1. `C:\Users\AwBro\Desktop\AI\automated clipper bot\sample reference\deep_dive_moment_detection.md`
-2. `C:\Users\AwBro\Desktop\AI\automated clipper bot\sample reference\deep_dive_ingestion_and_pipelines.md`
-3. `C:\Users\AwBro\Desktop\AI\automated clipper bot\sample reference\verified_tools_catalog.md`
-4. `C:\Users\AwBro\Desktop\AI\automated clipper bot\sample reference\gemini_suggestions.md`
+1. `C:\Users\AwBro\Desktop\AI\automated clipper bot old\sample reference\deep_dive_moment_detection.md`
+2. `C:\Users\AwBro\Desktop\AI\automated clipper bot old\sample reference\deep_dive_ingestion_and_pipelines.md`
+3. `C:\Users\AwBro\Desktop\AI\automated clipper bot old\sample reference\verified_tools_catalog.md`
+4. `C:\Users\AwBro\Desktop\AI\automated clipper bot old\sample reference\gemini_suggestions.md`
 
 For each, extract and report under these 5 headings (skip a heading for a file if genuinely nothing qualifies — don't pad):
 
@@ -518,13 +523,13 @@ For every item, cite the exact source file and enough location detail (section h
 You're doing a second-pass mining exercise on Gemini-sourced research dossiers for a Twitch clip-bot project (`automated clipper bot`, posting to @CoreCrashOuts (V1 source: twitch.tv/lacy)). These are raw external-AI output already independently fact-checked once (see `tool_verification.md` in the same folder) — treat named tools/repos as needing verification if you're unsure, but the main task here isn't re-verifying, it's mining for value a first read may have compressed away. This exact failure mode is documented in this project's own history (`C:\Users\AwBro\Desktop\AI\claude_failure_report.md` §10: "a genuine full re-read... later found 30 additional reusable patterns... missing from the document entirely" — don't repeat that by skimming).
 
 Read these files in full, end to end:
-1. `C:\Users\AwBro\Desktop\AI\automated clipper bot\sample reference\gemini_dossier_1_raw.md`
-2. `C:\Users\AwBro\Desktop\AI\automated clipper bot\sample reference\gemini_dossier_2_raw.md`
-3. `C:\Users\AwBro\Desktop\AI\automated clipper bot\sample reference\gemini_dossier_4_raw.md`
-4. `C:\Users\AwBro\Desktop\AI\automated clipper bot\sample reference\gemini_dossier_5_raw.md`
-5. `C:\Users\AwBro\Desktop\AI\automated clipper bot\sample reference\gemini_dossier_6_raw.md`
-6. `C:\Users\AwBro\Desktop\AI\automated clipper bot\sample research\RESEARCH_YOUTUBE_SOURCES.md`
-7. `C:\Users\AwBro\Desktop\AI\automated clipper bot\sample research\tool_verification.md`
+1. `C:\Users\AwBro\Desktop\AI\automated clipper bot old\sample reference\gemini_dossier_1_raw.md`
+2. `C:\Users\AwBro\Desktop\AI\automated clipper bot old\sample reference\gemini_dossier_2_raw.md`
+3. `C:\Users\AwBro\Desktop\AI\automated clipper bot old\sample reference\gemini_dossier_4_raw.md`
+4. `C:\Users\AwBro\Desktop\AI\automated clipper bot old\sample reference\gemini_dossier_5_raw.md`
+5. `C:\Users\AwBro\Desktop\AI\automated clipper bot old\sample reference\gemini_dossier_6_raw.md`
+6. `C:\Users\AwBro\Desktop\AI\automated clipper bot old\sample research\RESEARCH_YOUTUBE_SOURCES.md`
+7. `C:\Users\AwBro\Desktop\AI\automated clipper bot old\sample research\tool_verification.md`
 
 **Skip `gemini_dossier_3_raw.md` entirely if you see it — it's confirmed fabricated (invented by a prior AI session, not real Gemini output) and excluded from this project's trusted material.**
 
@@ -542,7 +547,7 @@ Cite the exact source file and enough location detail (section heading or a shor
 ## Agent 3 — mine the 17-video fresh-pass research (likely the richest of the three)
 
 ```
-You're doing a second-pass mining exercise on this project's most exhaustive research documents. Some context: `C:\Users\AwBro\Desktop\AI\automated clipper bot\sample research\fresh_pass_videos_1-9.md` and `fresh_pass_videos_10-17.md` were themselves ALREADY a deliberate re-read of 17 YouTube video transcripts, specifically commissioned because a first pass had compressed away real content. Your job is a THIRD pass on the same material, through a specific new lens the user just asked for — because even a careful second pass can still miss things a differently-framed third pass catches. This project has documented, real precedent for this exact pattern: `C:\Users\AwBro\Desktop\AI\claude_failure_report.md` §10 records a case where "a genuine full re-read... later found 30 additional reusable patterns... missing from the document entirely." Don't repeat that by skimming — read both files completely, end to end.
+You're doing a second-pass mining exercise on this project's most exhaustive research documents. Some context: `C:\Users\AwBro\Desktop\AI\automated clipper bot old\sample research\fresh_pass_videos_1-9.md` and `fresh_pass_videos_10-17.md` were themselves ALREADY a deliberate re-read of 17 YouTube video transcripts, specifically commissioned because a first pass had compressed away real content. Your job is a THIRD pass on the same material, through a specific new lens the user just asked for — because even a careful second pass can still miss things a differently-framed third pass catches. This project has documented, real precedent for this exact pattern: `C:\Users\AwBro\Desktop\AI\claude_failure_report.md` §10 records a case where "a genuine full re-read... later found 30 additional reusable patterns... missing from the document entirely." Don't repeat that by skimming — read both files completely, end to end.
 
 For each of the two files, extract and report under these 5 headings (skip a heading if nothing qualifies — don't pad):
 
@@ -924,7 +929,7 @@ signal for a Stage 3 threshold.
 
 ---
 
-### ⚡ I. Identify the CORE members and their stream sources — NEW BLOCKER 2026-08-06
+### ⚡ I-a — SUPERSEDED by I-b below. Identify the CORE members and their stream sources — NEW BLOCKER 2026-08-06
 
 *Status: **not started. This is now the blocking unknown for Stage 1**, and it
 outranks the remaining research items.*
@@ -964,7 +969,7 @@ now traces back to a target that was wrong.
 
 ---
 
-### ✅ I. Stage 1 source — RESOLVED 2026-08-06, and it works
+### ✅ I-b — CURRENT. Stage 1 source — RESOLVED 2026-08-06, and it works
 
 **User supplied, Twitch confirmed as the source after all:**
 `twitch.tv/lacy` · `/videos` · `/clips?range=24hr` · `/clips?range=7d`

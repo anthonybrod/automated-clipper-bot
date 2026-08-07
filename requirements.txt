@@ -1,4 +1,84 @@
-requests
-google-genai
-pydantic
-Pillow
+# @CoreCrashOuts automated clipping bot — Python dependencies
+#
+# Rebuilt 2026-08-07. The previous file had 4 lines and covered NONE of the
+# tools this project's architecture actually names — a fresh clone plus
+# `pip install -r requirements.txt` failed with ModuleNotFoundError on BOTH
+# research scripts. Versions below are the ones verified working on the
+# development machine, not guesses.
+#
+# Install:   pip install -r requirements.txt
+# Real Python on the dev machine (`python`/`py` do NOT resolve):
+#   C:\Users\AwBro\AppData\Local\Programs\Python\Python312\python.exe
+
+# --- Stage 1: ingestion (PROVEN WORKING) ------------------------------------
+# yt-dlp reaches twitch.tv/lacy VODs AND clips with no auth and no API key.
+# It produced the 964-clip dataset in research/twitch_clips/.
+yt-dlp==2026.7.4
+
+# --- Transcripts (PROVEN WORKING, 23/23) ------------------------------------
+# Used by research/fetch_transcripts.py and fetch_transcripts_batch2.py
+youtube-transcript-api==1.2.4
+
+# --- Stage 6: orchestration -------------------------------------------------
+# LangGraph + AsyncSqliteSaver. Port the proven retry / dead-letter / budget
+# machinery from the sibling project (SALVAGE_INVENTORY.md) rather than
+# re-deriving it (Rule 1).
+langgraph==1.2.10
+langgraph-checkpoint-sqlite==3.1.0
+aiosqlite==0.22.1
+
+# --- Resilience -------------------------------------------------------------
+# Exponential backoff + jitter on flaky third-party API wrappers.
+tenacity==9.1.4
+
+# --- Google GenAI (validate_environment.py checks GOOGLE_API_KEY with these) -
+google-genai==2.14.0
+pydantic==2.13.4
+requests==2.34.2
+Pillow==12.3.0
+
+# ============================================================================
+# NOT INSTALLED ON THE DEV MACHINE — install before the stage that needs them
+# ============================================================================
+
+# --- Stage 2: transcription -------------------------------------------------
+# ⚠️ THE ENGINE IS NOT DECIDED. Rule 6 REMOVED faster-whisper as the default
+# at the owner's direction: "delete 6 we will find the best free service after
+# research". It is the leading CANDIDATE, not a decision. Real researched
+# alternatives: distil-large-v3 (6.3x faster, ~0.2% WER cost) and
+# faster-whisper-large-v3-turbo-ct2 (drop-in CT2 weights).
+# See reference/research_2026-08-01_huggingface_audio_transcription_VERBATIM.md
+# PICKING ONE IS RESEARCH WORK, not a coding decision.
+# faster-whisper==1.2.0
+
+# --- Stage 1: chat ingestion ------------------------------------------------
+# ⚠️ KNOWN DEFECT, UNFIXED: chat_downloader's Twitch GraphQL path throws a
+# reproducible KeyError: 'data'. Needs defensive .get() chaining plus Tenacity
+# backoff BEFORE Stage 1 depends on chat. The keyless Twitch GQL route is the
+# alternative. Do not install and assume it works.
+# chat-downloader==0.3.0
+
+# ============================================================================
+# NOT A PYTHON PACKAGE — must be installed separately
+# ============================================================================
+# ffmpeg — Stage 4 assembly (cut, crop, caption). NOT on PATH on the dev
+#   machine as of 2026-08-07, and validate_environment.py checks for it.
+#   Colab: apt-get install -y ffmpeg   (auto-present in most Colab runtimes)
+#   Windows: https://www.gyan.dev/ffmpeg/builds/ then add bin/ to PATH
+#
+# ============================================================================
+# CREDENTIALS — set as env vars or Colab secrets, exact names matter
+# ============================================================================
+# GOOGLE_API_KEY        https://aistudio.google.com/apikey
+# TWITCH_CLIENT_ID      https://dev.twitch.tv/console  (register an app)
+# TWITCH_CLIENT_SECRET  same console. Get Clips needs only client-credentials;
+#                       Create Clip would need user OAuth with clips:edit.
+# TARGET_BROADCASTER    read by validate_environment.py but documented almost
+#                       nowhere else — for V1 this is Lacy's Twitch channel.
+#
+# ⚠️ Stage 5 (publishing) has NO documented auth path yet: YouTube Data API
+# and X API scopes, app registration, and validation checks are all unwritten.
+# That is a real gap, not an oversight in this file.
+#
+# Verify everything above with:  python validate_environment.py
+# (It has never yet run green — see START_HERE.md §3.)

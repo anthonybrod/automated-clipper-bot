@@ -159,7 +159,7 @@ exact problem statement, from someone who already built it.
 | [`research/fetch_transcripts.py`](research/fetch_transcripts.py) | Batch 1 fetcher. Succeeded 17/17. | As the proven pattern to copy. |
 | [`research/fetch_transcripts_batch2.py`](research/fetch_transcripts_batch2.py) | Batch 2 fetcher, 6/6. Refuses to overwrite an existing transcript. | To add more videos — edit the `VIDEOS` list. |
 | [`hooks_backup/`](hooks_backup/) | **Copies of the 4 lifecycle hooks + the user-level CLAUDE.md**, which live in `~/.claude/` and are therefore OUTSIDE version control. If that folder is lost the whole resume system goes with it. Includes the ported live-handoff mechanism. | Restoring the hooks, or reading how the continuous save works. |
-| [`save_check.sh`](save_check.sh) | **The gate for "save everything."** 12 checks on outcomes, not intentions. Exit non-zero means the save is NOT done. Written 2026-08-04 after three protocol steps were silently skipped in a paid session. | Step 5 of SAVE_PROTOCOL, and from START_HERE §0. |
+| [`save_check.sh`](save_check.sh) | **The gate for "save everything."** 11 checks on outcomes, not intentions. Exit non-zero means the save is NOT done. Written 2026-08-04 after three protocol steps were silently skipped in a paid session. | Step 5 of SAVE_PROTOCOL, and from START_HERE §0. |
 | [`check_links.sh`](check_links.sh) | Verifies every relative markdown link across the key docs. Wired into the `Stop` hook. | Automatically, and from `START_HERE.md` §0. |
 
 ---
@@ -170,7 +170,7 @@ exact problem statement, from someone who already built it.
 |---|---|
 | Sibling project — the salvage source | `C:\Users\AwBro\Desktop\youtube auto videos\pipeline.py` (~4,059 lines) |
 | The quality bar / failure history | `C:\Users\AwBro\Desktop\AI\claude_failure_report.md` (1,400 lines, evidence-cited) |
-| Raw research inputs, un-imported | `C:\Users\AwBro\Desktop\AI\automated clipper bot\` |
+| Raw research inputs, un-imported | `C:\Users\AwBro\Desktop\AI\automated clipper bot old\` |
 | Session transcript backups | `C:\Users\AwBro\Desktop\AI\claude_transcripts_backup_2026-08-03\` (~66MB) |
 | User's Drive copy | `/content/drive/MyDrive/CLAUDE AI CLIP BOT V1 attempt` |
 | Real Python (`python`/`py` do **not** resolve) | `C:\Users\AwBro\AppData\Local\Programs\Python\Python312\python.exe` |

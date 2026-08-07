@@ -39,7 +39,7 @@ All paths are relative to C:\Users\AwBro\Desktop\automated clipper bot
 
 TASK #1, before anything else:
   Run: bash save_check.sh
-  It is the GATE — 12 mechanical checks. Non-zero exit means the last save
+  It is the GATE — 11 mechanical checks. Non-zero exit means the last save
   was NOT complete; fix what it names before trusting anything. Then present
   the checklist, progress report and to-do list, then SUGGEST a starting
   point. Do not pick a workstream — I hold that choice until after the
@@ -324,7 +324,7 @@ wrongly.
       word-for-word in its own file and NEVER edited to reflect a later
       finding. Three files were once "saved" as condensed paraphrases and had
       to be replaced with the originals.
-   e) save_check.sh - 12 mechanical checks GATING the save. Non-zero exit
+   e) save_check.sh - 11 mechanical checks GATING the save. Non-zero exit
       means the save is not done. It has caught real staleness every session
       since it existed, including its own false-alarm bug.
    f) check_links.sh - link rot across 119 links.

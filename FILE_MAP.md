@@ -34,7 +34,7 @@ real sizes. Use it to answer *"where is X?"*
 
 | File | Size | What it does | Status |
 |---|---|---|---|
-| [`save_check.sh`](save_check.sh) | 6.9 KB | **12 checks that GATE the save.** Non-zero exit = save not done | ✅ working |
+| [`save_check.sh`](save_check.sh) | 6.9 KB | **11 checks that GATE the save.** Non-zero exit = save not done | ✅ working |
 | [`check_links.sh`](check_links.sh) | 1.2 KB | Link rot across 119 links | ⚠️ K7 — always exits 0 despite documenting exit 1 |
 | [`validate_environment.py`](validate_environment.py) | 12 KB | Pre-flight: ffmpeg, API keys, Twitch credentials. All 8 logged defects fixed | ⚠️ **never run green** — needs one Colab cell |
 | `requirements.txt` | 42 B | ⚠️ **Almost certainly incomplete** — 42 bytes cannot cover yt-dlp + faster-whisper + LangGraph + youtube_transcript_api |
@@ -119,7 +119,7 @@ real sizes. Use it to answer *"where is X?"*
 | `fetch_transcripts.py` | 3.6 KB | Batch 1 fetcher — succeeded 17/17 |
 | `fetch_transcripts_batch2.py` | 2.9 KB | Batch 2 — 6/6. Refuses to overwrite existing files |
 
-### `research/transcripts/` — 25 files, 623 KB
+### `research/transcripts/` — 23 transcripts + 2 summaries, 623 KB
 
 **Format:** line 1 = title · **line 2 = source YouTube URL** · then `[MM:SS] text`
 per line. Every quote is checkable at the exact second.

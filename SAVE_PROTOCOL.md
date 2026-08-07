@@ -116,7 +116,7 @@ the exact work this protocol was written to make unnecessary. Their words:
 save protocol and complete it but u failed."* It happened in a paid session.
 
 Remembering harder is not a fix. The script checks **outcomes, not
-intentions** — 12 checks: START_HERE dated today, header-hash offset,
+intentions** — 11 checks: START_HERE dated today, header-hash offset,
 PROJECT.md staleness, the handoff's hash, its eight format sections, its
 structural integrity, link rot, rule-count agreement, whether every source
 document is reachable from a doc a session actually reads, the transcript

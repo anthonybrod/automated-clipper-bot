@@ -175,7 +175,7 @@ Every layer exists because a specific failure happened.
 | **Fail-closed AI judgement** | Any exception or unparseable response from a hook-quality score, TOS check, or context-check = **reject**, never a silent pass. Explicitly *not* extended to pre-flight checks or human-gate timeouts |
 | **Verify before trusting** (Rule 12) | Four hallucinated GitHub repo attributions; one fabricated dossier |
 | **Raw ≠ evaluation** (Rules 15/16) | Three files once "saved" as condensed paraphrases, replaced with originals |
-| **`save_check.sh`** | 12 mechanical checks gating the save. Has caught real staleness every session since it existed — including its own false-alarm bug |
+| **`save_check.sh`** | 11 mechanical checks gating the save. Has caught real staleness every session since it existed — including its own false-alarm bug |
 | **`check_links.sh`** | Link rot across 119 links |
 | **Cold-start testing** | Seven passes, every one found real bugs. A clean pass is a weak test, not a pass |
 | **One agent per file + commit on arrival** | Bounds the blast radius when a session limit hits mid-run |
@@ -200,7 +200,7 @@ git log --oneline -3          # header hash should be HEAD or 1 behind
 git status --short            # uncommitted work? this file may not describe it
 grep -cE '^[0-9]+\. ' CLAUDE.md   # must match the rule count in §4
 bash check_links.sh           # every doc link still resolves? (catches link rot)
-bash save_check.sh            # 12 checks: is the last save actually complete?
+bash save_check.sh            # 11 checks: is the last save actually complete?
 ```
 
 **On the hash:** a file can never record the hash of the commit that
@@ -427,44 +427,31 @@ as the entry point).
 
 ## 2. Next action
 
-**The user's own instruction (2026-08-03), verbatim:**
+> ⚠️ The 2026-08-03 instruction that used to fill this section ("1st test the
+> save project we made today worked…") is **SUPERSEDED 2026-08-07**. It has
+> been done many times since; workstreams C, G, H and I have all landed.
 
-> *"1st test the save project we made today worked then present the
-> checklist progress report and to do list and suggest starting point"*
+**1. Run the gate.** `bash save_check.sh` — non-zero exit means the last save
+was not complete. Fix what it names before trusting anything.
 
-Do these in order. **Do not pick a workstream first** — the user
-deliberately declined to choose one until after this report.
+**2. Ask the owner the blocking question first:** workstream **K1** — an
+unverified finding says the SIBLING repo (`youtube auto videos`) does not
+gitignore `.claude/` and has a public remote, which would put raw
+conversation one `git add -A` from publication. Verify with
+`git check-ignore -v .claude/session-state.md` in that repo (exit 1 = NOT
+ignored), then **ask before changing anything there.**
 
-**Step 1 — test that the save system actually worked.** Run §0's checks
-above, and confirm each mechanism does what it claims:
+**3. Present** the checklist, progress report and to-do list — then
+**suggest** a starting point. **Do not pick a workstream**; that is the
+owner's call (Rule 10).
 
-```bash
-cd "C:\Users\AwBro\Desktop\automated clipper bot"
-git log --oneline -3                            # matches this file's header?
-git status --short                              # clean?
-grep -cE '^[0-9]+\. ' CLAUDE.md                 # matches §4's count?
-bash check_links.sh                             # all links resolve?
-grep -o '[a-f0-9]\{7\}' SESSION_HANDOFF_PROMPT.md   # NO stale hash
-```
-
-Then confirm the parts a cold session depends on: the `SessionStart` hook
-injected the repo state at the top of this session (it prints HEAD and the
-uncommitted count — check it against the real values), `~/.claude/CLAUDE.md`
-loaded even though the working directory may not be this repo, and
-`.claude/session-prompts.log` has the prior session's prompts.
-
-**Report honestly.** Four cold-start passes were run on 2026-08-03 and
-*every one found real bugs*. Assume this one will too — a pass that finds
-nothing should be treated as a weak test, not a clean bill of health.
-
-**Step 2 — present the progress report, checklist, and to-do list.** From
-§1 and §3 of this file plus `SESSION_HANDOFF_PROMPT.md` §1's open checklist.
-Lead with the honest headline (**zero pipeline code exists**) so a list of
-finished infrastructure cannot imply progress that did not happen.
-
-**Step 3 — suggest a starting point, then stop and let the user decide.**
-Workstreams A–D are in §3 with cost estimates. Recommend one and say why,
-but the choice is the user's under Rule 10.
+**Recommended first real work, if the owner agrees:** **G4** — mine
+`research/transcripts/PafYu69s5NA.txt`. One agent, one file, transcript
+already on disk. It opens describing a clip *"found, analyzed, cut, and
+captioned automatically and completely for free with Claude"* — this
+project's exact problem, already solved by someone else. Then **J1**, the
+detector eval harness, because nothing in this project can currently measure
+whether a detector works at all.
 
 ---
 
@@ -532,7 +519,7 @@ Marked ⚡ where an answer unblocks real work.
    authorization; that is why they went, not a technical judgment.
 3. ⚡ **Usage headroom** — how much budget is left this session? Required
    before launching any agents.
-4. **Workstream order** — A, B, C, or D first? The user picks.
+4. **Workstream order** — A, B, D, G4–G6, J or K first? (C is DONE.) The user picks.
 4b. ⚡⚠️ **Is `@CoreCrashOuts` the correct handle?** The H2 discovery agent
    **could not find that account** (see §6 of
    [`research_2026-08-04_core_clippers_discovery_VERBATIM.md`](reference/research_2026-08-04_core_clippers_discovery_VERBATIM.md)).
@@ -611,7 +598,7 @@ pull works:
 
 **Raw session transcripts** are backed up outside the repo (they are
 ~66MB and `.gitignore`d, so they must never be committed). Latest:
-`C:\Users\AwBro\Desktop\AI\claude_transcripts_backup_2026-08-03\`
+`C:\Users\AwBro\Desktop\AI\claude_transcripts_backup_2026-08-07\`
 (precedent: `claude_evidence_backup_2026-07-30`). Source of truth lives at
 `C:\Users\AwBro\.claude\projects\C--Users-AwBro-Desktop-youtube-auto-videos\*.jsonl`
 — local app data, **not guaranteed to survive app updates or cache
@@ -655,6 +642,6 @@ when a note is missing or disputed.
 |---|---|
 | Sibling project (salvage source) | `C:\Users\AwBro\Desktop\youtube auto videos\pipeline.py` (~4,059 lines) |
 | The quality bar / failure history | `C:\Users\AwBro\Desktop\AI\claude_failure_report.md` |
-| Raw research inputs | `C:\Users\AwBro\Desktop\AI\automated clipper bot\` |
+| Raw research inputs | `C:\Users\AwBro\Desktop\AI\automated clipper bot old\` |
 | User's Drive copy | `/content/drive/MyDrive/CLAUDE AI CLIP BOT V1 attempt` |
 | Real Python (`python`/`py` do NOT resolve) | `C:\Users\AwBro\AppData\Local\Programs\Python\Python312\python.exe` |

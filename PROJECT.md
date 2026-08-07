@@ -208,7 +208,7 @@ Every layer exists because a specific failure happened.
 | **Fail-closed AI judgement** | Any exception or unparseable response from a hook-quality score, TOS check, or context-check = **reject**, never a silent pass. Explicitly *not* extended to pre-flight checks or human-gate timeouts |
 | **Verify before trusting** (Rule 12) | Four hallucinated GitHub repo attributions; one fabricated dossier |
 | **Raw ≠ evaluation** (Rules 15/16) | Three files once "saved" as condensed paraphrases, replaced with originals |
-| **`save_check.sh`** | 12 mechanical checks gating the save. Has caught real staleness every session since it existed — including its own false-alarm bug |
+| **`save_check.sh`** | 11 mechanical checks gating the save. Has caught real staleness every session since it existed — including its own false-alarm bug |
 | **`check_links.sh`** | Link rot across 119 links |
 | **Cold-start testing** | Seven passes, every one found real bugs. A clean pass is a weak test, not a pass |
 | **One agent per file + commit on arrival** | Bounds the blast radius when a session limit hits mid-run |
