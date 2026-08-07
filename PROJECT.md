@@ -157,6 +157,50 @@ unprompted.
 > never written. Older text in this file describing 8 and 9 as "provisional
 > and still unauthorized" is SUPERSEDED; they were dropped.
 
+## 🎯 The goal — the owner's words, verbatim
+
+> *"A mostly fully auto mated social media clipping bot that is free and that
+> cross posts and checks its analytics and corrects to align with the most
+> profitable algorithms per platform. It produces top quality the best it can
+> be it and then it constantly ups the quality out of intern into top talent
+> professional industry titans level work that would make real life coders and
+> his peers jealous contaning no ai slop and checks and balances with
+> failsafe's built along the way."*
+
+**Judge every proposal against this paragraph.** A design that is cheaper to
+build but produces sloppier output, removes a failsafe, or skips the analytics
+loop is the wrong design for this project.
+
+| The goal demands | Status |
+|---|---|
+| **Mostly** automated — human approval gate stays | ✅ in the design |
+| **Free** — $0 stack; a recurring cost is a defect, not a tradeoff | ✅ in the design |
+| **Cross-posts** — multi-platform is core, not a nice-to-have | ✅ Stage 5, deliberately platform-agnostic |
+| ⚠️ **Reads its own analytics and self-corrects per platform** | ❌ **NOT IN THE ARCHITECTURE AT ALL** |
+| **Quality that compounds** — intern → industry-titan level | partial — the bar is stated, no mechanism |
+| **No AI slop** | why research measured REAL clips, not generic advice |
+| **Failsafes built along the way, not bolted on** | ✅ fail-closed, human gate, `save_check.sh` |
+
+### ⚠️ The largest gap between the documented design and the stated goal
+
+**"Checks its analytics and corrects to align with the most profitable
+algorithms per platform" is a SEVENTH STAGE, and it does not exist** — not in
+the Architecture Outline, not in the backlog, not on paper.
+
+Nothing in this repo reads back post performance after publishing, and nothing
+feeds that back into the next selection decision. *Per platform* matters
+independently: what wins on Shorts is not what wins on X, so one global
+feedback signal would be wrong.
+
+**J1 (the detector eval harness) is the first half of it** — scoring the
+detector against real view counts — but J1 measures against *other people's*
+Twitch clips. The closed loop, where **the bot's own published results change
+its future behaviour**, is unbuilt and undesigned.
+
+**This should probably be Stage 7, and it deserves its own workstream.**
+
+---
+
 ## The method — how this project is built, and why
 
 **This is the owner's governing approach, not a phase we are stuck in.** A

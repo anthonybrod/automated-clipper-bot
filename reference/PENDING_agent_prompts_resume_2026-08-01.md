@@ -1040,3 +1040,54 @@ project, and the containment fix (adding `.claude/` to the sibling repo's
 **Cost note, recorded so it is not repeated:** this workflow took the session
 from 49% to 82% usage and spent ~518K subagent tokens to return 1 of 15 agents'
 output. **State the cost before launching anything like it again.**
+
+
+---
+
+### ⚠️ L. STAGE 7 — the analytics feedback loop. NEW 2026-08-07, DOES NOT EXIST
+
+*Status: **not started, not designed, not in the Architecture Outline.** This
+is the single largest gap between the documented design and the stated goal.*
+
+**Why it exists.** The owner's goal statement, verbatim:
+
+> *"…checks its analytics and corrects to align with the most profitable
+> algorithms per platform."*
+
+Nothing in this repo reads back post performance after publishing, and nothing
+feeds it into the next selection decision. The 6-stage architecture ends at
+Stage 5 (distribution). **There is no return path.**
+
+**Why "per platform" is load-bearing, not a detail.** What wins on YouTube
+Shorts is not what wins on X. A single global feedback signal would average
+across incompatible algorithms and make both worse. The loop must be
+per-destination.
+
+**Adjacent things that already exist but are NOT this:**
+- **J1**, the detector eval harness, scores the detector against *other
+  people's* Twitch clip view counts. A static benchmark — useful, and the
+  natural first half, but it never closes the loop.
+- **The 964-clip dataset** proves outcomes are measurable: view counts exist,
+  are free, and refresh daily.
+- **`api.fxtwitter.com`** already returns views, likes and reposts for X posts
+  unauthenticated (proven in H1). **A working, free read-path for one of the
+  two destinations — already discovered, currently unused.**
+
+**What is actually needed, in order:**
+
+| # | Item | Status |
+|---|---|---|
+| L1 | **Define "profitable" per platform.** Views? Retention? Views above the payout minimum? Without this the loop optimises the wrong number. | **blocked on the owner** |
+| L2 | **A read-path per destination.** X: `api.fxtwitter.com` works today. YouTube: Data API on the owner's own channel — auth is straightforward in principle, but Stage 5's auth is entirely unwritten. | research |
+| L3 | **Store outcomes against the decision that produced them.** Every post needs its detector score, moment type, length, hook type and caption recorded, so performance attributes to a *choice* rather than to luck. The `payout_logs` schema in the old `Lacy_Clip_Bot` SQLite DB is a starting shape — **port it, do not design one (Rule 1)**. | design |
+| L4 | **The correction step.** How do results change the next selection — re-weight moment types, shift the length target per platform, adjust hook preference? **This is where "no AI slop" bites**: a naive loop chases whatever went viral once and converges on formula. | design |
+| L5 | **Failsafes for the loop itself.** A feedback loop can degrade quality as easily as improve it. It needs a floor it cannot fall below, a human gate on any threshold change, and a rollback path. Per the goal: *"failsafe's built along the way"*, not bolted on. | design |
+
+**Ordering constraint that would otherwise cost a rewrite.** This is Stage 7
+work and depends on Stage 5 existing, so it is not the next thing to build.
+But it must be **DESIGNED before Stage 3 hardens**, because Stage 3 has to
+emit the decision metadata L3 needs. Retrofitting that later means touching
+the detector twice.
+
+**Do not treat this as optional polish.** It is in the owner's one-paragraph
+statement of what the bot *is*.

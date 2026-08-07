@@ -124,6 +124,50 @@ tool list is
 
 ---
 
+## 🎯 The goal — the owner's words, verbatim
+
+> *"A mostly fully auto mated social media clipping bot that is free and that
+> cross posts and checks its analytics and corrects to align with the most
+> profitable algorithms per platform. It produces top quality the best it can
+> be it and then it constantly ups the quality out of intern into top talent
+> professional industry titans level work that would make real life coders and
+> his peers jealous contaning no ai slop and checks and balances with
+> failsafe's built along the way."*
+
+**Judge every proposal against this paragraph.** A design that is cheaper to
+build but produces sloppier output, removes a failsafe, or skips the analytics
+loop is the wrong design for this project.
+
+| The goal demands | Status |
+|---|---|
+| **Mostly** automated — human approval gate stays | ✅ in the design |
+| **Free** — $0 stack; a recurring cost is a defect, not a tradeoff | ✅ in the design |
+| **Cross-posts** — multi-platform is core, not a nice-to-have | ✅ Stage 5, deliberately platform-agnostic |
+| ⚠️ **Reads its own analytics and self-corrects per platform** | ❌ **NOT IN THE ARCHITECTURE AT ALL** |
+| **Quality that compounds** — intern → industry-titan level | partial — the bar is stated, no mechanism |
+| **No AI slop** | why research measured REAL clips, not generic advice |
+| **Failsafes built along the way, not bolted on** | ✅ fail-closed, human gate, `save_check.sh` |
+
+### ⚠️ The largest gap between the documented design and the stated goal
+
+**"Checks its analytics and corrects to align with the most profitable
+algorithms per platform" is a SEVENTH STAGE, and it does not exist** — not in
+the Architecture Outline, not in the backlog, not on paper.
+
+Nothing in this repo reads back post performance after publishing, and nothing
+feeds that back into the next selection decision. *Per platform* matters
+independently: what wins on Shorts is not what wins on X, so one global
+feedback signal would be wrong.
+
+**J1 (the detector eval harness) is the first half of it** — scoring the
+detector against real view counts — but J1 measures against *other people's*
+Twitch clips. The closed loop, where **the bot's own published results change
+its future behaviour**, is unbuilt and undesigned.
+
+**This should probably be Stage 7, and it deserves its own workstream.**
+
+---
+
 ## The method — how this project is built, and why
 
 **This is the owner's governing approach, not a phase we are stuck in.** A
@@ -383,6 +427,7 @@ fallback when a curated note is missing or disputed.
 | D — Platform / hosting research | not started |
 | **✅ I — Stage 1 source** | **RESOLVED + WORKING 2026-08-06.** twitch.tv/lacy; yt-dlp reaches VODs and clips with no auth. Kick recorded, not pulled. |
 | **J — from the 964-clip pull** | **NEW, not started.** J1 detector eval harness (the project has NO way to measure detector quality) · J2 title/taxonomy cross-ref · J3 24hr vs 7d · J4 fix the length default · J5 Kick before V2 · J6 payout maths. See PENDING §J. |
+| **⚠️ L — Stage 7: the analytics feedback loop** | **NEW 2026-08-07. DOES NOT EXIST — not designed, not in the Architecture Outline.** The owner's goal requires the bot to read its own analytics and self-correct per platform. Nothing does. Largest gap between design and goal. Must be DESIGNED before Stage 3 hardens. See PENDING §L. |
 | **⚠️ K — save-system findings** | **NEW 2026-08-06, NONE VERIFIED.** 8 findings from an adversarial workflow whose skeptics all died on a session limit. K1 is a PRIVACY issue affecting the SIBLING repo — do that one first. Leads, not facts (Rule 12). See PENDING §K. |
 | **F — `AI\` folder material** | **PUT OFF 2026-08-04 — waits on the USER, not Claude.** Folder too big; the user triages it and hands over what matters. Do not sweep it unprompted. |
 | **G — mine the 6 new transcripts** | **G1, G2, G3 ✅ DONE 2026-08-04** — all three saved, indexed, pushed. **G4/G5/G6 still to do** (PENDING §G). |
