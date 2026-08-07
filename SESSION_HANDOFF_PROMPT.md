@@ -360,8 +360,8 @@ happened. Strict defaults; deviating requires asking me first.
   written. Removed at my direction: 2, 4, 6 (08-01); 8, 9 (08-03).
 
 ═══ BEFORE STARTING ANYTHING ═══
-  - Confirm the checkpoint: git log, git status, synced with origin. Last
-    known good is 81ff7e1 or later. HEAD one ahead of START_HERE.md's
+  - Confirm the checkpoint: git log, git status, synced with origin.
+    Last known good is 315fd97 or later. HEAD one ahead of START_HERE.md's
     header is NORMAL and documented; two or more means work landed after it
     was written (§0 explains why).
   - CONFIRM MY USAGE HEADROOM BEFORE LAUNCHING AGENTS. I hit 100% on 08-04
