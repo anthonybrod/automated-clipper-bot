@@ -13,7 +13,7 @@ research reports that had already been nearly lost once. Finished work that
 nothing points at is functionally lost. Add a row there whenever you add a
 file.
 
-## Current status (updated 2026-08-06)
+## Current status (updated 2026-08-07)
 
 > ## 📍 SOURCES AND DESTINATIONS — confirmed by the user 2026-08-06
 >
