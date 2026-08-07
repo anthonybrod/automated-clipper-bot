@@ -426,7 +426,7 @@ merit, is why they went).
 
 === BEFORE STARTING ANYTHING ===
   - Confirm the checkpoint: git log, git status, synced with origin.
-    Last known good is ba80a80 or later. HEAD one ahead of START_HERE.md's
+    Last known good is 19cea22 or later. HEAD one ahead of START_HERE.md's
     header is NORMAL and documented; two or more means work landed after it
     was updated (§0 explains why).
   - TWO UNVERIFIED LEADS in START_HERE.md §3 — check these BEFORE related
