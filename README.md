@@ -72,7 +72,7 @@ in [PROJECT.md](PROJECT.md#architecture-outline-2026-07-29-cost-philosophy-added
 - [`PROJECT.md`](PROJECT.md) — single source of truth: status, architecture,
   backlog. Read this in full before making any claim about the project.
 - [`CLAUDE.md`](CLAUDE.md) — working rules for anyone (human or AI)
-  contributing to this repo, including 20 adopted operating rules.
+  contributing to this repo, including 21 numbered operating rules (16 active).
 - [`SALVAGE_INVENTORY.md`](SALVAGE_INVENTORY.md) — verified-working
   functions/patterns ported from a sibling project's production pipeline,
   each confirmed to actually exist at the stated location before being

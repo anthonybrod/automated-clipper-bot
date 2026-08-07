@@ -90,8 +90,12 @@ preferences and reasoning belong in `PROJECT.md`'s Architecture Outline
 (where they can be revised freely); this file is for how we *work*, not
 which library wins.
 
+- **⚠️ NUMBERING GAP — there is no Rule 17.** The numbered list runs
+  1–16 then 18–22. **Rule 17 was never written**; it is not lost, it never
+  existed. It was listed as "active" below for days, which is why the
+  count checks disagreed. Found 2026-08-07 by a cold-read audit.
 - **Genuinely adopted, active rules**: 3, 5, 7, 10, 11, 12, 13, 14, 15,
-  16, 17, 18, 19, 20, 21. (13–19 added at the end of the 2026-08-01 session:
+  16, 18, 19, 20, 21. (13–19 added at the end of the 2026-08-01 session:
   cost discipline, the accuracy cluster — external-AI material is
   reference-only, preserve source verbatim, keep raw record separate from
   evaluation — plus save-to-GitHub-and-Drive-per-agent, and verify agent
@@ -317,6 +321,12 @@ with the user first, not silently decided.
     practice: `reference/handoff_*_chat_pasted_originals.md` holds
     untouched source including claims later proven false;
     `reference/handoff_*_evaluation.md` is where those are corrected.)
+> ⚠️ **HALF OF RULE 18 IS NOT EXECUTABLE BY CLAUDE.** Claude has no
+> Claude has no Drive access — no Desktop app, no API, browser sign-in walls.
+> The GitHub half is binding and IS followed. The Drive half resolves to:
+> Claude pushes to GitHub, **the user pulls in Colab**. Say so plainly rather
+> than implying both landed. Flagged 2026-08-07 by a cold-read audit.
+
 18. **Save to GitHub AND Google Drive after each agent completes — never
     batch, never wait for a whole wave.** The user's exact words
     (2026-08-01): *"When we save after an agent... we SAVE in github and

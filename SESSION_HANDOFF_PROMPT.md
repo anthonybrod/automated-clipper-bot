@@ -63,7 +63,8 @@ TASK #2, the highest-priority open item — a PRIVACY issue in ANOTHER repo:
 
 An automated Twitch clipping bot on a $0 open-source stack. It watches a
 stream, detects clip-worthy moments statistically rather than by watching
-everything, transcribes and captions locally with faster-whisper and ffmpeg,
+everything, transcribes and captions locally (engine still open — see
+Stage 2) and cuts with ffmpeg,
 cuts to format, and posts to my channels — with a human approval gate, not
 unsupervised.
 
@@ -76,7 +77,14 @@ margin directly. Payouts run roughly $0.50-$3.00 per 1,000 views.
 THE 6 STAGES (full reasoning in PROJECT.md's Architecture Outline):
   1 Ingestion      yt-dlp; chat via Twitch GQL (keyless) or chat-downloader
                    ✅ PROVEN WORKING. Chat path has a known crash (below).
-  2 Transcription  faster-whisper, local, word-level timestamps
+  2 Transcription  local, word-level timestamps. ⚠⚠ THE ENGINE IS NOT
+                   DECIDED. faster-whisper is the leading CANDIDATE, not a
+                   decision — Rule 6 REMOVED it as default at my direction:
+                   "we dont know the best free service after research".
+                   distil-large-v3 (6.3x faster, ~0.2% WER cost) and
+                   faster-whisper-large-v3-turbo-ct2 are real alternatives
+                   already researched. PICKING ONE IS RESEARCH WORK, not a
+                   coding decision.
   3 Detection      THREE-STAGE FUNNEL: free statistical pre-filter → cheap
                    LLM score → expensive LLM detail on top-N only. The funnel
                    IS the cost control — it keeps most of a VOD away from any
@@ -150,8 +158,17 @@ B) 25 REAL REPOSTS ON X (reference/research_2026-08-06_core_clippers_named_
    ZERO hashtags across all 25 captions; captions state the payoff rather
    than teasing it.
    SCALE: @coresculture 6,540 followers, median 7,017 views on sampled posts.
-   ⚠️ Sample came from search, which favours winners — medians are
-   overestimates. The agent flagged this itself.
+   ⚠⚠ TWO SAMPLING PROBLEMS, BOTH MATTER FOR J4:
+   (a) The sample came from search, which favours winners — medians are
+       overestimates. The agent flagged this itself.
+   (b) THE CLIPS ARE MOSTLY NOT LACY. Verified 2026-08-07: the report
+       names Jynxzi (12), Kai Cenat (9), IShowSpeed (5), Adin Ross (3),
+       Peterbot (3), ClarenceNYC (1) alongside Lacy (28). So ~55-60s is
+       the length convention for GENERAL streamer-drama reposts, not a
+       measured Lacy number. Also: 3 of 11 @coresculture posts are photo
+       posts, and its 7,017 median rests on FIVE posts with one 344K
+       outlier. J4 must not bake this in as a Lacy target without
+       corroboration from Lacy-only reposts.
 
 C) 50 HUMAN-CURATED MOMENTS (reference/mining_2026-08-04_cVkFMpDLQrM_
    VERBATIM.md). Weight: the source is a curated best-of, so a human editor
@@ -347,6 +364,16 @@ wrongly.
   only honest statuses are "in progress", "awaiting user approval", or
   "blocked". Never self-stamp.
 
+=== HOW TO REGENERATE THIS PROMPT ===
+  BUILD IT FROM THE PREVIOUS PROMPTS. IT MUST GROW, NOT SHRINK.
+  My words, 2026-08-06: "dont make me ask u 3 times to reference the
+  original prompts and include more detail just do it." I had to ask
+  three times. On 08-07 a diff against my three older prompts found
+  SEVEN details that had silently fallen out — including the names of
+  workstream A's six sub-items, without which A cannot be started.
+  Every regeneration: diff against the previous version and justify
+  every removal. Cut history before instructions, never the reverse.
+
 === WHERE THIS HANDOFF MECHANISM CAME FROM ===
   Sonovore/claude-code-handoff on GitHub — a real, shipped implementation of
   exactly this problem. We took its MECHANISMS, not its code. Its design
@@ -357,6 +384,18 @@ wrongly.
   Three days were lost re-deriving a save system from scratch before that
   repo was actually read. The fix took minutes once it was. That is Rule 1 -
   port, don't re-derive - and it is the most expensive lesson in this project.
+
+=== A FREE TOOL I HAVE THAT IS NOT IN THE CATALOGUE ===
+  I can pull WORD-FOR-WORD EXACT TRANSCRIPTS FROM GEMINI just by pasting
+  a YouTube link (my words, 2026-08-04). Zero cost, zero tokens, no API.
+  Rule 20 says never dismiss a working free tool — this one was offered
+  and never even written down.
+  ROLE: fail-safe and cross-check for transcript acquisition.
+  youtube_transcript_api is primary (it fetched 23/23), but it fails on
+  captions-disabled or age-gated videos, and there this is the only
+  route. CAUTION: this project has been burned by Gemini output labelled
+  verbatim that was actually condensed — cross-check one video against
+  the API before trusting a batch.
 
 === THE RULES — apply them, don't just read them ===
 CLAUDE.md holds 21 numbered rules, 16 active. Each exists because a specific
@@ -415,7 +454,7 @@ merit, is why they went).
     report it as done.
 
 === CONTEXT I'LL FORGET ===
-  - Budget is a live constraint: metered, hard weekly reset Monday 1pm, hit
+  - Budget is a live constraint: metered. ⚠️ THE RESET MECHANIC IS UNCONFIRMED — docs long said "hard weekly reset Monday 1pm" but the user NEVER SAID that. What they actually report is a ~5-HOUR ROLLING SESSION WINDOW plus a MONTHLY credit reset ("Resets Sep 1"). Pace against the 5-hour window. Ask them to confirm, hit
     repeatedly, and I am on paid usage now. DOCUMENTATION WORK IS NOT CHEAP — one session went from fresh to 100% on a
     SINGLE agent plus note-keeping. Writing notes is not a free background
     activity here.
@@ -516,7 +555,7 @@ Without this section, findings die with the session that made them.
 ### Section 6 — "CONTEXT I'll forget:"
 **MOSTLY CONSTANT.** The operational reality that never survives a context
 reset:
-- Budget is live — metered, hard weekly reset Monday 1pm, hit repeatedly
+- Budget is live — metered. ⚠️ THE RESET MECHANIC IS UNCONFIRMED — docs long said "hard weekly reset Monday 1pm" but the user NEVER SAID that. What they actually report is a ~5-HOUR ROLLING SESSION WINDOW plus a MONTHLY credit reset ("Resets Sep 1"). Pace against the 5-hour window. Ask them to confirm, hit repeatedly
 - Documentation work is not cheap (cite a real burn-rate data point)
 - Drive mechanism: Claude pushes to GitHub, user pulls in Colab, fresh
   runtime needs `drive.mount()` first

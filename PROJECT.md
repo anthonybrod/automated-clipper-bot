@@ -152,6 +152,12 @@ unprompted.
 
 ---
 
+> **⚠️ RULE COUNT, authoritative as of 2026-08-07:** `CLAUDE.md` has
+> **21 numbered rules, 16 active**. Removed at the user's direction: 2, 4, 6
+> (2026-08-01) and **8, 9 (2026-08-03)**. **There is no Rule 17** — it was
+> never written. Older text in this file describing 8 and 9 as "provisional
+> and still unauthorized" is SUPERSEDED; they were dropped.
+
 ## The method — how this project is built, and why
 
 **This is the owner's governing approach, not a phase we are stuck in.** A

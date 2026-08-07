@@ -7,7 +7,9 @@ here is finished; nothing here is lost.
 
 ---
 
-## ⭐ FIRST THING NEXT SESSION — build `START_HERE.md`
+## ✅ DONE 2026-08-03 — ~~FIRST THING NEXT SESSION — build `START_HERE.md`~~
+
+**⚠️ THIS SECTION IS ALREADY DONE.** `START_HERE.md` was built 2026-08-03 and is the live entry point. Kept for the record; do NOT rebuild it. The live agenda is the workstream sections below.
 
 **User's explicit direction (2026-08-02):** *"then i said this to make it
 automated but we ran out of tokens we will make note and add it to the 1st
