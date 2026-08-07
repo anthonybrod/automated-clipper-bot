@@ -2,7 +2,7 @@
 
 **The single entry point for this project. Read this first, every session.**
 
-Last updated: **2026-08-07** · Written at commit `21d705e` (this file's own
+Last updated: **2026-08-07** · Written at commit `f074a33` (this file's own
 commit lands *after*, so HEAD will read one ahead — see §0) · Working tree
 clean. **local = GitHub = Drive** — the user pulled `95be096` into
 "CLAUDE AI CLIP BOT V1 attempt" on 2026-08-04, confirmed by real output.

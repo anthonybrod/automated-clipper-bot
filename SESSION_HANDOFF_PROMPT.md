@@ -274,7 +274,7 @@ merit, is why they went).
 
 === BEFORE STARTING ANYTHING ===
   - Confirm the checkpoint: git log, git status, synced with origin.
-    Last known good is 21d705e or later. HEAD one ahead of START_HERE.md's
+    Last known good is f074a33 or later. HEAD one ahead of START_HERE.md's
     header is NORMAL and documented; two or more means work landed after it
     was updated (§0 explains why).
   - CONFIRM MY USAGE HEADROOM BEFORE LAUNCHING AGENTS. I hit 100% on 08-04
